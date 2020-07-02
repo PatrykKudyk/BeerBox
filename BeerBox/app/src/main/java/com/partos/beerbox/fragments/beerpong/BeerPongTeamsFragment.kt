@@ -7,9 +7,15 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
+import android.widget.Button
+import android.widget.EditText
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.partos.beerbox.R
+import com.partos.beerbox.models.Team
+import com.partos.beerbox.recycler.BeerPongTeamsRecyclerViewAdapter
 import com.partos.beerbox.recycler.MainMenuRecyclerViewAdapter
 import com.partos.beerbox.recycler.MarginItemDecoration
 
@@ -35,6 +41,8 @@ class BeerPongTeamsFragment : Fragment() {
 
     private lateinit var rootView: View
     private lateinit var recyclerView: RecyclerView
+    private lateinit var nameEditText: EditText
+    private lateinit var addButton: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -87,11 +95,38 @@ class BeerPongTeamsFragment : Fragment() {
     }
 
     private fun initFragment() {
+        addButton = rootView.findViewById(R.id.beer_pong_teams_button_add)
+        nameEditText = rootView.findViewById(R.id.beer_pong_teams_edit_add)
+
+        var teamsList = ArrayList<Team>()
+        var id = 0
         recyclerView = rootView.findViewById(R.id.beer_pong_teams_recycler_teams)
 
         val mLayoutManager: LinearLayoutManager = LinearLayoutManager(this.context)
         recyclerView.layoutManager = mLayoutManager
         recyclerView.addItemDecoration(MarginItemDecoration(12))
 
+        recyclerView.adapter = BeerPongTeamsRecyclerViewAdapter(teamsList)
+
+        addButton.setOnClickListener {
+            if (nameEditText.text.toString() == "") {
+                Toast.makeText(rootView.context, R.string.toast_name_not_null, Toast.LENGTH_SHORT)
+                    .show()
+            } else {
+                teamsList.add(Team(id, nameEditText.text.toString()))
+                id++
+                nameEditText.setText("")
+                recyclerView.adapter?.notifyDataSetChanged()
+            }
+        }
     }
+
+//    private fun hideKeyboard() {
+//        val view = activity?.currentFocus
+//        if (view != null) {
+//            val inputManager =
+//                rootView.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+//            inputManager.hideSoftInputFromWindow(view.windowToken, 0)
+//        }
+//    }
 }

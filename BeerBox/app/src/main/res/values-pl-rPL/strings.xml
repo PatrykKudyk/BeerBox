@@ -21,4 +21,5 @@
     </string>
     <string name="add_team">Dodaj drużynę</string>
     <string name="team_name">Nazwa drużyny</string>
+    <string name="toast_name_not_null">Nazwa nie może być pusta</string>
 </resources>
