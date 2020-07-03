@@ -10,9 +10,12 @@ import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.partos.beerbox.MyApp
 import com.partos.beerbox.R
 import com.partos.beerbox.models.Team
 import com.partos.beerbox.recycler.BeerPongTeamsRecyclerViewAdapter
@@ -43,6 +46,7 @@ class BeerPongTeamsFragment : Fragment() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var nameEditText: EditText
     private lateinit var addButton: Button
+    private lateinit var teamsTextView: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -97,7 +101,9 @@ class BeerPongTeamsFragment : Fragment() {
     private fun initFragment() {
         addButton = rootView.findViewById(R.id.beer_pong_teams_button_add)
         nameEditText = rootView.findViewById(R.id.beer_pong_teams_edit_add)
+        teamsTextView = rootView.findViewById(R.id.beer_pong_teams_text_teams)
 
+        teamsTextView.text = getString(R.string.teams) + " 0/16"
         var teamsList = ArrayList<Team>()
         var id = 0
         recyclerView = rootView.findViewById(R.id.beer_pong_teams_recycler_teams)
@@ -109,24 +115,34 @@ class BeerPongTeamsFragment : Fragment() {
         recyclerView.adapter = BeerPongTeamsRecyclerViewAdapter(teamsList)
 
         addButton.setOnClickListener {
-            if (nameEditText.text.toString() == "") {
-                Toast.makeText(rootView.context, R.string.toast_name_not_null, Toast.LENGTH_SHORT)
+            if (teamsList.size < 16){
+                if (nameEditText.text.toString() == "") {
+                    Toast.makeText(rootView.context, R.string.toast_name_not_null, Toast.LENGTH_SHORT)
+                        .show()
+                } else {
+                    MyApp.teamsNumber++
+                    teamsTextView.text =
+                        getString(R.string.teams) + " " + MyApp.teamsNumber.toString() + "/16"
+                    teamsList.add(Team(id, nameEditText.text.toString()))
+                    id++
+                    nameEditText.setText("")
+                    recyclerView.adapter?.notifyDataSetChanged()
+                    hideKeyboard()
+                }
+            }  else {
+                Toast.makeText(rootView.context, R.string.toast_max_teams_reached, Toast.LENGTH_SHORT)
                     .show()
-            } else {
-                teamsList.add(Team(id, nameEditText.text.toString()))
-                id++
-                nameEditText.setText("")
-                recyclerView.adapter?.notifyDataSetChanged()
             }
         }
+
     }
 
-//    private fun hideKeyboard() {
-//        val view = activity?.currentFocus
-//        if (view != null) {
-//            val inputManager =
-//                rootView.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-//            inputManager.hideSoftInputFromWindow(view.windowToken, 0)
-//        }
-//    }
+    private fun hideKeyboard() {
+        val view = activity?.currentFocus
+        if (view != null) {
+            val inputManager =
+                rootView.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            inputManager.hideSoftInputFromWindow(view.windowToken, 0)
+        }
+    }
 }

@@ -22,4 +22,6 @@
     <string name="add_team">Dodaj drużynę</string>
     <string name="team_name">Nazwa drużyny</string>
     <string name="toast_name_not_null">Nazwa nie może być pusta</string>
+    <string name="teams">Drużyny</string>
+    <string name="toast_max_teams_reached">Nie można dodać więcej drużyn</string>
 </resources>

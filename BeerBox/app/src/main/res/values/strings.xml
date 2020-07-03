@@ -21,4 +21,6 @@
     <string name="add_team">Add team</string>
     <string name="team_name">Team name</string>
     <string name="toast_name_not_null">Team name cannot be empty</string>
+    <string name="teams">Teams</string>
+    <string name="toast_max_teams_reached">Cannot add more teams</string>
 </resources>
