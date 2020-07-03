@@ -99,7 +99,7 @@ class BeerPongTeamsFragment : Fragment() {
     private fun initFragment() {
         attachViews()
 
-        teamsTextView.text = getString(R.string.teams) + " 0/16"
+        teamsTextView.text = getString(R.string.teams) + " 0/8"
         var teamsList = ArrayList<String>()
         var id = 0
 
@@ -110,7 +110,7 @@ class BeerPongTeamsFragment : Fragment() {
         recyclerView.adapter = BeerPongTeamsRecyclerViewAdapter(teamsList)
 
         addButton.setOnClickListener {
-            if (teamsList.size < 16) {
+            if (teamsList.size < 8) {
                 if (nameEditText.text.toString() == "") {
                     Toast.makeText(
                         rootView.context,
@@ -121,7 +121,7 @@ class BeerPongTeamsFragment : Fragment() {
                 } else {
                     MyApp.teamsNumber++
                     teamsTextView.text =
-                        getString(R.string.teams) + " " + MyApp.teamsNumber.toString() + "/16"
+                        getString(R.string.teams) + " " + MyApp.teamsNumber.toString() + "/8"
                     teamsList.add(nameEditText.text.toString())
                     id++
                     nameEditText.setText("")
