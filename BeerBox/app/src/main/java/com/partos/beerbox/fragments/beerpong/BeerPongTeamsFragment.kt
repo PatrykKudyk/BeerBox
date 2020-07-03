@@ -97,15 +97,11 @@ class BeerPongTeamsFragment : Fragment() {
     }
 
     private fun initFragment() {
-        addButton = rootView.findViewById(R.id.beer_pong_teams_button_add)
-        nameEditText = rootView.findViewById(R.id.beer_pong_teams_edit_add)
-        teamsTextView = rootView.findViewById(R.id.beer_pong_teams_text_teams)
-        playButton = rootView.findViewById(R.id.beer_pong_teams_button_start)
+        attachViews()
 
         teamsTextView.text = getString(R.string.teams) + " 0/16"
         var teamsList = ArrayList<String>()
         var id = 0
-        recyclerView = rootView.findViewById(R.id.beer_pong_teams_recycler_teams)
 
         val mLayoutManager: LinearLayoutManager = LinearLayoutManager(this.context)
         recyclerView.layoutManager = mLayoutManager
@@ -163,6 +159,15 @@ class BeerPongTeamsFragment : Fragment() {
                     .show()
             }
         }
+
+    }
+
+    private fun attachViews() {
+        addButton = rootView.findViewById(R.id.beer_pong_teams_button_add)
+        nameEditText = rootView.findViewById(R.id.beer_pong_teams_edit_add)
+        teamsTextView = rootView.findViewById(R.id.beer_pong_teams_text_teams)
+        playButton = rootView.findViewById(R.id.beer_pong_teams_button_start)
+        recyclerView = rootView.findViewById(R.id.beer_pong_teams_recycler_teams)
 
     }
 
