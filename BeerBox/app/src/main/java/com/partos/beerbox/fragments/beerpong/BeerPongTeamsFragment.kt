@@ -12,14 +12,11 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.partos.beerbox.MyApp
 import com.partos.beerbox.R
-import com.partos.beerbox.models.Team
 import com.partos.beerbox.recycler.BeerPongTeamsRecyclerViewAdapter
-import com.partos.beerbox.recycler.MainMenuRecyclerViewAdapter
 import com.partos.beerbox.recycler.MarginItemDecoration
 
 
@@ -46,6 +43,7 @@ class BeerPongTeamsFragment : Fragment() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var nameEditText: EditText
     private lateinit var addButton: Button
+    private lateinit var playButton: Button
     private lateinit var teamsTextView: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -102,9 +100,10 @@ class BeerPongTeamsFragment : Fragment() {
         addButton = rootView.findViewById(R.id.beer_pong_teams_button_add)
         nameEditText = rootView.findViewById(R.id.beer_pong_teams_edit_add)
         teamsTextView = rootView.findViewById(R.id.beer_pong_teams_text_teams)
+        playButton = rootView.findViewById(R.id.beer_pong_teams_button_start)
 
         teamsTextView.text = getString(R.string.teams) + " 0/16"
-        var teamsList = ArrayList<Team>()
+        var teamsList = ArrayList<String>()
         var id = 0
         recyclerView = rootView.findViewById(R.id.beer_pong_teams_recycler_teams)
 
@@ -115,22 +114,52 @@ class BeerPongTeamsFragment : Fragment() {
         recyclerView.adapter = BeerPongTeamsRecyclerViewAdapter(teamsList)
 
         addButton.setOnClickListener {
-            if (teamsList.size < 16){
+            if (teamsList.size < 16) {
                 if (nameEditText.text.toString() == "") {
-                    Toast.makeText(rootView.context, R.string.toast_name_not_null, Toast.LENGTH_SHORT)
+                    Toast.makeText(
+                        rootView.context,
+                        R.string.toast_name_not_null,
+                        Toast.LENGTH_SHORT
+                    )
                         .show()
                 } else {
                     MyApp.teamsNumber++
                     teamsTextView.text =
                         getString(R.string.teams) + " " + MyApp.teamsNumber.toString() + "/16"
-                    teamsList.add(Team(id, nameEditText.text.toString()))
+                    teamsList.add(nameEditText.text.toString())
                     id++
                     nameEditText.setText("")
                     recyclerView.adapter?.notifyDataSetChanged()
                     hideKeyboard()
                 }
-            }  else {
-                Toast.makeText(rootView.context, R.string.toast_max_teams_reached, Toast.LENGTH_SHORT)
+            } else {
+                Toast.makeText(
+                    rootView.context,
+                    R.string.toast_max_teams_reached,
+                    Toast.LENGTH_SHORT
+                )
+                    .show()
+            }
+        }
+
+        playButton.setOnClickListener {
+            if (teamsList.size >= 2) {
+                val fragment = BeerPongLadderChoiceFragment.newInstance(teamsList)
+                fragmentManager
+                    ?.beginTransaction()
+                    ?.setCustomAnimations(
+                        R.anim.enter_right_to_left, R.anim.exit_left_to_right,
+                        R.anim.enter_left_to_right, R.anim.exit_right_to_left
+                    )
+                    ?.replace(R.id.beer_pong_frame_layout, fragment)
+                    ?.addToBackStack(BeerPongLadderChoiceFragment.toString())
+                    ?.commit()
+            } else {
+                Toast.makeText(
+                    rootView.context,
+                    R.string.toast_no_teams_given,
+                    Toast.LENGTH_SHORT
+                )
                     .show()
             }
         }

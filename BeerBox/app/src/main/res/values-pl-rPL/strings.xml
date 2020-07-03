@@ -25,4 +25,8 @@
     <string name="toast_name_not_null">Nazwa nie może być pusta</string>
     <string name="teams">Drużyny</string>
     <string name="toast_max_teams_reached">Nie można dodać więcej drużyn</string>
+    <string name="ladder_question">Którą kolejkę wybierasz?</string>
+    <string name="ladder_group">Grupową</string>
+    <string name="ladder_championship">Pucharową</string>
+    <string name="toast_no_teams_given">Musisz podać co najmniej 2 drużyny</string>
 </resources>

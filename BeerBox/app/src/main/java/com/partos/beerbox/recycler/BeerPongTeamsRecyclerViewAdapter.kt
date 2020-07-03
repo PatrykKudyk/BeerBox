@@ -10,12 +10,11 @@ import com.partos.beerbox.MyApp
 import com.partos.beerbox.R
 import com.partos.beerbox.activities.BeerPongActivity
 import com.partos.beerbox.activities.MainActivity
-import com.partos.beerbox.models.Team
 import kotlinx.android.synthetic.main.fragment_beer_pong_teams.*
 import kotlinx.android.synthetic.main.fragment_beer_pong_teams.view.*
 import kotlinx.android.synthetic.main.row_team.view.*
 
-class BeerPongTeamsRecyclerViewAdapter(var teamList: ArrayList<Team>) :
+class BeerPongTeamsRecyclerViewAdapter(var teamList: ArrayList<String>) :
     RecyclerView.Adapter<BeerPongTeamsViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BeerPongTeamsViewHolder {
@@ -43,7 +42,7 @@ class BeerPongTeamsRecyclerViewAdapter(var teamList: ArrayList<Team>) :
                 R.color.colorRedDark
             )
         )
-        holder.view.row_team_name.setText(teamList[position].name)
+        holder.view.row_team_name.setText(teamList[position])
         holder.view.row_team_delete.setOnClickListener {
             MyApp.teamsNumber--
             teamsText.text =
