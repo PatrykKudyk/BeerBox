@@ -7,12 +7,16 @@ import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputConnection
 import com.partos.beerbox.R
 import com.partos.beerbox.fragments.MainMenuFragment
+import com.partos.beerbox.fragments.beerpong.BeerPongChampionshipFragment
+import com.partos.beerbox.fragments.beerpong.BeerPongGroupFragment
 import com.partos.beerbox.fragments.beerpong.BeerPongLadderChoiceFragment
 import com.partos.beerbox.fragments.beerpong.BeerPongTeamsFragment
 
 class BeerPongActivity : AppCompatActivity(),
     BeerPongTeamsFragment.OnFragmentInteractionListener,
-    BeerPongLadderChoiceFragment.OnFragmentInteractionListener {
+    BeerPongLadderChoiceFragment.OnFragmentInteractionListener,
+    BeerPongChampionshipFragment.OnFragmentInteractionListener,
+    BeerPongGroupFragment.OnFragmentInteractionListener {
 
     private lateinit var teamsFragment: BeerPongTeamsFragment
 
