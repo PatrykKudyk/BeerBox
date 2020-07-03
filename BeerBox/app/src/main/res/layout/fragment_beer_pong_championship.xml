@@ -641,7 +641,7 @@
                 app:strokeWidth="4dp">
 
                 <TextView
-                    android:id="@+id/beer_pong_championship_4_2_2_text"
+                    android:id="@+id/beer_pong_championship_4_win_text"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:fontFamily="@font/dustismo_bold"
