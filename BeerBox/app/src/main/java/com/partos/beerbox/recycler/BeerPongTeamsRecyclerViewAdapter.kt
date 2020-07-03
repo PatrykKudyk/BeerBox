@@ -3,6 +3,7 @@ package com.partos.beerbox.recycler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.partos.beerbox.R
 import com.partos.beerbox.models.Team
@@ -22,6 +23,18 @@ class BeerPongTeamsRecyclerViewAdapter(var teamList: ArrayList<Team>) :
     }
 
     override fun onBindViewHolder(holder: BeerPongTeamsViewHolder, position: Int) {
+        holder.view.row_team_card_view.setCardBackgroundColor(
+            ContextCompat.getColor(
+                holder.view.context,
+                R.color.colorRedLight
+            )
+        )
+        holder.view.row_team_card_view.setStrokeColor(
+            ContextCompat.getColor(
+                holder.view.context,
+                R.color.colorRedDark
+            )
+        )
         holder.view.row_team_name.setText(teamList[position].name)
         holder.view.row_team_delete.setOnClickListener {
             teamList.removeAt(position)

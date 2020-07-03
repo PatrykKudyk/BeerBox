@@ -3,6 +3,8 @@ package com.partos.beerbox.activities
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.inputmethod.EditorInfo
+import android.view.inputmethod.InputConnection
 import com.partos.beerbox.R
 import com.partos.beerbox.fragments.MainMenuFragment
 import com.partos.beerbox.fragments.beerpong.BeerPongTeamsFragment
@@ -27,4 +29,5 @@ class BeerPongActivity : AppCompatActivity(),
     override fun onFragmentInteraction(uri: Uri) {
 
     }
+
 }
