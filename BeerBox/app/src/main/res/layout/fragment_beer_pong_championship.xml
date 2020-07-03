@@ -185,7 +185,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="5"/>
+                android:layout_weight="5" />
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/beer_pong_championship_4_1_1_card"
@@ -194,6 +194,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_weight="15"
+                android:clickable="false"
                 android:theme="@style/Theme.MaterialComponents.Light"
                 app:cardBackgroundColor="@color/colorRedLightLight"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -217,7 +218,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="5"/>
+                android:layout_weight="5" />
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/beer_pong_championship_4_1_2_card"
@@ -226,6 +227,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_weight="15"
+                android:clickable="false"
                 android:theme="@style/Theme.MaterialComponents.Light"
                 app:cardBackgroundColor="@color/colorRedLightLight"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -249,7 +251,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="20"/>
+                android:layout_weight="20" />
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/beer_pong_championship_4_1_3_card"
@@ -258,6 +260,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_weight="15"
+                android:clickable="false"
                 android:theme="@style/Theme.MaterialComponents.Light"
                 app:cardBackgroundColor="@color/colorRedLightLight"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -281,7 +284,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="5"/>
+                android:layout_weight="5" />
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/beer_pong_championship_4_1_4_card"
@@ -290,6 +293,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_weight="15"
+                android:clickable="false"
                 android:theme="@style/Theme.MaterialComponents.Light"
                 app:cardBackgroundColor="@color/colorRedLightLight"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -325,42 +329,42 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="12"/>
+                android:layout_weight="12" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="4dp"
-                android:background="@color/colorRedDark"/>
+                android:background="@color/colorRedDark" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="20"/>
+                android:layout_weight="20" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="4dp"
-                android:background="@color/colorRedDark"/>
+                android:background="@color/colorRedDark" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="36"/>
+                android:layout_weight="36" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="4dp"
-                android:background="@color/colorRedDark"/>
+                android:background="@color/colorRedDark" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="20"/>
+                android:layout_weight="20" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="4dp"
-                android:background="@color/colorRedDark"/>
+                android:background="@color/colorRedDark" />
 
         </LinearLayout>
 
@@ -378,7 +382,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="11.5"/>
+                android:layout_weight="11.5" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -389,23 +393,23 @@
                 <View
                     android:layout_width="4dp"
                     android:layout_height="match_parent"
-                    android:background="@color/colorRedDark"/>
+                    android:background="@color/colorRedDark" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:weightSum="100"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:weightSum="100">
 
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:layout_weight="49"/>
+                        android:layout_weight="49" />
 
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="4dp"
-                        android:background="@color/colorRedDark"/>
+                        android:background="@color/colorRedDark" />
 
                 </LinearLayout>
 
@@ -414,7 +418,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="34.6"/>
+                android:layout_weight="34.6" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -425,23 +429,23 @@
                 <View
                     android:layout_width="4dp"
                     android:layout_height="match_parent"
-                    android:background="@color/colorRedDark"/>
+                    android:background="@color/colorRedDark" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:weightSum="100"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:weightSum="100">
 
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:layout_weight="49"/>
+                        android:layout_weight="49" />
 
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="4dp"
-                        android:background="@color/colorRedDark"/>
+                        android:background="@color/colorRedDark" />
 
                 </LinearLayout>
 
@@ -464,7 +468,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="14.5"/>
+                android:layout_weight="14.5" />
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/beer_pong_championship_4_2_1_card"
@@ -473,6 +477,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_weight="15"
+                android:clickable="false"
                 android:theme="@style/Theme.MaterialComponents.Light"
                 app:cardBackgroundColor="@color/colorRedLightLight"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -495,7 +500,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="40.5"/>
+                android:layout_weight="40.5" />
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/beer_pong_championship_4_2_2_card"
@@ -504,6 +509,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_weight="15"
+                android:clickable="false"
                 android:theme="@style/Theme.MaterialComponents.Light"
                 app:cardBackgroundColor="@color/colorRedLightLight"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -540,22 +546,22 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="22.5"/>
+                android:layout_weight="22.5" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="4dp"
-                android:background="@color/colorRedDark"/>
+                android:background="@color/colorRedDark" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="56.5"/>
+                android:layout_weight="56.5" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="4dp"
-                android:background="@color/colorRedDark"/>
+                android:background="@color/colorRedDark" />
 
 
         </LinearLayout>
@@ -574,7 +580,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="22.1"/>
+                android:layout_weight="22.1" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -585,23 +591,23 @@
                 <View
                     android:layout_width="4dp"
                     android:layout_height="match_parent"
-                    android:background="@color/colorRedDark"/>
+                    android:background="@color/colorRedDark" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:weightSum="100"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:weightSum="100">
 
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:layout_weight="49"/>
+                        android:layout_weight="49" />
 
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="4dp"
-                        android:background="@color/colorRedDark"/>
+                        android:background="@color/colorRedDark" />
 
                 </LinearLayout>
 
@@ -623,7 +629,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="42.5"/>
+                android:layout_weight="42.5" />
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/beer_pong_championship_4_win_card"
@@ -632,6 +638,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_weight="15"
+                android:clickable="false"
                 android:theme="@style/Theme.MaterialComponents.Light"
                 app:cardBackgroundColor="@color/colorRedLightLight"
                 app:layout_constraintEnd_toEndOf="parent"
