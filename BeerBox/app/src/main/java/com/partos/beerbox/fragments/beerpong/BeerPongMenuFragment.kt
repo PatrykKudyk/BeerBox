@@ -123,14 +123,8 @@ class BeerPongMenuFragment : Fragment() {
     }
 
     private fun makeAnimations(){
-        val animImage = AnimationUtils.loadAnimation(rootView.context, R.anim.enter_bottom_to_top)
         val animLeft = AnimationUtils.loadAnimation(rootView.context, R.anim.enter_left_to_right)
         val animRight = AnimationUtils.loadAnimation(rootView.context, R.anim.enter_right_to_left)
-
-        Handler().postDelayed({
-            image.visibility = View.VISIBLE
-            image.startAnimation(animImage)
-        }, 500)
 
         Handler().postDelayed({
             playButton.visibility = View.VISIBLE

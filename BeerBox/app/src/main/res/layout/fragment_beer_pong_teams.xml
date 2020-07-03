@@ -89,6 +89,18 @@
                     android:textColor="@color/colorRedBackground"
                     android:textSize="20dip" />
 
+                <Button
+                    android:id="@+id/beer_pong_teams_button_start"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="46dp"
+                    android:layout_marginEnd="46dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/button_background_red_medium"
+                    android:fontFamily="@font/dustismo_bold"
+                    android:text="@string/play"
+                    android:textColor="@color/colorRedBackground"
+                    android:textSize="20dip" />
 
             </LinearLayout>
 
