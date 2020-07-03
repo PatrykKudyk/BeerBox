@@ -52,7 +52,7 @@ class MainMenuRecyclerViewAdapter() : RecyclerView.Adapter<MainMenuViewHolder>()
                 }
 
                 1 -> {
-
+                    fragment = BeerPongMenuFragment.newInstance()
                 }
 
             }
