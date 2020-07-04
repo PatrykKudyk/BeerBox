@@ -131,7 +131,7 @@ class BeerPongMenuFragment : Fragment() {
             rulesButton.visibility = View.VISIBLE
             playButton.startAnimation(animLeft)
             rulesButton.startAnimation(animRight)
-        }, 800)
+        }, 400)
 
     }
 }
