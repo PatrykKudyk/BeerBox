@@ -805,7 +805,167 @@ class BeerPongChampionshipFragment : Fragment() {
     }
 
     private fun handleGame82Listeners() {
+        if (text821.text.toString() != "") {
+            card821.setOnClickListener {
+                card821.setCardBackgroundColor(
+                    ContextCompat.getColor(
+                        rootView.context,
+                        R.color.colorRedLight
+                    )
+                )
+                card822.setCardBackgroundColor(
+                    ContextCompat.getColor(
+                        rootView.context,
+                        R.color.colorRedLightLight
+                    )
+                )
+                card831.isClickable = true
+                text831.setText(text821.text.toString())
+                if (card832.isClickable) {
+                    handleGame83Listeners()
+                }
+                if (card8win.isClickable && card831.cardBackgroundColor == rootView.context.getColorStateList(
+                        R.color.colorRedLight
+                    )
+                ) {
+                    text8win.setText(text821.text.toString())
+                }
+            }
+        }
 
+        if (text822.text.toString() != "") {
+            card822.setOnClickListener {
+                card822.setCardBackgroundColor(
+                    ContextCompat.getColor(
+                        rootView.context,
+                        R.color.colorRedLight
+                    )
+                )
+                card821.setCardBackgroundColor(
+                    ContextCompat.getColor(
+                        rootView.context,
+                        R.color.colorRedLightLight
+                    )
+                )
+                card831.isClickable = true
+                text831.setText(text822.text.toString())
+                if (card832.isClickable) {
+                    handleGame83Listeners()
+                }
+                if (card8win.isClickable && card831.cardBackgroundColor == rootView.context.getColorStateList(
+                        R.color.colorRedLight
+                    )
+                ) {
+                    text8win.setText(text822.text.toString())
+                }
+            }
+        }
+
+        if (text823.text.toString() != "") {
+            card823.setOnClickListener {
+                card823.setCardBackgroundColor(
+                    ContextCompat.getColor(
+                        rootView.context,
+                        R.color.colorRedLight
+                    )
+                )
+                card824.setCardBackgroundColor(
+                    ContextCompat.getColor(
+                        rootView.context,
+                        R.color.colorRedLightLight
+                    )
+                )
+                card832.isClickable = true
+                text832.setText(text823.text.toString())
+                if (card831.isClickable) {
+                    handleGame83Listeners()
+                }
+                if (card8win.isClickable && card832.cardBackgroundColor == rootView.context.getColorStateList(
+                        R.color.colorRedLight
+                    )
+                ) {
+                    text8win.setText(text823.text.toString())
+                }
+            }
+        }
+
+        if (text824.text.toString() != "") {
+            card824.setOnClickListener {
+                card824.setCardBackgroundColor(
+                    ContextCompat.getColor(
+                        rootView.context,
+                        R.color.colorRedLight
+                    )
+                )
+                card823.setCardBackgroundColor(
+                    ContextCompat.getColor(
+                        rootView.context,
+                        R.color.colorRedLightLight
+                    )
+                )
+                card832.isClickable = true
+                text832.setText(text824.text.toString())
+                if (card831.isClickable) {
+                    handleGame83Listeners()
+                }
+                if (card8win.isClickable && card832.cardBackgroundColor == rootView.context.getColorStateList(
+                        R.color.colorRedLight
+                    )
+                ) {
+                    text8win.setText(text824.text.toString())
+                }
+            }
+        }
+    }
+
+    private fun handleGame83Listeners() {
+        if (text831.text.toString() != "") {
+            card831.setOnClickListener {
+                card831.setCardBackgroundColor(
+                    ContextCompat.getColor(
+                        rootView.context,
+                        R.color.colorRedLight
+                    )
+                )
+                card832.setCardBackgroundColor(
+                    ContextCompat.getColor(
+                        rootView.context,
+                        R.color.colorRedLightLight
+                    )
+                )
+                card8win.setCardBackgroundColor(
+                    ContextCompat.getColor(
+                        rootView.context,
+                        R.color.colorRedLight
+                    )
+                )
+                text8win.setText(text831.text.toString())
+            }
+        }
+
+        if (text832.text.toString() != "") {
+            card832.setOnClickListener {
+                card832.setCardBackgroundColor(
+                    ContextCompat.getColor(
+                        rootView.context,
+                        R.color.colorRedLight
+                    )
+                )
+                card831.setCardBackgroundColor(
+                    ContextCompat.getColor(
+                        rootView.context,
+                        R.color.colorRedLightLight
+                    )
+                )
+                card8win.setCardBackgroundColor(
+                    ContextCompat.getColor(
+                        rootView.context,
+                        R.color.colorRedLight
+                    )
+                )
+                text8win.setText(text832.text.toString())
+            }
+        }
     }
 
 }
