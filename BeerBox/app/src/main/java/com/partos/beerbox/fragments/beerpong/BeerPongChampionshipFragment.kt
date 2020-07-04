@@ -61,6 +61,37 @@ class BeerPongChampionshipFragment : Fragment() {
     private lateinit var text422: TextView
     private lateinit var text4win: TextView
 
+    private lateinit var card811: CardView
+    private lateinit var card812: CardView
+    private lateinit var card813: CardView
+    private lateinit var card814: CardView
+    private lateinit var card815: CardView
+    private lateinit var card816: CardView
+    private lateinit var card817: CardView
+    private lateinit var card818: CardView
+    private lateinit var card821: CardView
+    private lateinit var card822: CardView
+    private lateinit var card823: CardView
+    private lateinit var card824: CardView
+    private lateinit var card831: CardView
+    private lateinit var card832: CardView
+    private lateinit var card8win: CardView
+    private lateinit var text811: TextView
+    private lateinit var text812: TextView
+    private lateinit var text813: TextView
+    private lateinit var text814: TextView
+    private lateinit var text815: TextView
+    private lateinit var text816: TextView
+    private lateinit var text817: TextView
+    private lateinit var text818: TextView
+    private lateinit var text821: TextView
+    private lateinit var text822: TextView
+    private lateinit var text823: TextView
+    private lateinit var text824: TextView
+    private lateinit var text831: TextView
+    private lateinit var text832: TextView
+    private lateinit var text8win: TextView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -118,6 +149,8 @@ class BeerPongChampionshipFragment : Fragment() {
             handleGame2()
         } else if (teams?.size!! <= 4) {
             handleGame4()
+        } else {
+            handleGame8()
         }
     }
 
@@ -148,6 +181,36 @@ class BeerPongChampionshipFragment : Fragment() {
         text422 = rootView.findViewById(R.id.beer_pong_championship_4_2_2_text)
         text4win = rootView.findViewById(R.id.beer_pong_championship_4_win_text)
 
+        card811 = rootView.findViewById(R.id.beer_pong_championship_8_1_1_card)
+        card812 = rootView.findViewById(R.id.beer_pong_championship_8_1_2_card)
+        card813 = rootView.findViewById(R.id.beer_pong_championship_8_1_3_card)
+        card814 = rootView.findViewById(R.id.beer_pong_championship_8_1_4_card)
+        card815 = rootView.findViewById(R.id.beer_pong_championship_8_1_5_card)
+        card816 = rootView.findViewById(R.id.beer_pong_championship_8_1_6_card)
+        card817 = rootView.findViewById(R.id.beer_pong_championship_8_1_7_card)
+        card818 = rootView.findViewById(R.id.beer_pong_championship_8_1_8_card)
+        card821 = rootView.findViewById(R.id.beer_pong_championship_8_2_1_card)
+        card822 = rootView.findViewById(R.id.beer_pong_championship_8_2_2_card)
+        card823 = rootView.findViewById(R.id.beer_pong_championship_8_2_3_card)
+        card824 = rootView.findViewById(R.id.beer_pong_championship_8_2_4_card)
+        card831 = rootView.findViewById(R.id.beer_pong_championship_8_3_1_card)
+        card832 = rootView.findViewById(R.id.beer_pong_championship_8_3_2_card)
+        card8win = rootView.findViewById(R.id.beer_pong_championship_8_win_card)
+        text811 = rootView.findViewById(R.id.beer_pong_championship_8_1_1_text)
+        text812 = rootView.findViewById(R.id.beer_pong_championship_8_1_2_text)
+        text813 = rootView.findViewById(R.id.beer_pong_championship_8_1_3_text)
+        text814 = rootView.findViewById(R.id.beer_pong_championship_8_1_4_text)
+        text815 = rootView.findViewById(R.id.beer_pong_championship_8_1_5_text)
+        text816 = rootView.findViewById(R.id.beer_pong_championship_8_1_6_text)
+        text817 = rootView.findViewById(R.id.beer_pong_championship_8_1_7_text)
+        text818 = rootView.findViewById(R.id.beer_pong_championship_8_1_8_text)
+        text821 = rootView.findViewById(R.id.beer_pong_championship_8_2_1_text)
+        text822 = rootView.findViewById(R.id.beer_pong_championship_8_2_2_text)
+        text823 = rootView.findViewById(R.id.beer_pong_championship_8_2_3_text)
+        text824 = rootView.findViewById(R.id.beer_pong_championship_8_2_4_text)
+        text831 = rootView.findViewById(R.id.beer_pong_championship_8_3_1_text)
+        text832 = rootView.findViewById(R.id.beer_pong_championship_8_3_2_text)
+        text8win = rootView.findViewById(R.id.beer_pong_championship_8_win_text)
     }
 
     private fun handleGame2() {
@@ -205,6 +268,7 @@ class BeerPongChampionshipFragment : Fragment() {
 
     private fun handleGame4() {
         handleGame4Start()
+        handleGame41Listeners()
     }
 
     private fun handleGame4Start() {
@@ -213,7 +277,6 @@ class BeerPongChampionshipFragment : Fragment() {
             teams?.add("")
         }
         handleGame4AssignTeams(handleGame4Random())
-        handleGame41Listeners()
     }
 
     private fun handleGame4AssignTeams(teamsList: ArrayList<Int>) {
@@ -308,7 +371,8 @@ class BeerPongChampionshipFragment : Fragment() {
                 }
                 if (card4win.isClickable && card421.cardBackgroundColor == rootView.context.getColorStateList(
                         R.color.colorRedLight
-                    )) {
+                    )
+                ) {
                     text4win.setText(text412.text.toString())
                 }
             }
@@ -336,7 +400,8 @@ class BeerPongChampionshipFragment : Fragment() {
                 }
                 if (card4win.isClickable && card422.cardBackgroundColor == rootView.context.getColorStateList(
                         R.color.colorRedLight
-                    )) {
+                    )
+                ) {
                     text4win.setText(text413.text.toString())
                 }
             }
@@ -364,7 +429,8 @@ class BeerPongChampionshipFragment : Fragment() {
                 }
                 if (card4win.isClickable && card422.cardBackgroundColor == rootView.context.getColorStateList(
                         R.color.colorRedLight
-                    )) {
+                    )
+                ) {
                     text4win.setText(text414.text.toString())
                 }
             }
@@ -419,4 +485,113 @@ class BeerPongChampionshipFragment : Fragment() {
             text4win.setText(text422.text.toString())
         }
     }
+
+    private fun handleGame8() {
+        handleGame8Start()
+    }
+
+    private fun handleGame8Start() {
+        constraint8.visibility = View.VISIBLE
+        if (teams?.size == 5) {
+            teams?.add("")
+            teams?.add("")
+            teams?.add("")
+        } else if (teams?.size == 6) {
+            teams?.add("")
+            teams?.add("")
+        } else if (teams?.size == 7) {
+            teams?.add("")
+        }
+        handleGame8AssignTeams(handleGame8Random())
+        handleGame81Listeners()
+    }
+
+    private fun handleGame8AssignTeams(teamsList: ArrayList<Int>) {
+        text811.setText(teams?.get(teamsList[0]))
+        if (teams?.get(teamsList[0]) != "") {
+            card811.isClickable = true
+        }
+        text812.setText(teams?.get(teamsList[0]))
+        if (teams?.get(teamsList[0]) != "") {
+            card812.isClickable = true
+        }
+        text813.setText(teams?.get(teamsList[0]))
+        if (teams?.get(teamsList[0]) != "") {
+            card813.isClickable = true
+        }
+        text814.setText(teams?.get(teamsList[0]))
+        if (teams?.get(teamsList[0]) != "") {
+            card814.isClickable = true
+        }
+        text815.setText(teams?.get(teamsList[0]))
+        if (teams?.get(teamsList[0]) != "") {
+            card815.isClickable = true
+        }
+        text816.setText(teams?.get(teamsList[0]))
+        if (teams?.get(teamsList[0]) != "") {
+            card816.isClickable = true
+        }
+        text817.setText(teams?.get(teamsList[0]))
+        if (teams?.get(teamsList[0]) != "") {
+            card817.isClickable = true
+        }
+        text818.setText(teams?.get(teamsList[0]))
+        if (teams?.get(teamsList[0]) != "") {
+            card818.isClickable = true
+        }
+    }
+
+    private fun handleGame8Random(): ArrayList<Int> {
+        var random: Int
+        var team = 0
+        var teamsArray = arrayListOf<Int>(-1, -1, -1, -1, -1, -1, -1, -1)
+        do {
+            random = Random.nextInt(0, 8)
+            if (teamsArray[random] == -1) {
+                teamsArray[random] = team
+                team++
+            }
+        } while (!handleGame8IsRandomEnd(teamsArray))
+        return teamsArray
+    }
+
+    private fun handleGame8IsRandomEnd(list: ArrayList<Int>): Boolean {
+        for (item in list) {
+            if (item == -1) {
+                return false
+            }
+        }
+        return true
+    }
+
+    private fun handleGame81Listeners() {
+        if (text811.text.toString() != "") {
+            card811.setOnClickListener {
+                card811.setCardBackgroundColor(
+                    ContextCompat.getColor(
+                        rootView.context,
+                        R.color.colorRedLight
+                    )
+                )
+                card812.setCardBackgroundColor(
+                    ContextCompat.getColor(
+                        rootView.context,
+                        R.color.colorRedLightLight
+                    )
+                )
+                card821.isClickable = true
+                text821.setText(text811.text.toString())
+                if (card822.isClickable) {
+                    handleGame42Listeners()
+                }
+                if (card8win.isClickable && card831.cardBackgroundColor == rootView.context.getColorStateList(
+                        R.color.colorRedLight
+                    )
+                ) {
+                    text4win.setText(text811.text.toString())
+                }
+            }
+        }
+    }
+
 }
