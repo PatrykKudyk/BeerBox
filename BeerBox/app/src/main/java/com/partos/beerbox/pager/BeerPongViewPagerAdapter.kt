@@ -104,7 +104,8 @@ class BeerPongViewPagerAdapter : PagerAdapter {
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
         inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         var view: View = inflater.inflate(R.layout.pager_cell_beer_pong, container, false)
-
+        MyApp.endMatch = false
+        
         rootView = view
         if (position == 1) {
             view.pager_cell_beer_pong_ladder_constraint.visibility = View.VISIBLE
@@ -337,9 +338,9 @@ class BeerPongViewPagerAdapter : PagerAdapter {
                 ) {
                     text4win.setText(text411.text.toString())
                 }
+                MyApp.nextTeam1 = text413.text.toString()
+                MyApp.nextTeam2 = text414.text.toString()
             }
-            MyApp.nextTeam1 = text413.text.toString()
-            MyApp.nextTeam2 = text414.text.toString()
         }
 
         if (text412.text.toString() != "") {
@@ -367,9 +368,9 @@ class BeerPongViewPagerAdapter : PagerAdapter {
                 ) {
                     text4win.setText(text412.text.toString())
                 }
+                MyApp.nextTeam1 = text413.text.toString()
+                MyApp.nextTeam2 = text414.text.toString()
             }
-            MyApp.nextTeam1 = text413.text.toString()
-            MyApp.nextTeam2 = text414.text.toString()
         }
 
 
@@ -398,9 +399,10 @@ class BeerPongViewPagerAdapter : PagerAdapter {
                 ) {
                     text4win.setText(text413.text.toString())
                 }
+                MyApp.nextTeam1 = text421.text.toString()
+                MyApp.nextTeam2 = text422.text.toString()
             }
-            MyApp.nextTeam1 = text421.text.toString()
-            MyApp.nextTeam2 = text422.text.toString()
+
         }
 
 
@@ -429,9 +431,10 @@ class BeerPongViewPagerAdapter : PagerAdapter {
                 ) {
                     text4win.setText(text414.text.toString())
                 }
+                MyApp.nextTeam1 = text421.text.toString()
+                MyApp.nextTeam2 = text422.text.toString()
             }
-            MyApp.nextTeam1 = text421.text.toString()
-            MyApp.nextTeam2 = text422.text.toString()
+
         }
 
     }
@@ -460,6 +463,7 @@ class BeerPongViewPagerAdapter : PagerAdapter {
             text4win.setText(text421.text.toString())
             MyApp.nextTeam1 = ""
             MyApp.nextTeam2 = ""
+            MyApp.endMatch = true
         }
 
         card422.setOnClickListener {
@@ -485,6 +489,7 @@ class BeerPongViewPagerAdapter : PagerAdapter {
             text4win.setText(text422.text.toString())
             MyApp.nextTeam1 = ""
             MyApp.nextTeam2 = ""
+            MyApp.endMatch = true
         }
     }
 
@@ -979,8 +984,11 @@ class BeerPongViewPagerAdapter : PagerAdapter {
         val mainHandler = Handler(Looper.getMainLooper())
         mainHandler.post(object : Runnable{
             override fun run() {
-                nextTeam1.setText(MyApp.nextTeam1)
-                nextTeam2.setText(MyApp.nextTeam2)
+                if (!MyApp.endMatch) {
+                    nextTeam1.setText(MyApp.nextTeam1)
+                    nextTeam2.setText(MyApp.nextTeam2)
+                }
+
                 mainHandler.postDelayed(this, 500)
             }
         })
