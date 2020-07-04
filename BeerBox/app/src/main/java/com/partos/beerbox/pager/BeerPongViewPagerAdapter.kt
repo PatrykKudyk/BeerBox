@@ -105,7 +105,7 @@ class BeerPongViewPagerAdapter : PagerAdapter {
         inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         var view: View = inflater.inflate(R.layout.pager_cell_beer_pong, container, false)
         MyApp.endMatch = false
-        
+
         rootView = view
         if (position == 1) {
             view.pager_cell_beer_pong_ladder_constraint.visibility = View.VISIBLE
@@ -546,8 +546,13 @@ class BeerPongViewPagerAdapter : PagerAdapter {
         if (teams.get(teamsList[7]) != "") {
             card818.isClickable = true
         }
-        MyApp.nextTeam1 = teams[0]
-        MyApp.nextTeam2 = teams[1]
+        if (text811.text.toString() != "" || text822.text.toString() != "") {
+            MyApp.nextTeam1 = text811.text.toString()
+            MyApp.nextTeam2 = text812.text.toString()
+        } else {
+            MyApp.nextTeam1 = text813.text.toString()
+            MyApp.nextTeam2 = text814.text.toString()
+        }
     }
 
     private fun handleGame8Random(): ArrayList<Int> {
@@ -601,6 +606,13 @@ class BeerPongViewPagerAdapter : PagerAdapter {
                 ) {
                     text831.setText(text811.text.toString())
                 }
+                if (text813.text.toString() == "" && text814.text.toString() == "") {
+                    MyApp.nextTeam1 = text815.text.toString()
+                    MyApp.nextTeam2 = text816.text.toString()
+                } else {
+                    MyApp.nextTeam1 = text813.text.toString()
+                    MyApp.nextTeam2 = text814.text.toString()
+                }
             }
         }
 
@@ -628,6 +640,13 @@ class BeerPongViewPagerAdapter : PagerAdapter {
                     )
                 ) {
                     text831.setText(text812.text.toString())
+                }
+                if (text813.text.toString() == "" && text814.text.toString() == "") {
+                    MyApp.nextTeam1 = text815.text.toString()
+                    MyApp.nextTeam2 = text816.text.toString()
+                } else {
+                    MyApp.nextTeam1 = text813.text.toString()
+                    MyApp.nextTeam2 = text814.text.toString()
                 }
             }
         }
@@ -657,6 +676,14 @@ class BeerPongViewPagerAdapter : PagerAdapter {
                 ) {
                     text831.setText(text813.text.toString())
                 }
+                if (text815.text.toString() == "" && text816.text.toString() == "") {
+                    MyApp.nextTeam1 = text817.text.toString()
+                    MyApp.nextTeam2 = text818.text.toString()
+                } else {
+                    MyApp.nextTeam1 = text815.text.toString()
+                    MyApp.nextTeam2 = text816.text.toString()
+                }
+
             }
         }
 
@@ -684,6 +711,13 @@ class BeerPongViewPagerAdapter : PagerAdapter {
                     )
                 ) {
                     text831.setText(text814.text.toString())
+                }
+                if (text815.text.toString() == "" && text816.text.toString() == "") {
+                    MyApp.nextTeam1 = text817.text.toString()
+                    MyApp.nextTeam2 = text818.text.toString()
+                } else {
+                    MyApp.nextTeam1 = text815.text.toString()
+                    MyApp.nextTeam2 = text816.text.toString()
                 }
             }
         }
@@ -713,6 +747,13 @@ class BeerPongViewPagerAdapter : PagerAdapter {
                 ) {
                     text832.setText(text815.text.toString())
                 }
+                if (text815.text.toString() == "" && text816.text.toString() == "") {
+                    MyApp.nextTeam1 = text821.text.toString()
+                    MyApp.nextTeam2 = text822.text.toString()
+                } else {
+                    MyApp.nextTeam1 = text817.text.toString()
+                    MyApp.nextTeam2 = text818.text.toString()
+                }
             }
         }
 
@@ -740,6 +781,13 @@ class BeerPongViewPagerAdapter : PagerAdapter {
                     )
                 ) {
                     text832.setText(text816.text.toString())
+                }
+                if (text815.text.toString() == "" && text816.text.toString() == "") {
+                    MyApp.nextTeam1 = text821.text.toString()
+                    MyApp.nextTeam2 = text822.text.toString()
+                } else {
+                    MyApp.nextTeam1 = text817.text.toString()
+                    MyApp.nextTeam2 = text818.text.toString()
                 }
             }
         }
@@ -769,6 +817,8 @@ class BeerPongViewPagerAdapter : PagerAdapter {
                 ) {
                     text832.setText(text817.text.toString())
                 }
+                MyApp.nextTeam1 = text821.text.toString()
+                MyApp.nextTeam2 = text822.text.toString()
             }
         }
 
@@ -797,6 +847,8 @@ class BeerPongViewPagerAdapter : PagerAdapter {
                 ) {
                     text832.setText(text818.text.toString())
                 }
+                MyApp.nextTeam1 = text821.text.toString()
+                MyApp.nextTeam2 = text822.text.toString()
             }
         }
     }
@@ -839,6 +891,8 @@ class BeerPongViewPagerAdapter : PagerAdapter {
                 ) {
                     text8win.setText(text821.text.toString())
                 }
+                MyApp.nextTeam1 = text823.text.toString()
+                MyApp.nextTeam2 = text824.text.toString()
             }
         }
 
@@ -867,6 +921,8 @@ class BeerPongViewPagerAdapter : PagerAdapter {
                 ) {
                     text8win.setText(text822.text.toString())
                 }
+                MyApp.nextTeam1 = text823.text.toString()
+                MyApp.nextTeam2 = text824.text.toString()
             }
         }
 
@@ -895,6 +951,8 @@ class BeerPongViewPagerAdapter : PagerAdapter {
                 ) {
                     text8win.setText(text823.text.toString())
                 }
+                MyApp.nextTeam1 = text831.text.toString()
+                MyApp.nextTeam2 = text832.text.toString()
             }
         }
 
@@ -923,6 +981,8 @@ class BeerPongViewPagerAdapter : PagerAdapter {
                 ) {
                     text8win.setText(text824.text.toString())
                 }
+                MyApp.nextTeam1 = text831.text.toString()
+                MyApp.nextTeam2 = text832.text.toString()
             }
         }
     }
@@ -949,6 +1009,7 @@ class BeerPongViewPagerAdapter : PagerAdapter {
                     )
                 )
                 text8win.setText(text831.text.toString())
+                MyApp.endMatch = true
             }
         }
 
@@ -973,6 +1034,7 @@ class BeerPongViewPagerAdapter : PagerAdapter {
                     )
                 )
                 text8win.setText(text832.text.toString())
+                MyApp.endMatch = true
             }
         }
     }
