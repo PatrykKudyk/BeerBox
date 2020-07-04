@@ -511,32 +511,32 @@ class BeerPongChampionshipFragment : Fragment() {
         if (teams?.get(teamsList[0]) != "") {
             card811.isClickable = true
         }
-        text812.setText(teams?.get(teamsList[0]))
-        if (teams?.get(teamsList[0]) != "") {
+        text812.setText(teams?.get(teamsList[1]))
+        if (teams?.get(teamsList[1]) != "") {
             card812.isClickable = true
         }
-        text813.setText(teams?.get(teamsList[0]))
-        if (teams?.get(teamsList[0]) != "") {
+        text813.setText(teams?.get(teamsList[2]))
+        if (teams?.get(teamsList[2]) != "") {
             card813.isClickable = true
         }
-        text814.setText(teams?.get(teamsList[0]))
-        if (teams?.get(teamsList[0]) != "") {
+        text814.setText(teams?.get(teamsList[3]))
+        if (teams?.get(teamsList[3]) != "") {
             card814.isClickable = true
         }
-        text815.setText(teams?.get(teamsList[0]))
-        if (teams?.get(teamsList[0]) != "") {
+        text815.setText(teams?.get(teamsList[4]))
+        if (teams?.get(teamsList[4]) != "") {
             card815.isClickable = true
         }
-        text816.setText(teams?.get(teamsList[0]))
-        if (teams?.get(teamsList[0]) != "") {
+        text816.setText(teams?.get(teamsList[5]))
+        if (teams?.get(teamsList[5]) != "") {
             card816.isClickable = true
         }
-        text817.setText(teams?.get(teamsList[0]))
-        if (teams?.get(teamsList[0]) != "") {
+        text817.setText(teams?.get(teamsList[6]))
+        if (teams?.get(teamsList[6]) != "") {
             card817.isClickable = true
         }
-        text818.setText(teams?.get(teamsList[0]))
-        if (teams?.get(teamsList[0]) != "") {
+        text818.setText(teams?.get(teamsList[7]))
+        if (teams?.get(teamsList[7]) != "") {
             card818.isClickable = true
         }
     }
