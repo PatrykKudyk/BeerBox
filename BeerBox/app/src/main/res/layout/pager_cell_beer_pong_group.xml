@@ -16,8 +16,7 @@
             android:id="@+id/beer_pong_group_4"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/colorRedBackground"
-            android:visibility="gone">
+            android:background="@color/colorRedBackground">
 
             <LinearLayout
                 android:id="@+id/linearLayout3"

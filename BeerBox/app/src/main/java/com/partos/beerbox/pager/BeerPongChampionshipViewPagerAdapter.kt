@@ -102,7 +102,11 @@ class BeerPongChampionshipViewPagerAdapter : PagerAdapter {
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
         inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         var view: View = inflater.inflate(R.layout.pager_cell_beer_pong_championship, container, false)
+
         MyApp.endMatch = false
+        MyApp.matchEnded = true
+        MyApp.tourEnd = false
+        MyApp.ladderStart = false
 
         rootView = view
         if (position == 1) {

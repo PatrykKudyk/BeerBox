@@ -10,6 +10,6 @@ class MyApp: Application() {
         var endMatch = false
         var matchEnded = true
         var tourEnd = false
-        var winner = -1
+        var ladderStart = false
     }
 }
