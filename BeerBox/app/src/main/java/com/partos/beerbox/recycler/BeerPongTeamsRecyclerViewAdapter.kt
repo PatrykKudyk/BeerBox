@@ -45,8 +45,6 @@ class BeerPongTeamsRecyclerViewAdapter(var teamList: ArrayList<String>) :
         holder.view.row_team_name.setText(teamList[position])
         holder.view.row_team_delete.setOnClickListener {
             MyApp.teamsNumber--
-            teamsText.text =
-                holder.view.context.getString(R.string.teams) + " " + MyApp.teamsNumber.toString() + "/16"
             teamList.removeAt(position)
             notifyItemRemoved(position)
             notifyItemRangeChanged(position, teamList.size)

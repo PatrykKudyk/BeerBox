@@ -3,6 +3,8 @@ package com.partos.beerbox.fragments.beerpong
 import android.content.Context
 import android.net.Uri
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -102,6 +104,7 @@ class BeerPongTeamsFragment : Fragment() {
         teamsTextView.text = getString(R.string.teams) + " 0/8"
         var teamsList = ArrayList<String>()
         var id = 0
+        MyApp.teamsNumber = 0
 
         val mLayoutManager: LinearLayoutManager = LinearLayoutManager(this.context)
         recyclerView.layoutManager = mLayoutManager
@@ -159,6 +162,15 @@ class BeerPongTeamsFragment : Fragment() {
                     .show()
             }
         }
+
+        val mainHandler = Handler(Looper.getMainLooper())
+        mainHandler.post(object : Runnable{
+            override fun run() {
+                teamsTextView.text =
+                    getString(R.string.teams) + " " + MyApp.teamsNumber.toString() + "/8"
+                mainHandler.postDelayed(this, 500)
+            }
+        })
 
     }
 
