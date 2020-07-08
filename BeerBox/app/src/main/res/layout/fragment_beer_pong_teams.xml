@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.beerpong.BeerPongTeamsFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -11,94 +11,132 @@
         android:layout_height="match_parent"
         android:background="@color/colorRedBackground">
 
-        <LinearLayout
-            android:id="@+id/beer_pong_teams_linear_add"
+        <ScrollView
+            android:id="@+id/beer_pong_teams_scroll_add"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintWidth_percent="0.4"
-            android:orientation="vertical"
-            android:weightSum="10">
+            app:layout_constraintWidth_percent="0.4">
 
-            <TextView
+            <LinearLayout
+                android:id="@+id/beer_pong_teams_linear_add"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="2"
-                android:gravity="center|bottom"
-                android:textSize="30dip"
-                android:text="@string/team_name"/>
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:weightSum="10"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent="0.4">
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"/>
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/beer_pong_teams_card"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="4"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                android:theme="@style/Theme.MaterialComponents.Light"
-                app:cardBackgroundColor="@color/colorRedLightLight"
-                app:cardCornerRadius="18dp"
-                app:strokeColor="@color/colorRedDark"
-                app:strokeWidth="2dp">
-
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/beer_pong_teams_layout_add"
+                <TextView
+                    android:layout_marginTop="40dp"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="16dp"
-                    app:boxBackgroundColor="@color/colorRedLightLight"
-                    app:boxStrokeColor="@color/colorPrimaryDark">
+                    android:layout_height="wrap_content"
+                    android:gravity="center|bottom"
+                    android:text="@string/team_name"
+                    android:textSize="30dip" />
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/beer_pong_teams_edit_add"
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/beer_pong_teams_card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginTop="50dp"
+                    android:theme="@style/Theme.MaterialComponents.Light"
+                    app:cardBackgroundColor="@color/colorRedLightLight"
+                    app:cardCornerRadius="18dp"
+                    app:strokeColor="@color/colorRedDark"
+                    app:strokeWidth="2dp">
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/beer_pong_teams_layout_add"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:fontFamily="@font/dustismo"
-                        android:hint="@string/team_name"
-                        android:inputType="textLongMessage"
-                        android:maxLength="30"
-                        android:textSize="20dip" />
+                        android:layout_margin="16dp"
+                        app:boxBackgroundColor="@color/colorRedLightLight"
+                        app:boxStrokeColor="@color/colorPrimaryDark">
 
-                </com.google.android.material.textfield.TextInputLayout>
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/beer_pong_teams_edit_add"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:imeOptions="flagNoFullscreen"
+                            android:fontFamily="@font/dustismo"
+                            android:hint="@string/team_name"
+                            android:inputType="text"
+                            android:maxLength="9"
+                            android:textSize="20dip" />
 
-
-            </com.google.android.material.card.MaterialCardView>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="0.6"/>
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_marginStart="32dp"
-                android:layout_marginEnd="32dp"
-                android:layout_weight="1"
-                android:text="@string/add_team"
-                android:textColor="@color/colorRedBackground"
-                android:fontFamily="@font/dustismo_bold"
-                android:textSize="20dip"
-                android:background="@drawable/button_background_red_light"/>
+                    </com.google.android.material.textfield.TextInputLayout>
 
 
-        </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/beer_pong_teams_recycler_teams"
+                <Button
+                    android:id="@+id/beer_pong_teams_button_add"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginEnd="32dp"
+                    android:layout_marginTop="30dp"
+                    android:background="@drawable/button_background_red_light"
+                    android:fontFamily="@font/dustismo_bold"
+                    android:text="@string/add_team"
+                    android:textColor="@color/colorRedBackground"
+                    android:textSize="20dip" />
+
+                <Button
+                    android:id="@+id/beer_pong_teams_button_start"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="46dp"
+                    android:layout_marginEnd="46dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/button_background_red_medium"
+                    android:fontFamily="@font/dustismo_bold"
+                    android:text="@string/play"
+                    android:textColor="@color/colorRedBackground"
+                    android:textSize="20dip" />
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/beer_pong_teams_linear_add"
+            app:layout_constraintStart_toEndOf="@+id/beer_pong_teams_scroll_add"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintWidth_percent="0.6" />
+            app:layout_constraintWidth_percent="0.6"
+            android:weightSum="10"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/beer_pong_teams_text_teams"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/teams"
+                android:fontFamily="@font/dustismo_bold"
+                android:gravity="center"
+                android:textSize="30dip"
+                />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/beer_pong_teams_recycler_teams"
+                android:layout_width="match_parent"
+                android:layout_weight="9.5"
+                android:layout_height="0dp"
+                />
+
+        </LinearLayout>
+
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

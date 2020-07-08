@@ -6,6 +6,7 @@
     <string name="beer_pong">Beer Pong</string>
     <string name="rules">Rules</string>
     <string name="play">Play</string>
+    <string name="play2">Let\'s play</string>
     <string name="beer_pong_rules">1. Take 3/6/10 cups for each team.\n\n
         2. Place cups on the two sides of the table on triangle shape.\n\n
         3. Take at least 2 ping-pong balls.\n\n
@@ -20,4 +21,15 @@
     </string>
     <string name="add_team">Add team</string>
     <string name="team_name">Team name</string>
+    <string name="toast_name_not_null">Team name cannot be empty</string>
+    <string name="teams">Teams</string>
+    <string name="toast_max_teams_reached">Cannot add more teams</string>
+    <string name="ladder_question">Which ladder you want to pick?</string>
+    <string name="ladder_group">Group</string>
+    <string name="ladder_championship">Championship</string>
+    <string name="toast_no_teams_given">You need to add at least 2 teams</string>
+    <string name="next_match">The next match</string>
+    <string name="vs">VS</string>
+    <string name="groups">Groups</string>
+    <string name="toast_too_few_teams">Group ladder can be chosen for at least 5 teams</string>
 </resources>

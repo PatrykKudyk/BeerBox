@@ -1,26 +1,20 @@
 package com.partos.beerbox.fragments.beerpong
 
 import android.content.Context
-import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.os.Handler
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.animation.AnimationUtils
 import android.widget.Button
-import android.widget.ImageView
-import com.partos.beerbox.MyApp
+import android.widget.Toast
 import com.partos.beerbox.R
-import com.partos.beerbox.activities.BeerPongActivity
-import com.partos.flashback.db.DataBaseHelper
 
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
+private const val ARG_PARAM1 = "teams"
 private const val ARG_PARAM2 = "param2"
 
 /**
@@ -31,21 +25,20 @@ private const val ARG_PARAM2 = "param2"
  * Use the [AccountFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class BeerPongMenuFragment : Fragment() {
+class BeerPongLadderChoiceFragment : Fragment() {
     // TODO: Rename and change types of parameters
-    private var param1: String? = null
+    private var teams: ArrayList<String>? = null
     private var param2: String? = null
     private var listener: OnFragmentInteractionListener? = null
 
     private lateinit var rootView: View
-    private lateinit var image: ImageView
-    private lateinit var playButton: Button
-    private lateinit var rulesButton: Button
+    private lateinit var groupButton: Button
+    private lateinit var championshipButton: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
+            teams = it.getStringArrayList(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
     }
@@ -55,7 +48,7 @@ class BeerPongMenuFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        rootView = inflater.inflate(R.layout.fragment_beer_pong_menu, container, false);
+        rootView = inflater.inflate(R.layout.fragment_beer_pong_ladder_choice, container, false);
         initFragment()
         return rootView
     }
@@ -85,55 +78,50 @@ class BeerPongMenuFragment : Fragment() {
 
     companion object {
         @JvmStatic
-        fun newInstance() =
-            BeerPongMenuFragment().apply {
+        fun newInstance(teams: ArrayList<String>) =
+            BeerPongLadderChoiceFragment().apply {
                 arguments = Bundle().apply {
+                    putStringArrayList(ARG_PARAM1, teams)
                 }
             }
     }
 
     private fun initFragment() {
-        playButton = rootView.findViewById(R.id.beer_pong_menu_play)
-        rulesButton = rootView.findViewById(R.id.beer_pong_menu_rules)
-        image = rootView.findViewById(R.id.beer_pong_menu_image)
+        groupButton = rootView.findViewById(R.id.beer_pong_ladder_group)
+        championshipButton = rootView.findViewById(R.id.beer_pong_ladder_championship)
 
-        makeAnimations()
-
-        val db = DataBaseHelper(rootView.context)
-        val teams = db.getTeamsList()
-        for (team in teams) {
-            db.deleteTeam(team.id)
+        groupButton.setOnClickListener {
+            if ((teams as ArrayList<String>).size >= 5) {
+                val fragment = BeerPongGroupFragment.newInstance(teams as ArrayList<String>)
+                fragmentManager
+                    ?.beginTransaction()
+                    ?.setCustomAnimations(
+                        R.anim.enter_right_to_left, R.anim.exit_left_to_right,
+                        R.anim.enter_left_to_right, R.anim.exit_right_to_left
+                    )
+                    ?.replace(R.id.beer_pong_frame_layout, fragment)
+                    ?.addToBackStack(BeerPongGroupFragment.toString())
+                    ?.commit()
+            } else {
+                Toast.makeText(
+                    rootView.context,
+                    rootView.context.getString(R.string.toast_too_few_teams),
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
         }
 
-        rulesButton.setOnClickListener {
-            val rulesFragment = BeerPongRulesFragment.newInstance()
+        championshipButton.setOnClickListener {
+            val fragment = BeerPongChampionshipFragment.newInstance(teams as ArrayList<String>)
             fragmentManager
                 ?.beginTransaction()
                 ?.setCustomAnimations(
                     R.anim.enter_right_to_left, R.anim.exit_left_to_right,
                     R.anim.enter_left_to_right, R.anim.exit_right_to_left
                 )
-                ?.replace(R.id.main_frame_layout, rulesFragment)
-                ?.addToBackStack(BeerPongRulesFragment.toString())
+                ?.replace(R.id.beer_pong_frame_layout, fragment)
+                ?.addToBackStack(BeerPongChampionshipFragment.toString())
                 ?.commit()
         }
-
-        playButton.setOnClickListener {
-            val intent  = Intent(rootView.context, BeerPongActivity::class.java)
-            rootView.context.startActivity(intent)
-        }
-    }
-
-    private fun makeAnimations(){
-        val animLeft = AnimationUtils.loadAnimation(rootView.context, R.anim.enter_left_to_right)
-        val animRight = AnimationUtils.loadAnimation(rootView.context, R.anim.enter_right_to_left)
-
-        Handler().postDelayed({
-            playButton.visibility = View.VISIBLE
-            rulesButton.visibility = View.VISIBLE
-            playButton.startAnimation(animLeft)
-            rulesButton.startAnimation(animRight)
-        }, 400)
-
     }
 }

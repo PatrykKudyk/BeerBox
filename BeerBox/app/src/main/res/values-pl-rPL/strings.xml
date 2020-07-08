@@ -7,6 +7,7 @@
     <string name="beer_pong">Beer Pong</string>
     <string name="rules">Zasady</string>
     <string name="play">Graj</string>
+    <string name="play2">Gramy</string>
     <string name="beer_pong_rules">1. Weźcie 3/6/10 kubków dla każdej z drużyn.\n\n
         2. Ustawcie kubki w kształt trójkąta po 2-ch stronach stołu.\n\n
         3. Weźcie co najmniej 2 piłeczki ping-pongowe.\n\n
@@ -21,4 +22,15 @@
     </string>
     <string name="add_team">Dodaj drużynę</string>
     <string name="team_name">Nazwa drużyny</string>
+    <string name="toast_name_not_null">Nazwa nie może być pusta</string>
+    <string name="teams">Drużyny</string>
+    <string name="toast_max_teams_reached">Nie można dodać więcej drużyn</string>
+    <string name="ladder_question">Którą kolejkę wybierasz?</string>
+    <string name="ladder_group">Grupową</string>
+    <string name="ladder_championship">Pucharową</string>
+    <string name="toast_no_teams_given">Musisz podać co najmniej 2 drużyny</string>
+    <string name="next_match">Następny mecz</string>
+    <string name="vs">VS</string>
+    <string name="groups">Grupy</string>
+    <string name="toast_too_few_teams">Kolejkę grupową można grać od 5 drużyn</string>
 </resources>
