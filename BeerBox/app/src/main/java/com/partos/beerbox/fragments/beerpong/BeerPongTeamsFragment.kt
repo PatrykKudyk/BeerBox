@@ -18,8 +18,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.partos.beerbox.MyApp
 import com.partos.beerbox.R
+import com.partos.beerbox.models.Team
 import com.partos.beerbox.recycler.BeerPongTeamsRecyclerViewAdapter
 import com.partos.beerbox.recycler.MarginItemDecoration
+import com.partos.flashback.db.DataBaseHelper
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -47,6 +49,7 @@ class BeerPongTeamsFragment : Fragment() {
     private lateinit var addButton: Button
     private lateinit var playButton: Button
     private lateinit var teamsTextView: TextView
+    private lateinit var teamsList: ArrayList<Team>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -101,19 +104,20 @@ class BeerPongTeamsFragment : Fragment() {
     private fun initFragment() {
         attachViews()
 
-        teamsTextView.text = getString(R.string.teams) + " 0/8"
-        var teamsList = ArrayList<String>()
-        var id = 0
-        MyApp.teamsNumber = 0
+        val db = DataBaseHelper(rootView.context)
+        teamsList = db.getTeamsList()
+
+        teamsTextView.text = getString(R.string.teams) + " " + teamsList.size.toString() + "/8"
 
         val mLayoutManager: LinearLayoutManager = LinearLayoutManager(this.context)
         recyclerView.layoutManager = mLayoutManager
         recyclerView.addItemDecoration(MarginItemDecoration(12))
 
+
         recyclerView.adapter = BeerPongTeamsRecyclerViewAdapter(teamsList)
 
         addButton.setOnClickListener {
-            if (teamsList.size < 8) {
+            if (db.getTeamsList().size < 8) {
                 if (nameEditText.text.toString() == "") {
                     Toast.makeText(
                         rootView.context,
@@ -122,13 +126,11 @@ class BeerPongTeamsFragment : Fragment() {
                     )
                         .show()
                 } else {
-                    MyApp.teamsNumber++
-                    teamsTextView.text =
-                        getString(R.string.teams) + " " + MyApp.teamsNumber.toString() + "/8"
-                    teamsList.add(nameEditText.text.toString())
-                    id++
+                    db.addTeam(nameEditText.text.toString())
+                    teamsList = db.getTeamsList()
+//                    teamsList.add(nameEditText.text.toString())
                     nameEditText.setText("")
-                    recyclerView.adapter?.notifyDataSetChanged()
+                    recyclerView.adapter = BeerPongTeamsRecyclerViewAdapter(teamsList)
                     hideKeyboard()
                 }
             } else {
@@ -142,8 +144,13 @@ class BeerPongTeamsFragment : Fragment() {
         }
 
         playButton.setOnClickListener {
-            if (teamsList.size >= 2) {
-                val fragment = BeerPongLadderChoiceFragment.newInstance(teamsList)
+            if (db.getTeamsList().size >= 2) {
+                var teams = ArrayList<String>()
+                for (team in teamsList) {
+                    teams.add(team.name)
+                }
+
+                val fragment = BeerPongLadderChoiceFragment.newInstance(teams)
                 fragmentManager
                     ?.beginTransaction()
                     ?.setCustomAnimations(
@@ -163,11 +170,14 @@ class BeerPongTeamsFragment : Fragment() {
             }
         }
 
+        MyApp.areTeamsOpened = true
         val mainHandler = Handler(Looper.getMainLooper())
-        mainHandler.post(object : Runnable{
+        mainHandler.post(object : Runnable {
             override fun run() {
-                teamsTextView.text =
-                    getString(R.string.teams) + " " + MyApp.teamsNumber.toString() + "/8"
+                if (MyApp.areTeamsOpened) {
+                    teamsTextView.text =
+                        rootView.context.getString(R.string.teams) + " " + db.getTeamsList().size.toString() + "/8"
+                }
                 mainHandler.postDelayed(this, 500)
             }
         })

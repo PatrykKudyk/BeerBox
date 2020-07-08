@@ -10,11 +10,13 @@ import com.partos.beerbox.MyApp
 import com.partos.beerbox.R
 import com.partos.beerbox.activities.BeerPongActivity
 import com.partos.beerbox.activities.MainActivity
+import com.partos.beerbox.models.Team
+import com.partos.flashback.db.DataBaseHelper
 import kotlinx.android.synthetic.main.fragment_beer_pong_teams.*
 import kotlinx.android.synthetic.main.fragment_beer_pong_teams.view.*
 import kotlinx.android.synthetic.main.row_team.view.*
 
-class BeerPongTeamsRecyclerViewAdapter(var teamList: ArrayList<String>) :
+class BeerPongTeamsRecyclerViewAdapter(var teamList: ArrayList<Team>) :
     RecyclerView.Adapter<BeerPongTeamsViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BeerPongTeamsViewHolder {
@@ -28,8 +30,6 @@ class BeerPongTeamsRecyclerViewAdapter(var teamList: ArrayList<String>) :
     }
 
     override fun onBindViewHolder(holder: BeerPongTeamsViewHolder, position: Int) {
-        val activity = (holder.itemView.context as BeerPongActivity)
-        val teamsText = activity.beer_pong_teams_text_teams
         holder.view.row_team_card_view.setCardBackgroundColor(
             ContextCompat.getColor(
                 holder.view.context,
@@ -42,9 +42,10 @@ class BeerPongTeamsRecyclerViewAdapter(var teamList: ArrayList<String>) :
                 R.color.colorRedDark
             )
         )
-        holder.view.row_team_name.setText(teamList[position])
+        holder.view.row_team_name.setText(teamList[position].name)
         holder.view.row_team_delete.setOnClickListener {
-            MyApp.teamsNumber--
+            val db = DataBaseHelper(holder.view.context)
+            db.deleteTeam(teamList[position].id)
             teamList.removeAt(position)
             notifyItemRemoved(position)
             notifyItemRangeChanged(position, teamList.size)

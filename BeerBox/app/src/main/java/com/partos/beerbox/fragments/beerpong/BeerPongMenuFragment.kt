@@ -12,14 +12,10 @@ import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.ImageView
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import com.partos.beerbox.MyApp
 import com.partos.beerbox.R
 import com.partos.beerbox.activities.BeerPongActivity
-import com.partos.beerbox.recycler.MainMenuRecyclerViewAdapter
-import com.partos.beerbox.recycler.MarginItemDecoration
-import kotlinx.android.synthetic.main.fragment_main_menu.*
-import kotlinx.android.synthetic.main.fragment_main_menu.view.*
+import com.partos.flashback.db.DataBaseHelper
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -102,6 +98,12 @@ class BeerPongMenuFragment : Fragment() {
         image = rootView.findViewById(R.id.beer_pong_menu_image)
 
         makeAnimations()
+
+        val db = DataBaseHelper(rootView.context)
+        val teams = db.getTeamsList()
+        for (team in teams) {
+            db.deleteTeam(team.id)
+        }
 
         rulesButton.setOnClickListener {
             val rulesFragment = BeerPongRulesFragment.newInstance()
