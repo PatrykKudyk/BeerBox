@@ -31,4 +31,5 @@
     <string name="toast_no_teams_given">Musisz podać co najmniej 2 drużyny</string>
     <string name="next_match">Następny mecz</string>
     <string name="vs">VS</string>
+    <string name="groups">Grupy</string>
 </resources>

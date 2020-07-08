@@ -30,4 +30,5 @@
     <string name="toast_no_teams_given">You need to add at least 2 teams</string>
     <string name="next_match">The next match</string>
     <string name="vs">VS</string>
+    <string name="groups">Groups</string>
 </resources>
