@@ -15,6 +15,7 @@ import androidx.core.content.ContextCompat
 import androidx.viewpager.widget.PagerAdapter
 import com.partos.beerbox.MyApp
 import com.partos.beerbox.R
+import com.partos.beerbox.models.Match
 import kotlinx.android.synthetic.main.pager_cell_beer_pong_championship.view.*
 import kotlinx.android.synthetic.main.pager_cell_beer_pong_group.view.*
 import kotlin.random.Random
@@ -68,6 +69,8 @@ class BeerPongGroupViewPagerAdapter : PagerAdapter {
     private lateinit var groupText23: TextView
     private lateinit var groupText24: TextView
 
+    private var matchList = ArrayList<Match>()
+
 
     lateinit var inflater: LayoutInflater
 
@@ -109,6 +112,16 @@ class BeerPongGroupViewPagerAdapter : PagerAdapter {
         teams.shuffle()
         makeLayoutsInvisible()
         setGroups()
+        val mainHandler = Handler(Looper.getMainLooper())
+        mainHandler.post(object : Runnable {
+            override fun run() {
+                if (MyApp.tourEnd) {
+                    MyApp.tourEnd = false
+                    setGroups()
+                }
+                mainHandler.postDelayed(this, 500)
+            }
+        })
     }
 
     private fun setGroups() {
@@ -132,9 +145,13 @@ class BeerPongGroupViewPagerAdapter : PagerAdapter {
                 groupText21.setText(teams[3])
                 groupText22.setText(teams[4])
 
-                MyApp.nextTeam1 = teams[0]
-                MyApp.nextTeam2 = teams[1]
-                MyApp.nextMatch = true
+
+
+                matchList.add(Match(teams[0], teams[1]))
+                matchList.add(Match(teams[0], teams[2]))
+                matchList.add(Match(teams[1], teams[2]))
+                matchList.add(Match(teams[3], teams[4]))
+
             }
             6 -> {
                 groupLayout11.visibility = View.VISIBLE
@@ -151,9 +168,12 @@ class BeerPongGroupViewPagerAdapter : PagerAdapter {
                 groupText22.setText(teams[4])
                 groupText23.setText(teams[5])
 
-                MyApp.nextTeam1 = teams[0]
-                MyApp.nextTeam2 = teams[1]
-                MyApp.nextMatch = true
+                matchList.add(Match(teams[0], teams[1]))
+                matchList.add(Match(teams[0], teams[2]))
+                matchList.add(Match(teams[1], teams[2]))
+                matchList.add(Match(teams[3], teams[4]))
+                matchList.add(Match(teams[3], teams[5]))
+                matchList.add(Match(teams[4], teams[5]))
             }
             7 -> {
                 groupLayout11.visibility = View.VISIBLE
@@ -172,9 +192,15 @@ class BeerPongGroupViewPagerAdapter : PagerAdapter {
                 groupText22.setText(teams[5])
                 groupText23.setText(teams[6])
 
-                MyApp.nextTeam1 = teams[0]
-                MyApp.nextTeam2 = teams[1]
-                MyApp.nextMatch = true
+                matchList.add(Match(teams[0], teams[1]))
+                matchList.add(Match(teams[0], teams[2]))
+                matchList.add(Match(teams[0], teams[3]))
+                matchList.add(Match(teams[1], teams[2]))
+                matchList.add(Match(teams[1], teams[3]))
+                matchList.add(Match(teams[2], teams[3]))
+                matchList.add(Match(teams[4], teams[5]))
+                matchList.add(Match(teams[4], teams[6]))
+                matchList.add(Match(teams[5], teams[6]))
             }
             8 -> {
                 groupLayout11.visibility = View.VISIBLE
@@ -195,11 +221,21 @@ class BeerPongGroupViewPagerAdapter : PagerAdapter {
                 groupText23.setText(teams[6])
                 groupText24.setText(teams[7])
 
-                MyApp.nextTeam1 = teams[0]
-                MyApp.nextTeam2 = teams[1]
-                MyApp.nextMatch = true
+                matchList.add(Match(teams[0], teams[1]))
+                matchList.add(Match(teams[0], teams[2]))
+                matchList.add(Match(teams[0], teams[3]))
+                matchList.add(Match(teams[1], teams[2]))
+                matchList.add(Match(teams[1], teams[3]))
+                matchList.add(Match(teams[2], teams[3]))
+                matchList.add(Match(teams[4], teams[5]))
+                matchList.add(Match(teams[4], teams[6]))
+                matchList.add(Match(teams[4], teams[7]))
+                matchList.add(Match(teams[5], teams[6]))
+                matchList.add(Match(teams[5], teams[7]))
+                matchList.add(Match(teams[6], teams[7]))
             }
         }
+        matchList.shuffle()
     }
 
     private fun makeLayoutsInvisible() {
@@ -218,28 +254,43 @@ class BeerPongGroupViewPagerAdapter : PagerAdapter {
     }
 
     private fun handleMatches() {
-        attachViews()
+        matchCard1 = rootView.findViewById(R.id.beer_pong_group_match_card_1)
+        matchCard2 = rootView.findViewById(R.id.beer_pong_group_match_card_2)
+        matchText1 = rootView.findViewById(R.id.beer_pong_group_match_text_1)
+        matchText2 = rootView.findViewById(R.id.beer_pong_group_match_text_2)
 
         matchCard1.setOnClickListener {
-            MyApp.matchEnded = true
-            MyApp.winner = 0
+            if (matchList.size != 0) {
+                MyApp.matchEnded = true
+                matchList.removeAt(0)
+                MyApp.winner = 0
+                if (matchList.size == 0) {
+                    MyApp.tourEnd = true
+                }
+            }
         }
 
-        matchCard1.setOnClickListener {
-            MyApp.matchEnded = true
-            MyApp.winner = 1
+        matchCard2.setOnClickListener {
+            if (matchList.size != 0) {
+                MyApp.matchEnded = true
+                matchList.removeAt(0)
+                MyApp.winner = 1
+                if (matchList.size == 0) {
+                    MyApp.tourEnd = true
+                }
+            }
         }
 
         val mainHandler = Handler(Looper.getMainLooper())
         mainHandler.post(object : Runnable {
             override fun run() {
-                if (MyApp.matchEnded) {
+                if (MyApp.matchEnded && matchList.size != 0) {
                     MyApp.matchEnded = false
-                    if (MyApp.nextMatch) {
-                        MyApp.nextMatch = false
-                        matchText1.setText(MyApp.nextTeam1)
-                        matchText2.setText(MyApp.nextTeam2)
-                    }
+                    matchText1.setText(matchList[0].team1)
+                    matchText2.setText(matchList[0].team2)
+                } else if (matchList.size == 0) {
+                    matchText1.setText("")
+                    matchText2.setText("")
                 }
                 mainHandler.postDelayed(this, 500)
             }
@@ -251,11 +302,6 @@ class BeerPongGroupViewPagerAdapter : PagerAdapter {
     }
 
     private fun attachViews() {
-        matchCard1 = rootView.findViewById(R.id.beer_pong_group_match_card_1)
-        matchCard2 = rootView.findViewById(R.id.beer_pong_group_match_card_2)
-        matchText1 = rootView.findViewById(R.id.beer_pong_group_match_text_1)
-        matchText2 = rootView.findViewById(R.id.beer_pong_group_match_text_2)
-
         card411 = rootView.findViewById(R.id.beer_pong_group_4_1_1_card)
         card412 = rootView.findViewById(R.id.beer_pong_group_4_1_2_card)
         card413 = rootView.findViewById(R.id.beer_pong_group_4_1_3_card)
