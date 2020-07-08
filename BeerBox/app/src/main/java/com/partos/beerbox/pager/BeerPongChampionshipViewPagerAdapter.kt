@@ -14,12 +14,10 @@ import androidx.core.content.ContextCompat
 import androidx.viewpager.widget.PagerAdapter
 import com.partos.beerbox.MyApp
 import com.partos.beerbox.R
-import com.partos.beerbox.activities.BeerPongActivity
-import com.partos.beerbox.activities.MainActivity
-import kotlinx.android.synthetic.main.pager_cell_beer_pong.view.*
+import kotlinx.android.synthetic.main.pager_cell_beer_pong_championship.view.*
 import kotlin.random.Random
 
-class BeerPongViewPagerAdapter : PagerAdapter {
+class BeerPongChampionshipViewPagerAdapter : PagerAdapter {
 
     var context: Context
     var teams = ArrayList<String>()
@@ -103,8 +101,12 @@ class BeerPongViewPagerAdapter : PagerAdapter {
 
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
         inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-        var view: View = inflater.inflate(R.layout.pager_cell_beer_pong, container, false)
+        var view: View = inflater.inflate(R.layout.pager_cell_beer_pong_championship, container, false)
+
         MyApp.endMatch = false
+        MyApp.matchEnded = true
+        MyApp.tourEnd = false
+        MyApp.ladderStart = false
 
         rootView = view
         if (position == 1) {

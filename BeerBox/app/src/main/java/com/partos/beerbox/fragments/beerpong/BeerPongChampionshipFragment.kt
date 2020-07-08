@@ -7,14 +7,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import androidx.cardview.widget.CardView
-import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.content.ContextCompat
 import androidx.viewpager.widget.ViewPager
 import com.partos.beerbox.R
-import com.partos.beerbox.pager.BeerPongViewPagerAdapter
-import kotlin.random.Random
+import com.partos.beerbox.pager.BeerPongChampionshipViewPagerAdapter
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -93,7 +88,7 @@ class BeerPongChampionshipFragment : Fragment() {
 
     private fun initFragment() {
         viewPager = rootView.findViewById(R.id.beer_pong_championship_view_pager)
-        viewPager.adapter = BeerPongViewPagerAdapter(rootView.context, teams as ArrayList<String>)
+        viewPager.adapter = BeerPongChampionshipViewPagerAdapter(rootView.context, teams as ArrayList<String>)
 
     }
 

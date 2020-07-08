@@ -8,7 +8,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.viewpager.widget.ViewPager
 import com.partos.beerbox.R
+import com.partos.beerbox.pager.BeerPongChampionshipViewPagerAdapter
+import com.partos.beerbox.pager.BeerPongGroupViewPagerAdapter
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -31,6 +34,7 @@ class BeerPongGroupFragment : Fragment() {
     private var listener: OnFragmentInteractionListener? = null
 
     private lateinit var rootView: View
+    private lateinit var viewPager: ViewPager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -84,10 +88,7 @@ class BeerPongGroupFragment : Fragment() {
     }
 
     private fun initFragment() {
-        attachViews()
-    }
-
-    private fun attachViews() {
-
+        viewPager = rootView.findViewById(R.id.beer_pong_group_view_pager)
+        viewPager.adapter = BeerPongGroupViewPagerAdapter(rootView.context, teams as ArrayList<String>)
     }
 }

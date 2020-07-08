@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.Toast
 import com.partos.beerbox.R
 
 
@@ -90,16 +91,24 @@ class BeerPongLadderChoiceFragment : Fragment() {
         championshipButton = rootView.findViewById(R.id.beer_pong_ladder_championship)
 
         groupButton.setOnClickListener {
-//            val fragment = BeerPongGroupFragment.newInstance(teams as ArrayList<String>)
-//            fragmentManager
-//                ?.beginTransaction()
-//                ?.setCustomAnimations(
-//                    R.anim.enter_right_to_left, R.anim.exit_left_to_right,
-//                    R.anim.enter_left_to_right, R.anim.exit_right_to_left
-//                )
-//                ?.replace(R.id.beer_pong_frame_layout, fragment)
-//                ?.addToBackStack(BeerPongGroupFragment.toString())
-//                ?.commit()
+            if ((teams as ArrayList<String>).size >= 5) {
+                val fragment = BeerPongGroupFragment.newInstance(teams as ArrayList<String>)
+                fragmentManager
+                    ?.beginTransaction()
+                    ?.setCustomAnimations(
+                        R.anim.enter_right_to_left, R.anim.exit_left_to_right,
+                        R.anim.enter_left_to_right, R.anim.exit_right_to_left
+                    )
+                    ?.replace(R.id.beer_pong_frame_layout, fragment)
+                    ?.addToBackStack(BeerPongGroupFragment.toString())
+                    ?.commit()
+            } else {
+                Toast.makeText(
+                    rootView.context,
+                    rootView.context.getString(R.string.toast_too_few_teams),
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
         }
 
         championshipButton.setOnClickListener {

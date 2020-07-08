@@ -9,6 +9,7 @@
         android:id="@+id/pager_cell_beer_pong_ladder_constraint"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/colorRedBackground"
         android:visibility="gone">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -1700,8 +1701,9 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/pager_cell_beer_pong_match_constraint"
         android:layout_width="match_parent"
-        android:visibility="gone"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/colorRedBackground"
+        android:visibility="gone">
 
         <TextView
             android:id="@+id/text"
@@ -1729,7 +1731,7 @@
             <View
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="5"/>
+                android:layout_weight="5" />
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/beer_pong_championship_match_card_1"
@@ -1758,12 +1760,12 @@
 
             <TextView
                 android:layout_width="0dp"
-                android:layout_weight="20"
                 android:layout_height="match_parent"
+                android:layout_weight="20"
                 android:fontFamily="@font/architects"
                 android:gravity="center"
                 android:text="@string/vs"
-                android:textSize="40dip"/>
+                android:textSize="40dip" />
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/beer_pong_championship_match_card_2"

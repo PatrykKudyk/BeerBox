@@ -5,49 +5,11 @@
     android:layout_height="match_parent"
     tools:context=".fragments.beerpong.BeerPongGroupFragment">
 
-   <androidx.constraintlayout.widget.ConstraintLayout
-       android:id="@+id/beer_pong_group_one"
-       android:visibility="gone"
-       android:layout_width="match_parent"
-       android:layout_height="match_parent"
-       android:background="@color/colorRedBackground"
-       tools:visibility="visible">
-
-       
-
-   </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/beer_pong_group_two"
-        android:layout_width="match_parent"
-        android:visibility="gone"
-        android:layout_height="match_parent"
-        android:background="@color/colorRedBackground">
-
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/beer_pong_group_three"
-        android:visibility="gone"
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/beer_pong_group_view_pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/colorRedBackground">
 
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/beer_pong_group_four"
-        android:visibility="gone"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/colorRedBackground">
-
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
+    </androidx.viewpager.widget.ViewPager>
 </FrameLayout>
