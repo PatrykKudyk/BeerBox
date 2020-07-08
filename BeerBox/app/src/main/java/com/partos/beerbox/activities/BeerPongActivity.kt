@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputConnection
+import com.partos.beerbox.MyApp
 import com.partos.beerbox.R
 import com.partos.beerbox.fragments.MainMenuFragment
 import com.partos.beerbox.fragments.beerpong.BeerPongChampionshipFragment
@@ -36,4 +37,8 @@ class BeerPongActivity : AppCompatActivity(),
 
     }
 
+    override fun onBackPressed() {
+        MyApp.areTeamsOpened = false
+        super.onBackPressed()
+    }
 }
