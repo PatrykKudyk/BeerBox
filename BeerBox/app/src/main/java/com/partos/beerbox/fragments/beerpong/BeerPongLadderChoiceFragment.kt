@@ -100,7 +100,6 @@ class BeerPongLadderChoiceFragment : Fragment() {
                         R.anim.enter_left_to_right, R.anim.exit_right_to_left
                     )
                     ?.replace(R.id.beer_pong_frame_layout, fragment)
-                    ?.addToBackStack(BeerPongGroupFragment.toString())
                     ?.commit()
             } else {
                 Toast.makeText(
@@ -120,7 +119,6 @@ class BeerPongLadderChoiceFragment : Fragment() {
                     R.anim.enter_left_to_right, R.anim.exit_right_to_left
                 )
                 ?.replace(R.id.beer_pong_frame_layout, fragment)
-                ?.addToBackStack(BeerPongChampionshipFragment.toString())
                 ?.commit()
         }
     }

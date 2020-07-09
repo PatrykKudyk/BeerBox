@@ -101,7 +101,8 @@ class BeerPongChampionshipViewPagerAdapter : PagerAdapter {
 
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
         inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-        var view: View = inflater.inflate(R.layout.pager_cell_beer_pong_championship, container, false)
+        var view: View =
+            inflater.inflate(R.layout.pager_cell_beer_pong_championship, container, false)
 
         MyApp.endMatch = false
         MyApp.matchEnded = true
@@ -340,8 +341,7 @@ class BeerPongChampionshipViewPagerAdapter : PagerAdapter {
                 ) {
                     text4win.setText(text411.text.toString())
                 }
-                MyApp.nextTeam1 = text413.text.toString()
-                MyApp.nextTeam2 = text414.text.toString()
+                handleGame4NextMatch()
             }
         }
 
@@ -370,8 +370,7 @@ class BeerPongChampionshipViewPagerAdapter : PagerAdapter {
                 ) {
                     text4win.setText(text412.text.toString())
                 }
-                MyApp.nextTeam1 = text413.text.toString()
-                MyApp.nextTeam2 = text414.text.toString()
+                handleGame4NextMatch()
             }
         }
 
@@ -401,8 +400,7 @@ class BeerPongChampionshipViewPagerAdapter : PagerAdapter {
                 ) {
                     text4win.setText(text413.text.toString())
                 }
-                MyApp.nextTeam1 = text421.text.toString()
-                MyApp.nextTeam2 = text422.text.toString()
+                handleGame4NextMatch()
             }
 
         }
@@ -427,14 +425,13 @@ class BeerPongChampionshipViewPagerAdapter : PagerAdapter {
                 if (card421.isClickable) {
                     handleGame42Listeners()
                 }
-                if (card4win.isClickable && card422.cardBackgroundColor == rootView.context.getColorStateList(
+                if (card4win.isClickable && card422.cardBackgroundColor == context.getColorStateList(
                         R.color.colorRedLight
                     )
                 ) {
                     text4win.setText(text414.text.toString())
                 }
-                MyApp.nextTeam1 = text421.text.toString()
-                MyApp.nextTeam2 = text422.text.toString()
+                handleGame4NextMatch()
             }
 
         }
@@ -463,9 +460,7 @@ class BeerPongChampionshipViewPagerAdapter : PagerAdapter {
                 )
             )
             text4win.setText(text421.text.toString())
-            MyApp.nextTeam1 = ""
-            MyApp.nextTeam2 = ""
-            MyApp.endMatch = true
+            handleGame4NextMatch()
         }
 
         card422.setOnClickListener {
@@ -489,6 +484,27 @@ class BeerPongChampionshipViewPagerAdapter : PagerAdapter {
                 )
             )
             text4win.setText(text422.text.toString())
+            handleGame4NextMatch()
+        }
+    }
+
+    private fun handleGame4NextMatch() {
+        if (card411.cardBackgroundColor == context.getColorStateList(R.color.colorRedLightLight) &&
+            card412.cardBackgroundColor == context.getColorStateList(R.color.colorRedLightLight)
+        ) {
+            MyApp.nextTeam1 = text411.text.toString()
+            MyApp.nextTeam2 = text412.text.toString()
+        } else if (card413.cardBackgroundColor == context.getColorStateList(R.color.colorRedLightLight) &&
+            card414.cardBackgroundColor == context.getColorStateList(R.color.colorRedLightLight)
+        ) {
+            MyApp.nextTeam1 = text413.text.toString()
+            MyApp.nextTeam2 = text414.text.toString()
+        } else if (card421.cardBackgroundColor == context.getColorStateList(R.color.colorRedLightLight) &&
+            card422.cardBackgroundColor == context.getColorStateList(R.color.colorRedLightLight)
+        ) {
+            MyApp.nextTeam1 = text421.text.toString()
+            MyApp.nextTeam2 = text422.text.toString()
+        } else if (card4win.cardBackgroundColor == context.getColorStateList(R.color.colorRedLight)) {
             MyApp.nextTeam1 = ""
             MyApp.nextTeam2 = ""
             MyApp.endMatch = true
@@ -548,13 +564,7 @@ class BeerPongChampionshipViewPagerAdapter : PagerAdapter {
         if (teams.get(teamsList[7]) != "") {
             card818.isClickable = true
         }
-        if (text811.text.toString() != "" || text822.text.toString() != "") {
-            MyApp.nextTeam1 = text811.text.toString()
-            MyApp.nextTeam2 = text812.text.toString()
-        } else {
-            MyApp.nextTeam1 = text813.text.toString()
-            MyApp.nextTeam2 = text814.text.toString()
-        }
+        handleGame8NextMatch()
     }
 
     private fun handleGame8Random(): ArrayList<Int> {
@@ -608,13 +618,7 @@ class BeerPongChampionshipViewPagerAdapter : PagerAdapter {
                 ) {
                     text831.setText(text811.text.toString())
                 }
-                if (text813.text.toString() == "" && text814.text.toString() == "") {
-                    MyApp.nextTeam1 = text815.text.toString()
-                    MyApp.nextTeam2 = text816.text.toString()
-                } else {
-                    MyApp.nextTeam1 = text813.text.toString()
-                    MyApp.nextTeam2 = text814.text.toString()
-                }
+                handleGame8NextMatch()
             }
         }
 
@@ -643,13 +647,7 @@ class BeerPongChampionshipViewPagerAdapter : PagerAdapter {
                 ) {
                     text831.setText(text812.text.toString())
                 }
-                if (text813.text.toString() == "" && text814.text.toString() == "") {
-                    MyApp.nextTeam1 = text815.text.toString()
-                    MyApp.nextTeam2 = text816.text.toString()
-                } else {
-                    MyApp.nextTeam1 = text813.text.toString()
-                    MyApp.nextTeam2 = text814.text.toString()
-                }
+                handleGame8NextMatch()
             }
         }
 
@@ -678,14 +676,7 @@ class BeerPongChampionshipViewPagerAdapter : PagerAdapter {
                 ) {
                     text831.setText(text813.text.toString())
                 }
-                if (text815.text.toString() == "" && text816.text.toString() == "") {
-                    MyApp.nextTeam1 = text817.text.toString()
-                    MyApp.nextTeam2 = text818.text.toString()
-                } else {
-                    MyApp.nextTeam1 = text815.text.toString()
-                    MyApp.nextTeam2 = text816.text.toString()
-                }
-
+                handleGame8NextMatch()
             }
         }
 
@@ -714,13 +705,7 @@ class BeerPongChampionshipViewPagerAdapter : PagerAdapter {
                 ) {
                     text831.setText(text814.text.toString())
                 }
-                if (text815.text.toString() == "" && text816.text.toString() == "") {
-                    MyApp.nextTeam1 = text817.text.toString()
-                    MyApp.nextTeam2 = text818.text.toString()
-                } else {
-                    MyApp.nextTeam1 = text815.text.toString()
-                    MyApp.nextTeam2 = text816.text.toString()
-                }
+                handleGame8NextMatch()
             }
         }
 
@@ -749,13 +734,7 @@ class BeerPongChampionshipViewPagerAdapter : PagerAdapter {
                 ) {
                     text832.setText(text815.text.toString())
                 }
-                if (text815.text.toString() == "" && text816.text.toString() == "") {
-                    MyApp.nextTeam1 = text821.text.toString()
-                    MyApp.nextTeam2 = text822.text.toString()
-                } else {
-                    MyApp.nextTeam1 = text817.text.toString()
-                    MyApp.nextTeam2 = text818.text.toString()
-                }
+                handleGame8NextMatch()
             }
         }
 
@@ -784,13 +763,7 @@ class BeerPongChampionshipViewPagerAdapter : PagerAdapter {
                 ) {
                     text832.setText(text816.text.toString())
                 }
-                if (text815.text.toString() == "" && text816.text.toString() == "") {
-                    MyApp.nextTeam1 = text821.text.toString()
-                    MyApp.nextTeam2 = text822.text.toString()
-                } else {
-                    MyApp.nextTeam1 = text817.text.toString()
-                    MyApp.nextTeam2 = text818.text.toString()
-                }
+                handleGame8NextMatch()
             }
         }
 
@@ -819,8 +792,7 @@ class BeerPongChampionshipViewPagerAdapter : PagerAdapter {
                 ) {
                     text832.setText(text817.text.toString())
                 }
-                MyApp.nextTeam1 = text821.text.toString()
-                MyApp.nextTeam2 = text822.text.toString()
+                handleGame8NextMatch()
             }
         }
 
@@ -849,8 +821,7 @@ class BeerPongChampionshipViewPagerAdapter : PagerAdapter {
                 ) {
                     text832.setText(text818.text.toString())
                 }
-                MyApp.nextTeam1 = text821.text.toString()
-                MyApp.nextTeam2 = text822.text.toString()
+                handleGame8NextMatch()
             }
         }
     }
@@ -893,8 +864,7 @@ class BeerPongChampionshipViewPagerAdapter : PagerAdapter {
                 ) {
                     text8win.setText(text821.text.toString())
                 }
-                MyApp.nextTeam1 = text823.text.toString()
-                MyApp.nextTeam2 = text824.text.toString()
+                handleGame8NextMatch()
             }
         }
 
@@ -923,8 +893,7 @@ class BeerPongChampionshipViewPagerAdapter : PagerAdapter {
                 ) {
                     text8win.setText(text822.text.toString())
                 }
-                MyApp.nextTeam1 = text823.text.toString()
-                MyApp.nextTeam2 = text824.text.toString()
+                handleGame8NextMatch()
             }
         }
 
@@ -953,8 +922,7 @@ class BeerPongChampionshipViewPagerAdapter : PagerAdapter {
                 ) {
                     text8win.setText(text823.text.toString())
                 }
-                MyApp.nextTeam1 = text831.text.toString()
-                MyApp.nextTeam2 = text832.text.toString()
+                handleGame8NextMatch()
             }
         }
 
@@ -983,8 +951,7 @@ class BeerPongChampionshipViewPagerAdapter : PagerAdapter {
                 ) {
                     text8win.setText(text824.text.toString())
                 }
-                MyApp.nextTeam1 = text831.text.toString()
-                MyApp.nextTeam2 = text832.text.toString()
+                handleGame8NextMatch()
             }
         }
     }
@@ -1011,7 +978,7 @@ class BeerPongChampionshipViewPagerAdapter : PagerAdapter {
                     )
                 )
                 text8win.setText(text831.text.toString())
-                MyApp.endMatch = true
+                handleGame8NextMatch()
             }
         }
 
@@ -1036,9 +1003,57 @@ class BeerPongChampionshipViewPagerAdapter : PagerAdapter {
                     )
                 )
                 text8win.setText(text832.text.toString())
-                MyApp.endMatch = true
+                handleGame8NextMatch()
             }
         }
+    }
+
+    private fun handleGame8NextMatch() {
+        if ((card811.cardBackgroundColor == context.getColorStateList(R.color.colorRedLightLight) &&
+                    card812.cardBackgroundColor == context.getColorStateList(R.color.colorRedLightLight) &&
+                    (text811.text.toString() != "" || text812.text.toString() != ""))
+        ) {
+            MyApp.nextTeam1 = text811.text.toString()
+            MyApp.nextTeam2 = text812.text.toString()
+        } else if ((card813.cardBackgroundColor == context.getColorStateList(R.color.colorRedLightLight) &&
+                    card814.cardBackgroundColor == context.getColorStateList(R.color.colorRedLightLight) &&
+                    (text813.text.toString() != "" || text814.text.toString() != ""))
+        ) {
+            MyApp.nextTeam1 = text813.text.toString()
+            MyApp.nextTeam2 = text814.text.toString()
+        } else if ((card815.cardBackgroundColor == context.getColorStateList(R.color.colorRedLightLight) &&
+                    card816.cardBackgroundColor == context.getColorStateList(R.color.colorRedLightLight)) &&
+                    (text815.text.toString() != "" || text816.text.toString() != "")
+        ) {
+            MyApp.nextTeam1 = text815.text.toString()
+            MyApp.nextTeam2 = text816.text.toString()
+        } else if ((card817.cardBackgroundColor == context.getColorStateList(R.color.colorRedLightLight) &&
+            card818.cardBackgroundColor == context.getColorStateList(R.color.colorRedLightLight) &&
+                    (text817.text.toString() != "" || text818.text.toString() != ""))
+        ) {
+            MyApp.nextTeam1 = text817.text.toString()
+            MyApp.nextTeam2 = text818.text.toString()
+        } else if (card821.cardBackgroundColor == context.getColorStateList(R.color.colorRedLightLight) &&
+            card822.cardBackgroundColor == context.getColorStateList(R.color.colorRedLightLight)
+        ) {
+            MyApp.nextTeam1 = text821.text.toString()
+            MyApp.nextTeam2 = text822.text.toString()
+        } else if (card823.cardBackgroundColor == context.getColorStateList(R.color.colorRedLightLight) &&
+            card824.cardBackgroundColor == context.getColorStateList(R.color.colorRedLightLight)
+        ) {
+            MyApp.nextTeam1 = text823.text.toString()
+            MyApp.nextTeam2 = text824.text.toString()
+        } else if (card831.cardBackgroundColor == context.getColorStateList(R.color.colorRedLightLight) &&
+            card832.cardBackgroundColor == context.getColorStateList(R.color.colorRedLightLight)
+        ) {
+            MyApp.nextTeam1 = text831.text.toString()
+            MyApp.nextTeam2 = text832.text.toString()
+        } else if (card8win.cardBackgroundColor == context.getColorStateList(R.color.colorRedLight)) {
+            MyApp.nextTeam1 = ""
+            MyApp.nextTeam2 = ""
+            MyApp.endMatch = true
+        }
+
     }
 
     private fun handleMatch() {
@@ -1046,7 +1061,7 @@ class BeerPongChampionshipViewPagerAdapter : PagerAdapter {
         nextTeam2 = rootView.findViewById(R.id.beer_pong_championship_match_text_2)
 
         val mainHandler = Handler(Looper.getMainLooper())
-        mainHandler.post(object : Runnable{
+        mainHandler.post(object : Runnable {
             override fun run() {
                 if (!MyApp.endMatch) {
                     nextTeam1.setText(MyApp.nextTeam1)
