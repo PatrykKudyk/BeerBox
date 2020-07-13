@@ -32,4 +32,15 @@
     <string name="vs">VS</string>
     <string name="groups">Groups</string>
     <string name="toast_too_few_teams">Group ladder can be chosen for at least 5 teams</string>
+    <string name="bottles_game_rules">1. Split into 2 teams. Everyone get a full beer.\n\n
+    2. Get an empty beer can and rock/ball to throw.\n\n
+    3. Place the empty can in the middle.\n\n
+    4. Each team stands on the line in the equal distance from the can.\n\n
+    5. One team throws the rock. If it hits and knocks over the can, the throwing team starts to drink the beer. Meanwhile one person from other team runs to the can. Makes it stand and returns to the team.\n\n
+    6. When the runner crosses the line, the drinking stops.\n\n
+    7. If somebody drink all his beer, he wins.\n\n
+    8. If everyone from any team empties all the beers - they win.\n\n
+    Good Luck ;)\n\n</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

@@ -33,4 +33,13 @@
     <string name="vs">VS</string>
     <string name="groups">Grupy</string>
     <string name="toast_too_few_teams">Kolejkę grupową można grać od 5 drużyn</string>
+    <string name="bottles_game_rules">1. Podzielcie się na dwie drużyny. Każdy bierze ze sobą pełne piwo.\n\n
+    2. Weźcie pustą puszkę i coś do rzucania (kamień/piłeczkę).\n\n
+    3. Postawcie pustą puszkę na środku.\n\n
+    4. Każda drużyna staje w linii w równej odległości od puszki.\n\n
+    5. Osoba z drużyny rzucającej rzuca kamień w stronę puszki. Jeśli puszka się przewróci, cała drużyna zaczyna pić. W tym samym czasie jakaś osoba z drużyny przeciwnej musi podbiec do puszki i ją postawić. Następnie wraca do swojej drużyny.\n\n
+    6. Kiedy biegnący przekroczy linię - picie się kończy.\n\n
+    7. Jeśli ktoś wypije całe swoje piwo - kończy swój udział w grze.\n\n
+    8. Jeśli cała drużyna pierwsza skończy swoje piwa - wygrywa.\n\n
+    Powodzenia ;)\n\n</string>
 </resources>

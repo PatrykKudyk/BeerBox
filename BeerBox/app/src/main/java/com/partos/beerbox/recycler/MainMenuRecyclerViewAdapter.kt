@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.partos.beerbox.activities.MainActivity
 import com.partos.beerbox.R
 import com.partos.beerbox.fragments.beerpong.BeerPongMenuFragment
+import com.partos.beerbox.fragments.bottlesgame.BottlesGameMenuFragment
 import kotlinx.android.synthetic.main.row_main_menu.view.*
 
 class MainMenuRecyclerViewAdapter() : RecyclerView.Adapter<MainMenuViewHolder>() {
@@ -52,7 +53,11 @@ class MainMenuRecyclerViewAdapter() : RecyclerView.Adapter<MainMenuViewHolder>()
                 }
 
                 1 -> {
-                    fragment = BeerPongMenuFragment.newInstance()
+                    fragment = BottlesGameMenuFragment.newInstance()
+                }
+
+                2 -> {
+                    fragment =
                 }
 
             }
