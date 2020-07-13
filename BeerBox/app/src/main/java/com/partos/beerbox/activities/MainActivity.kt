@@ -7,11 +7,15 @@ import com.partos.beerbox.R
 import com.partos.beerbox.fragments.MainMenuFragment
 import com.partos.beerbox.fragments.beerpong.BeerPongMenuFragment
 import com.partos.beerbox.fragments.beerpong.BeerPongRulesFragment
+import com.partos.beerbox.fragments.bottlesgame.BottlesGameMenuFragment
+import com.partos.beerbox.fragments.bottlesgame.BottlesGameRulesFragment
 
 class MainActivity : AppCompatActivity(),
     MainMenuFragment.OnFragmentInteractionListener,
     BeerPongMenuFragment.OnFragmentInteractionListener,
-    BeerPongRulesFragment.OnFragmentInteractionListener {
+    BeerPongRulesFragment.OnFragmentInteractionListener,
+    BottlesGameMenuFragment.OnFragmentInteractionListener,
+    BottlesGameRulesFragment.OnFragmentInteractionListener {
 
     private lateinit var mainMenuFragment: MainMenuFragment
 
