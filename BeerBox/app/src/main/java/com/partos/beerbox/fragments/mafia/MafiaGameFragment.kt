@@ -11,6 +11,8 @@ import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.ImageView
+import androidx.cardview.widget.CardView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.partos.beerbox.R
@@ -42,7 +44,10 @@ class MafiaGameFragment : Fragment() {
     private var listener: OnFragmentInteractionListener? = null
 
     private lateinit var rootView: View
-
+    private lateinit var nextButton: Button
+    private lateinit var assignButton: Button
+    private lateinit var cardShow: CardView
+    private lateinit var cardRole: CardView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -99,6 +104,31 @@ class MafiaGameFragment : Fragment() {
     }
 
     private fun initFragment() {
+        attachViews()
+        initListeners()
+    }
 
+    private fun initListeners() {
+        assignButton.setOnClickListener {
+            assignButton.visibility = View.GONE
+            cardShow.visibility = View.VISIBLE
+        }
+        cardShow.setOnClickListener {
+            cardShow.visibility = View.GONE
+            cardRole.visibility = View.VISIBLE
+            nextButton.visibility = View.VISIBLE
+        }
+        nextButton.setOnClickListener {
+            cardRole.visibility = View.GONE
+            nextButton.visibility = View.GONE
+            cardShow.visibility = View.VISIBLE
+        }
+    }
+
+    private fun attachViews() {
+        nextButton = rootView.findViewById(R.id.mafia_game_button_next)
+        assignButton = rootView.findViewById(R.id.mafia_game_button_assign)
+        cardRole = rootView.findViewById(R.id.mafia_game_card_role)
+        cardShow = rootView.findViewById(R.id.mafia_game_card_show)
     }
 }

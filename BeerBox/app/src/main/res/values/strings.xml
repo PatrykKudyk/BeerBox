@@ -82,6 +82,13 @@
     <string name="mafia_role_jude">Jude</string>
     <string name="mafia_role_lawyer">Lawyer</string>
     <string name="mafia_role_judge">Judge</string>
+    <string name="mafia_role_mafia">Mafia Member</string>
+    <string name="mafia_role_game_master">Game Master</string>
+    <string name="mafia_role_city">City Member</string>
     <string name="toast_max_roles_reached">Maximum roles reached</string>
+    <string name="mafia_game_show_next">Next role</string>
+    <string name="mafia_game_show">Show role</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
