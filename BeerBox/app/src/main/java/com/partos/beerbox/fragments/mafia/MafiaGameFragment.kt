@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -43,11 +44,15 @@ class MafiaGameFragment : Fragment() {
     private var rolesList: ArrayList<Int>? = null
     private var listener: OnFragmentInteractionListener? = null
 
+    private lateinit var rolesAssignedList: ArrayList<String>
+
     private lateinit var rootView: View
+    private lateinit var roleConstraint: ConstraintLayout
     private lateinit var nextButton: Button
     private lateinit var assignButton: Button
     private lateinit var cardShow: CardView
     private lateinit var cardRole: CardView
+    private lateinit var textRole: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -105,16 +110,70 @@ class MafiaGameFragment : Fragment() {
 
     private fun initFragment() {
         attachViews()
+        assignRoles()
         initListeners()
     }
 
+    private fun assignRoles() {
+        rolesAssignedList = ArrayList()
+        if (rolesList?.get(0) == 1) {
+            rolesAssignedList.add(rootView.context.getString(R.string.mafia_role_cattani))
+        }
+        if (rolesList?.get(1) == 1) {
+            rolesAssignedList.add(rootView.context.getString(R.string.mafia_role_medic))
+        }
+        if (rolesList?.get(2) == 1) {
+            rolesAssignedList.add(rootView.context.getString(R.string.mafia_role_sniper))
+        }
+        if (rolesList?.get(3) == 1) {
+            rolesAssignedList.add(rootView.context.getString(R.string.mafia_role_courtesan))
+        }
+        if (rolesList?.get(4) == 1) {
+            rolesAssignedList.add(rootView.context.getString(R.string.mafia_role_jude))
+        }
+        if (rolesList?.get(5) == 1) {
+            rolesAssignedList.add(rootView.context.getString(R.string.mafia_role_lawyer))
+        }
+        if (rolesList?.get(6) == 1) {
+            rolesAssignedList.add(rootView.context.getString(R.string.mafia_role_judge))
+        }
+        if (size == 7 || size == 8) {
+            rolesAssignedList.add(rootView.context.getString(R.string.mafia_role_mafia))
+            rolesAssignedList.add(rootView.context.getString(R.string.mafia_role_mafia))
+        } else if (size!! >= 9 && size!! <= 11) {
+            rolesAssignedList.add(rootView.context.getString(R.string.mafia_role_mafia))
+            rolesAssignedList.add(rootView.context.getString(R.string.mafia_role_mafia))
+            rolesAssignedList.add(rootView.context.getString(R.string.mafia_role_mafia))
+        } else if (size!! >= 12 && size!! <= 14) {
+            rolesAssignedList.add(rootView.context.getString(R.string.mafia_role_mafia))
+            rolesAssignedList.add(rootView.context.getString(R.string.mafia_role_mafia))
+            rolesAssignedList.add(rootView.context.getString(R.string.mafia_role_mafia))
+            rolesAssignedList.add(rootView.context.getString(R.string.mafia_role_mafia))
+        } else if (size!! >= 15 && size!! <= 17) {
+            rolesAssignedList.add(rootView.context.getString(R.string.mafia_role_mafia))
+            rolesAssignedList.add(rootView.context.getString(R.string.mafia_role_mafia))
+            rolesAssignedList.add(rootView.context.getString(R.string.mafia_role_mafia))
+            rolesAssignedList.add(rootView.context.getString(R.string.mafia_role_mafia))
+            rolesAssignedList.add(rootView.context.getString(R.string.mafia_role_mafia))
+        }
+        for (i in (rolesAssignedList.size)..(size as Int) - 2) {
+            rolesAssignedList.add(rootView.context.getString(R.string.mafia_role_city))
+        }
+        if (!(isStatic as Boolean)) {
+            rolesAssignedList.add(rootView.context.getString(R.string.mafia_role_game_master))
+        }
+        rolesAssignedList.shuffle()
+    }
+
     private fun initListeners() {
+        var position = 0
         assignButton.setOnClickListener {
             assignButton.visibility = View.GONE
             cardShow.visibility = View.VISIBLE
         }
         cardShow.setOnClickListener {
             cardShow.visibility = View.GONE
+            textRole.text = rolesAssignedList[position]
             cardRole.visibility = View.VISIBLE
             nextButton.visibility = View.VISIBLE
         }
@@ -122,13 +181,19 @@ class MafiaGameFragment : Fragment() {
             cardRole.visibility = View.GONE
             nextButton.visibility = View.GONE
             cardShow.visibility = View.VISIBLE
+            position++
+            if (position == rolesAssignedList.size) {
+                roleConstraint.visibility = View.GONE
+            }
         }
     }
 
     private fun attachViews() {
+        roleConstraint = rootView.findViewById(R.id.mafia_game_constraint_show_role)
         nextButton = rootView.findViewById(R.id.mafia_game_button_next)
         assignButton = rootView.findViewById(R.id.mafia_game_button_assign)
         cardRole = rootView.findViewById(R.id.mafia_game_card_role)
         cardShow = rootView.findViewById(R.id.mafia_game_card_show)
+        textRole = rootView.findViewById(R.id.mafia_game_text_role)
     }
 }

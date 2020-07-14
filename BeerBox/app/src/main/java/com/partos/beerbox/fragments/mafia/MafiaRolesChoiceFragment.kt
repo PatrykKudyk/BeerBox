@@ -157,11 +157,11 @@ class MafiaRolesChoiceFragment : Fragment() {
         val playersAmount = size as Int
         if (playersAmount == 7 || playersAmount == 8) {
             players = playersAmount - 3
-        } else if (playersAmount == 9 || playersAmount == 10) {
+        } else if (playersAmount == 9 || playersAmount == 11) {
             players = playersAmount - 4
-        } else if (playersAmount >= 11 || playersAmount <= 13) {
+        } else if (playersAmount >= 12 || playersAmount <= 14) {
             players = playersAmount - 5
-        } else if (playersAmount >= 14 || playersAmount <= 16) {
+        } else if (playersAmount >= 15 || playersAmount <= 17) {
             players = playersAmount - 6
         }
         val text = if (players < 7) {

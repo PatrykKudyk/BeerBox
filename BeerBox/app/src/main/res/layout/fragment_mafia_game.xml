@@ -88,6 +88,7 @@
                     app:strokeWidth="2dp">
 
                     <TextView
+                        android:id="@+id/mafia_game_text_role"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_margin="16dp"
