@@ -10,6 +10,7 @@ import com.partos.beerbox.fragments.mafia.MafiaGameSizeFragment
 class MafiaActivity : AppCompatActivity(),
     MafiaGameSizeFragment.OnFragmentInteractionListener,
     MafiaGameFragment.OnFragmentInteractionListener {
+
     private lateinit var gameSizeFragment: MafiaGameSizeFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
