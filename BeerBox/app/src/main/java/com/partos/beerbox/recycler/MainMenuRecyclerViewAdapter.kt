@@ -12,6 +12,7 @@ import com.partos.beerbox.activities.MainActivity
 import com.partos.beerbox.R
 import com.partos.beerbox.fragments.beerpong.BeerPongMenuFragment
 import com.partos.beerbox.fragments.bottlesgame.BottlesGameMenuFragment
+import com.partos.beerbox.fragments.mafia.MafiaMenuFragment
 import kotlinx.android.synthetic.main.row_main_menu.view.*
 
 class MainMenuRecyclerViewAdapter() : RecyclerView.Adapter<MainMenuViewHolder>() {
@@ -57,7 +58,7 @@ class MainMenuRecyclerViewAdapter() : RecyclerView.Adapter<MainMenuViewHolder>()
                 }
 
                 2 -> {
-                    fragment =
+                    fragment = MafiaMenuFragment.newInstance()
                 }
 
             }

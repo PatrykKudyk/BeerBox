@@ -2,10 +2,10 @@
 <resources>
     <string name="app_name">Beer Box</string>
     <string name="app_title">Beer Box</string>
-    <string name="pictionary">Kalambury</string>
     <string name="bottles">Flanki</string>
     <string name="beer_pong">Beer Pong</string>
     <string name="rules">Zasady</string>
+    <string name="roles">Role</string>
     <string name="play">Graj</string>
     <string name="play2">Gramy</string>
     <string name="beer_pong_rules">1. Weźcie 3/6/10 kubków dla każdej z drużyn.\n\n
@@ -42,4 +42,5 @@
     7. Jeśli ktoś wypije całe swoje piwo - kończy swój udział w grze.\n\n
     8. Jeśli cała drużyna pierwsza skończy swoje piwa - wygrywa.\n\n
     Powodzenia ;)\n\n</string>
+    <string name="mafia_roles"></string>
 </resources>
