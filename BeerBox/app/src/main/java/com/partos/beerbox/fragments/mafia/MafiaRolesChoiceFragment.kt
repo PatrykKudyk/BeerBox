@@ -40,7 +40,7 @@ class MafiaRolesChoiceFragment : Fragment() {
     private lateinit var judeCheckBox: CheckBox
     private lateinit var lawyerCheckBox: CheckBox
     private lateinit var judgeCheckBox: CheckBox
-    
+    private lateinit var playButton: Button
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -99,7 +99,58 @@ class MafiaRolesChoiceFragment : Fragment() {
         attachViews()
         setTextView()
         setCheckboxesClickListeners()
+        playButton.setOnClickListener {
+            val fragment =
+                MafiaGameFragment.newInstance(size as Int, isStatic as Boolean, getRolesArray())
+            fragmentManager
+                ?.beginTransaction()
+                ?.setCustomAnimations(
+                    R.anim.enter_right_to_left, R.anim.exit_left_to_right,
+                    R.anim.enter_left_to_right, R.anim.exit_right_to_left
+                )
+                ?.replace(R.id.mafia_frame_layout, fragment)
+                ?.commit()
+        }
+    }
 
+    private fun getRolesArray(): ArrayList<Int> {
+        var array = ArrayList<Int>()
+        if (cattaniCheckBox.isChecked) {
+            array.add(1)
+        } else {
+            array.add(0)
+        }
+        if (medicCheckBox.isChecked) {
+            array.add(1)
+        } else {
+            array.add(0)
+        }
+        if (sniperCheckBox.isChecked) {
+            array.add(1)
+        } else {
+            array.add(0)
+        }
+        if (courtesanCheckBox.isChecked) {
+            array.add(1)
+        } else {
+            array.add(0)
+        }
+        if (judeCheckBox.isChecked) {
+            array.add(1)
+        } else {
+            array.add(0)
+        }
+        if (lawyerCheckBox.isChecked) {
+            array.add(1)
+        } else {
+            array.add(0)
+        }
+        if (judgeCheckBox.isChecked) {
+            array.add(1)
+        } else {
+            array.add(0)
+        }
+        return array
     }
 
     private fun setTextView() {
@@ -114,8 +165,14 @@ class MafiaRolesChoiceFragment : Fragment() {
             players = playersAmount - 6
         }
         val text = if (players < 7) {
-            rootView.context.getString(R.string.mafia_choose_roles1) + " " + players.toString() + " " +
-                    rootView.context.getString(R.string.mafia_choose_roles2)
+            if (players == 3 || players == 4) {
+                rootView.context.getString(R.string.mafia_choose_roles1) + " " + players.toString() + " " +
+                        rootView.context.getString(R.string.mafia_choose_roles21)
+            } else {
+                rootView.context.getString(R.string.mafia_choose_roles1) + " " + players.toString() + " " +
+                        rootView.context.getString(R.string.mafia_choose_roles2)
+            }
+
         } else {
             rootView.context.getString(R.string.mafia_choose_roles1) + " 7 " +
                     rootView.context.getString(R.string.mafia_choose_roles2)
@@ -276,6 +333,6 @@ class MafiaRolesChoiceFragment : Fragment() {
         judeCheckBox = rootView.findViewById(R.id.mafia_roles_choice_check_jude)
         lawyerCheckBox = rootView.findViewById(R.id.mafia_roles_choice_check_lawyer)
         judgeCheckBox = rootView.findViewById(R.id.mafia_roles_choice_check_judge)
-
+        playButton = rootView.findViewById(R.id.mafia_roles_choice_button_play)
     }
 }

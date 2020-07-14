@@ -80,6 +80,7 @@
     <string name="mafia_gm_dynamic">Dynamiczny Mistrz Gry</string>
     <string name="mafia_choose_roles1">Wybierz maksymalnie</string>
     <string name="mafia_choose_roles2">ról specjalnych</string>
+    <string name="mafia_choose_roles21">role specjalne</string>
     <string name="mafia_role_cattani">Cattani</string>
     <string name="mafia_role_medic">Medyk</string>
     <string name="mafia_role_sniper">Snajper</string>
