@@ -88,6 +88,7 @@
     <string name="toast_max_roles_reached">Maximum roles reached</string>
     <string name="mafia_game_show_next">Next role</string>
     <string name="mafia_game_show">Show role</string>
+    <string name="game_master_panel">Game Master Panel</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 

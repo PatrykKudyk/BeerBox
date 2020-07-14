@@ -101,7 +101,7 @@ class MafiaRolesChoiceFragment : Fragment() {
         setCheckboxesClickListeners()
         playButton.setOnClickListener {
             val fragment =
-                MafiaGameFragment.newInstance(size as Int, isStatic as Boolean, getRolesArray())
+                MafiaAssignRolesFragment.newInstance(size as Int, isStatic as Boolean, getRolesArray())
             fragmentManager
                 ?.beginTransaction()
                 ?.setCustomAnimations(

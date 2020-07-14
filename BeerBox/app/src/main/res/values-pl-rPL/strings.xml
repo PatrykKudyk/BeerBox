@@ -94,5 +94,6 @@
     <string name="toast_max_roles_reached">Osiągnięto maximum ról specjalnych</string>
     <string name="mafia_game_show_next">Następna rola</string>
     <string name="mafia_game_show">Pokaż rolę</string>
+    <string name="game_master_panel">Panel Mistrza Gry</string>
 
 </resources>

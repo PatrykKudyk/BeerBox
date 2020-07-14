@@ -4,14 +4,14 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.partos.beerbox.R
-import com.partos.beerbox.fragments.mafia.MafiaGameFragment
+import com.partos.beerbox.fragments.mafia.MafiaAssignRolesFragment
 import com.partos.beerbox.fragments.mafia.MafiaGameSizeFragment
 import com.partos.beerbox.fragments.mafia.MafiaRolesChoiceFragment
 
 class MafiaActivity : AppCompatActivity(),
     MafiaGameSizeFragment.OnFragmentInteractionListener,
     MafiaRolesChoiceFragment.OnFragmentInteractionListener,
-    MafiaGameFragment.OnFragmentInteractionListener {
+    MafiaAssignRolesFragment.OnFragmentInteractionListener {
 
     private lateinit var gameSizeFragment: MafiaGameSizeFragment
 

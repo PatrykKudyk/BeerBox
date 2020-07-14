@@ -1,131 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragments.mafia.MafiaGameFragment">
 
-    <ScrollView
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorOrangeBackground"
-        android:fillViewport="true">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/colorOrangeBackground"
-            android:gravity="center|top"
-            android:orientation="vertical">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/mafia_game_constraint_show_role"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/colorOrangeBackground">
-
-                <Button
-                    android:id="@+id/mafia_game_button_assign"
-                    android:layout_width="200dp"
-                    android:layout_height="200dp"
-                    android:background="@drawable/button_background_orange_light"
-                    android:fontFamily="@font/dustismo_bold"
-                    android:padding="16dp"
-                    android:text="@string/assign_roles"
-                    android:textColor="@color/colorOrangeDark"
-                    android:textSize="30dip"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/mafia_game_card_show"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:layout_marginBottom="50dp"
-                    android:theme="@style/Theme.MaterialComponents.Light"
-                    android:visibility="gone"
-                    app:cardBackgroundColor="@color/colorOrangeLightLight"
-                    app:cardCornerRadius="18dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHeight_percent="0.5"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintWidth_percent="0.7"
-                    app:strokeColor="@color/colorOrangeDark"
-                    app:strokeWidth="2dp">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_margin="16dp"
-                        android:fontFamily="@font/dustismo_bold"
-                        android:gravity="center"
-                        android:text="@string/mafia_game_show"
-                        android:textSize="40dip" />
-
-                </com.google.android.material.card.MaterialCardView>
-
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/mafia_game_card_role"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:layout_marginBottom="50dp"
-                    android:theme="@style/Theme.MaterialComponents.Light"
-                    android:visibility="gone"
-                    app:cardBackgroundColor="@color/colorOrangeLightLight"
-                    app:cardCornerRadius="18dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHeight_percent="0.5"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintWidth_percent="0.7"
-                    app:strokeColor="@color/colorOrangeDark"
-                    app:strokeWidth="2dp">
-
-                    <TextView
-                        android:id="@+id/mafia_game_text_role"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_margin="16dp"
-                        android:fontFamily="@font/dustismo_bold"
-                        android:gravity="center"
-                        android:textSize="40dip"
-                        tools:text="Mafia Member" />
-
-                </com.google.android.material.card.MaterialCardView>
-
-                <View
-                    android:id="@+id/view"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    app:layout_constraintHeight_percent="0.04"
-                    app:layout_constraintTop_toBottomOf="@id/mafia_game_card_role" />
-
-                <Button
-                    android:id="@+id/mafia_game_button_next"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:background="@drawable/button_background_orange_medium"
-                    android:fontFamily="@font/dustismo_bold"
-                    android:text="@string/mafia_game_show_next"
-                    android:textColor="@color/colorOrangeBackground"
-                    android:textSize="22dip"
-                    android:visibility="gone"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHeight_percent="0.1"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/view"
-                    app:layout_constraintWidth_percent="0.6" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-        </LinearLayout>
-
-    </ScrollView>
+        android:text="@string/hello_blank_fragment" />
 
 </FrameLayout>
