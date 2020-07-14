@@ -72,5 +72,15 @@
     <string name="assign_roles">Assign roles</string>
     <string name="mafia_gm_static">Static Game Master</string>
     <string name="mafia_gm_dynamic">Dynamic Game Master</string>
+    <string name="mafia_choose_roles1">Chose maximum</string>
+    <string name="mafia_choose_roles2">special roles</string>
+    <string name="mafia_role_cattani">Cattani</string>
+    <string name="mafia_role_medic">Medic</string>
+    <string name="mafia_role_sniper">Sniper</string>
+    <string name="mafia_role_courtesan">Courtesan</string>
+    <string name="mafia_role_jude">Jude</string>
+    <string name="mafia_role_lawyer">Lawyer</string>
+    <string name="mafia_role_judge">Judge</string>
+    <string name="toast_max_roles_reached">Maximum roles reached</string>
 
 </resources>

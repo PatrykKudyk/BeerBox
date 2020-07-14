@@ -22,8 +22,9 @@ import kotlinx.android.synthetic.main.fragment_main_menu.view.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+private const val ARG_PARAM1 = "size"
+private const val ARG_PARAM2 = "isStatic"
+private const val ARG_PARAM3 = "rolesList"
 
 /**
  * A simple [Fragment] subclass.
@@ -35,8 +36,9 @@ private const val ARG_PARAM2 = "param2"
  */
 class MafiaGameFragment : Fragment() {
     // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    private var size: Int? = null
+    private var isStatic: Boolean? = null
+    private var rolesList: ArrayList<Int>? = null
     private var listener: OnFragmentInteractionListener? = null
 
     private lateinit var rootView: View
@@ -45,8 +47,9 @@ class MafiaGameFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+            size = it.getInt(ARG_PARAM1)
+            isStatic = it.getBoolean(ARG_PARAM2)
+            rolesList = it.getIntegerArrayList(ARG_PARAM3)
         }
     }
 
@@ -85,9 +88,12 @@ class MafiaGameFragment : Fragment() {
 
     companion object {
         @JvmStatic
-        fun newInstance() =
+        fun newInstance(size: Int, isStatic: Boolean, rolesArray: ArrayList<Int>) =
             MafiaGameFragment().apply {
                 arguments = Bundle().apply {
+                    putInt(ARG_PARAM1, size)
+                    putBoolean(ARG_PARAM2, isStatic)
+                    putIntegerArrayList(ARG_PARAM3, rolesArray)
                 }
             }
     }

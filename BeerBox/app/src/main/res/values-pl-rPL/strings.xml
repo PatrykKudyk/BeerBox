@@ -78,5 +78,15 @@
     <string name="assign_roles">Przydziel role</string>
     <string name="mafia_gm_static">Statyczny Mistrz Gry</string>
     <string name="mafia_gm_dynamic">Dynamiczny Mistrz Gry</string>
+    <string name="mafia_choose_roles1">Wybierz maksymalnie</string>
+    <string name="mafia_choose_roles2">ról specjalnych</string>
+    <string name="mafia_role_cattani">Cattani</string>
+    <string name="mafia_role_medic">Medyk</string>
+    <string name="mafia_role_sniper">Snajper</string>
+    <string name="mafia_role_courtesan">Kurtyzana</string>
+    <string name="mafia_role_jude">Żyd</string>
+    <string name="mafia_role_lawyer">Adwokat</string>
+    <string name="mafia_role_judge">Sędzia</string>
+    <string name="toast_max_roles_reached">Osiągnięto maximum ról specjalnych</string>
 
 </resources>
