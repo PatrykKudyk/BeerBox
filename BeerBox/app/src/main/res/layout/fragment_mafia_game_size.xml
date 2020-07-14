@@ -146,6 +146,16 @@
                     android:background="@drawable/button_background_orange_medium"
                     android:textColor="@color/colorOrangeBackground"/>
 
+                <View
+                    android:id="@+id/view5"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHeight_percent="0.04"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/mafia_game_size_button_play" />
+
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </LinearLayout>

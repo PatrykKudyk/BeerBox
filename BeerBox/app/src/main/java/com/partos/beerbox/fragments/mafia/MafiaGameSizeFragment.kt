@@ -111,7 +111,17 @@ class MafiaGameSizeFragment : Fragment() {
                     Toast.LENGTH_SHORT
                 ).show()
             } else {
-                val fragment = MafiaGameFragment.newInstance()
+                val fragment: MafiaRolesChoiceFragment = if (checkStatic.isChecked) {
+                    MafiaRolesChoiceFragment.newInstance(
+                        sizeEditText.text.toString().toInt(),
+                        true
+                    )
+                } else {
+                    MafiaRolesChoiceFragment.newInstance(
+                        sizeEditText.text.toString().toInt(),
+                        false
+                    )
+                }
                 fragmentManager
                     ?.beginTransaction()
                     ?.setCustomAnimations(
