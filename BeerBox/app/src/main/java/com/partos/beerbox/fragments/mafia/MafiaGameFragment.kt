@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -115,12 +116,14 @@ class MafiaGameFragment : Fragment() {
             dayPanel.visibility = View.GONE
             nightPanel.visibility = View.VISIBLE
             nightPanel.adapter = NightPanelRecyclerView(nightRoles)
+            hideKeyboard()
         }
         changePanelButton2.setOnClickListener {
             changePanelButton.visibility = View.VISIBLE
             changePanelButton2.visibility = View.GONE
             dayPanel.visibility = View.VISIBLE
             nightPanel.visibility = View.GONE
+            hideKeyboard()
         }
 
     }
@@ -189,5 +192,14 @@ class MafiaGameFragment : Fragment() {
         nightPanel = rootView.findViewById(R.id.mafia_game_night_panel)
         changePanelButton = rootView.findViewById(R.id.mafia_game_button_change_panel)
         changePanelButton2 = rootView.findViewById(R.id.mafia_game_button_change_panel2)
+    }
+
+    private fun hideKeyboard() {
+        val view = activity?.currentFocus
+        if (view != null) {
+            val inputManager =
+                rootView.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            inputManager.hideSoftInputFromWindow(view.windowToken, 0)
+        }
     }
 }
