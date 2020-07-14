@@ -89,5 +89,6 @@
     <string name="mafia_assign_show_next">Next role</string>
     <string name="mafia_assign_show">Show role</string>
     <string name="game_master_panel">Game Master Panel</string>
+    <string name="name">Name</string>
 
 </resources>

@@ -173,7 +173,19 @@ class MafiaAssignRolesFragment : Fragment() {
             cardShow.visibility = View.VISIBLE
             position++
             if (position == rolesAssignedList.size) {
-
+                val fragment = MafiaGameFragment.newInstance(
+                    size as Int,
+                    isStatic as Boolean,
+                    rolesList as ArrayList<Int>
+                )
+                fragmentManager
+                    ?.beginTransaction()
+                    ?.setCustomAnimations(
+                        R.anim.enter_right_to_left, R.anim.exit_left_to_right,
+                        R.anim.enter_left_to_right, R.anim.exit_right_to_left
+                    )
+                    ?.replace(R.id.mafia_frame_layout, fragment)
+                    ?.commit()
             }
         }
     }

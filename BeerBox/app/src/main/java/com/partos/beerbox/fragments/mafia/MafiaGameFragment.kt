@@ -8,13 +8,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ScrollView
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.partos.beerbox.R
+import com.partos.beerbox.recycler.DayPanelRecyclerView
+import com.partos.beerbox.recycler.MainMenuRecyclerViewAdapter
+import com.partos.beerbox.recycler.MarginItemDecoration
 import java.lang.RuntimeException
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+private const val ARG_PARAM1 = "size"
+private const val ARG_PARAM2 = "isStatic"
+private const val ARG_PARAM3 = "rolesList"
 
 /**
  * A simple [Fragment] subclass.
@@ -23,19 +29,24 @@ private const val ARG_PARAM2 = "param2"
  */
 class MafiaGameFragment : Fragment() {
     // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    private var size: Int? = null
+    private var isStatic: Boolean? = null
+    private var rolesList: ArrayList<Int>? = null
     private var listener: OnFragmentInteractionListener? = null
 
     private lateinit var rootView: View
-    private lateinit var dayPanel: ScrollView
-    private lateinit var nightPanel: ScrollView
+    private lateinit var dayPanel: RecyclerView
+    private lateinit var nightPanel: RecyclerView
+
+    private lateinit var rolesAssignedList: ArrayList<String>
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+            size = it.getInt(ARG_PARAM1)
+            isStatic = it.getBoolean(ARG_PARAM2)
+            rolesList = it.getIntegerArrayList(ARG_PARAM3)
         }
     }
 
@@ -72,27 +83,72 @@ class MafiaGameFragment : Fragment() {
     }
 
     companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment MafiaGameFragment.
-         */
-        // TODO: Rename and change types and number of parameters
         @JvmStatic
-        fun newInstance(param1: String, param2: String) =
+        fun newInstance(size: Int, isStatic: Boolean, rolesArray: ArrayList<Int>) =
             MafiaGameFragment().apply {
                 arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+                    putInt(ARG_PARAM1, size)
+                    putBoolean(ARG_PARAM2, isStatic)
+                    putIntegerArrayList(ARG_PARAM3, rolesArray)
                 }
             }
     }
 
     private fun initFragment() {
         attachViews()
+        assignRoles()
+        val mLayoutManager = LinearLayoutManager(this.context)
+        dayPanel.layoutManager = mLayoutManager
+        dayPanel.addItemDecoration(MarginItemDecoration(12))
+        dayPanel.adapter = DayPanelRecyclerView(rolesAssignedList)
+
+    }
+
+    private fun assignRoles() {
+        rolesAssignedList = ArrayList()
+        if (rolesList?.get(0) == 1) {
+            rolesAssignedList.add(rootView.context.getString(R.string.mafia_role_cattani))
+        }
+        if (rolesList?.get(1) == 1) {
+            rolesAssignedList.add(rootView.context.getString(R.string.mafia_role_medic))
+        }
+        if (rolesList?.get(2) == 1) {
+            rolesAssignedList.add(rootView.context.getString(R.string.mafia_role_sniper))
+        }
+        if (rolesList?.get(3) == 1) {
+            rolesAssignedList.add(rootView.context.getString(R.string.mafia_role_courtesan))
+        }
+        if (rolesList?.get(4) == 1) {
+            rolesAssignedList.add(rootView.context.getString(R.string.mafia_role_jude))
+        }
+        if (rolesList?.get(5) == 1) {
+            rolesAssignedList.add(rootView.context.getString(R.string.mafia_role_lawyer))
+        }
+        if (rolesList?.get(6) == 1) {
+            rolesAssignedList.add(rootView.context.getString(R.string.mafia_role_judge))
+        }
+        if (size == 7 || size == 8) {
+            rolesAssignedList.add(rootView.context.getString(R.string.mafia_role_mafia))
+            rolesAssignedList.add(rootView.context.getString(R.string.mafia_role_mafia))
+        } else if (size!! >= 9 && size!! <= 11) {
+            rolesAssignedList.add(rootView.context.getString(R.string.mafia_role_mafia))
+            rolesAssignedList.add(rootView.context.getString(R.string.mafia_role_mafia))
+            rolesAssignedList.add(rootView.context.getString(R.string.mafia_role_mafia))
+        } else if (size!! >= 12 && size!! <= 14) {
+            rolesAssignedList.add(rootView.context.getString(R.string.mafia_role_mafia))
+            rolesAssignedList.add(rootView.context.getString(R.string.mafia_role_mafia))
+            rolesAssignedList.add(rootView.context.getString(R.string.mafia_role_mafia))
+            rolesAssignedList.add(rootView.context.getString(R.string.mafia_role_mafia))
+        } else if (size!! >= 15 && size!! <= 17) {
+            rolesAssignedList.add(rootView.context.getString(R.string.mafia_role_mafia))
+            rolesAssignedList.add(rootView.context.getString(R.string.mafia_role_mafia))
+            rolesAssignedList.add(rootView.context.getString(R.string.mafia_role_mafia))
+            rolesAssignedList.add(rootView.context.getString(R.string.mafia_role_mafia))
+            rolesAssignedList.add(rootView.context.getString(R.string.mafia_role_mafia))
+        }
+        for (i in (rolesAssignedList.size)..(size as Int) - 2) {
+            rolesAssignedList.add(rootView.context.getString(R.string.mafia_role_city))
+        }
     }
 
     private fun attachViews() {
