@@ -10,16 +10,17 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:windowSoftInputMode="stateVisible|adjustResize">
-        <activity android:name=".activities.BeerPongActivity"
+        <activity android:name=".activities.MafiaActivity"
             android:configChanges="orientation"
-            android:screenOrientation="landscape">
-
-        </activity>
-        <activity android:name=".activities.BottlesGameActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".activities.BeerPongActivity"
             android:configChanges="orientation"
-            android:screenOrientation="landscape">
-
-        </activity>
+            android:screenOrientation="landscape"></activity>
+        <activity
+            android:name=".activities.BottlesGameActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="landscape"></activity>
         <activity
             android:name=".activities.MainActivity"
             android:configChanges="orientation"
@@ -31,6 +32,5 @@
             </intent-filter>
         </activity>
     </application>
-
 
 </manifest>
