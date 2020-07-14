@@ -92,8 +92,8 @@
     <string name="mafia_role_game_master">Mistrz Gry</string>
     <string name="mafia_role_city">Członek Miasta</string>
     <string name="toast_max_roles_reached">Osiągnięto maximum ról specjalnych</string>
-    <string name="mafia_game_show_next">Następna rola</string>
-    <string name="mafia_game_show">Pokaż rolę</string>
+    <string name="mafia_assign_show_next">Następna rola</string>
+    <string name="mafia_assign_show">Pokaż rolę</string>
     <string name="game_master_panel">Panel Mistrza Gry</string>
 
 </resources>

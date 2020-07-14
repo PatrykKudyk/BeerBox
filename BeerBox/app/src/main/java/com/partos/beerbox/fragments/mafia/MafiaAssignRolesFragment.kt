@@ -179,10 +179,10 @@ class MafiaAssignRolesFragment : Fragment() {
     }
 
     private fun attachViews() {
-        nextButton = rootView.findViewById(R.id.mafia_game_button_next)
-        assignButton = rootView.findViewById(R.id.mafia_game_button_assign)
-        cardRole = rootView.findViewById(R.id.mafia_game_card_role)
-        cardShow = rootView.findViewById(R.id.mafia_game_card_show)
-        textRole = rootView.findViewById(R.id.mafia_game_text_role)
+        nextButton = rootView.findViewById(R.id.mafia_assign_button_next)
+        assignButton = rootView.findViewById(R.id.mafia_assign_button_assign)
+        cardRole = rootView.findViewById(R.id.mafia_assign_card_role)
+        cardShow = rootView.findViewById(R.id.mafia_assign_card_show)
+        textRole = rootView.findViewById(R.id.mafia_assign_text_role)
     }
 }
