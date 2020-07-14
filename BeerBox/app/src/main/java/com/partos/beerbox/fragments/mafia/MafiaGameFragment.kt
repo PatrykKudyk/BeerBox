@@ -7,13 +7,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ScrollView
+import android.widget.Button
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.partos.beerbox.R
 import com.partos.beerbox.recycler.DayPanelRecyclerView
-import com.partos.beerbox.recycler.MainMenuRecyclerViewAdapter
 import com.partos.beerbox.recycler.MarginItemDecoration
+import com.partos.beerbox.recycler.NightPanelRecyclerView
 import java.lang.RuntimeException
 
 // TODO: Rename parameter arguments, choose names that match
@@ -37,8 +37,10 @@ class MafiaGameFragment : Fragment() {
     private lateinit var rootView: View
     private lateinit var dayPanel: RecyclerView
     private lateinit var nightPanel: RecyclerView
+    private lateinit var changePanelButton: Button
 
     private lateinit var rolesAssignedList: ArrayList<String>
+    private lateinit var nightRoles: ArrayList<String>
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -68,7 +70,7 @@ class MafiaGameFragment : Fragment() {
         super.onAttach(context)
         if (context is OnFragmentInteractionListener) {
             listener = context
-        } else  {
+        } else {
             throw RuntimeException(context.toString() + " must implement OnFragmentInteractionListener")
         }
     }
@@ -97,11 +99,39 @@ class MafiaGameFragment : Fragment() {
     private fun initFragment() {
         attachViews()
         assignRoles()
-        val mLayoutManager = LinearLayoutManager(this.context)
-        dayPanel.layoutManager = mLayoutManager
+        assightNightRoles()
+        val dayLayoutManager = LinearLayoutManager(this.context)
+        val nightLayoutManager = LinearLayoutManager(this.context)
+        dayPanel.layoutManager = dayLayoutManager
         dayPanel.addItemDecoration(MarginItemDecoration(12))
         dayPanel.adapter = DayPanelRecyclerView(rolesAssignedList)
+        nightPanel.layoutManager = nightLayoutManager
+        nightPanel.addItemDecoration(MarginItemDecoration(12))
 
+        changePanelButton.setOnClickListener {
+            if (dayPanel.visibility == View.VISIBLE) {
+                changePanelButton.text = rootView.context.getText(R.string.make_day)
+                dayPanel.visibility = View.GONE
+                nightPanel.visibility = View.VISIBLE
+                nightPanel.adapter = NightPanelRecyclerView(nightRoles)
+            } else {
+                changePanelButton.text = rootView.context.getText(R.string.make_night)
+                dayPanel.visibility = View.VISIBLE
+                nightPanel.visibility = View.GONE
+            }
+        }
+
+    }
+
+    private fun assightNightRoles() {
+        nightRoles = ArrayList()
+        if (rolesList?.get(1) == 1) {
+            nightRoles.add(rootView.context.getString(R.string.healed))
+        }
+        if (rolesList?.get(3) == 1) {
+            nightRoles.add(rootView.context.getString(R.string.hooked_up))
+        }
+        nightRoles.add(rootView.context.getString(R.string.killed))
     }
 
     private fun assignRoles() {
@@ -154,5 +184,6 @@ class MafiaGameFragment : Fragment() {
     private fun attachViews() {
         dayPanel = rootView.findViewById(R.id.mafia_game_day_panel)
         nightPanel = rootView.findViewById(R.id.mafia_game_night_panel)
+        changePanelButton = rootView.findViewById(R.id.mafia_game_button_change_panel)
     }
 }

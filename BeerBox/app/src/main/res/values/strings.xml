@@ -90,5 +90,10 @@
     <string name="mafia_assign_show">Show role</string>
     <string name="game_master_panel">Game Master Panel</string>
     <string name="name">Name</string>
+    <string name="make_day">Make Day</string>
+    <string name="make_night">Make Night</string>
+    <string name="healed">Healed</string>
+    <string name="killed">Killed</string>
+    <string name="hooked_up">Hooked up</string>
 
 </resources>

@@ -96,5 +96,10 @@
     <string name="mafia_assign_show">Pokaż rolę</string>
     <string name="game_master_panel">Panel Mistrza Gry</string>
     <string name="name">Imie</string>
+    <string name="make_day">Zrób Dzień</string>
+    <string name="make_night">Zrób Noc</string>
+    <string name="healed">Wyleczony</string>
+    <string name="killed">Zabity</string>
+    <string name="hooked_up">Przeleciany</string>
 
 </resources>
