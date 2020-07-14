@@ -1,7 +1,6 @@
 package com.partos.beerbox.fragments.mafia
 
 import android.content.Context
-import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
@@ -12,11 +11,13 @@ import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.ImageView
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.partos.beerbox.R
-import com.partos.beerbox.activities.BottlesGameActivity
-import com.partos.beerbox.activities.MafiaActivity
-import com.partos.beerbox.fragments.bottlesgame.BottlesGameRulesFragment
-import com.partos.flashback.db.DataBaseHelper
+import com.partos.beerbox.recycler.MainMenuRecyclerViewAdapter
+import com.partos.beerbox.recycler.MarginItemDecoration
+import kotlinx.android.synthetic.main.fragment_main_menu.*
+import kotlinx.android.synthetic.main.fragment_main_menu.view.*
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -32,17 +33,14 @@ private const val ARG_PARAM2 = "param2"
  * Use the [AccountFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class MafiaMenuFragment : Fragment() {
+class MafiaRulesFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
     private var listener: OnFragmentInteractionListener? = null
 
     private lateinit var rootView: View
-    private lateinit var image: ImageView
-    private lateinit var playButton: Button
-    private lateinit var rulesButton: Button
-    private lateinit var rolesButton: Button
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,7 +55,7 @@ class MafiaMenuFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        rootView = inflater.inflate(R.layout.fragment_mafia_menu, container, false);
+        rootView = inflater.inflate(R.layout.fragment_mafia_rules, container, false);
         initFragment()
         return rootView
     }
@@ -88,57 +86,13 @@ class MafiaMenuFragment : Fragment() {
     companion object {
         @JvmStatic
         fun newInstance() =
-            MafiaMenuFragment().apply {
+            MafiaRulesFragment().apply {
                 arguments = Bundle().apply {
                 }
             }
     }
 
     private fun initFragment() {
-        playButton = rootView.findViewById(R.id.mafia_menu_play)
-        rulesButton = rootView.findViewById(R.id.mafia_menu_rules)
-        rolesButton = rootView.findViewById(R.id.mafia_menu_roles)
-        image = rootView.findViewById(R.id.mafia_menu_image)
-
-        makeAnimations()
-
-        val db = DataBaseHelper(rootView.context)
-        val teams = db.getTeamsList()
-        for (team in teams) {
-            db.deleteTeam(team.id)
-        }
-
-        rulesButton.setOnClickListener {
-            val rulesFragment = MafiaRulesFragment.newInstance()
-            fragmentManager
-                ?.beginTransaction()
-                ?.setCustomAnimations(
-                    R.anim.enter_right_to_left, R.anim.exit_left_to_right,
-                    R.anim.enter_left_to_right, R.anim.exit_right_to_left
-                )
-                ?.replace(R.id.main_frame_layout, rulesFragment)
-                ?.addToBackStack(BottlesGameRulesFragment.toString())
-                ?.commit()
-        }
-
-        playButton.setOnClickListener {
-            val intent = Intent(rootView.context, MafiaActivity::class.java)
-            rootView.context.startActivity(intent)
-        }
-    }
-
-    private fun makeAnimations(){
-        val animLeft = AnimationUtils.loadAnimation(rootView.context, R.anim.enter_left_to_right)
-        val animRight = AnimationUtils.loadAnimation(rootView.context, R.anim.enter_right_to_left)
-
-        Handler().postDelayed({
-            playButton.visibility = View.VISIBLE
-            rulesButton.visibility = View.VISIBLE
-            rolesButton.visibility = View.VISIBLE
-            playButton.startAnimation(animLeft)
-            rulesButton.startAnimation(animRight)
-            rolesButton.startAnimation(animLeft)
-        }, 400)
 
     }
 }

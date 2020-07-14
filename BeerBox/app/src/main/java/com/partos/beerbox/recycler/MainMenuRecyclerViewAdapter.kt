@@ -23,7 +23,7 @@ class MainMenuRecyclerViewAdapter() : RecyclerView.Adapter<MainMenuViewHolder>()
     }
 
     override fun getItemCount(): Int {
-        return 2
+        return 3
     }
 
     override fun onBindViewHolder(holder: MainMenuViewHolder, position: Int) {
@@ -33,16 +33,22 @@ class MainMenuRecyclerViewAdapter() : RecyclerView.Adapter<MainMenuViewHolder>()
 
         when (position) {
             0 -> {
-                animRight(holder)
                 setColor(0, holder)
+                animRight(holder)
                 image.setImageResource(R.drawable.beer_pong)
                 text.setText(R.string.beer_pong)
             }
             1 -> {
-                animLeft(holder)
                 setColor(1, holder)
+                animLeft(holder)
                 image.setImageResource(R.drawable.bottles)
                 text.setText(R.string.bottles)
+            }
+            2 -> {
+                setColor(2, holder)
+                animRight(holder)
+                image.setImageResource(R.drawable.hat)
+                text.setText(R.string.mafia)
             }
         }
 
@@ -79,12 +85,6 @@ class MainMenuRecyclerViewAdapter() : RecyclerView.Adapter<MainMenuViewHolder>()
         val cardView = holder.view.row_menu_card_view
         when (color) {
             0 -> {
-                val animation =
-                    AnimationUtils.loadAnimation(holder.view.context, R.anim.enter_right_to_left)
-                Handler().postDelayed({
-                    cardView.visibility = View.VISIBLE
-                    cardView.startAnimation(animation)
-                }, 900)
                 cardView.setCardBackgroundColor(
                     ContextCompat.getColor(
                         holder.view.context,
@@ -99,12 +99,6 @@ class MainMenuRecyclerViewAdapter() : RecyclerView.Adapter<MainMenuViewHolder>()
                 )
             }
             1 -> {
-                val animation =
-                    AnimationUtils.loadAnimation(holder.view.context, R.anim.enter_left_to_right)
-                Handler().postDelayed({
-                    cardView.visibility = View.VISIBLE
-                    cardView.startAnimation(animation)
-                }, 900)
                 cardView.setCardBackgroundColor(
                     ContextCompat.getColor(
                         holder.view.context,
@@ -115,6 +109,20 @@ class MainMenuRecyclerViewAdapter() : RecyclerView.Adapter<MainMenuViewHolder>()
                     ContextCompat.getColor(
                         holder.view.context,
                         R.color.colorGreenDark
+                    )
+                )
+            }
+            2 -> {
+                cardView.setCardBackgroundColor(
+                    ContextCompat.getColor(
+                        holder.view.context,
+                        R.color.colorOrangeLight
+                    )
+                )
+                cardView.setStrokeColor(
+                    ContextCompat.getColor(
+                        holder.view.context,
+                        R.color.colorOrangeDark
                     )
                 )
             }
