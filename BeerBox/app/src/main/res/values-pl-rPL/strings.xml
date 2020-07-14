@@ -76,5 +76,7 @@
     <string name="mafia_players">Ilość graczy</string>
     <string name="toast_incorrect_players_amount">Podana ilość graczy jest nieprawidłowa</string>
     <string name="assign_roles">Przydziel role</string>
+    <string name="mafia_gm_static">Statyczny Mistrz Gry</string>
+    <string name="mafia_gm_dynamic">Dynamiczny Mistrz Gry</string>
 
 </resources>
