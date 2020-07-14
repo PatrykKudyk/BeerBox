@@ -70,8 +70,8 @@
     <string name="mafia_players">Players amount</string>
     <string name="toast_incorrect_players_amount">The given players amount is incorrect</string>
     <string name="assign_roles">Assign roles</string>
-    <string name="mafia_gm_static">Static Game Master</string>
-    <string name="mafia_gm_dynamic">Dynamic Game Master</string>
+    <string name="mafia_gm_static">Chosen Game Master</string>
+    <string name="mafia_gm_dynamic">Chose Game Master</string>
     <string name="mafia_choose_roles1">Chose maximum</string>
     <string name="mafia_choose_roles2">special roles</string>
     <string name="mafia_choose_roles21">special roles</string>

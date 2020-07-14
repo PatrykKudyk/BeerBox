@@ -38,6 +38,7 @@ class MafiaGameFragment : Fragment() {
     private lateinit var dayPanel: RecyclerView
     private lateinit var nightPanel: RecyclerView
     private lateinit var changePanelButton: Button
+    private lateinit var changePanelButton2: Button
 
     private lateinit var rolesAssignedList: ArrayList<String>
     private lateinit var nightRoles: ArrayList<String>
@@ -109,16 +110,17 @@ class MafiaGameFragment : Fragment() {
         nightPanel.addItemDecoration(MarginItemDecoration(12))
 
         changePanelButton.setOnClickListener {
-            if (dayPanel.visibility == View.VISIBLE) {
-                changePanelButton.text = rootView.context.getText(R.string.make_day)
-                dayPanel.visibility = View.GONE
-                nightPanel.visibility = View.VISIBLE
-                nightPanel.adapter = NightPanelRecyclerView(nightRoles)
-            } else {
-                changePanelButton.text = rootView.context.getText(R.string.make_night)
-                dayPanel.visibility = View.VISIBLE
-                nightPanel.visibility = View.GONE
-            }
+            changePanelButton.visibility = View.GONE
+            changePanelButton2.visibility = View.VISIBLE
+            dayPanel.visibility = View.GONE
+            nightPanel.visibility = View.VISIBLE
+            nightPanel.adapter = NightPanelRecyclerView(nightRoles)
+        }
+        changePanelButton2.setOnClickListener {
+            changePanelButton.visibility = View.VISIBLE
+            changePanelButton2.visibility = View.GONE
+            dayPanel.visibility = View.VISIBLE
+            nightPanel.visibility = View.GONE
         }
 
     }
@@ -179,11 +181,13 @@ class MafiaGameFragment : Fragment() {
         for (i in (rolesAssignedList.size)..(size as Int) - 2) {
             rolesAssignedList.add(rootView.context.getString(R.string.mafia_role_city))
         }
+        rolesAssignedList.shuffle()
     }
 
     private fun attachViews() {
         dayPanel = rootView.findViewById(R.id.mafia_game_day_panel)
         nightPanel = rootView.findViewById(R.id.mafia_game_night_panel)
         changePanelButton = rootView.findViewById(R.id.mafia_game_button_change_panel)
+        changePanelButton2 = rootView.findViewById(R.id.mafia_game_button_change_panel2)
     }
 }
