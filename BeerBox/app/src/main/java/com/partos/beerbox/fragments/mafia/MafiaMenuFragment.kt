@@ -121,6 +121,19 @@ class MafiaMenuFragment : Fragment() {
                 ?.commit()
         }
 
+        rolesButton.setOnClickListener {
+            val rolesFragment = MafiaRolesFragment.newInstance()
+            fragmentManager
+                ?.beginTransaction()
+                ?.setCustomAnimations(
+                    R.anim.enter_right_to_left, R.anim.exit_left_to_right,
+                    R.anim.enter_left_to_right, R.anim.exit_right_to_left
+                )
+                ?.replace(R.id.main_frame_layout, rolesFragment)
+                ?.addToBackStack(MafiaRolesFragment.toString())
+                ?.commit()
+        }
+
         playButton.setOnClickListener {
             val intent = Intent(rootView.context, MafiaActivity::class.java)
             rootView.context.startActivity(intent)

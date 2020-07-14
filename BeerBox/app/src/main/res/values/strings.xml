@@ -42,7 +42,30 @@
     7. If somebody drink all his beer, he wins.\n\n
     8. If everyone from any team empties all the beers - they win.\n\n
     Good Luck ;)\n\n</string>
-    <string name="mafia_roles"></string>
+    <string name="mafia_roles">There are a plenty of roles available in mafia. Here are some of
+        them that we have chosen to our game:\n\n
+        1. Game Master - he is the master of the game. He handles the narration during the game, notes
+        who\'s killed/healed etc.\n\n
+        2. Cattani (cup, detective) - Game Master wakes him up once per night. Then he can check one player
+        and GM shows him if he is a good or a bad character.\n\n
+        3. Mafia member - It\'s a bad character. Each night mafia members wake up and decide who\'s gonna
+        be killed that night.\n\n
+        4. Medic - Each night he wakes up and chooses who\'s gonna be healed. He cannot heal the same
+        person twice. If he heals the same person that mafia decided to kill - nobody dies that night.\n\n
+        5. City member - City member has no special abilities. He can vote like everybody but he does
+        not wake up during night.\n\n
+        6. Sniper - Sniper has an ability to once during the day shoot somebody. If he shoots mafia member,
+        then mafia member dies. If he shoots one of the "good guys" they both die.\n\n
+        7. Courtesan - Courtesan wakes up once during each night and chooses someone that she sleeps with.
+        When the day starts GM tells who slept with courtesan. It has no consequences and brings only
+        humorous value.\n\n
+        8. Jude - He is almost the same as city member. The only difference is that when Cattani "checks"
+        him. GM has to say that he\'s a mafia member besides he\'s not\n\n
+        9. Lawyer - Once per game when somebody is voted up to be killed, the lawyer can save him from death.
+        (Then you can vote for someone else or end the day phase).\n\n
+        10. Judge - Once per game the judge can use his special ability and vote as two people.\n\n
+    </string>
+    <string name="mafia_rules">https://en.wikipedia.org/wiki/Mafia_(party_game)#Gameplay</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
