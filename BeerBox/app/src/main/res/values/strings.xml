@@ -66,12 +66,12 @@
         10. Judge - Once per game the judge can use his special ability and vote as two people.\n\n
     </string>
     <string name="mafia_rules">https://en.wikipedia.org/wiki/Mafia_(party_game)#Gameplay</string>
-    <string name="mafia_game_size">How many players including Game Master are gonna play?\n (7 \- 16)</string>
+    <string name="mafia_game_size">How many players including Game Master are gonna play?\n (7 \- 17)</string>
     <string name="mafia_players">Players amount</string>
     <string name="toast_incorrect_players_amount">The given players amount is incorrect</string>
     <string name="assign_roles">Assign roles</string>
-    <string name="mafia_gm_static">Static Game Master</string>
-    <string name="mafia_gm_dynamic">Dynamic Game Master</string>
+    <string name="mafia_gm_static">Chosen Game Master</string>
+    <string name="mafia_gm_dynamic">Chose Game Master</string>
     <string name="mafia_choose_roles1">Chose maximum</string>
     <string name="mafia_choose_roles2">special roles</string>
     <string name="mafia_choose_roles21">special roles</string>
@@ -82,6 +82,18 @@
     <string name="mafia_role_jude">Jude</string>
     <string name="mafia_role_lawyer">Lawyer</string>
     <string name="mafia_role_judge">Judge</string>
+    <string name="mafia_role_mafia">Mafia Member</string>
+    <string name="mafia_role_game_master">Game Master</string>
+    <string name="mafia_role_city">City Member</string>
     <string name="toast_max_roles_reached">Maximum roles reached</string>
+    <string name="mafia_assign_show_next">Next role</string>
+    <string name="mafia_assign_show">Show role</string>
+    <string name="game_master_panel">Game Master Panel</string>
+    <string name="name">Name</string>
+    <string name="make_day">Make Day</string>
+    <string name="make_night">Make Night</string>
+    <string name="healed">Healed</string>
+    <string name="killed">Killed</string>
+    <string name="hooked_up">Hooked up</string>
 
 </resources>

@@ -57,78 +57,182 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <CheckBox
-                    android:id="@+id/mafia_roles_choice_check_cattani"
+
+                <com.google.android.material.card.MaterialCardView
                     android:layout_width="match_parent"
+                    android:layout_marginTop="16dp"
                     android:layout_height="wrap_content"
-                    android:text="@string/mafia_role_cattani"
-                    android:textSize="30dip" />
+                    android:theme="@style/Theme.MaterialComponents.Light"
+                    app:cardBackgroundColor="@color/colorOrangeLightLight"
+                    app:cardCornerRadius="6dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:strokeColor="@color/colorOrangeDark"
+                    app:strokeWidth="2dp">
+
+                    <CheckBox
+                        android:id="@+id/mafia_roles_choice_check_cattani"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/mafia_role_cattani"
+                        android:textSize="30dip" />
+
+                </com.google.android.material.card.MaterialCardView>
+
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="20dp" />
 
-                <CheckBox
-                    android:id="@+id/mafia_roles_choice_check_medic"
+                <com.google.android.material.card.MaterialCardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/mafia_role_medic"
-                    android:textSize="30dip" />
+                    android:theme="@style/Theme.MaterialComponents.Light"
+                    app:cardBackgroundColor="@color/colorOrangeLightLight"
+                    app:cardCornerRadius="6dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:strokeColor="@color/colorOrangeDark"
+                    app:strokeWidth="2dp">
+                    <CheckBox
+                        android:id="@+id/mafia_roles_choice_check_medic"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/mafia_role_medic"
+                        android:textSize="30dip" />
+
+                </com.google.android.material.card.MaterialCardView>
+
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="20dp" />
 
-                <CheckBox
-                    android:id="@+id/mafia_roles_choice_check_sniper"
+                <com.google.android.material.card.MaterialCardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/mafia_role_sniper"
-                    android:textSize="30dip" />
+                    android:theme="@style/Theme.MaterialComponents.Light"
+                    app:cardBackgroundColor="@color/colorOrangeLightLight"
+                    app:cardCornerRadius="6dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:strokeColor="@color/colorOrangeDark"
+                    app:strokeWidth="2dp">
+
+                    <CheckBox
+                        android:id="@+id/mafia_roles_choice_check_sniper"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/mafia_role_sniper"
+                        android:textSize="30dip" />
+
+                </com.google.android.material.card.MaterialCardView>
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="20dp" />
 
-                <CheckBox
-                    android:id="@+id/mafia_roles_choice_check_courtesan"
+                <com.google.android.material.card.MaterialCardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/mafia_role_courtesan"
-                    android:textSize="30dip" />
+                    android:theme="@style/Theme.MaterialComponents.Light"
+                    app:cardBackgroundColor="@color/colorOrangeLightLight"
+                    app:cardCornerRadius="6dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:strokeColor="@color/colorOrangeDark"
+                    app:strokeWidth="2dp">
+
+                    <CheckBox
+                        android:id="@+id/mafia_roles_choice_check_courtesan"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/mafia_role_courtesan"
+                        android:textSize="30dip" />
+
+                </com.google.android.material.card.MaterialCardView>
+
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="20dp" />
 
-                <CheckBox
-                    android:id="@+id/mafia_roles_choice_check_jude"
+                <com.google.android.material.card.MaterialCardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/mafia_role_jude"
-                    android:textSize="30dip" />
+                    android:theme="@style/Theme.MaterialComponents.Light"
+                    app:cardBackgroundColor="@color/colorOrangeLightLight"
+                    app:cardCornerRadius="6dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:strokeColor="@color/colorOrangeDark"
+                    app:strokeWidth="2dp">
+
+                    <CheckBox
+                        android:id="@+id/mafia_roles_choice_check_jude"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/mafia_role_jude"
+                        android:textSize="30dip" />
+                </com.google.android.material.card.MaterialCardView>
+
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="20dp" />
 
-                <CheckBox
-                    android:id="@+id/mafia_roles_choice_check_lawyer"
+                <com.google.android.material.card.MaterialCardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/mafia_role_lawyer"
-                    android:textSize="30dip" />
+                    android:theme="@style/Theme.MaterialComponents.Light"
+                    app:cardBackgroundColor="@color/colorOrangeLightLight"
+                    app:cardCornerRadius="6dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:strokeColor="@color/colorOrangeDark"
+                    app:strokeWidth="2dp">
+
+                    <CheckBox
+                        android:id="@+id/mafia_roles_choice_check_lawyer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/mafia_role_lawyer"
+                        android:textSize="30dip" />
+                </com.google.android.material.card.MaterialCardView>
+
+
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="20dp" />
 
-                <CheckBox
-                    android:id="@+id/mafia_roles_choice_check_judge"
+
+                <com.google.android.material.card.MaterialCardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/mafia_role_judge"
-                    android:textSize="30dip" />
+                    android:theme="@style/Theme.MaterialComponents.Light"
+                    app:cardBackgroundColor="@color/colorOrangeLightLight"
+                    app:cardCornerRadius="6dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:strokeColor="@color/colorOrangeDark"
+                    app:strokeWidth="2dp">
+                    <CheckBox
+                        android:id="@+id/mafia_roles_choice_check_judge"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/mafia_role_judge"
+                        android:textSize="30dip" />
+
+                </com.google.android.material.card.MaterialCardView>
+
 
                 <View
                     android:layout_width="match_parent"

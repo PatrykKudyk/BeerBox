@@ -7,15 +7,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.inputmethod.InputMethodManager
 import android.widget.Button
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import android.widget.TextView
+import androidx.cardview.widget.CardView
 import com.partos.beerbox.R
-import com.partos.beerbox.recycler.DayPanelRecyclerView
-import com.partos.beerbox.recycler.MarginItemDecoration
-import com.partos.beerbox.recycler.NightPanelRecyclerView
-import java.lang.RuntimeException
+
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -25,24 +21,27 @@ private const val ARG_PARAM3 = "rolesList"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [MafiaGameFragment.newInstance] factory method to
+ * Activities that contain this fragment must implement the
+ * [AccountFragment.OnFragmentInteractionListener] interface
+ * to handle interaction events.
+ * Use the [AccountFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class MafiaGameFragment : Fragment() {
+class MafiaAssignRolesFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var size: Int? = null
     private var isStatic: Boolean? = null
     private var rolesList: ArrayList<Int>? = null
     private var listener: OnFragmentInteractionListener? = null
 
-    private lateinit var rootView: View
-    private lateinit var dayPanel: RecyclerView
-    private lateinit var nightPanel: RecyclerView
-    private lateinit var changePanelButton: Button
-    private lateinit var changePanelButton2: Button
-
     private lateinit var rolesAssignedList: ArrayList<String>
-    private lateinit var nightRoles: ArrayList<String>
+
+    private lateinit var rootView: View
+    private lateinit var nextButton: Button
+    private lateinit var assignButton: Button
+    private lateinit var cardShow: CardView
+    private lateinit var cardRole: CardView
+    private lateinit var textRole: TextView
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -55,11 +54,11 @@ class MafiaGameFragment : Fragment() {
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        rootView = inflater.inflate(R.layout.fragment_mafia_game, container, false)
+        rootView = inflater.inflate(R.layout.fragment_mafia_assign_roles, container, false);
         initFragment()
         return rootView
     }
@@ -83,13 +82,14 @@ class MafiaGameFragment : Fragment() {
     }
 
     interface OnFragmentInteractionListener {
+        // TODO: Update argument type and name
         fun onFragmentInteraction(uri: Uri)
     }
 
     companion object {
         @JvmStatic
         fun newInstance(size: Int, isStatic: Boolean, rolesArray: ArrayList<Int>) =
-            MafiaGameFragment().apply {
+            MafiaAssignRolesFragment().apply {
                 arguments = Bundle().apply {
                     putInt(ARG_PARAM1, size)
                     putBoolean(ARG_PARAM2, isStatic)
@@ -101,42 +101,7 @@ class MafiaGameFragment : Fragment() {
     private fun initFragment() {
         attachViews()
         assignRoles()
-        assightNightRoles()
-        val dayLayoutManager = LinearLayoutManager(this.context)
-        val nightLayoutManager = LinearLayoutManager(this.context)
-        dayPanel.layoutManager = dayLayoutManager
-        dayPanel.addItemDecoration(MarginItemDecoration(12))
-        dayPanel.adapter = DayPanelRecyclerView(rolesAssignedList)
-        nightPanel.layoutManager = nightLayoutManager
-        nightPanel.addItemDecoration(MarginItemDecoration(12))
-
-        changePanelButton.setOnClickListener {
-            changePanelButton.visibility = View.GONE
-            changePanelButton2.visibility = View.VISIBLE
-            dayPanel.visibility = View.GONE
-            nightPanel.visibility = View.VISIBLE
-            nightPanel.adapter = NightPanelRecyclerView(nightRoles)
-            hideKeyboard()
-        }
-        changePanelButton2.setOnClickListener {
-            changePanelButton.visibility = View.VISIBLE
-            changePanelButton2.visibility = View.GONE
-            dayPanel.visibility = View.VISIBLE
-            nightPanel.visibility = View.GONE
-            hideKeyboard()
-        }
-
-    }
-
-    private fun assightNightRoles() {
-        nightRoles = ArrayList()
-        if (rolesList?.get(1) == 1) {
-            nightRoles.add(rootView.context.getString(R.string.healed))
-        }
-        if (rolesList?.get(3) == 1) {
-            nightRoles.add(rootView.context.getString(R.string.hooked_up))
-        }
-        nightRoles.add(rootView.context.getString(R.string.killed))
+        initListeners()
     }
 
     private fun assignRoles() {
@@ -184,22 +149,52 @@ class MafiaGameFragment : Fragment() {
         for (i in (rolesAssignedList.size)..(size as Int) - 2) {
             rolesAssignedList.add(rootView.context.getString(R.string.mafia_role_city))
         }
+        if (!(isStatic as Boolean)) {
+            rolesAssignedList.add(rootView.context.getString(R.string.mafia_role_game_master))
+        }
         rolesAssignedList.shuffle()
     }
 
-    private fun attachViews() {
-        dayPanel = rootView.findViewById(R.id.mafia_game_day_panel)
-        nightPanel = rootView.findViewById(R.id.mafia_game_night_panel)
-        changePanelButton = rootView.findViewById(R.id.mafia_game_button_change_panel)
-        changePanelButton2 = rootView.findViewById(R.id.mafia_game_button_change_panel2)
+    private fun initListeners() {
+        var position = 0
+        assignButton.setOnClickListener {
+            assignButton.visibility = View.GONE
+            cardShow.visibility = View.VISIBLE
+        }
+        cardShow.setOnClickListener {
+            cardShow.visibility = View.GONE
+            textRole.text = rolesAssignedList[position]
+            cardRole.visibility = View.VISIBLE
+            nextButton.visibility = View.VISIBLE
+        }
+        nextButton.setOnClickListener {
+            cardRole.visibility = View.GONE
+            nextButton.visibility = View.GONE
+            cardShow.visibility = View.VISIBLE
+            position++
+            if (position == rolesAssignedList.size) {
+                val fragment = MafiaGameFragment.newInstance(
+                    size as Int,
+                    isStatic as Boolean,
+                    rolesList as ArrayList<Int>
+                )
+                fragmentManager
+                    ?.beginTransaction()
+                    ?.setCustomAnimations(
+                        R.anim.enter_right_to_left, R.anim.exit_left_to_right,
+                        R.anim.enter_left_to_right, R.anim.exit_right_to_left
+                    )
+                    ?.replace(R.id.mafia_frame_layout, fragment)
+                    ?.commit()
+            }
+        }
     }
 
-    private fun hideKeyboard() {
-        val view = activity?.currentFocus
-        if (view != null) {
-            val inputManager =
-                rootView.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-            inputManager.hideSoftInputFromWindow(view.windowToken, 0)
-        }
+    private fun attachViews() {
+        nextButton = rootView.findViewById(R.id.mafia_assign_button_next)
+        assignButton = rootView.findViewById(R.id.mafia_assign_button_assign)
+        cardRole = rootView.findViewById(R.id.mafia_assign_card_role)
+        cardShow = rootView.findViewById(R.id.mafia_assign_card_show)
+        textRole = rootView.findViewById(R.id.mafia_assign_text_role)
     }
 }

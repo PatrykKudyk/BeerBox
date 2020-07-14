@@ -103,7 +103,7 @@ class MafiaGameSizeFragment : Fragment() {
         playButton.setOnClickListener {
             if (sizeEditText.text.toString() == "" || sizeEditText.text.toString().toInt() == 0 ||
                 sizeEditText.text.toString().toInt() < 7 || sizeEditText.text.toString()
-                    .toInt() > 16
+                    .toInt() > 17
             ) {
                 Toast.makeText(
                     rootView.context,
