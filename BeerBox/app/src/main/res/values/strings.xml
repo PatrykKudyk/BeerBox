@@ -66,6 +66,7 @@
         10. Judge - Once per game the judge can use his special ability and vote as two people.\n\n
     </string>
     <string name="mafia_rules">https://en.wikipedia.org/wiki/Mafia_(party_game)#Gameplay</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="mafia_game_size">How many players including Game Master are gonna play?\n (7 \- 16)</string>
+    <string name="mafia_players">Players amount</string>
+
 </resources>

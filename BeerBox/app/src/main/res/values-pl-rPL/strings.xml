@@ -72,4 +72,7 @@
         skorzystać ze swojego prawa podwójnego głosu.\n\n
     </string>
     <string name="mafia_rules">https://pl.wikipedia.org/wiki/Mafia_(gra_towarzyska)#Podstawowe_zasady_gry</string>
+    <string name="mafia_game_size">Ilu graczy wliczając Mistrza gry będzie grało?\n (7 \- 16)</string>
+    <string name="mafia_players">Ilość graczy</string>
+
 </resources>
