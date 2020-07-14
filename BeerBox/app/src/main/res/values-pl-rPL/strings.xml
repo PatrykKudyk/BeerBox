@@ -2,10 +2,11 @@
 <resources>
     <string name="app_name">Beer Box</string>
     <string name="app_title">Beer Box</string>
-    <string name="pictionary">Kalambury</string>
     <string name="bottles">Flanki</string>
     <string name="beer_pong">Beer Pong</string>
+    <string name="mafia">Mafia</string>
     <string name="rules">Zasady</string>
+    <string name="roles">Role</string>
     <string name="play">Graj</string>
     <string name="play2">Gramy</string>
     <string name="beer_pong_rules">1. Weźcie 3/6/10 kubków dla każdej z drużyn.\n\n
@@ -42,4 +43,33 @@
     7. Jeśli ktoś wypije całe swoje piwo - kończy swój udział w grze.\n\n
     8. Jeśli cała drużyna pierwsza skończy swoje piwa - wygrywa.\n\n
     Powodzenia ;)\n\n</string>
+    <string name="mafia_roles">Istnieje wiele ról, które można wybrać. Poniżej znajdują się te,
+    które zdecydowaliśmy się dołączyć do naszej gry:\n\n
+        1. Mistrz gry - Pełni on rolę narratora w grze. Ogłasza on noc oraz dzień, pomaga przy prowadzeniu
+        dyskusji oraz notuje kto został zabity/uleczony itp.\n\n
+        2. Cattani (policjant, komisarz) - Jest on budzony co noc przez mistrza gry. Może on wtedy wybrać
+        jednego gracza, po czym mistrz gry pokazuje mu czy należy on do dobrych czy złych.\n\n
+        3. Mafiozo - Mafiozi budzeni są co noc przez mistrza gry, mogą oni wtedy wybrać jedną osobę z miasta
+        i ją zabić.\n\n
+        4. Medyk - Medyk również budzony jest co noc przez mistrza gry. Może on wtedy wybrać jedną osobę
+        i ją wyleczyć. Jeżeli tę samą osobę wybrała mafia, to nie ginie nikt. Medyk może wybrać każdą osobę
+        tylko raz w ciągu gry.\n\n
+        5. Mieszczanin - Mieszczanin nie jest w nocy budzony. Pełni on rolę pasywną. Należy do dobrych, ale
+        nie ma żadnej specjalnej roli.\n\n
+        6. Snajper - Snajper także nie jest budzony w nocy. Jednak w odróżnieniu do zwykłego mieszczanina
+        może on w ciągu obrad (i raz w ciągu całej gry) strzelić w wybraną przez siebie osobę. Jeśli trafi
+        w mafioza, to eliminuje członka mafii z gry, jeśli natomiast trafi w jednego z dobrych - giną obydwoje.\n\n
+        7. Kurtyzana - Należy ona do frakcji dobrych. Jest budzona w nocy i może wybrać dowolną osobę, z którą
+        spędza upojną noc. O poranku mistrz gry wplata w historię opowieść o tym kto został "przeleciany" przez
+        kurtyzanę. Stosunek z kurtyzaną nie wnosi nic poza walorem humorystycznym.\n\n
+        8. Żyd - Postać ta podobnie jak mieszczanin nie ma specjalnych umiejętności. Odróżnia ją jednak
+        jedna cecha. W momencie, w którym Cattani sprawdzi kim jest osoba z funkcją Żyda - jest on wskazywany
+        jako osoba zła, choć należy on do miasta.\n\n
+        9. Adwokat - Członek miasta. Może jeden raz w ciągu gry ujawnić się w momencie przegłosowania
+        innej osoby chroniąc ją od śmierci.  (w zależności od ustaleń graczy może to zakończyć dzień lub
+        ochronić tę osobę przed dalszymi oskarżeniami).\n\n
+        10. Sędzia - Należy do miasta. Może jeden raz w ciągu gry podczas głosowania ujawnić się i
+        skorzystać ze swojego prawa podwójnego głosu.\n\n
+    </string>
+    <string name="mafia_rules">https://pl.wikipedia.org/wiki/Mafia_(gra_towarzyska)#Podstawowe_zasady_gry</string>
 </resources>
