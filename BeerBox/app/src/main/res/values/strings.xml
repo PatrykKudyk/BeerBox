@@ -1,11 +1,13 @@
 <resources>
     <string name="app_name">Beer Box</string>
     <string name="app_title">Beer Box</string>
-    <string name="pictionary">Pictionary</string>
     <string name="bottles">Bottles</string>
     <string name="beer_pong">Beer Pong</string>
+    <string name="mafia">Mafia</string>
     <string name="rules">Rules</string>
+    <string name="roles">Roles</string>
     <string name="play">Play</string>
+    <string name="play2">Let\'s play</string>
     <string name="beer_pong_rules">1. Take 3/6/10 cups for each team.\n\n
         2. Place cups on the two sides of the table on triangle shape.\n\n
         3. Take at least 2 ping-pong balls.\n\n
@@ -20,4 +22,78 @@
     </string>
     <string name="add_team">Add team</string>
     <string name="team_name">Team name</string>
+    <string name="toast_name_not_null">Team name cannot be empty</string>
+    <string name="teams">Teams</string>
+    <string name="toast_max_teams_reached">Cannot add more teams</string>
+    <string name="ladder_question">Which ladder you want to pick?</string>
+    <string name="ladder_group">Group</string>
+    <string name="ladder_championship">Championship</string>
+    <string name="toast_no_teams_given">You need to add at least 2 teams</string>
+    <string name="next_match">The next match</string>
+    <string name="vs">VS</string>
+    <string name="groups">Groups</string>
+    <string name="toast_too_few_teams">Group ladder can be chosen for at least 5 teams</string>
+    <string name="bottles_game_rules">1. Split into 2 teams. Everyone get a full beer.\n\n
+    2. Get an empty beer can and rock/ball to throw.\n\n
+    3. Place the empty can in the middle.\n\n
+    4. Each team stands on the line in the equal distance from the can.\n\n
+    5. One team throws the rock. If it hits and knocks over the can, the throwing team starts to drink the beer. Meanwhile one person from other team runs to the can. Makes it stand and returns to the team.\n\n
+    6. When the runner crosses the line, the drinking stops.\n\n
+    7. If somebody drink all his beer, he wins.\n\n
+    8. If everyone from any team empties all the beers - they win.\n\n
+    Good Luck ;)\n\n</string>
+    <string name="mafia_roles">There are a plenty of roles available in mafia. Here are some of
+        them that we have chosen to our game:\n\n
+        1. Game Master - he is the master of the game. He handles the narration during the game, notes
+        who\'s killed/healed etc.\n\n
+        2. Cattani (cup, detective) - Game Master wakes him up once per night. Then he can check one player
+        and GM shows him if he is a good or a bad character.\n\n
+        3. Mafia member - It\'s a bad character. Each night mafia members wake up and decide who\'s gonna
+        be killed that night.\n\n
+        4. Medic - Each night he wakes up and chooses who\'s gonna be healed. He cannot heal the same
+        person twice. If he heals the same person that mafia decided to kill - nobody dies that night.\n\n
+        5. City member - City member has no special abilities. He can vote like everybody but he does
+        not wake up during night.\n\n
+        6. Sniper - Sniper has an ability to once during the day shoot somebody. If he shoots mafia member,
+        then mafia member dies. If he shoots one of the "good guys" they both die.\n\n
+        7. Courtesan - Courtesan wakes up once during each night and chooses someone that she sleeps with.
+        When the day starts GM tells who slept with courtesan. It has no consequences and brings only
+        humorous value.\n\n
+        8. Jude - He is almost the same as city member. The only difference is that when Cattani "checks"
+        him. GM has to say that he\'s a mafia member besides he\'s not\n\n
+        9. Lawyer - Once per game when somebody is voted up to be killed, the lawyer can save him from death.
+        (Then you can vote for someone else or end the day phase).\n\n
+        10. Judge - Once per game the judge can use his special ability and vote as two people.\n\n
+    </string>
+    <string name="mafia_rules">https://en.wikipedia.org/wiki/Mafia_(party_game)#Gameplay</string>
+    <string name="mafia_game_size">How many players including Game Master are gonna play?\n (7 \- 17)</string>
+    <string name="mafia_players">Players amount</string>
+    <string name="toast_incorrect_players_amount">The given players amount is incorrect</string>
+    <string name="assign_roles">Assign roles</string>
+    <string name="mafia_gm_static">Chosen Game Master</string>
+    <string name="mafia_gm_dynamic">Chose Game Master</string>
+    <string name="mafia_choose_roles1">Chose maximum</string>
+    <string name="mafia_choose_roles2">special roles</string>
+    <string name="mafia_choose_roles21">special roles</string>
+    <string name="mafia_role_cattani">Cattani</string>
+    <string name="mafia_role_medic">Medic</string>
+    <string name="mafia_role_sniper">Sniper</string>
+    <string name="mafia_role_courtesan">Courtesan</string>
+    <string name="mafia_role_jude">Jude</string>
+    <string name="mafia_role_lawyer">Lawyer</string>
+    <string name="mafia_role_judge">Judge</string>
+    <string name="mafia_role_mafia">Mafia Member</string>
+    <string name="mafia_role_game_master">Game Master</string>
+    <string name="mafia_role_city">City Member</string>
+    <string name="toast_max_roles_reached">Maximum roles reached</string>
+    <string name="mafia_assign_show_next">Next role</string>
+    <string name="mafia_assign_show">Show role</string>
+    <string name="game_master_panel">Game Master Panel</string>
+    <string name="name">Name</string>
+    <string name="make_day">Make Day</string>
+    <string name="make_night">Make Night</string>
+    <string name="healed">Healed</string>
+    <string name="killed">Killed</string>
+    <string name="hooked_up">Hooked up</string>
+
 </resources>

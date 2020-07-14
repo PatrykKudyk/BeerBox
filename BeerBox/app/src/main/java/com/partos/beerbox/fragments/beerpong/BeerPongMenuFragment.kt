@@ -12,14 +12,10 @@ import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.ImageView
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import com.partos.beerbox.MyApp
 import com.partos.beerbox.R
 import com.partos.beerbox.activities.BeerPongActivity
-import com.partos.beerbox.recycler.MainMenuRecyclerViewAdapter
-import com.partos.beerbox.recycler.MarginItemDecoration
-import kotlinx.android.synthetic.main.fragment_main_menu.*
-import kotlinx.android.synthetic.main.fragment_main_menu.view.*
+import com.partos.flashback.db.DataBaseHelper
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -103,6 +99,12 @@ class BeerPongMenuFragment : Fragment() {
 
         makeAnimations()
 
+        val db = DataBaseHelper(rootView.context)
+        val teams = db.getTeamsList()
+        for (team in teams) {
+            db.deleteTeam(team.id)
+        }
+
         rulesButton.setOnClickListener {
             val rulesFragment = BeerPongRulesFragment.newInstance()
             fragmentManager
@@ -123,21 +125,15 @@ class BeerPongMenuFragment : Fragment() {
     }
 
     private fun makeAnimations(){
-        val animImage = AnimationUtils.loadAnimation(rootView.context, R.anim.enter_bottom_to_top)
         val animLeft = AnimationUtils.loadAnimation(rootView.context, R.anim.enter_left_to_right)
         val animRight = AnimationUtils.loadAnimation(rootView.context, R.anim.enter_right_to_left)
-
-        Handler().postDelayed({
-            image.visibility = View.VISIBLE
-            image.startAnimation(animImage)
-        }, 500)
 
         Handler().postDelayed({
             playButton.visibility = View.VISIBLE
             rulesButton.visibility = View.VISIBLE
             playButton.startAnimation(animLeft)
             rulesButton.startAnimation(animRight)
-        }, 800)
+        }, 400)
 
     }
 }

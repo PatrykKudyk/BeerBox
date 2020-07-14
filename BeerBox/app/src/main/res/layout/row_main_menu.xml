@@ -30,8 +30,7 @@
                 android:id="@+id/menu_image_view"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="30"
-                tools:src="@drawable/charade"/>
+                android:layout_weight="30"/>
 
             <View
                 android:layout_width="0dp"
