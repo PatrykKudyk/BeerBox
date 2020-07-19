@@ -101,5 +101,7 @@
     <string name="healed">Wyleczony</string>
     <string name="killed">Zabity</string>
     <string name="hooked_up">Przeleciany</string>
+    <string name="toast_no_name_given">Musisz najpierw podać imię</string>
+    <string name="mafia_enter_panel">Panel Mistrza Gry</string>
 
 </resources>

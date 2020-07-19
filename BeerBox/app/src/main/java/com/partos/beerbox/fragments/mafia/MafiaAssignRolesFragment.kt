@@ -7,10 +7,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.cardview.widget.CardView
 import com.partos.beerbox.R
+import com.partos.flashback.db.DataBaseHelper
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -35,6 +39,7 @@ class MafiaAssignRolesFragment : Fragment() {
     private var listener: OnFragmentInteractionListener? = null
 
     private lateinit var rolesAssignedList: ArrayList<String>
+    private lateinit var namesAssignedList: ArrayList<String>
 
     private lateinit var rootView: View
     private lateinit var nextButton: Button
@@ -42,6 +47,8 @@ class MafiaAssignRolesFragment : Fragment() {
     private lateinit var cardShow: CardView
     private lateinit var cardRole: CardView
     private lateinit var textRole: TextView
+    private lateinit var editTextRole: EditText
+    private lateinit var enterPanelButton: Button
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -160,6 +167,7 @@ class MafiaAssignRolesFragment : Fragment() {
         assignButton.setOnClickListener {
             assignButton.visibility = View.GONE
             cardShow.visibility = View.VISIBLE
+            namesAssignedList = ArrayList<String>()
         }
         cardShow.setOnClickListener {
             cardShow.visibility = View.GONE
@@ -168,25 +176,47 @@ class MafiaAssignRolesFragment : Fragment() {
             nextButton.visibility = View.VISIBLE
         }
         nextButton.setOnClickListener {
-            cardRole.visibility = View.GONE
-            nextButton.visibility = View.GONE
-            cardShow.visibility = View.VISIBLE
-            position++
-            if (position == rolesAssignedList.size) {
-                val fragment = MafiaGameFragment.newInstance(
-                    size as Int,
-                    isStatic as Boolean,
-                    rolesList as ArrayList<Int>
-                )
-                fragmentManager
-                    ?.beginTransaction()
-                    ?.setCustomAnimations(
-                        R.anim.enter_right_to_left, R.anim.exit_left_to_right,
-                        R.anim.enter_left_to_right, R.anim.exit_right_to_left
-                    )
-                    ?.replace(R.id.mafia_frame_layout, fragment)
-                    ?.commit()
+            if (editTextRole.text.toString() != "") {
+                cardRole.visibility = View.GONE
+                nextButton.visibility = View.GONE
+                cardShow.visibility = View.VISIBLE
+                namesAssignedList.add(editTextRole.text.toString().trim())
+                editTextRole.setText("")
+                position++
+                if (position == rolesAssignedList.size) {
+                    enterPanelButton.visibility = View.VISIBLE
+                    cardShow.visibility = View.GONE
+                }
+                hideKeyboard()
+            } else {
+                Toast.makeText(
+                    rootView.context,
+                    rootView.context.getText(R.string.toast_no_name_given),
+                    Toast.LENGTH_SHORT
+                ).show()
             }
+        }
+        enterPanelButton.setOnClickListener {
+            addPlayersToDB()
+            val fragment = MafiaGameFragment.newInstance(
+                size as Int,
+                isStatic as Boolean
+            )
+            fragmentManager
+                ?.beginTransaction()
+                ?.setCustomAnimations(
+                    R.anim.enter_right_to_left, R.anim.exit_left_to_right,
+                    R.anim.enter_left_to_right, R.anim.exit_right_to_left
+                )
+                ?.replace(R.id.mafia_frame_layout, fragment)
+                ?.commit()
+        }
+    }
+
+    private fun addPlayersToDB() {
+        val db = DataBaseHelper(rootView.context)
+        for (i in 0 until rolesAssignedList.size) {
+            db.addPlayer(rolesAssignedList[i], namesAssignedList[i], 1)
         }
     }
 
@@ -196,5 +226,14 @@ class MafiaAssignRolesFragment : Fragment() {
         cardRole = rootView.findViewById(R.id.mafia_assign_card_role)
         cardShow = rootView.findViewById(R.id.mafia_assign_card_show)
         textRole = rootView.findViewById(R.id.mafia_assign_text_role)
+        editTextRole = rootView.findViewById(R.id.mafia_assign_edit_role)
+        enterPanelButton = rootView.findViewById(R.id.mafia_assign_button_panel)
+    }
+
+    private fun hideKeyboard() {
+        val view = editTextRole
+        val inputManager =
+            rootView.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        inputManager.hideSoftInputFromWindow(view.windowToken, 0)
     }
 }

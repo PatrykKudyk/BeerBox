@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.partos.beerbox.R
 import com.partos.beerbox.recycler.MainMenuRecyclerViewAdapter
 import com.partos.beerbox.recycler.MarginItemDecoration
+import com.partos.flashback.db.DataBaseHelper
 import kotlinx.android.synthetic.main.fragment_main_menu.*
 import kotlinx.android.synthetic.main.fragment_main_menu.view.*
 
@@ -95,6 +96,12 @@ class MafiaGameSizeFragment : Fragment() {
     }
 
     private fun initFragment() {
+        val db = DataBaseHelper(rootView.context)
+        val players = db.getPlayersList()
+        for (player in players) {
+            db.deletePlayer(player.id)
+        }
+
         sizeEditText = rootView.findViewById(R.id.mafia_game_size_edit_text)
         playButton = rootView.findViewById(R.id.mafia_game_size_button_play)
         checkStatic = rootView.findViewById(R.id.mafia_game_size_checkbox_static)

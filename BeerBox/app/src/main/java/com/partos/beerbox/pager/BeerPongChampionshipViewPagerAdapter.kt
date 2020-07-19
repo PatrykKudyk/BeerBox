@@ -17,7 +17,7 @@ import com.partos.beerbox.R
 import kotlinx.android.synthetic.main.pager_cell_beer_pong_championship.view.*
 import kotlin.random.Random
 
-class BeerPongChampionshipViewPagerAdapter : PagerAdapter {
+class   BeerPongChampionshipViewPagerAdapter : PagerAdapter {
 
     var context: Context
     var teams = ArrayList<String>()

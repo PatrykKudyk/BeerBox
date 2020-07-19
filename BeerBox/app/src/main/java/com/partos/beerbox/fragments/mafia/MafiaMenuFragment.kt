@@ -102,11 +102,6 @@ class MafiaMenuFragment : Fragment() {
 
         makeAnimations()
 
-        val db = DataBaseHelper(rootView.context)
-        val teams = db.getTeamsList()
-        for (team in teams) {
-            db.deleteTeam(team.id)
-        }
 
         rulesButton.setOnClickListener {
             val rulesFragment = MafiaRulesFragment.newInstance()
