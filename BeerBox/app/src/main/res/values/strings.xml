@@ -103,5 +103,19 @@
     <string name="how_to_make_description">The Panoramix Cauldron is a mixture made from mixing different alcohols.\n\n
     All you need is a big empty pot and some alcohol.\n\n
     You fill in the pot with the alcohols and stir them.\n\n</string>
+    <string name="cauldron_amount">How many litres of mixture do you want to make?</string>
+    <string name="litres">Litres</string>
+    <string name="cauldron_alcohols">What alcohols do you want to include in cauldron?</string>
+    <string name="beer">Beer</string>
+    <string name="wine">Wine</string>
+    <string name="vodka">Vodka</string>
+    <string name="tequila">Tequila</string>
+    <string name="whiskey">Whiskey</string>
+    <string name="rum">Rum</string>
+    <string name="juice">Juice</string>
+    <string name="energy_drink">Energy Drink</string>
+    <string name="gin">Gin</string>
+    <string name="champagne">Champagne</string>
+    <string name="drink">Make drinks</string>
 
 </resources>

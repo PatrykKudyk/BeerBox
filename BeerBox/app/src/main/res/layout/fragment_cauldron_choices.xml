@@ -1,0 +1,658 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.cauldron.CauldronChoicesFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPurpleBackground">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/cauldron_choice_linear_litres"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                tools:visibility="gone">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="64dp"
+                    android:layout_marginEnd="12dp"
+                    android:fontFamily="@font/dustismo_bold"
+                    android:gravity="center"
+                    android:text="@string/cauldron_amount"
+                    android:textSize="32dip" />
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="12dp"
+                    android:fontFamily="@font/dustismo_bold"
+                    android:gravity="center"
+                    android:hint="@string/litres"
+                    android:inputType="number"
+                    android:textSize="40dip" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/cauldron_choice_linear_alcohols"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone"
+                tools:visibility="visible">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="64dp"
+                    android:layout_marginEnd="12dp"
+                    android:fontFamily="@font/dustismo_bold"
+                    android:gravity="center"
+                    android:text="@string/cauldron_alcohols"
+                    android:textSize="32dip" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginEnd="6dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:orientation="horizontal"
+                        android:weightSum="96">
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/cauldron_choice_card_beer"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="30"
+                            android:theme="@style/Theme.MaterialComponents.Light"
+                            app:cardBackgroundColor="@color/colorPurpleLightLight"
+                            app:cardCornerRadius="6dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:strokeColor="@color/colorPurpleDark"
+                            app:strokeWidth="2dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="30dp"
+                                    android:layout_marginTop="16dp"
+                                    android:fontFamily="@font/dustismo_bold"
+                                    android:gravity="center"
+                                    android:text="@string/beer"
+                                    android:textSize="24dip" />
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="70dp"
+                                    android:layout_marginTop="8dp"
+                                    android:src="@drawable/beer"/>
+
+                            </LinearLayout>
+
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="3" />
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/cauldron_choice_card_wine"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="30"
+                            android:theme="@style/Theme.MaterialComponents.Light"
+                            app:cardBackgroundColor="@color/colorPurpleLightLight"
+                            app:cardCornerRadius="6dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:strokeColor="@color/colorPurpleDark"
+                            app:strokeWidth="2dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="30dp"
+                                    android:layout_marginTop="16dp"
+                                    android:fontFamily="@font/dustismo_bold"
+                                    android:gravity="center"
+                                    android:text="@string/wine"
+                                    android:textSize="24dip" />
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="70dp"
+                                    android:layout_marginTop="8dp"
+                                    android:src="@drawable/wine"/>
+
+                            </LinearLayout>
+
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="3" />
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/cauldron_choice_card_vodka"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="30"
+                            android:theme="@style/Theme.MaterialComponents.Light"
+                            app:cardBackgroundColor="@color/colorPurpleLightLight"
+                            app:cardCornerRadius="6dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:strokeColor="@color/colorPurpleDark"
+                            app:strokeWidth="2dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="30dp"
+                                    android:layout_marginTop="16dp"
+                                    android:fontFamily="@font/dustismo_bold"
+                                    android:gravity="center"
+                                    android:text="@string/vodka"
+                                    android:textSize="24dip" />
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="70dp"
+                                    android:layout_marginTop="8dp"
+                                    android:src="@drawable/vodka"/>
+
+                            </LinearLayout>
+
+
+                        </com.google.android.material.card.MaterialCardView>
+
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="5dp"
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:orientation="horizontal"
+                        android:weightSum="96">
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/cauldron_choice_card_tequila"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="30"
+                            android:theme="@style/Theme.MaterialComponents.Light"
+                            app:cardBackgroundColor="@color/colorPurpleLightLight"
+                            app:cardCornerRadius="6dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:strokeColor="@color/colorPurpleDark"
+                            app:strokeWidth="2dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="30dp"
+                                    android:layout_marginTop="16dp"
+                                    android:fontFamily="@font/dustismo_bold"
+                                    android:gravity="center"
+                                    android:text="@string/tequila"
+                                    android:textSize="24dip" />
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="70dp"
+                                    android:layout_marginTop="8dp"
+                                    android:src="@drawable/tequila"/>
+
+                            </LinearLayout>
+
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="3" />
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/cauldron_choice_card_rum"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="30"
+                            android:theme="@style/Theme.MaterialComponents.Light"
+                            app:cardBackgroundColor="@color/colorPurpleLightLight"
+                            app:cardCornerRadius="6dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:strokeColor="@color/colorPurpleDark"
+                            app:strokeWidth="2dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="30dp"
+                                    android:layout_marginTop="16dp"
+                                    android:fontFamily="@font/dustismo_bold"
+                                    android:gravity="center"
+                                    android:text="@string/rum"
+                                    android:textSize="24dip" />
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="70dp"
+                                    android:layout_marginTop="8dp"
+                                    android:src="@drawable/rum"/>
+
+                            </LinearLayout>
+
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="3" />
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/cauldron_choice_card_whiskey"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="30"
+                            android:theme="@style/Theme.MaterialComponents.Light"
+                            app:cardBackgroundColor="@color/colorPurpleLightLight"
+                            app:cardCornerRadius="6dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:strokeColor="@color/colorPurpleDark"
+                            app:strokeWidth="2dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="30dp"
+                                    android:layout_marginTop="16dp"
+                                    android:fontFamily="@font/dustismo_bold"
+                                    android:gravity="center"
+                                    android:text="@string/whiskey"
+                                    android:textSize="24dip" />
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="70dp"
+                                    android:layout_marginTop="8dp"
+                                    android:src="@drawable/whiskey"/>
+
+                            </LinearLayout>
+
+
+                        </com.google.android.material.card.MaterialCardView>
+
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="5dp"
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:orientation="horizontal"
+                        android:weightSum="96">
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/cauldron_choice_card_gin"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="30"
+                            android:theme="@style/Theme.MaterialComponents.Light"
+                            app:cardBackgroundColor="@color/colorPurpleLightLight"
+                            app:cardCornerRadius="6dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:strokeColor="@color/colorPurpleDark"
+                            app:strokeWidth="2dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="30dp"
+                                    android:layout_marginTop="16dp"
+                                    android:fontFamily="@font/dustismo_bold"
+                                    android:gravity="center"
+                                    android:text="@string/gin"
+                                    android:textSize="24dip" />
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="70dp"
+                                    android:layout_marginTop="8dp"
+                                    android:src="@drawable/gin"/>
+
+                            </LinearLayout>
+
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="3" />
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/cauldron_choice_card_champagne"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="30"
+                            android:theme="@style/Theme.MaterialComponents.Light"
+                            app:cardBackgroundColor="@color/colorPurpleLightLight"
+                            app:cardCornerRadius="6dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:strokeColor="@color/colorPurpleDark"
+                            app:strokeWidth="2dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="30dp"
+                                    android:layout_marginTop="16dp"
+                                    android:fontFamily="@font/dustismo_bold"
+                                    android:gravity="center"
+                                    android:text="@string/champagne"
+                                    android:textSize="22dip" />
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="70dp"
+                                    android:layout_marginTop="8dp"
+                                    android:src="@drawable/champagne"/>
+
+                            </LinearLayout>
+
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="3" />
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/cauldron_choice_card_energy_drink"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="30"
+                            android:theme="@style/Theme.MaterialComponents.Light"
+                            app:cardBackgroundColor="@color/colorPurpleLightLight"
+                            app:cardCornerRadius="6dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:strokeColor="@color/colorPurpleDark"
+                            app:strokeWidth="2dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="30dp"
+                                    android:layout_marginTop="16dp"
+                                    android:fontFamily="@font/dustismo_bold"
+                                    android:gravity="center"
+                                    android:text="@string/energy_drink"
+                                    android:textSize="16dip" />
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="70dp"
+                                    android:layout_marginTop="8dp"
+                                    android:src="@drawable/energy_drink"/>
+
+                            </LinearLayout>
+
+
+                        </com.google.android.material.card.MaterialCardView>
+
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="5dp"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:orientation="horizontal"
+                        android:weightSum="96">
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="0dp"
+                            android:visibility="invisible"
+                            android:layout_height="match_parent"
+                            android:layout_weight="30"
+                            android:theme="@style/Theme.MaterialComponents.Light"
+                            app:cardBackgroundColor="@color/colorPurpleLightLight"
+                            app:cardCornerRadius="6dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:strokeColor="@color/colorPurpleDark"
+                            app:strokeWidth="2dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="30dp"
+                                    android:layout_marginTop="16dp"
+                                    android:fontFamily="@font/dustismo_bold"
+                                    android:gravity="center"
+                                    android:text="@string/tequila"
+                                    android:textSize="24dip" />
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="70dp"
+                                    android:layout_marginTop="8dp"
+                                    android:src="@drawable/tequila"/>
+
+                            </LinearLayout>
+
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="3" />
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/cauldron_choice_card_juice"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="30"
+                            android:theme="@style/Theme.MaterialComponents.Light"
+                            app:cardBackgroundColor="@color/colorPurpleLightLight"
+                            app:cardCornerRadius="6dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:strokeColor="@color/colorPurpleDark"
+                            app:strokeWidth="2dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="30dp"
+                                    android:layout_marginTop="16dp"
+                                    android:fontFamily="@font/dustismo_bold"
+                                    android:gravity="center"
+                                    android:text="@string/juice"
+                                    android:textSize="24dip" />
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="70dp"
+                                    android:layout_marginTop="8dp"
+                                    android:src="@drawable/juice"/>
+
+                            </LinearLayout>
+
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="3" />
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:visibility="invisible"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="30"
+                            android:theme="@style/Theme.MaterialComponents.Light"
+                            app:cardBackgroundColor="@color/colorPurpleLightLight"
+                            app:cardCornerRadius="6dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:strokeColor="@color/colorPurpleDark"
+                            app:strokeWidth="2dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="30dp"
+                                    android:layout_marginTop="16dp"
+                                    android:fontFamily="@font/dustismo_bold"
+                                    android:gravity="center"
+                                    android:text="@string/whiskey"
+                                    android:textSize="24dip" />
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="70dp"
+                                    android:layout_marginTop="8dp"
+                                    android:src="@drawable/whiskey"/>
+
+                            </LinearLayout>
+
+
+                        </com.google.android.material.card.MaterialCardView>
+
+
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/cauldron_choice_button_make"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginBottom="16dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+                        android:background="@drawable/button_background_purple_dark"
+                        android:textSize="24dip"
+                        android:fontFamily="@font/dustismo_bold"
+                        android:text="@string/drink"
+                        android:textColor="@color/colorPurpleBackground"/>
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</FrameLayout>
