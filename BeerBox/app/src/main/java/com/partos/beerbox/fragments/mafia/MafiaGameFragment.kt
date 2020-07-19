@@ -121,7 +121,6 @@ class MafiaGameFragment : Fragment() {
             dayPanel.visibility = View.GONE
             nightPanel.visibility = View.VISIBLE
             nightPanel.adapter = NightPanelRecyclerView(nightRoles)
-            hideKeyboard()
         }
         changePanelButton2.setOnClickListener {
             changePanelButton.visibility = View.VISIBLE

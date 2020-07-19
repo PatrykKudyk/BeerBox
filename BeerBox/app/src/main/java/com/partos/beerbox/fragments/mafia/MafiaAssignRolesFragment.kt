@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -46,6 +47,7 @@ class MafiaAssignRolesFragment : Fragment() {
     private lateinit var cardRole: CardView
     private lateinit var textRole: TextView
     private lateinit var editTextRole: EditText
+    private lateinit var enterPanelButton: Button
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -181,21 +183,10 @@ class MafiaAssignRolesFragment : Fragment() {
                 editTextRole.setText("")
                 position++
                 if (position == rolesAssignedList.size) {
-                    val fragment = MafiaGameFragment.newInstance(
-                        size as Int,
-                        isStatic as Boolean,
-                        rolesAssignedList,
-                        namesAssignedList
-                    )
-                    fragmentManager
-                        ?.beginTransaction()
-                        ?.setCustomAnimations(
-                            R.anim.enter_right_to_left, R.anim.exit_left_to_right,
-                            R.anim.enter_left_to_right, R.anim.exit_right_to_left
-                        )
-                        ?.replace(R.id.mafia_frame_layout, fragment)
-                        ?.commit()
+                    enterPanelButton.visibility = View.VISIBLE
+                    cardShow.visibility = View.GONE
                 }
+                hideKeyboard()
             } else {
                 Toast.makeText(
                     rootView.context,
@@ -203,6 +194,22 @@ class MafiaAssignRolesFragment : Fragment() {
                     Toast.LENGTH_SHORT
                 ).show()
             }
+        }
+        enterPanelButton.setOnClickListener {
+            val fragment = MafiaGameFragment.newInstance(
+                size as Int,
+                isStatic as Boolean,
+                rolesAssignedList,
+                namesAssignedList
+            )
+            fragmentManager
+                ?.beginTransaction()
+                ?.setCustomAnimations(
+                    R.anim.enter_right_to_left, R.anim.exit_left_to_right,
+                    R.anim.enter_left_to_right, R.anim.exit_right_to_left
+                )
+                ?.replace(R.id.mafia_frame_layout, fragment)
+                ?.commit()
         }
     }
 
@@ -213,5 +220,13 @@ class MafiaAssignRolesFragment : Fragment() {
         cardShow = rootView.findViewById(R.id.mafia_assign_card_show)
         textRole = rootView.findViewById(R.id.mafia_assign_text_role)
         editTextRole = rootView.findViewById(R.id.mafia_assign_edit_role)
+        enterPanelButton = rootView.findViewById(R.id.mafia_assign_button_panel)
+    }
+
+    private fun hideKeyboard() {
+        val view = editTextRole
+        val inputManager =
+            rootView.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        inputManager.hideSoftInputFromWindow(view.windowToken, 0)
     }
 }
