@@ -100,5 +100,8 @@
     <string name="cauldron">Panoramix Cauldron</string>
     <string name="make_cauldron">Make Cauldron</string>
     <string name="how_to_make">How to make</string>
+    <string name="how_to_make_description">The Panoramix Cauldron is a mixture made from mixing different alcohols.\n\n
+    All you need is a big empty pot and some alcohol.\n\n
+    You fill in the pot with the alcohols and stir them.\n\n</string>
 
 </resources>

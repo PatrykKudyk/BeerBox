@@ -12,6 +12,8 @@ import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.ImageView
 import com.partos.beerbox.R
+import com.partos.beerbox.fragments.bottlesgame.BottlesGameRulesFragment
+import com.partos.beerbox.fragments.mafia.MafiaRulesFragment
 import java.lang.RuntimeException
 
 // TODO: Rename parameter arguments, choose names that match
@@ -107,7 +109,16 @@ class CauldronMenuFragment : Fragment() {
         }
 
         howToMakeButton.setOnClickListener {
-            
+            val howToMakeFragment = CauldronHowToMakeFragment.newInstance()
+            fragmentManager
+                ?.beginTransaction()
+                ?.setCustomAnimations(
+                    R.anim.enter_right_to_left, R.anim.exit_left_to_right,
+                    R.anim.enter_left_to_right, R.anim.exit_right_to_left
+                )
+                ?.replace(R.id.main_frame_layout, howToMakeFragment)
+                ?.addToBackStack(CauldronHowToMakeFragment.toString())
+                ?.commit()
         }
     }
 

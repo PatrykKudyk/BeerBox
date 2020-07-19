@@ -106,5 +106,8 @@
     <string name="cauldron">Kociołek Panoramixa</string>
     <string name="make_cauldron">Zrób kociołek</string>
     <string name="how_to_make">Jak zrobić</string>
+    <string name="how_to_make_description">Kociołek Panoramixa to mieszanina różnych alkoholi.\n\n
+    Wszystko czego potrzebujesz to duży garnek/kociołek i alkohol.\n\n
+    Wlewasz alkohole do kociołka i mieszasz je razem.\n\n</string>
 
 </resources>
