@@ -96,5 +96,6 @@
     <string name="killed">Killed</string>
     <string name="hooked_up">Hooked up</string>
     <string name="toast_no_name_given">You must enter the name first</string>
+    <string name="mafia_enter_panel">Game Master Panel</string>
 
 </resources>

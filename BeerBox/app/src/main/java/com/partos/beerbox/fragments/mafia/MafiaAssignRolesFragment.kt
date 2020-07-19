@@ -37,6 +37,7 @@ class MafiaAssignRolesFragment : Fragment() {
     private var listener: OnFragmentInteractionListener? = null
 
     private lateinit var rolesAssignedList: ArrayList<String>
+    private lateinit var namesAssignedList: ArrayList<String>
 
     private lateinit var rootView: View
     private lateinit var nextButton: Button
@@ -163,6 +164,7 @@ class MafiaAssignRolesFragment : Fragment() {
         assignButton.setOnClickListener {
             assignButton.visibility = View.GONE
             cardShow.visibility = View.VISIBLE
+            namesAssignedList = ArrayList<String>()
         }
         cardShow.setOnClickListener {
             cardShow.visibility = View.GONE
@@ -175,13 +177,15 @@ class MafiaAssignRolesFragment : Fragment() {
                 cardRole.visibility = View.GONE
                 nextButton.visibility = View.GONE
                 cardShow.visibility = View.VISIBLE
+                namesAssignedList.add(editTextRole.text.toString().trim())
                 editTextRole.setText("")
                 position++
                 if (position == rolesAssignedList.size) {
                     val fragment = MafiaGameFragment.newInstance(
                         size as Int,
                         isStatic as Boolean,
-                        rolesList as ArrayList<Int>
+                        rolesAssignedList,
+                        namesAssignedList
                     )
                     fragmentManager
                         ?.beginTransaction()

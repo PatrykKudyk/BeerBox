@@ -12,6 +12,7 @@ import android.widget.Button
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.partos.beerbox.R
+import com.partos.beerbox.models.MafiaPlayer
 import com.partos.beerbox.recycler.DayPanelRecyclerView
 import com.partos.beerbox.recycler.MarginItemDecoration
 import com.partos.beerbox.recycler.NightPanelRecyclerView
@@ -22,6 +23,7 @@ import java.lang.RuntimeException
 private const val ARG_PARAM1 = "size"
 private const val ARG_PARAM2 = "isStatic"
 private const val ARG_PARAM3 = "rolesList"
+private const val ARG_PARAM4 = "namesList"
 
 /**
  * A simple [Fragment] subclass.
@@ -32,7 +34,8 @@ class MafiaGameFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var size: Int? = null
     private var isStatic: Boolean? = null
-    private var rolesList: ArrayList<Int>? = null
+    private var rolesList: ArrayList<String>? = null
+    private var namesList: ArrayList<String>? = null
     private var listener: OnFragmentInteractionListener? = null
 
     private lateinit var rootView: View
@@ -41,7 +44,7 @@ class MafiaGameFragment : Fragment() {
     private lateinit var changePanelButton: Button
     private lateinit var changePanelButton2: Button
 
-    private lateinit var rolesAssignedList: ArrayList<String>
+    private lateinit var rolesAssignedList: ArrayList<MafiaPlayer>
     private lateinit var nightRoles: ArrayList<String>
 
 
@@ -50,7 +53,8 @@ class MafiaGameFragment : Fragment() {
         arguments?.let {
             size = it.getInt(ARG_PARAM1)
             isStatic = it.getBoolean(ARG_PARAM2)
-            rolesList = it.getIntegerArrayList(ARG_PARAM3)
+            rolesList = it.getStringArrayList(ARG_PARAM3)
+            namesList = it.getStringArrayList(ARG_PARAM4)
         }
     }
 
@@ -88,12 +92,13 @@ class MafiaGameFragment : Fragment() {
 
     companion object {
         @JvmStatic
-        fun newInstance(size: Int, isStatic: Boolean, rolesArray: ArrayList<Int>) =
+        fun newInstance(size: Int, isStatic: Boolean, rolesArray: ArrayList<String>, namesArray: ArrayList<String>) =
             MafiaGameFragment().apply {
                 arguments = Bundle().apply {
                     putInt(ARG_PARAM1, size)
                     putBoolean(ARG_PARAM2, isStatic)
-                    putIntegerArrayList(ARG_PARAM3, rolesArray)
+                    putStringArrayList(ARG_PARAM3, rolesArray)
+                    putStringArrayList(ARG_PARAM4, namesArray)
                 }
             }
     }
@@ -101,7 +106,7 @@ class MafiaGameFragment : Fragment() {
     private fun initFragment() {
         attachViews()
         assignRoles()
-        assightNightRoles()
+        assignNightRoles()
         val dayLayoutManager = LinearLayoutManager(this.context)
         val nightLayoutManager = LinearLayoutManager(this.context)
         dayPanel.layoutManager = dayLayoutManager
@@ -128,64 +133,26 @@ class MafiaGameFragment : Fragment() {
 
     }
 
-    private fun assightNightRoles() {
-        nightRoles = ArrayList()
-        if (rolesList?.get(1) == 1) {
-            nightRoles.add(rootView.context.getString(R.string.healed))
+    private fun assignRoles() {
+        rolesAssignedList = ArrayList()
+        for (i in 0 until rolesList?.size!!) {
+            rolesAssignedList.add(MafiaPlayer(rolesList!![i], namesList!![i]))
         }
-        if (rolesList?.get(3) == 1) {
-            nightRoles.add(rootView.context.getString(R.string.hooked_up))
+    }
+
+    private fun assignNightRoles() {
+        nightRoles = ArrayList()
+        for (i in rolesList as ArrayList<String>) {
+            if (i == rootView.context.getString(R.string.mafia_role_medic)) {
+                nightRoles.add(rootView.context.getString(R.string.healed))
+            }
+            if (i == rootView.context.getString(R.string.mafia_role_courtesan)){
+                nightRoles.add(rootView.context.getString(R.string.hooked_up))
+            }
         }
         nightRoles.add(rootView.context.getString(R.string.killed))
     }
 
-    private fun assignRoles() {
-        rolesAssignedList = ArrayList()
-        if (rolesList?.get(0) == 1) {
-            rolesAssignedList.add(rootView.context.getString(R.string.mafia_role_cattani))
-        }
-        if (rolesList?.get(1) == 1) {
-            rolesAssignedList.add(rootView.context.getString(R.string.mafia_role_medic))
-        }
-        if (rolesList?.get(2) == 1) {
-            rolesAssignedList.add(rootView.context.getString(R.string.mafia_role_sniper))
-        }
-        if (rolesList?.get(3) == 1) {
-            rolesAssignedList.add(rootView.context.getString(R.string.mafia_role_courtesan))
-        }
-        if (rolesList?.get(4) == 1) {
-            rolesAssignedList.add(rootView.context.getString(R.string.mafia_role_jude))
-        }
-        if (rolesList?.get(5) == 1) {
-            rolesAssignedList.add(rootView.context.getString(R.string.mafia_role_lawyer))
-        }
-        if (rolesList?.get(6) == 1) {
-            rolesAssignedList.add(rootView.context.getString(R.string.mafia_role_judge))
-        }
-        if (size == 7 || size == 8) {
-            rolesAssignedList.add(rootView.context.getString(R.string.mafia_role_mafia))
-            rolesAssignedList.add(rootView.context.getString(R.string.mafia_role_mafia))
-        } else if (size!! >= 9 && size!! <= 11) {
-            rolesAssignedList.add(rootView.context.getString(R.string.mafia_role_mafia))
-            rolesAssignedList.add(rootView.context.getString(R.string.mafia_role_mafia))
-            rolesAssignedList.add(rootView.context.getString(R.string.mafia_role_mafia))
-        } else if (size!! >= 12 && size!! <= 14) {
-            rolesAssignedList.add(rootView.context.getString(R.string.mafia_role_mafia))
-            rolesAssignedList.add(rootView.context.getString(R.string.mafia_role_mafia))
-            rolesAssignedList.add(rootView.context.getString(R.string.mafia_role_mafia))
-            rolesAssignedList.add(rootView.context.getString(R.string.mafia_role_mafia))
-        } else if (size!! >= 15 && size!! <= 17) {
-            rolesAssignedList.add(rootView.context.getString(R.string.mafia_role_mafia))
-            rolesAssignedList.add(rootView.context.getString(R.string.mafia_role_mafia))
-            rolesAssignedList.add(rootView.context.getString(R.string.mafia_role_mafia))
-            rolesAssignedList.add(rootView.context.getString(R.string.mafia_role_mafia))
-            rolesAssignedList.add(rootView.context.getString(R.string.mafia_role_mafia))
-        }
-        for (i in (rolesAssignedList.size)..(size as Int) - 2) {
-            rolesAssignedList.add(rootView.context.getString(R.string.mafia_role_city))
-        }
-        rolesAssignedList.shuffle()
-    }
 
     private fun attachViews() {
         dayPanel = rootView.findViewById(R.id.mafia_game_day_panel)
