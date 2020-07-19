@@ -21,8 +21,8 @@ class DayPanelRecyclerView(val playersList: ArrayList<MafiaPlayer>) :
     }
 
     override fun onBindViewHolder(holder: DayPanelViewHolder, position: Int) {
-        holder.view.row_mafia_role_text.text = playersList[position].role
-        holder.view.row_mafia_name_text.text = playersList[position].name
+        holder.view.row_mafia_role_text.text = playersList[position].name
+        holder.view.row_mafia_name_text.text = playersList[position].role
         holder.view.row_mafia_role_card.setOnClickListener {
             if (holder.view.row_mafia_role_card.cardBackgroundColor == holder.view.context.getColorStateList(
                     R.color.colorOrangeLightLight
