@@ -8,7 +8,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.cardview.widget.CardView
 import com.partos.beerbox.R
 
@@ -42,6 +44,7 @@ class MafiaAssignRolesFragment : Fragment() {
     private lateinit var cardShow: CardView
     private lateinit var cardRole: CardView
     private lateinit var textRole: TextView
+    private lateinit var editTextRole: EditText
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -168,24 +171,33 @@ class MafiaAssignRolesFragment : Fragment() {
             nextButton.visibility = View.VISIBLE
         }
         nextButton.setOnClickListener {
-            cardRole.visibility = View.GONE
-            nextButton.visibility = View.GONE
-            cardShow.visibility = View.VISIBLE
-            position++
-            if (position == rolesAssignedList.size) {
-                val fragment = MafiaGameFragment.newInstance(
-                    size as Int,
-                    isStatic as Boolean,
-                    rolesList as ArrayList<Int>
-                )
-                fragmentManager
-                    ?.beginTransaction()
-                    ?.setCustomAnimations(
-                        R.anim.enter_right_to_left, R.anim.exit_left_to_right,
-                        R.anim.enter_left_to_right, R.anim.exit_right_to_left
+            if (editTextRole.text.toString() != "") {
+                cardRole.visibility = View.GONE
+                nextButton.visibility = View.GONE
+                cardShow.visibility = View.VISIBLE
+                editTextRole.setText("")
+                position++
+                if (position == rolesAssignedList.size) {
+                    val fragment = MafiaGameFragment.newInstance(
+                        size as Int,
+                        isStatic as Boolean,
+                        rolesList as ArrayList<Int>
                     )
-                    ?.replace(R.id.mafia_frame_layout, fragment)
-                    ?.commit()
+                    fragmentManager
+                        ?.beginTransaction()
+                        ?.setCustomAnimations(
+                            R.anim.enter_right_to_left, R.anim.exit_left_to_right,
+                            R.anim.enter_left_to_right, R.anim.exit_right_to_left
+                        )
+                        ?.replace(R.id.mafia_frame_layout, fragment)
+                        ?.commit()
+                }
+            } else {
+                Toast.makeText(
+                    rootView.context,
+                    rootView.context.getText(R.string.toast_no_name_given),
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         }
     }
@@ -196,5 +208,6 @@ class MafiaAssignRolesFragment : Fragment() {
         cardRole = rootView.findViewById(R.id.mafia_assign_card_role)
         cardShow = rootView.findViewById(R.id.mafia_assign_card_show)
         textRole = rootView.findViewById(R.id.mafia_assign_text_role)
+        editTextRole = rootView.findViewById(R.id.mafia_assign_edit_role)
     }
 }
