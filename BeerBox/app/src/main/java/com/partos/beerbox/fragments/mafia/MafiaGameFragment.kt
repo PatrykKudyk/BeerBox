@@ -3,21 +3,18 @@ package com.partos.beerbox.fragments.mafia
 import android.content.Context
 import android.net.Uri
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.partos.beerbox.R
 import com.partos.beerbox.models.MafiaPlayer
-import com.partos.beerbox.recycler.DayPanelRecyclerView
-import com.partos.beerbox.recycler.MarginItemDecoration
-import com.partos.beerbox.recycler.NightPanelRecyclerView
-import java.lang.RuntimeException
+import com.partos.beerbox.recycler.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -44,6 +41,8 @@ class MafiaGameFragment : Fragment() {
     private lateinit var nightPanel: ConstraintLayout
     private lateinit var changePanelButton: Button
     private lateinit var changePanelButton2: Button
+    private lateinit var nightPanelRoles: RecyclerView
+    private lateinit var nightPanelActions: RecyclerView
 
     private lateinit var rolesAssignedList: ArrayList<MafiaPlayer>
     private lateinit var nightRoles: ArrayList<String>
@@ -93,7 +92,12 @@ class MafiaGameFragment : Fragment() {
 
     companion object {
         @JvmStatic
-        fun newInstance(size: Int, isStatic: Boolean, rolesArray: ArrayList<String>, namesArray: ArrayList<String>) =
+        fun newInstance(
+            size: Int,
+            isStatic: Boolean,
+            rolesArray: ArrayList<String>,
+            namesArray: ArrayList<String>
+        ) =
             MafiaGameFragment().apply {
                 arguments = Bundle().apply {
                     putInt(ARG_PARAM1, size)
@@ -108,16 +112,26 @@ class MafiaGameFragment : Fragment() {
         attachViews()
         assignRoles()
         assignNightRoles()
+
         val dayLayoutManager = LinearLayoutManager(this.context)
+        val nPActionLayoutManager = LinearLayoutManager(this.context)
+        val nPRolesLayoutManager = LinearLayoutManager(this.context)
+
         dayPanel.layoutManager = dayLayoutManager
         dayPanel.addItemDecoration(MarginItemDecoration(12))
-        dayPanel.adapter = DayPanelRecyclerView(rolesAssignedList)
+        dayPanel.adapter = DayPanelRecyclerViewAdapter(rolesAssignedList)
+
+        nightPanelActions.layoutManager = nPActionLayoutManager
+        nightPanelActions.addItemDecoration(MarginItemDecoration(12))
+        nightPanelRoles.layoutManager = nPRolesLayoutManager
+        nightPanelRoles.addItemDecoration(MarginItemDecoration(12))
 
         changePanelButton.setOnClickListener {
             changePanelButton.visibility = View.GONE
             changePanelButton2.visibility = View.VISIBLE
             dayPanel.visibility = View.GONE
             nightPanel.visibility = View.VISIBLE
+            nightPanelRoles.adapter = NightPanelRolesRecyclerViewAdapter(rolesAssignedList)
         }
         changePanelButton2.setOnClickListener {
             changePanelButton.visibility = View.VISIBLE
@@ -142,7 +156,7 @@ class MafiaGameFragment : Fragment() {
             if (i == rootView.context.getString(R.string.mafia_role_medic)) {
                 nightRoles.add(rootView.context.getString(R.string.healed))
             }
-            if (i == rootView.context.getString(R.string.mafia_role_courtesan)){
+            if (i == rootView.context.getString(R.string.mafia_role_courtesan)) {
                 nightRoles.add(rootView.context.getString(R.string.hooked_up))
             }
         }
@@ -155,6 +169,8 @@ class MafiaGameFragment : Fragment() {
         nightPanel = rootView.findViewById(R.id.mafia_game_night_panel)
         changePanelButton = rootView.findViewById(R.id.mafia_game_button_change_panel)
         changePanelButton2 = rootView.findViewById(R.id.mafia_game_button_change_panel2)
+        nightPanelActions = rootView.findViewById(R.id.mafia_game_night_panel_actions)
+        nightPanelRoles = rootView.findViewById(R.id.mafia_game_night_panel_roles)
     }
 
     private fun hideKeyboard() {

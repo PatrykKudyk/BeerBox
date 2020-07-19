@@ -8,7 +8,7 @@ import com.partos.beerbox.R
 import com.partos.beerbox.models.MafiaPlayer
 import kotlinx.android.synthetic.main.row_mafia_role.view.*
 
-class DayPanelRecyclerView(val playersList: ArrayList<MafiaPlayer>) :
+class DayPanelRecyclerViewAdapter(val playersList: ArrayList<MafiaPlayer>) :
     RecyclerView.Adapter<DayPanelViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DayPanelViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
