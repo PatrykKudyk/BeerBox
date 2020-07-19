@@ -8,7 +8,7 @@
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/row_mafia_role_card"
         android:layout_width="match_parent"
-        android:layout_height="130dp"
+        android:layout_height="113dp"
         android:theme="@style/Theme.MaterialComponents.Light"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,28 +24,30 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/row_mafia_role_text"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:fontFamily="@font/dustismo_bold"
-                android:gravity="center"
-                tools:text="@string/mafia_role_cattani"
-                android:textSize="38dip" />
-
-            <View
-                android:layout_gravity="center"
-                android:layout_width="60dp"
-                android:layout_height="3dp"
-                android:background="@color/colorOrangeDark"/>
-
-            <TextView
-                android:id="@+id/row_mafia_name_text"
+                android:id="@+id/row_mafia_action_text"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:fontFamily="@font/dustismo_bold"
                 android:gravity="center"
                 tools:text="@string/mafia_role_cattani"
                 android:textSize="30dip" />
+
+            <View
+                android:layout_gravity="center"
+                android:layout_width="30dp"
+                android:layout_height="3dp"
+                android:background="@color/colorOrangeDark"/>
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/row_mafia_action_edit"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:fontFamily="@font/dustismo_bold"
+                android:inputType="text"
+                android:maxLength="15"
+                android:gravity="center"
+                android:hint="@string/name"
+                android:textSize="20dip" />
 
 
         </LinearLayout>
