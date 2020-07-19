@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.partos.beerbox.R
@@ -40,7 +41,7 @@ class MafiaGameFragment : Fragment() {
 
     private lateinit var rootView: View
     private lateinit var dayPanel: RecyclerView
-    private lateinit var nightPanel: RecyclerView
+    private lateinit var nightPanel: ConstraintLayout
     private lateinit var changePanelButton: Button
     private lateinit var changePanelButton2: Button
 
@@ -108,19 +109,15 @@ class MafiaGameFragment : Fragment() {
         assignRoles()
         assignNightRoles()
         val dayLayoutManager = LinearLayoutManager(this.context)
-        val nightLayoutManager = LinearLayoutManager(this.context)
         dayPanel.layoutManager = dayLayoutManager
         dayPanel.addItemDecoration(MarginItemDecoration(12))
         dayPanel.adapter = DayPanelRecyclerView(rolesAssignedList)
-        nightPanel.layoutManager = nightLayoutManager
-        nightPanel.addItemDecoration(MarginItemDecoration(12))
 
         changePanelButton.setOnClickListener {
             changePanelButton.visibility = View.GONE
             changePanelButton2.visibility = View.VISIBLE
             dayPanel.visibility = View.GONE
             nightPanel.visibility = View.VISIBLE
-            nightPanel.adapter = NightPanelRecyclerView(nightRoles)
         }
         changePanelButton2.setOnClickListener {
             changePanelButton.visibility = View.VISIBLE
