@@ -9,6 +9,7 @@ import com.partos.beerbox.fragments.beerpong.BeerPongMenuFragment
 import com.partos.beerbox.fragments.beerpong.BeerPongRulesFragment
 import com.partos.beerbox.fragments.bottlesgame.BottlesGameMenuFragment
 import com.partos.beerbox.fragments.bottlesgame.BottlesGameRulesFragment
+import com.partos.beerbox.fragments.cauldron.CauldronMenuFragment
 import com.partos.beerbox.fragments.mafia.MafiaMenuFragment
 import com.partos.beerbox.fragments.mafia.MafiaRolesFragment
 import com.partos.beerbox.fragments.mafia.MafiaRulesFragment
@@ -21,7 +22,8 @@ class MainActivity : AppCompatActivity(),
     BottlesGameRulesFragment.OnFragmentInteractionListener,
     MafiaMenuFragment.OnFragmentInteractionListener,
     MafiaRulesFragment.OnFragmentInteractionListener,
-    MafiaRolesFragment.OnFragmentInteractionListener {
+    MafiaRolesFragment.OnFragmentInteractionListener,
+    CauldronMenuFragment.OnFragmentInteractionListener {
 
     private lateinit var mainMenuFragment: MainMenuFragment
 

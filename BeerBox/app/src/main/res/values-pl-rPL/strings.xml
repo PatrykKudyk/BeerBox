@@ -103,5 +103,8 @@
     <string name="hooked_up">Przeleciany</string>
     <string name="toast_no_name_given">Musisz najpierw podać imię</string>
     <string name="mafia_enter_panel">Panel Mistrza Gry</string>
+    <string name="cauldron">Kociołek Panoramixa</string>
+    <string name="make_cauldron">Zrób kociołek</string>
+    <string name="how_to_make">Jak zrobić</string>
 
 </resources>
