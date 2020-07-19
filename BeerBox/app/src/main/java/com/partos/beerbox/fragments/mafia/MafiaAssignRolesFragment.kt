@@ -14,6 +14,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.cardview.widget.CardView
 import com.partos.beerbox.R
+import com.partos.flashback.db.DataBaseHelper
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -196,11 +197,10 @@ class MafiaAssignRolesFragment : Fragment() {
             }
         }
         enterPanelButton.setOnClickListener {
+            addPlayersToDB()
             val fragment = MafiaGameFragment.newInstance(
                 size as Int,
-                isStatic as Boolean,
-                rolesAssignedList,
-                namesAssignedList
+                isStatic as Boolean
             )
             fragmentManager
                 ?.beginTransaction()
@@ -210,6 +210,13 @@ class MafiaAssignRolesFragment : Fragment() {
                 )
                 ?.replace(R.id.mafia_frame_layout, fragment)
                 ?.commit()
+        }
+    }
+
+    private fun addPlayersToDB() {
+        val db = DataBaseHelper(rootView.context)
+        for (i in 0 until rolesAssignedList.size) {
+            db.addPlayer(rolesAssignedList[i], namesAssignedList[i], 1)
         }
     }
 

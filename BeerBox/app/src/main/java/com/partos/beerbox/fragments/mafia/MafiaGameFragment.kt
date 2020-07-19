@@ -13,15 +13,14 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.partos.beerbox.R
-import com.partos.beerbox.models.MafiaPlayer
+import com.partos.beerbox.models.Player
 import com.partos.beerbox.recycler.*
+import com.partos.flashback.db.DataBaseHelper
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "size"
 private const val ARG_PARAM2 = "isStatic"
-private const val ARG_PARAM3 = "rolesList"
-private const val ARG_PARAM4 = "namesList"
 
 /**
  * A simple [Fragment] subclass.
@@ -32,8 +31,6 @@ class MafiaGameFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var size: Int? = null
     private var isStatic: Boolean? = null
-    private var rolesList: ArrayList<String>? = null
-    private var namesList: ArrayList<String>? = null
     private var listener: OnFragmentInteractionListener? = null
 
     private lateinit var rootView: View
@@ -44,7 +41,7 @@ class MafiaGameFragment : Fragment() {
     private lateinit var nightPanelRoles: RecyclerView
     private lateinit var nightPanelActions: RecyclerView
 
-    private lateinit var rolesAssignedList: ArrayList<MafiaPlayer>
+    private lateinit var playersList: ArrayList<Player>
     private lateinit var nightRoles: ArrayList<String>
 
 
@@ -53,8 +50,6 @@ class MafiaGameFragment : Fragment() {
         arguments?.let {
             size = it.getInt(ARG_PARAM1)
             isStatic = it.getBoolean(ARG_PARAM2)
-            rolesList = it.getStringArrayList(ARG_PARAM3)
-            namesList = it.getStringArrayList(ARG_PARAM4)
         }
     }
 
@@ -94,23 +89,21 @@ class MafiaGameFragment : Fragment() {
         @JvmStatic
         fun newInstance(
             size: Int,
-            isStatic: Boolean,
-            rolesArray: ArrayList<String>,
-            namesArray: ArrayList<String>
+            isStatic: Boolean
         ) =
             MafiaGameFragment().apply {
                 arguments = Bundle().apply {
                     putInt(ARG_PARAM1, size)
                     putBoolean(ARG_PARAM2, isStatic)
-                    putStringArrayList(ARG_PARAM3, rolesArray)
-                    putStringArrayList(ARG_PARAM4, namesArray)
                 }
             }
     }
 
     private fun initFragment() {
+        val db = DataBaseHelper(rootView.context)
+        playersList = db.getPlayersList()
+
         attachViews()
-        assignRoles()
         assignNightRoles()
 
         val dayLayoutManager = LinearLayoutManager(this.context)
@@ -119,7 +112,7 @@ class MafiaGameFragment : Fragment() {
 
         dayPanel.layoutManager = dayLayoutManager
         dayPanel.addItemDecoration(MarginItemDecoration(12))
-        dayPanel.adapter = DayPanelRecyclerViewAdapter(rolesAssignedList)
+        dayPanel.adapter = DayPanelRecyclerViewAdapter(playersList)
 
         nightPanelActions.layoutManager = nPActionLayoutManager
         nightPanelActions.addItemDecoration(MarginItemDecoration(12))
@@ -131,7 +124,8 @@ class MafiaGameFragment : Fragment() {
             changePanelButton2.visibility = View.VISIBLE
             dayPanel.visibility = View.GONE
             nightPanel.visibility = View.VISIBLE
-            nightPanelRoles.adapter = NightPanelRolesRecyclerViewAdapter(rolesAssignedList)
+            playersList = db.getPlayersList()
+            nightPanelRoles.adapter = NightPanelRolesRecyclerViewAdapter(playersList)
             nightPanelActions.adapter = NightPanelActionsRecyclerViewAdapter(nightRoles)
         }
         changePanelButton2.setOnClickListener {
@@ -139,25 +133,20 @@ class MafiaGameFragment : Fragment() {
             changePanelButton2.visibility = View.GONE
             dayPanel.visibility = View.VISIBLE
             nightPanel.visibility = View.GONE
+            playersList = db.getPlayersList()
+            dayPanel.adapter = DayPanelRecyclerViewAdapter(playersList)
             hideKeyboard()
         }
 
     }
 
-    private fun assignRoles() {
-        rolesAssignedList = ArrayList()
-        for (i in 0 until rolesList?.size!!) {
-            rolesAssignedList.add(MafiaPlayer(rolesList!![i], namesList!![i]))
-        }
-    }
-
     private fun assignNightRoles() {
         nightRoles = ArrayList()
-        for (i in rolesList as ArrayList<String>) {
-            if (i == rootView.context.getString(R.string.mafia_role_medic)) {
+        for (i in playersList) {
+            if (i.role == rootView.context.getString(R.string.mafia_role_medic)) {
                 nightRoles.add(rootView.context.getString(R.string.healed))
             }
-            if (i == rootView.context.getString(R.string.mafia_role_courtesan)) {
+            if (i.role == rootView.context.getString(R.string.mafia_role_courtesan)) {
                 nightRoles.add(rootView.context.getString(R.string.hooked_up))
             }
         }

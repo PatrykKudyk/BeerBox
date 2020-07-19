@@ -5,9 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.partos.beerbox.R
-import com.partos.beerbox.models.MafiaPlayer
 import kotlinx.android.synthetic.main.row_mafia_action_night.view.*
-import kotlinx.android.synthetic.main.row_mafia_role.view.*
 
 class NightPanelActionsRecyclerViewAdapter(val actionsList: ArrayList<String>) :
     RecyclerView.Adapter<NightPanelActionsViewHolder>() {
