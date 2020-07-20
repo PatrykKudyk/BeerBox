@@ -4,12 +4,12 @@ import android.net.Uri
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.partos.beerbox.R
-import com.partos.beerbox.fragments.bottlesgame.BottlesGameTeamsFragment
 import com.partos.beerbox.fragments.cauldron.CauldronChoicesFragment
-import com.partos.beerbox.fragments.cauldron.CauldronMenuFragment
+import com.partos.beerbox.fragments.cauldron.CauldronMakeFragment
 
 class CauldronActivity : AppCompatActivity(),
-    CauldronChoicesFragment.OnFragmentInteractionListener {
+    CauldronChoicesFragment.OnFragmentInteractionListener,
+    CauldronMakeFragment.OnFragmentInteractionListener {
 
     private lateinit var fragment: CauldronChoicesFragment
 
@@ -27,5 +27,12 @@ class CauldronActivity : AppCompatActivity(),
 
     override fun onFragmentInteraction(uri: Uri) {
 
+    }
+
+    override fun onBackPressed() {
+        supportFragmentManager
+            .popBackStack()
+
+        super.onBackPressed()
     }
 }

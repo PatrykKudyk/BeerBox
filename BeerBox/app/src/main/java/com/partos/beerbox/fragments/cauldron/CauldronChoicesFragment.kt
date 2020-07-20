@@ -31,6 +31,7 @@ class CauldronChoicesFragment : Fragment() {
     private var param2: String? = null
     private var listener: OnFragmentInteractionListener? = null
     private lateinit var rootView: View
+    private lateinit var alcoholsList: ArrayList<Int>
 
     private lateinit var litresLayout: LinearLayout
     private lateinit var alcoholsLayout: LinearLayout
@@ -110,7 +111,15 @@ class CauldronChoicesFragment : Fragment() {
 
     private fun initFragment() {
         attachViews()
+        initList()
         attachListeners()
+    }
+
+    private fun initList() {
+        alcoholsList = ArrayList()
+        for (i in 0 until 10) {
+            alcoholsList.add(0)
+        }
     }
 
     private fun attachListeners() {
@@ -135,8 +144,154 @@ class CauldronChoicesFragment : Fragment() {
                 ).show()
             }
         }
+        makeButton.setOnClickListener {
+            if (isAnyChecked()) {
+                val fragment = CauldronMakeFragment.newInstance(
+                    alcoholsList,
+                    litresEditText.text.toString().toInt()
+                )
+                fragmentManager
+                    ?.beginTransaction()
+                    ?.setCustomAnimations(
+                        R.anim.enter_right_to_left, R.anim.exit_left_to_right,
+                        R.anim.enter_left_to_right, R.anim.exit_right_to_left
+                    )
+                    ?.replace(R.id.cauldron_frame_layout, fragment)
+                    ?.addToBackStack(CauldronMakeFragment.toString())
+                    ?.commit()
+            } else {
+                Toast.makeText(
+                    rootView.context,
+                    rootView.context.getText(R.string.toast_no_alcohols_chosen),
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+        }
         beerCard.setOnClickListener {
-            if (beerCard.cardBackgroundColor == rootView.context.getColorStateList(R.color.colorPurple))
+            if (beerCard.cardBackgroundColor == rootView.context.getColorStateList(R.color.colorPurpleLightLight)) {
+                beerCard.setCardBackgroundColor(rootView.context.getColorStateList(R.color.colorPurple))
+                alcoholsList[0] = 1
+            } else {
+                beerCard.setCardBackgroundColor(rootView.context.getColorStateList(R.color.colorPurpleLightLight))
+                alcoholsList[0] = 0
+            }
+        }
+        wineCard.setOnClickListener {
+            if (wineCard.cardBackgroundColor == rootView.context.getColorStateList(R.color.colorPurpleLightLight)) {
+                wineCard.setCardBackgroundColor(rootView.context.getColorStateList(R.color.colorPurple))
+                alcoholsList[1] = 1
+            } else {
+                wineCard.setCardBackgroundColor(rootView.context.getColorStateList(R.color.colorPurpleLightLight))
+                alcoholsList[1] = 0
+            }
+        }
+        vodkaCard.setOnClickListener {
+            if (vodkaCard.cardBackgroundColor == rootView.context.getColorStateList(R.color.colorPurpleLightLight)) {
+                vodkaCard.setCardBackgroundColor(rootView.context.getColorStateList(R.color.colorPurple))
+                alcoholsList[2] = 1
+            } else {
+                vodkaCard.setCardBackgroundColor(rootView.context.getColorStateList(R.color.colorPurpleLightLight))
+                alcoholsList[2] = 0
+            }
+        }
+        ginCard.setOnClickListener {
+            if (ginCard.cardBackgroundColor == rootView.context.getColorStateList(R.color.colorPurpleLightLight)) {
+                ginCard.setCardBackgroundColor(rootView.context.getColorStateList(R.color.colorPurple))
+                alcoholsList[3] = 1
+            } else {
+                ginCard.setCardBackgroundColor(rootView.context.getColorStateList(R.color.colorPurpleLightLight))
+                alcoholsList[3] = 0
+            }
+        }
+        champagneCard.setOnClickListener {
+            if (champagneCard.cardBackgroundColor == rootView.context.getColorStateList(R.color.colorPurpleLightLight)) {
+                champagneCard.setCardBackgroundColor(rootView.context.getColorStateList(R.color.colorPurple))
+                alcoholsList[4] = 1
+            } else {
+                champagneCard.setCardBackgroundColor(rootView.context.getColorStateList(R.color.colorPurpleLightLight))
+                alcoholsList[4] = 0
+            }
+        }
+        tequilaCard.setOnClickListener {
+            if (tequilaCard.cardBackgroundColor == rootView.context.getColorStateList(R.color.colorPurpleLightLight)) {
+                tequilaCard.setCardBackgroundColor(rootView.context.getColorStateList(R.color.colorPurple))
+                alcoholsList[5] = 1
+            } else {
+                tequilaCard.setCardBackgroundColor(rootView.context.getColorStateList(R.color.colorPurpleLightLight))
+                alcoholsList[5] = 0
+            }
+        }
+        whiskeyCard.setOnClickListener {
+            if (whiskeyCard.cardBackgroundColor == rootView.context.getColorStateList(R.color.colorPurpleLightLight)) {
+                whiskeyCard.setCardBackgroundColor(rootView.context.getColorStateList(R.color.colorPurple))
+                alcoholsList[6] = 1
+            } else {
+                whiskeyCard.setCardBackgroundColor(rootView.context.getColorStateList(R.color.colorPurpleLightLight))
+                alcoholsList[6] = 0
+            }
+        }
+        rumCard.setOnClickListener {
+            if (rumCard.cardBackgroundColor == rootView.context.getColorStateList(R.color.colorPurpleLightLight)) {
+                rumCard.setCardBackgroundColor(rootView.context.getColorStateList(R.color.colorPurple))
+                alcoholsList[7] = 1
+            } else {
+                rumCard.setCardBackgroundColor(rootView.context.getColorStateList(R.color.colorPurpleLightLight))
+                alcoholsList[7] = 0
+            }
+        }
+        juiceCard.setOnClickListener {
+            if (juiceCard.cardBackgroundColor == rootView.context.getColorStateList(R.color.colorPurpleLightLight)) {
+                juiceCard.setCardBackgroundColor(rootView.context.getColorStateList(R.color.colorPurple))
+                alcoholsList[8] = 1
+            } else {
+                juiceCard.setCardBackgroundColor(rootView.context.getColorStateList(R.color.colorPurpleLightLight))
+                alcoholsList[8] = 0
+            }
+        }
+        energyCard.setOnClickListener {
+            if (energyCard.cardBackgroundColor == rootView.context.getColorStateList(R.color.colorPurpleLightLight)) {
+                energyCard.setCardBackgroundColor(rootView.context.getColorStateList(R.color.colorPurple))
+                alcoholsList[9] = 1
+            } else {
+                energyCard.setCardBackgroundColor(rootView.context.getColorStateList(R.color.colorPurpleLightLight))
+                alcoholsList[9] = 0
+            }
+        }
+    }
+
+    private fun isAnyChecked(): Boolean {
+        when {
+            beerCard.cardBackgroundColor == rootView.context.getColorStateList(R.color.colorPurple) -> {
+                return true
+            }
+            wineCard.cardBackgroundColor == rootView.context.getColorStateList(R.color.colorPurple) -> {
+                return true
+            }
+            vodkaCard.cardBackgroundColor == rootView.context.getColorStateList(R.color.colorPurple) -> {
+                return true
+            }
+            rumCard.cardBackgroundColor == rootView.context.getColorStateList(R.color.colorPurple) -> {
+                return true
+            }
+            tequilaCard.cardBackgroundColor == rootView.context.getColorStateList(R.color.colorPurple) -> {
+                return true
+            }
+            whiskeyCard.cardBackgroundColor == rootView.context.getColorStateList(R.color.colorPurple) -> {
+                return true
+            }
+            ginCard.cardBackgroundColor == rootView.context.getColorStateList(R.color.colorPurple) -> {
+                return true
+            }
+            champagneCard.cardBackgroundColor == rootView.context.getColorStateList(R.color.colorPurple) -> {
+                return true
+            }
+            juiceCard.cardBackgroundColor == rootView.context.getColorStateList(R.color.colorPurple) -> {
+                return true
+            }
+            energyCard.cardBackgroundColor == rootView.context.getColorStateList(R.color.colorPurple) -> {
+                return true
+            }
+            else -> return false
         }
     }
 
