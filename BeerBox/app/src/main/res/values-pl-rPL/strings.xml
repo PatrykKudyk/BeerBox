@@ -109,5 +109,22 @@
     <string name="how_to_make_description">Kociołek Panoramixa to mieszanina różnych alkoholi.\n\n
     Wszystko czego potrzebujesz to duży garnek/kociołek i alkohol.\n\n
     Wlewasz alkohole do kociołka i mieszasz je razem.\n\n</string>
+    <string name="cauldron_amount">Ile litrów kociołka chcesz przyrządzić?</string>
+    <string name="litres">Litry</string>
+    <string name="cauldron_alcohols">Jakie alkohole chcesz dodać do kociołka?</string>
+    <string name="beer">Piwo</string>
+    <string name="wine">Wino</string>
+    <string name="vodka">Wódka</string>
+    <string name="tequila">Tequila</string>
+    <string name="whiskey">Whiskey</string>
+    <string name="rum">Rum</string>
+    <string name="juice">Sok</string>
+    <string name="energy_drink">Energetyk</string>
+    <string name="gin">Gin</string>
+    <string name="champagne">Szampan</string>
+    <string name="drink">Robimy drinki</string>
+    <string name="next">Następne</string>
+    <string name="toast_give_litres">Pole z litrami nie może być puste</string>
+    <string name="toast_too_little_litres">Podano za mało litrów</string>
 
 </resources>
