@@ -5,18 +5,19 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.partos.beerbox.R
 import com.partos.beerbox.fragments.bottlesgame.BottlesGameTeamsFragment
+import com.partos.beerbox.fragments.cauldron.CauldronChoicesFragment
 import com.partos.beerbox.fragments.cauldron.CauldronMenuFragment
 
 class CauldronActivity : AppCompatActivity(),
-    CauldronMenuFragment.OnFragmentInteractionListener {
+    CauldronChoicesFragment.OnFragmentInteractionListener {
 
-    private lateinit var fragment: CauldronMenuFragment
+    private lateinit var fragment: CauldronChoicesFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cauldron)
 
-        fragment = CauldronMenuFragment.newInstance()
+        fragment = CauldronChoicesFragment.newInstance()
 
         supportFragmentManager
             .beginTransaction()

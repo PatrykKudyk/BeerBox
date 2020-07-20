@@ -21,13 +21,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                tools:visibility="gone">
+                tools:visibility="visible">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="12dp"
-                    android:layout_marginTop="64dp"
+                    android:layout_marginTop="128dp"
                     android:layout_marginEnd="12dp"
                     android:fontFamily="@font/dustismo_bold"
                     android:gravity="center"
@@ -35,17 +35,32 @@
                     android:textSize="32dip" />
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/cauldron_choice_litres_edit"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginStart="12dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="32dp"
                     android:layout_marginEnd="12dp"
                     android:fontFamily="@font/dustismo_bold"
                     android:gravity="center"
                     android:hint="@string/litres"
                     android:inputType="number"
                     android:textSize="40dip" />
+
+                <Button
+                    android:id="@+id/cauldron_choice_button_next"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginBottom="16dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginEnd="32dp"
+                    android:background="@drawable/button_background_purple_dark"
+                    android:textSize="24dip"
+                    android:fontFamily="@font/dustismo_bold"
+                    android:text="@string/next"
+                    android:textColor="@color/colorPurpleBackground"/>
 
             </LinearLayout>
 
@@ -55,7 +70,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:visibility="gone"
-                tools:visibility="visible">
+                tools:visibility="gone">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -214,7 +229,7 @@
 
                     <View
                         android:layout_width="match_parent"
-                        android:layout_height="5dp"
+                        android:layout_height="5dp"/>
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -354,7 +369,7 @@
 
                     <View
                         android:layout_width="match_parent"
-                        android:layout_height="5dp"
+                        android:layout_height="5dp"/>
 
                     <LinearLayout
                         android:layout_width="match_parent"

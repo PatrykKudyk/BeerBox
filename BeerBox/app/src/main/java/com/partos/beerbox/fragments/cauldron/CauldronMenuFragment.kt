@@ -1,20 +1,19 @@
 package com.partos.beerbox.fragments.cauldron
 
 import android.content.Context
+import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.ImageView
+import androidx.fragment.app.Fragment
 import com.partos.beerbox.R
-import com.partos.beerbox.fragments.bottlesgame.BottlesGameRulesFragment
-import com.partos.beerbox.fragments.mafia.MafiaRulesFragment
-import java.lang.RuntimeException
+import com.partos.beerbox.activities.CauldronActivity
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -54,14 +53,14 @@ class CauldronMenuFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        rootView =  inflater.inflate(R.layout.fragment_cauldron_menu, container, false)
+        rootView = inflater.inflate(R.layout.fragment_cauldron_menu, container, false)
         initFragment()
         return rootView
     }
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        if(context is OnFragmentInteractionListener) {
+        if (context is OnFragmentInteractionListener) {
             listener = context
         } else {
             throw RuntimeException(context.toString() + " must implement OnFragmentInteractionListener")
@@ -74,7 +73,7 @@ class CauldronMenuFragment : Fragment() {
     }
 
 
-    interface OnFragmentInteractionListener{
+    interface OnFragmentInteractionListener {
         fun onFragmentInteraction(uri: Uri)
     }
 
@@ -105,7 +104,8 @@ class CauldronMenuFragment : Fragment() {
 
     private fun createListeners() {
         makeCauldronButton.setOnClickListener {
-
+            val intent = Intent(rootView.context, CauldronActivity::class.java)
+            rootView.context.startActivity(intent)
         }
 
         howToMakeButton.setOnClickListener {
@@ -128,7 +128,7 @@ class CauldronMenuFragment : Fragment() {
         howToMakeButton = rootView.findViewById(R.id.cauldron_menu_how_to_make)
     }
 
-    private fun makeAnimations(){
+    private fun makeAnimations() {
         val animLeft = AnimationUtils.loadAnimation(rootView.context, R.anim.enter_left_to_right)
         val animRight = AnimationUtils.loadAnimation(rootView.context, R.anim.enter_right_to_left)
 

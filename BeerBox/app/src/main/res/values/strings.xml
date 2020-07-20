@@ -117,5 +117,8 @@
     <string name="gin">Gin</string>
     <string name="champagne">Champagne</string>
     <string name="drink">Make drinks</string>
+    <string name="next">Next</string>
+    <string name="toast_give_litres">Litres field cannot be empty</string>
+    <string name="toast_too_little_litres">Litre amount is too small</string>
 
 </resources>

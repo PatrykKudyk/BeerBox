@@ -6,6 +6,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
+import android.widget.Button
+import android.widget.EditText
+import android.widget.LinearLayout
+import android.widget.Toast
+import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import com.partos.beerbox.R
 
@@ -25,6 +31,22 @@ class CauldronChoicesFragment : Fragment() {
     private var param2: String? = null
     private var listener: OnFragmentInteractionListener? = null
     private lateinit var rootView: View
+
+    private lateinit var litresLayout: LinearLayout
+    private lateinit var alcoholsLayout: LinearLayout
+    private lateinit var litresEditText: EditText
+    private lateinit var beerCard: CardView
+    private lateinit var wineCard: CardView
+    private lateinit var vodkaCard: CardView
+    private lateinit var tequilaCard: CardView
+    private lateinit var whiskeyCard: CardView
+    private lateinit var champagneCard: CardView
+    private lateinit var rumCard: CardView
+    private lateinit var ginCard: CardView
+    private lateinit var juiceCard: CardView
+    private lateinit var energyCard: CardView
+    private lateinit var nextButton: Button
+    private lateinit var makeButton: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -88,10 +110,58 @@ class CauldronChoicesFragment : Fragment() {
 
     private fun initFragment() {
         attachViews()
+        attachListeners()
+    }
+
+    private fun attachListeners() {
+        nextButton.setOnClickListener {
+            if (litresEditText.text.toString() != "") {
+                if (litresEditText.text.toString().toInt() > 2) {
+                    litresLayout.visibility = View.GONE
+                    alcoholsLayout.visibility = View.VISIBLE
+                    hideKeyboard(litresEditText)
+                } else {
+                    Toast.makeText(
+                        rootView.context,
+                        rootView.context.getText(R.string.toast_too_little_litres),
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            } else {
+                Toast.makeText(
+                    rootView.context,
+                    rootView.context.getText(R.string.toast_give_litres),
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+        }
+        beerCard.setOnClickListener {
+            if (beerCard.cardBackgroundColor == rootView.context.getColorStateList(R.color.colorPurple))
+        }
     }
 
     private fun attachViews() {
+        litresLayout = rootView.findViewById(R.id.cauldron_choice_linear_litres)
+        alcoholsLayout = rootView.findViewById(R.id.cauldron_choice_linear_alcohols)
+        litresEditText = rootView.findViewById(R.id.cauldron_choice_litres_edit)
+        beerCard = rootView.findViewById(R.id.cauldron_choice_card_beer)
+        wineCard = rootView.findViewById(R.id.cauldron_choice_card_wine)
+        vodkaCard = rootView.findViewById(R.id.cauldron_choice_card_vodka)
+        tequilaCard = rootView.findViewById(R.id.cauldron_choice_card_tequila)
+        rumCard = rootView.findViewById(R.id.cauldron_choice_card_rum)
+        whiskeyCard = rootView.findViewById(R.id.cauldron_choice_card_whiskey)
+        ginCard = rootView.findViewById(R.id.cauldron_choice_card_gin)
+        champagneCard = rootView.findViewById(R.id.cauldron_choice_card_champagne)
+        juiceCard = rootView.findViewById(R.id.cauldron_choice_card_juice)
+        energyCard = rootView.findViewById(R.id.cauldron_choice_card_energy_drink)
+        nextButton = rootView.findViewById(R.id.cauldron_choice_button_next)
+        makeButton = rootView.findViewById(R.id.cauldron_choice_button_make)
+    }
 
+    private fun hideKeyboard(view: View) {
+        val inputManager =
+            rootView.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        inputManager.hideSoftInputFromWindow(view.windowToken, 0)
     }
 
 }

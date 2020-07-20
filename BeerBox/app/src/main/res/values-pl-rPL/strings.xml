@@ -123,5 +123,8 @@
     <string name="gin">Gin</string>
     <string name="champagne">Szampan</string>
     <string name="drink">Robimy drinki</string>
+    <string name="next">Następne</string>
+    <string name="toast_give_litres">Pole z litrami nie może być puste</string>
+    <string name="toast_too_little_litres">Podano za mało litrów</string>
 
 </resources>
