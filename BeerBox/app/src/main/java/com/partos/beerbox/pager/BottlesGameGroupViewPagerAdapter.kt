@@ -109,7 +109,7 @@ class BottlesGameGroupViewPagerAdapter : PagerAdapter {
             handleGroups()
         }
 
-        container!!.addView(view)
+        container.addView(view)
 
         return view
     }
@@ -670,7 +670,7 @@ class BottlesGameGroupViewPagerAdapter : PagerAdapter {
     }
 
     override fun destroyItem(container: ViewGroup, position: Int, `object`: Any) {
-        container!!.removeView(`object` as ConstraintLayout)
+        container.removeView(`object` as ConstraintLayout)
     }
 
     private fun attachViews() {

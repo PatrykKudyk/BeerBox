@@ -120,5 +120,17 @@
     <string name="next">Next</string>
     <string name="toast_give_litres">Litres field cannot be empty</string>
     <string name="toast_too_little_litres">Litre amount is too small</string>
+    <string name="toast_no_alcohols_chosen">You must chose at least one liquid</string>
+    <string name="beer_lager">Lager Beer</string>
+    <string name="beer_dark">Dark Beer</string>
+    <string name="beer_wheat">Wheat Beer</string>
+    <string name="beer_porter">Porter Beer</string>
+    <string name="beer_ipa">IPA Beer</string>
+    <string name="wine_red_dry">Dry Red Wine</string>
+    <string name="wine_red_sweet">Sweet Red Wine</string>
+    <string name="wine_white_dry">Dry White Wine</string>
+    <string name="wine_white_sweet">Sweet White Wine</string>
+    <string name="juice_raspberry">Raspberry Juice</string>
+    <string name="juice_strawberry">Strawberry Juice</string>
 
 </resources>

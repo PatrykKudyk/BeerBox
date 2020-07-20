@@ -126,5 +126,16 @@
     <string name="next">Następne</string>
     <string name="toast_give_litres">Pole z litrami nie może być puste</string>
     <string name="toast_too_little_litres">Podano za mało litrów</string>
-
+    <string name="toast_no_alcohols_chosen">Musisz wybrać co najmniej jeden płyn</string>
+    <string name="beer_lager">Lager</string>
+    <string name="beer_dark">Ciemne Piwo</string>
+    <string name="beer_wheat">Piwo Pszeniczne</string>
+    <string name="beer_porter">Porter</string>
+    <string name="beer_ipa">IPA</string>
+    <string name="wine_red_dry">Wytrawne Czerwone Wino</string>
+    <string name="wine_red_sweet">Słodkie Czerwone Wino</string>
+    <string name="wine_white_dry">Wytrawne Białe Wino</string>
+    <string name="wine_white_sweet">Słodkie Białe Wino</string>
+    <string name="juice_raspberry">Sok Malinowy</string>
+    <string name="juice_strawberry">Sok Truskawkowy</string>
 </resources>
