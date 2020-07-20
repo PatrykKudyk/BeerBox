@@ -103,5 +103,39 @@
     <string name="hooked_up">Przeleciany</string>
     <string name="toast_no_name_given">Musisz najpierw podać imię</string>
     <string name="mafia_enter_panel">Panel Mistrza Gry</string>
-
+    <string name="cauldron">Kociołek Panoramixa</string>
+    <string name="make_cauldron">Zrób kociołek</string>
+    <string name="how_to_make">Jak zrobić</string>
+    <string name="how_to_make_description">Kociołek Panoramixa to mieszanina różnych alkoholi.\n\n
+    Wszystko czego potrzebujesz to duży garnek/kociołek i alkohol.\n\n
+    Wlewasz alkohole do kociołka i mieszasz je razem.\n\n</string>
+    <string name="cauldron_amount">Ile litrów kociołka chcesz przyrządzić?</string>
+    <string name="litres">Litry</string>
+    <string name="cauldron_alcohols">Jakie alkohole chcesz dodać do kociołka?</string>
+    <string name="beer">Piwo</string>
+    <string name="wine">Wino</string>
+    <string name="vodka">Wódka</string>
+    <string name="tequila">Tequila</string>
+    <string name="whiskey">Whiskey</string>
+    <string name="rum">Rum</string>
+    <string name="juice">Sok</string>
+    <string name="energy_drink">Energetyk</string>
+    <string name="gin">Gin</string>
+    <string name="champagne">Szampan</string>
+    <string name="drink">Robimy drinki</string>
+    <string name="next">Następne</string>
+    <string name="toast_give_litres">Pole z litrami nie może być puste</string>
+    <string name="toast_too_little_litres">Podano za mało litrów</string>
+    <string name="toast_no_alcohols_chosen">Musisz wybrać co najmniej jeden płyn</string>
+    <string name="beer_lager">Lager</string>
+    <string name="beer_dark">Ciemne Piwo</string>
+    <string name="beer_wheat">Piwo Pszeniczne</string>
+    <string name="beer_porter">Porter</string>
+    <string name="beer_ipa">IPA</string>
+    <string name="wine_red_dry">Wytrawne Czerwone Wino</string>
+    <string name="wine_red_sweet">Słodkie Czerwone Wino</string>
+    <string name="wine_white_dry">Wytrawne Białe Wino</string>
+    <string name="wine_white_sweet">Słodkie Białe Wino</string>
+    <string name="juice_raspberry">Sok Malinowy</string>
+    <string name="juice_strawberry">Sok Truskawkowy</string>
 </resources>

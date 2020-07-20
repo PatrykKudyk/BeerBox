@@ -97,7 +97,40 @@
     <string name="hooked_up">Hooked up</string>
     <string name="toast_no_name_given">You must enter the name first</string>
     <string name="mafia_enter_panel">Game Master Panel</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="cauldron">Panoramix Cauldron</string>
+    <string name="make_cauldron">Make Cauldron</string>
+    <string name="how_to_make">How to make</string>
+    <string name="how_to_make_description">The Panoramix Cauldron is a mixture made from mixing different alcohols.\n\n
+    All you need is a big empty pot and some alcohol.\n\n
+    You fill in the pot with the alcohols and stir them.\n\n</string>
+    <string name="cauldron_amount">How many litres of mixture do you want to make?</string>
+    <string name="litres">Litres</string>
+    <string name="cauldron_alcohols">What alcohols do you want to include in cauldron?</string>
+    <string name="beer">Beer</string>
+    <string name="wine">Wine</string>
+    <string name="vodka">Vodka</string>
+    <string name="tequila">Tequila</string>
+    <string name="whiskey">Whiskey</string>
+    <string name="rum">Rum</string>
+    <string name="juice">Juice</string>
+    <string name="energy_drink">Energy Drink</string>
+    <string name="gin">Gin</string>
+    <string name="champagne">Champagne</string>
+    <string name="drink">Make drinks</string>
+    <string name="next">Next</string>
+    <string name="toast_give_litres">Litres field cannot be empty</string>
+    <string name="toast_too_little_litres">Litre amount is too small</string>
+    <string name="toast_no_alcohols_chosen">You must chose at least one liquid</string>
+    <string name="beer_lager">Lager Beer</string>
+    <string name="beer_dark">Dark Beer</string>
+    <string name="beer_wheat">Wheat Beer</string>
+    <string name="beer_porter">Porter Beer</string>
+    <string name="beer_ipa">IPA Beer</string>
+    <string name="wine_red_dry">Dry Red Wine</string>
+    <string name="wine_red_sweet">Sweet Red Wine</string>
+    <string name="wine_white_dry">Dry White Wine</string>
+    <string name="wine_white_sweet">Sweet White Wine</string>
+    <string name="juice_raspberry">Raspberry Juice</string>
+    <string name="juice_strawberry">Strawberry Juice</string>
 
 </resources>
