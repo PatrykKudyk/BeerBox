@@ -40,4 +40,11 @@
     <color name="colorOrangeMedium">#AA760E</color>
     <color name="colorOrangeDark">#714F09</color>
 
+    <color name="colorPurpleBackground">#F5ECF9</color>
+    <color name="colorPurpleLightLight">#DBC6E6</color>
+    <color name="colorPurpleLight">#C999E1</color>
+    <color name="colorPurple">#A068BC</color>
+    <color name="colorPurpleMedium">#724A86</color>
+    <color name="colorPurpleDark">#452D51</color>
+
 </resources>

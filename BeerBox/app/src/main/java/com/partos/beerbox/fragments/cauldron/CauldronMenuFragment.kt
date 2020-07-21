@@ -1,23 +1,19 @@
-package com.partos.beerbox.fragments.mafia
+package com.partos.beerbox.fragments.cauldron
 
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.ImageView
+import androidx.fragment.app.Fragment
 import com.partos.beerbox.R
-import com.partos.beerbox.activities.BottlesGameActivity
-import com.partos.beerbox.activities.MafiaActivity
-import com.partos.beerbox.fragments.bottlesgame.BottlesGameRulesFragment
-import com.partos.flashback.db.DataBaseHelper
-
+import com.partos.beerbox.activities.CauldronActivity
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,13 +22,10 @@ private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
- * Activities that contain this fragment must implement the
- * [AccountFragment.OnFragmentInteractionListener] interface
- * to handle interaction events.
- * Use the [AccountFragment.newInstance] factory method to
+ * Use the [CauldronMenuFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class MafiaMenuFragment : Fragment() {
+class CauldronMenuFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -40,9 +33,8 @@ class MafiaMenuFragment : Fragment() {
 
     private lateinit var rootView: View
     private lateinit var image: ImageView
-    private lateinit var playButton: Button
-    private lateinit var rulesButton: Button
-    private lateinit var rolesButton: Button
+    private lateinit var makeCauldronButton: Button
+    private lateinit var howToMakeButton: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,18 +44,18 @@ class MafiaMenuFragment : Fragment() {
         }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        rootView = inflater.inflate(R.layout.fragment_mafia_menu, container, false);
-        initFragment()
-        return rootView
-    }
-
     fun onButtonPressed(uri: Uri) {
         listener?.onFragmentInteraction(uri)
+    }
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        // Inflate the layout for this fragment
+        rootView = inflater.inflate(R.layout.fragment_cauldron_menu, container, false)
+        initFragment()
+        return rootView
     }
 
     override fun onAttach(context: Context) {
@@ -80,73 +72,73 @@ class MafiaMenuFragment : Fragment() {
         listener = null
     }
 
+
     interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
         fun onFragmentInteraction(uri: Uri)
     }
 
     companion object {
+        /**
+         * Use this factory method to create a new instance of
+         * this fragment using the provided parameters.
+         *
+         * @param param1 Parameter 1.
+         * @param param2 Parameter 2.
+         * @return A new instance of fragment CauldronMenuFragment.
+         */
+        // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance() =
-            MafiaMenuFragment().apply {
+            CauldronMenuFragment().apply {
                 arguments = Bundle().apply {
+
                 }
             }
     }
 
     private fun initFragment() {
-        playButton = rootView.findViewById(R.id.mafia_menu_play)
-        rulesButton = rootView.findViewById(R.id.mafia_menu_rules)
-        rolesButton = rootView.findViewById(R.id.mafia_menu_roles)
-        image = rootView.findViewById(R.id.mafia_menu_image)
-
+        attachViews()
         makeAnimations()
+        createListeners()
+    }
 
-
-        rulesButton.setOnClickListener {
-            val rulesFragment = MafiaRulesFragment.newInstance()
-            fragmentManager
-                ?.beginTransaction()
-                ?.setCustomAnimations(
-                    R.anim.enter_right_to_left, R.anim.exit_left_to_right,
-                    R.anim.enter_left_to_right, R.anim.exit_right_to_left
-                )
-                ?.replace(R.id.main_frame_layout, rulesFragment)
-                ?.addToBackStack(BottlesGameRulesFragment.toString())
-                ?.commit()
-        }
-
-        rolesButton.setOnClickListener {
-            val rolesFragment = MafiaRolesFragment.newInstance()
-            fragmentManager
-                ?.beginTransaction()
-                ?.setCustomAnimations(
-                    R.anim.enter_right_to_left, R.anim.exit_left_to_right,
-                    R.anim.enter_left_to_right, R.anim.exit_right_to_left
-                )
-                ?.replace(R.id.main_frame_layout, rolesFragment)
-                ?.addToBackStack(MafiaRolesFragment.toString())
-                ?.commit()
-        }
-
-        playButton.setOnClickListener {
-            val intent = Intent(rootView.context, MafiaActivity::class.java)
+    private fun createListeners() {
+        makeCauldronButton.setOnClickListener {
+            val intent = Intent(rootView.context, CauldronActivity::class.java)
             rootView.context.startActivity(intent)
+        }
+
+        howToMakeButton.setOnClickListener {
+            val howToMakeFragment = CauldronHowToMakeFragment.newInstance()
+            fragmentManager
+                ?.beginTransaction()
+                ?.setCustomAnimations(
+                    R.anim.enter_right_to_left, R.anim.exit_left_to_right,
+                    R.anim.enter_left_to_right, R.anim.exit_right_to_left
+                )
+                ?.replace(R.id.main_frame_layout, howToMakeFragment)
+                ?.addToBackStack(CauldronHowToMakeFragment.toString())
+                ?.commit()
         }
     }
 
-    private fun makeAnimations(){
+    private fun attachViews() {
+        image = rootView.findViewById(R.id.cauldron_menu_image)
+        makeCauldronButton = rootView.findViewById(R.id.cauldron_menu_make)
+        howToMakeButton = rootView.findViewById(R.id.cauldron_menu_how_to_make)
+    }
+
+    private fun makeAnimations() {
         val animLeft = AnimationUtils.loadAnimation(rootView.context, R.anim.enter_left_to_right)
         val animRight = AnimationUtils.loadAnimation(rootView.context, R.anim.enter_right_to_left)
 
         Handler().postDelayed({
-            playButton.visibility = View.VISIBLE
-            rulesButton.visibility = View.VISIBLE
-            rolesButton.visibility = View.VISIBLE
-            playButton.startAnimation(animLeft)
-            rulesButton.startAnimation(animRight)
-            rolesButton.startAnimation(animLeft)
+            makeCauldronButton.visibility = View.VISIBLE
+            howToMakeButton.visibility = View.VISIBLE
+            makeCauldronButton.startAnimation(animLeft)
+            howToMakeButton.startAnimation(animRight)
         }, 400)
 
     }
+
 }

@@ -12,6 +12,7 @@ import com.partos.beerbox.activities.MainActivity
 import com.partos.beerbox.R
 import com.partos.beerbox.fragments.beerpong.BeerPongMenuFragment
 import com.partos.beerbox.fragments.bottlesgame.BottlesGameMenuFragment
+import com.partos.beerbox.fragments.cauldron.CauldronMenuFragment
 import com.partos.beerbox.fragments.mafia.MafiaMenuFragment
 import kotlinx.android.synthetic.main.row_main_menu.view.*
 
@@ -23,7 +24,7 @@ class MainMenuRecyclerViewAdapter() : RecyclerView.Adapter<MainMenuViewHolder>()
     }
 
     override fun getItemCount(): Int {
-        return 3
+        return 4
     }
 
     override fun onBindViewHolder(holder: MainMenuViewHolder, position: Int) {
@@ -50,6 +51,12 @@ class MainMenuRecyclerViewAdapter() : RecyclerView.Adapter<MainMenuViewHolder>()
                 image.setImageResource(R.drawable.hat)
                 text.setText(R.string.mafia)
             }
+            3 -> {
+                setColor(3, holder)
+                animLeft(holder)
+                image.setImageResource(R.drawable.cook)
+                text.setText(R.string.cauldron)
+            }
         }
 
         cardView.setOnClickListener {
@@ -65,6 +72,9 @@ class MainMenuRecyclerViewAdapter() : RecyclerView.Adapter<MainMenuViewHolder>()
 
                 2 -> {
                     fragment = MafiaMenuFragment.newInstance()
+                }
+                3 -> {
+                    fragment = CauldronMenuFragment.newInstance()
                 }
 
             }
@@ -123,6 +133,20 @@ class MainMenuRecyclerViewAdapter() : RecyclerView.Adapter<MainMenuViewHolder>()
                     ContextCompat.getColor(
                         holder.view.context,
                         R.color.colorOrangeDark
+                    )
+                )
+            }
+            3 -> {
+                cardView.setCardBackgroundColor(
+                    ContextCompat.getColor(
+                        holder.view.context,
+                        R.color.colorPurpleLight
+                    )
+                )
+                cardView.setStrokeColor(
+                    ContextCompat.getColor(
+                        holder.view.context,
+                        R.color.colorPurpleDark
                     )
                 )
             }

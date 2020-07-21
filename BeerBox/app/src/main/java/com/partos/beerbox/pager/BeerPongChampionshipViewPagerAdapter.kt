@@ -17,7 +17,7 @@ import com.partos.beerbox.R
 import kotlinx.android.synthetic.main.pager_cell_beer_pong_championship.view.*
 import kotlin.random.Random
 
-class BeerPongChampionshipViewPagerAdapter : PagerAdapter {
+class   BeerPongChampionshipViewPagerAdapter : PagerAdapter {
 
     var context: Context
     var teams = ArrayList<String>()
@@ -118,13 +118,13 @@ class BeerPongChampionshipViewPagerAdapter : PagerAdapter {
             handleMatch()
         }
 
-        container!!.addView(view)
+        container.addView(view)
 
         return view
     }
 
     override fun destroyItem(container: ViewGroup, position: Int, `object`: Any) {
-        container!!.removeView(`object` as ConstraintLayout)
+        container.removeView(`object` as ConstraintLayout)
     }
 
     private fun handleLadder() {

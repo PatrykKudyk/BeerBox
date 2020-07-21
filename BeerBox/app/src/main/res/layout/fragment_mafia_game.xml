@@ -6,118 +6,125 @@
     android:layout_height="match_parent"
     tools:context=".fragments.mafia.MafiaGameFragment">
 
-    <ScrollView
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/mafia_game_constraint_game_master"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorOrangeBackground"
-        android:fillViewport="true">
+        android:background="@color/colorOrangeBackground">
 
-        <LinearLayout
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="100dp"
+            android:layout_height="0dp"
+            android:src="@drawable/hat"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.12"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/colorOrangeBackground"
-            android:gravity="center|top"
-            android:orientation="vertical">
+            android:layout_height="0dp"
+            android:fontFamily="@font/dustismo_bold"
+            android:gravity="center"
+            android:text="@string/game_master_panel"
+            android:textSize="32dip"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.08"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imageView2" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/mafia_game_constraint_game_master"
-                android:layout_width="match_parent"
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/mafia_game_day_panel"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.69"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textView"
+            tools:visibility="gone">
+
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/mafia_game_night_panel"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.69"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textView"
+            tools:visibility="visible">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/mafia_game_night_panel_roles"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:background="@color/colorOrangeBackground">
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent="0.3" />
 
-                <ImageView
-                    android:id="@+id/imageView2"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_marginTop="16dp"
-                    android:src="@drawable/hat"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/mafia_game_night_panel_actions"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/mafia_game_night_panel_roles"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent="0.6" />
 
-                <TextView
-                    android:id="@+id/textView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/dustismo_bold"
-                    android:gravity="center"
-                    android:text="@string/game_master_panel"
-                    android:textSize="32dip"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/imageView2" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
+        <Button
+            android:id="@+id/mafia_game_button_change_panel"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/button_background_orange_medium"
+            android:text="@string/make_night"
+            android:textAllCaps="false"
+            android:textColor="@color/colorOrangeBackground"
+            android:textSize="25dip"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mafia_game_day_panel"
+            tools:visibility="gone" />
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/mafia_game_day_panel"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginTop="24dp"
-                    android:layout_marginEnd="12dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHeight_percent="0.6"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/textView">
+        <Button
+            android:id="@+id/mafia_game_button_change_panel2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/button_background_orange_medium"
+            android:text="@string/make_day"
+            android:textAllCaps="false"
+            android:textColor="@color/colorOrangeBackground"
+            android:textSize="25dip"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mafia_game_night_panel"
+            tools:visibility="visible" />
 
-
-                </androidx.recyclerview.widget.RecyclerView>
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/mafia_game_night_panel"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginTop="24dp"
-                    android:layout_marginEnd="12dp"
-                    android:visibility="gone"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHeight_percent="0.6"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/textView">
-
-
-                </androidx.recyclerview.widget.RecyclerView>
-
-                <Button
-                    android:id="@+id/mafia_game_button_change_panel"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_marginBottom="8dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:background="@drawable/button_background_orange_medium"
-                    app:layout_constraintHeight_percent="0.1"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/mafia_game_day_panel"
-                    android:text="@string/make_night"
-                    android:textSize="25dip"
-                    android:textAllCaps="false"
-                    android:textColor="@color/colorOrangeBackground"/>
-
-                <Button
-                    android:id="@+id/mafia_game_button_change_panel2"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_marginBottom="8dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:visibility="gone"
-                    android:background="@drawable/button_background_orange_medium"
-                    app:layout_constraintHeight_percent="0.1"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/mafia_game_night_panel"
-                    android:text="@string/make_day"
-                    android:textSize="25dip"
-                    android:textAllCaps="false"
-                    android:textColor="@color/colorOrangeBackground"/>
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-        </LinearLayout>
-    </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </FrameLayout>
