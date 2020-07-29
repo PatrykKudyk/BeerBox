@@ -11,8 +11,7 @@ import com.partos.beerbox.activities.TimerActivity
 
 class TimerMenuLogic (val rootView: View, val fragmentManager: FragmentManager) {
 
-    private lateinit var addingButton: Button
-    private lateinit var noAddingButton: Button
+    private lateinit var playButton: Button
 
     fun initFragment() {
         attachViews()
@@ -21,22 +20,14 @@ class TimerMenuLogic (val rootView: View, val fragmentManager: FragmentManager) 
     }
 
     private fun attachListeners() {
-        addingButton.setOnClickListener {
+        playButton.setOnClickListener {
             val intent = Intent(rootView.context, TimerActivity::class.java)
-            intent.putExtra("type", 1)
-            rootView.context.startActivity(intent)
-        }
-
-        noAddingButton.setOnClickListener {
-            val intent = Intent(rootView.context, TimerActivity::class.java)
-            intent.putExtra("type", 2)
             rootView.context.startActivity(intent)
         }
     }
 
     private fun attachViews() {
-        addingButton = rootView.findViewById(R.id.timer_button_adding)
-        noAddingButton = rootView.findViewById(R.id.timer_button_no_adding)
+        playButton = rootView.findViewById(R.id.timer_play)
     }
 
     private fun makeAnimations() {
@@ -44,10 +35,8 @@ class TimerMenuLogic (val rootView: View, val fragmentManager: FragmentManager) 
         val animRight = AnimationUtils.loadAnimation(rootView.context, R.anim.enter_right_to_left)
 
         Handler().postDelayed({
-            addingButton.visibility = View.VISIBLE
-            noAddingButton.visibility = View.VISIBLE
-            addingButton.startAnimation(animLeft)
-            noAddingButton.startAnimation(animRight)
+            playButton.visibility = View.VISIBLE
+            playButton.startAnimation(animLeft)
         }, 400)
     }
 }
