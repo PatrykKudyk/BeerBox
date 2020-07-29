@@ -140,5 +140,8 @@
     <string name="juice_strawberry">Sok Truskawkowy</string>
     <string name="chess_timer">Stoper Szachowy</string>
     <string name="time_adding">Dodawanie czasu pod koniec gry</string>
+    <string name="yes">Tak</string>
+    <string name="no">Nie</string>
+    <string name="time_per_player">Minuty na gracza</string>
 
 </resources>

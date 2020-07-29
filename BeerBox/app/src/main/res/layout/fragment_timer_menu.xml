@@ -49,7 +49,7 @@
             android:background="@drawable/button_background_blue_light"
             android:fontFamily="@font/dustismo_bold"
             android:text="@string/play"
-            android:textColor="@color/colorOrangeBackground"
+            android:textColor="@color/colorBlueBackground"
             android:textSize="30dip"
             android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"

@@ -134,5 +134,7 @@
     <string name="juice_strawberry">Strawberry Juice</string>
     <string name="chess_timer">Chess Timer</string>
     <string name="time_adding">Time adding at the game ending</string>
-
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="time_per_player">Minutes per player</string>
 </resources>
