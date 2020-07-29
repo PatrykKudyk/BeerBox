@@ -139,5 +139,6 @@
     <string name="juice_raspberry">Sok Malinowy</string>
     <string name="juice_strawberry">Sok Truskawkowy</string>
     <string name="chess_timer">Stoper Szachowy</string>
-
+    <string name="time_adding">Dodawanie czasu</string>
+    <string name="time_no_adding">Brak dodawania czasu</string>
 </resources>

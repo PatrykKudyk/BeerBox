@@ -133,6 +133,6 @@
     <string name="juice_raspberry">Raspberry Juice</string>
     <string name="juice_strawberry">Strawberry Juice</string>
     <string name="chess_timer">Chess Timer</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="time_adding">Time adding</string>
+    <string name="time_no_adding">No time adding</string>
 </resources>

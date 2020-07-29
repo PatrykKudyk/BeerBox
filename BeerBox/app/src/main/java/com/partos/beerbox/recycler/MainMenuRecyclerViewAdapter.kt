@@ -14,6 +14,7 @@ import com.partos.beerbox.fragments.beerpong.BeerPongMenuFragment
 import com.partos.beerbox.fragments.bottlesgame.BottlesGameMenuFragment
 import com.partos.beerbox.fragments.cauldron.CauldronMenuFragment
 import com.partos.beerbox.fragments.mafia.MafiaMenuFragment
+import com.partos.beerbox.fragments.timer.TimerMenuFragment
 import kotlinx.android.synthetic.main.row_main_menu.view.*
 
 class MainMenuRecyclerViewAdapter() : RecyclerView.Adapter<MainMenuViewHolder>() {
@@ -81,7 +82,7 @@ class MainMenuRecyclerViewAdapter() : RecyclerView.Adapter<MainMenuViewHolder>()
                     fragment = CauldronMenuFragment.newInstance()
                 }
                 4 -> {
-//                    fragment =
+                    fragment = TimerMenuFragment.newInstance()
                 }
             }
             val manager = (holder.itemView.context as MainActivity).supportFragmentManager
