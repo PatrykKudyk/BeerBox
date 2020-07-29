@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.FragmentManager
 import com.partos.beerbox.R
 import com.partos.beerbox.logic.timer.TimerChoicesLogic
 import com.partos.beerbox.logic.timer.TimerLogic
@@ -40,7 +41,7 @@ class TimerChoicesFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         rootView = inflater.inflate(R.layout.fragment_timer_choices, container, false)
-        logic = TimerChoicesLogic(rootView)
+        logic = TimerChoicesLogic(rootView, fragmentManager as FragmentManager)
         logic.initFragment()
         return rootView
     }

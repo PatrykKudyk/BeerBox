@@ -20,4 +20,8 @@ class TimerActivity : AppCompatActivity() {
             .add(R.id.timer_frame_layout, choicesFragment)
             .commit()
     }
+
+    override fun onBackPressed() {
+        finish()
+    }
 }

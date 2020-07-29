@@ -3,9 +3,12 @@ package com.partos.beerbox.logic.timer
 import android.view.View
 import android.widget.Button
 import androidx.cardview.widget.CardView
+import androidx.fragment.app.FragmentManager
 import com.partos.beerbox.R
+import com.partos.beerbox.fragments.cauldron.CauldronMakeFragment
+import com.partos.beerbox.fragments.timer.TimerFragment
 
-class TimerChoicesLogic(val rootView: View) {
+class TimerChoicesLogic(val rootView: View, val fragmentManager: FragmentManager) {
 
     private lateinit var addingYes: CardView
     private lateinit var addingNo: CardView
@@ -33,6 +36,110 @@ class TimerChoicesLogic(val rootView: View) {
             if (addingNo.cardBackgroundColor != context.getColorStateList(R.color.colorBlueDark)) {
                 addingNo.setCardBackgroundColor(context.getColorStateList(R.color.colorBlueDark))
                 addingYes.setCardBackgroundColor(context.getColorStateList(R.color.colorBlueLight))
+            }
+        }
+        time3.setOnClickListener {
+            if (time3.cardBackgroundColor != context.getColorStateList(R.color.colorBlueDark)) {
+                time3.setCardBackgroundColor(context.getColorStateList(R.color.colorBlueDark))
+                time5.setCardBackgroundColor(context.getColorStateList(R.color.colorBlueLight))
+                time10.setCardBackgroundColor(context.getColorStateList(R.color.colorBlueLight))
+                time20.setCardBackgroundColor(context.getColorStateList(R.color.colorBlueLight))
+            }
+        }
+        time5.setOnClickListener {
+            if (time5.cardBackgroundColor != context.getColorStateList(R.color.colorBlueDark)) {
+                time5.setCardBackgroundColor(context.getColorStateList(R.color.colorBlueDark))
+                time3.setCardBackgroundColor(context.getColorStateList(R.color.colorBlueLight))
+                time10.setCardBackgroundColor(context.getColorStateList(R.color.colorBlueLight))
+                time20.setCardBackgroundColor(context.getColorStateList(R.color.colorBlueLight))
+            }
+        }
+        time10.setOnClickListener {
+            if (time10.cardBackgroundColor != context.getColorStateList(R.color.colorBlueDark)) {
+                time10.setCardBackgroundColor(context.getColorStateList(R.color.colorBlueDark))
+                time3.setCardBackgroundColor(context.getColorStateList(R.color.colorBlueLight))
+                time5.setCardBackgroundColor(context.getColorStateList(R.color.colorBlueLight))
+                time20.setCardBackgroundColor(context.getColorStateList(R.color.colorBlueLight))
+            }
+        }
+        time20.setOnClickListener {
+            if (time20.cardBackgroundColor != context.getColorStateList(R.color.colorBlueDark)) {
+                time20.setCardBackgroundColor(context.getColorStateList(R.color.colorBlueDark))
+                time3.setCardBackgroundColor(context.getColorStateList(R.color.colorBlueLight))
+                time5.setCardBackgroundColor(context.getColorStateList(R.color.colorBlueLight))
+                time10.setCardBackgroundColor(context.getColorStateList(R.color.colorBlueLight))
+            }
+        }
+        playButton.setOnClickListener {
+            when {
+                time3.cardBackgroundColor == context.getColorStateList(R.color.colorBlueDark) -> {
+                    val fragment: TimerFragment =
+                        if (addingYes.cardBackgroundColor == context.getColorStateList(R.color.colorBlueDark)) {
+                            TimerFragment.newInstance(3, true)
+                        } else {
+                            TimerFragment.newInstance(3, false)
+                        }
+                    fragmentManager
+                        .beginTransaction()
+                        .setCustomAnimations(
+                            R.anim.enter_right_to_left, R.anim.exit_left_to_right,
+                            R.anim.enter_left_to_right, R.anim.exit_right_to_left
+                        )
+                        .replace(R.id.timer_frame_layout, fragment)
+                        .addToBackStack(CauldronMakeFragment.toString())
+                        .commit()
+                }
+                time5.cardBackgroundColor == context.getColorStateList(R.color.colorBlueDark) -> {
+                    val fragment: TimerFragment =
+                        if (addingYes.cardBackgroundColor == context.getColorStateList(R.color.colorBlueDark)) {
+                            TimerFragment.newInstance(5, true)
+                        } else {
+                            TimerFragment.newInstance(5, false)
+                        }
+                    fragmentManager
+                        .beginTransaction()
+                        .setCustomAnimations(
+                            R.anim.enter_right_to_left, R.anim.exit_left_to_right,
+                            R.anim.enter_left_to_right, R.anim.exit_right_to_left
+                        )
+                        .replace(R.id.timer_frame_layout, fragment)
+                        .addToBackStack(CauldronMakeFragment.toString())
+                        .commit()
+                }
+                time10.cardBackgroundColor == context.getColorStateList(R.color.colorBlueDark) -> {
+                    val fragment: TimerFragment =
+                        if (addingYes.cardBackgroundColor == context.getColorStateList(R.color.colorBlueDark)) {
+                            TimerFragment.newInstance(10, true)
+                        } else {
+                            TimerFragment.newInstance(10, false)
+                        }
+                    fragmentManager
+                        .beginTransaction()
+                        .setCustomAnimations(
+                            R.anim.enter_right_to_left, R.anim.exit_left_to_right,
+                            R.anim.enter_left_to_right, R.anim.exit_right_to_left
+                        )
+                        .replace(R.id.timer_frame_layout, fragment)
+                        .addToBackStack(CauldronMakeFragment.toString())
+                        .commit()
+                }
+                time20.cardBackgroundColor == context.getColorStateList(R.color.colorBlueDark) -> {
+                    val fragment: TimerFragment =
+                        if (addingYes.cardBackgroundColor == context.getColorStateList(R.color.colorBlueDark)) {
+                            TimerFragment.newInstance(20, true)
+                        } else {
+                            TimerFragment.newInstance(20, false)
+                        }
+                    fragmentManager
+                        .beginTransaction()
+                        .setCustomAnimations(
+                            R.anim.enter_right_to_left, R.anim.exit_left_to_right,
+                            R.anim.enter_left_to_right, R.anim.exit_right_to_left
+                        )
+                        .replace(R.id.timer_frame_layout, fragment)
+                        .addToBackStack(CauldronMakeFragment.toString())
+                        .commit()
+                }
             }
         }
     }
