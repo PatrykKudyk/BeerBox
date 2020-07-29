@@ -138,4 +138,6 @@
     <string name="wine_white_sweet">Słodkie Białe Wino</string>
     <string name="juice_raspberry">Sok Malinowy</string>
     <string name="juice_strawberry">Sok Truskawkowy</string>
+    <string name="chess_timer">Stoper Szachowy</string>
+
 </resources>

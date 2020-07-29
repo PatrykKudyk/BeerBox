@@ -132,5 +132,7 @@
     <string name="wine_white_sweet">Sweet White Wine</string>
     <string name="juice_raspberry">Raspberry Juice</string>
     <string name="juice_strawberry">Strawberry Juice</string>
-
+    <string name="chess_timer">Chess Timer</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
