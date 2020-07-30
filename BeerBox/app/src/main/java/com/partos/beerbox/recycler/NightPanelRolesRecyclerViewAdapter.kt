@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.partos.beerbox.R
 import com.partos.beerbox.models.Player
+import com.partos.flashback.db.DataBaseHelper
 import kotlinx.android.synthetic.main.row_mafia_role.view.*
 
 class NightPanelRolesRecyclerViewAdapter(val playersList: ArrayList<Player>) :
@@ -21,6 +22,7 @@ class NightPanelRolesRecyclerViewAdapter(val playersList: ArrayList<Player>) :
     }
 
     override fun onBindViewHolder(holder: NightPanelRolesViewHolder, position: Int) {
+        val db = DataBaseHelper(holder.view.context)
         holder.view.row_mafia_role_text.text = playersList[position].name
         holder.view.row_mafia_name_text.text = playersList[position].role
         if (playersList[position].isAlive == 0) {
@@ -39,6 +41,30 @@ class NightPanelRolesRecyclerViewAdapter(val playersList: ArrayList<Player>) :
             )
             holder.view.row_mafia_name_text.setBackgroundColor(holder.view.context.getColor(R.color.colorOrangeLightLight))
             holder.view.row_mafia_role_text.setBackgroundColor(holder.view.context.getColor(R.color.colorOrangeLightLight))
+        }
+
+        holder.view.row_mafia_role_card.setOnClickListener {
+            if (playersList[position].isAlive == 1) {
+                holder.view.row_mafia_role_card.setCardBackgroundColor(
+                    holder.view.context.getColor(
+                        R.color.colorOrangeDark
+                    )
+                )
+                holder.view.row_mafia_name_text.setBackgroundColor(holder.view.context.getColor(R.color.colorOrangeDark))
+                holder.view.row_mafia_role_text.setBackgroundColor(holder.view.context.getColor(R.color.colorOrangeDark))
+                playersList[position].isAlive = 0
+                db.updatePLayer(playersList[position])
+            } else {
+                holder.view.row_mafia_role_card.setCardBackgroundColor(
+                    holder.view.context.getColor(
+                        R.color.colorOrangeLightLight
+                    )
+                )
+                holder.view.row_mafia_name_text.setBackgroundColor(holder.view.context.getColor(R.color.colorOrangeLightLight))
+                holder.view.row_mafia_role_text.setBackgroundColor(holder.view.context.getColor(R.color.colorOrangeLightLight))
+                playersList[position].isAlive = 1
+                db.updatePLayer(playersList[position])
+            }
         }
     }
 
