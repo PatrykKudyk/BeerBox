@@ -14,6 +14,7 @@ import com.partos.beerbox.fragments.beerpong.BeerPongMenuFragment
 import com.partos.beerbox.fragments.bottlesgame.BottlesGameMenuFragment
 import com.partos.beerbox.fragments.cauldron.CauldronMenuFragment
 import com.partos.beerbox.fragments.mafia.MafiaMenuFragment
+import com.partos.beerbox.fragments.timer.TimerMenuFragment
 import kotlinx.android.synthetic.main.row_main_menu.view.*
 
 class MainMenuRecyclerViewAdapter() : RecyclerView.Adapter<MainMenuViewHolder>() {
@@ -24,7 +25,7 @@ class MainMenuRecyclerViewAdapter() : RecyclerView.Adapter<MainMenuViewHolder>()
     }
 
     override fun getItemCount(): Int {
-        return 4
+        return 5
     }
 
     override fun onBindViewHolder(holder: MainMenuViewHolder, position: Int) {
@@ -57,6 +58,12 @@ class MainMenuRecyclerViewAdapter() : RecyclerView.Adapter<MainMenuViewHolder>()
                 image.setImageResource(R.drawable.cook)
                 text.setText(R.string.cauldron)
             }
+            4 -> {
+                setColor(4, holder)
+                animLeft(holder)
+                image.setImageResource(R.drawable.timer)
+                text.setText(R.string.chess_timer)
+            }
         }
 
         cardView.setOnClickListener {
@@ -65,18 +72,18 @@ class MainMenuRecyclerViewAdapter() : RecyclerView.Adapter<MainMenuViewHolder>()
                 0 -> {
                     fragment = BeerPongMenuFragment.newInstance()
                 }
-
                 1 -> {
                     fragment = BottlesGameMenuFragment.newInstance()
                 }
-
                 2 -> {
                     fragment = MafiaMenuFragment.newInstance()
                 }
                 3 -> {
                     fragment = CauldronMenuFragment.newInstance()
                 }
-
+                4 -> {
+                    fragment = TimerMenuFragment.newInstance()
+                }
             }
             val manager = (holder.itemView.context as MainActivity).supportFragmentManager
             manager
@@ -147,6 +154,20 @@ class MainMenuRecyclerViewAdapter() : RecyclerView.Adapter<MainMenuViewHolder>()
                     ContextCompat.getColor(
                         holder.view.context,
                         R.color.colorPurpleDark
+                    )
+                )
+            }
+            4 -> {
+                cardView.setCardBackgroundColor(
+                    ContextCompat.getColor(
+                        holder.view.context,
+                        R.color.colorBlueLight
+                    )
+                )
+                cardView.setStrokeColor(
+                    ContextCompat.getColor(
+                        holder.view.context,
+                        R.color.colorBlueDark
                     )
                 )
             }

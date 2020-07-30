@@ -10,7 +10,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:windowSoftInputMode="stateVisible|adjustResize">
-        <activity android:name=".activities.CauldronActivity"></activity>
+        <activity
+            android:name=".activities.TimerActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.CauldronActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".activities.MafiaActivity"
             android:configChanges="orientation"
