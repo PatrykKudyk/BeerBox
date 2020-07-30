@@ -53,14 +53,102 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/view6" >
 
-            <TextView
-                android:layout_marginTop="48dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/mafia_rules"
-                android:gravity="center"
-                android:textSize="24dip"
-                android:autoLink="web"/>
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:orientation="vertical">
+
+               <TextView
+                   android:layout_marginTop="24dp"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:text="@string/mafia_rules_1_head"
+                   android:fontFamily="@font/dustismo_bold"
+                   android:gravity="center"
+                   android:textSize="36dip"/>
+
+               <TextView
+                   android:layout_marginTop="12dp"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:text="@string/mafia_rules_1_body"
+                   android:fontFamily="@font/dustismo_bold"
+                   android:gravity="center"
+                   android:textSize="22dip"/>
+
+               <TextView
+                   android:layout_marginTop="24dp"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:text="@string/mafia_rules_2_head"
+                   android:fontFamily="@font/dustismo_bold"
+                   android:gravity="center"
+                   android:textSize="36dip"/>
+
+               <TextView
+                   android:layout_marginTop="12dp"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:text="@string/mafia_rules_2_body"
+                   android:fontFamily="@font/dustismo_bold"
+                   android:gravity="center"
+                   android:textSize="22dip"/>
+
+               <TextView
+                   android:layout_marginTop="24dp"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:text="@string/mafia_rules_3_head"
+                   android:fontFamily="@font/dustismo_bold"
+                   android:gravity="center"
+                   android:textSize="36dip"/>
+
+               <TextView
+                   android:layout_marginTop="12dp"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:text="@string/mafia_rules_3_body"
+                   android:fontFamily="@font/dustismo_bold"
+                   android:gravity="center"
+                   android:textSize="22dip"/>
+
+               <TextView
+                   android:layout_marginTop="24dp"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:text="@string/mafia_rules_4_head"
+                   android:fontFamily="@font/dustismo_bold"
+                   android:gravity="center"
+                   android:textSize="36dip"/>
+
+               <TextView
+                   android:layout_marginTop="12dp"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:text="@string/mafia_rules_4_body"
+                   android:fontFamily="@font/dustismo_bold"
+                   android:gravity="center"
+                   android:textSize="22dip"/>
+
+
+               <TextView
+                   android:layout_marginTop="24dp"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:text="@string/mafia_rules_5_head"
+                   android:fontFamily="@font/dustismo_bold"
+                   android:gravity="center"
+                   android:textSize="36dip"/>
+
+               <TextView
+                   android:layout_marginTop="12dp"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:text="@string/mafia_rules_5_body"
+                   android:fontFamily="@font/dustismo_bold"
+                   android:gravity="center"
+                   android:textSize="22dip"/>
+           </LinearLayout>
 
         </ScrollView>
 

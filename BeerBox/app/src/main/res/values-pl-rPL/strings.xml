@@ -71,7 +71,41 @@
         10. Sędzia - Należy do miasta. Może jeden raz w ciągu gry podczas głosowania ujawnić się i
         skorzystać ze swojego prawa podwójnego głosu.\n\n
     </string>
-    <string name="mafia_rules">https://pl.wikipedia.org/wiki/Mafia_(gra_towarzyska)#Podstawowe_zasady_gry</string>
+    <string name="mafia_rules_1_head">Przygotowanie gry</string>
+    <string name="mafia_rules_1_body">Gracze zajmują miejsca w pomieszczeniu w taki sposób, aby wszyscy
+        się widzieli i słyszeli. Następnie decydujecie czy mistrz gry jest wybierany przez was, czy
+        ma to go wylosować aplikacja. Nie bierze on aktywnego udziału w grze.</string>
+    <string name="mafia_rules_2_head">Rozgrywka</string>
+    <string name="mafia_rules_2_body">Gra składa się z rund podzielonych na następujące po sobie w ustalonej
+        kolejności etapy – podział na frakcje i naprzemienne fazy nocy i dnia.</string>
+    <string name="mafia_rules_3_head">Noc</string>
+    <string name="mafia_rules_3_body">W nocy wszyscy gracze „zasypiają” (zamykają lub zasłaniają oczy),
+        można też zasłonić kotary w pomieszczeniu, zgasić światło itp. Na polecenie mistrza gry jednocześnie
+        „budzi się” mafia (w oryginalnej grze tylko pierwszej nocy w celu zapoznania się).
+        Każdej nocy (najczęściej poza pierwszą) mafiosi wyznaczają gracza, którego chcą wyeliminować z rundy.
+        Może się to odbywać poprzez bezgłośne wskazanie gracza mistrzowi gry lub jak w oryginalnych zasadach
+        napisanie imienia na kartce (w takim przypadku w ogóle nie trzeba „usypiać” graczy, a uczciwi piszą
+        dowolnie ustalone słowo, np. „miasto”). W przypadku braku zgodności wśród mafii nie eliminuje się nikogo,
+        jednak często decyduje większość mafiosów lub mafioso o najwyższej randze (jeżeli wprowadzono hierarchię).
+        Wyeliminowany gracz jedynie przygląda się rozgrywce (także w nocy), nie może jednak w żaden
+        sposób komunikować się z pozostałymi. Tacy gracze mogą zdecydować, kogo ocalą (taką „moc” w innych
+        wersjach ma żona burmistrza). Jeśli wybór uczciwych pokrywa się z wyborem mafiosów, to wówczas po
+        rozpoczęciu fazy dziennej mistrz gry informuje, że jeden z uczciwych został ocalony. Po zakończeniu
+        fazy nocnej wszyscy gracze „budzą się”, aby rozpocząć kolejną fazę dnia.</string>
+    <string name="mafia_rules_4_head">Dzień</string>
+    <string name="mafia_rules_4_body">Na początku tej fazy gracze dowiadują się kto został wyeliminowany,
+        oraz ilu członków mafii pozostało w grze. Odbywa się to poprzez odczytanie zapisanych i
+        wymieszanych „w nocy” kartek, lub w przypadku braku kartek stosownych informacji udziela
+        mistrz gry. Następnie rozpoczyna się dyskusja pełna przypuszczeń i podejrzeń. Uczciwi gracze
+        starają się wykryć mafiosów, a mafiosi blefują rzucając podejrzenie na pozostałych
+        (mogą także dla zmyłki wskazywać siebie nawzajem). Każdy może oskarżyć innego gracza o przynależność
+        do mafii. Po uzasadnieniu oskarżenia gracz ma prawo do obrony, po czym następuje głosowanie.
+        Oskarżony może zostać wykluczony z rundy większością głosów. W przeciwnym wypadku gracze kontynuują dyskusję.\n\n
+        Faza dnia kończy się na życzenie większości, najczęściej natychmiast po wyeliminowaniu gracza. Po zakończeniu fazy dnia rozpoczyna się kolejna faza nocy.</string>
+    <string name="mafia_rules_5_head">Zakończenie rundy</string>
+    <string name="mafia_rules_5_body">Każda runda kończy się w momencie, gdy jedna z frakcji zostanie wyeliminowana.
+        Warto jednak zwrócić uwagę, że gdy mafia osiągnie przewagę liczebną wyeliminowanie miasta jest nieuniknione.
+        Wygrywają osoby pozostałe w grze, lub wszyscy członkowie zwycięskiej frakcji.</string>
     <string name="mafia_game_size">Ilu graczy wliczając Mistrza gry będzie grało?\n (7 \- 17)</string>
     <string name="mafia_players">Ilość graczy</string>
     <string name="toast_incorrect_players_amount">Podana ilość graczy jest nieprawidłowa</string>
@@ -143,5 +177,6 @@
     <string name="yes">Tak</string>
     <string name="no">Nie</string>
     <string name="time_per_player">Minuty na gracza</string>
-
+    <string name="mafia_new">Nowa Gra</string>
+    <string name="mafia_resume">Wznów Grę</string>
 </resources>

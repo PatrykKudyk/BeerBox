@@ -65,7 +65,31 @@
         (Then you can vote for someone else or end the day phase).\n\n
         10. Judge - Once per game the judge can use his special ability and vote as two people.\n\n
     </string>
-    <string name="mafia_rules">https://en.wikipedia.org/wiki/Mafia_(party_game)#Gameplay</string>
+    <string name="mafia_rules_1_head">Preparation</string>
+    <string name="mafia_rules_1_body">Players sit in one room. Everyone has to see and hear everyone.
+        Then they chose either they want the game master to be chosen randomly or by them. Game master
+        is more passive function than the rest.</string>
+    <string name="mafia_rules_2_head">Game</string>
+    <string name="mafia_rules_2_body">The game is divided into rounds happening in order: assigning roles
+        and then day and night alternately.</string>
+    <string name="mafia_rules_3_head">Night</string>
+    <string name="mafia_rules_3_body">All players close their eyes. The game master then instructs all
+        mafia members to open their eyes and acknowledge their accomplices. The mafia pick a "victim"
+        by silently gesturing to indicate their target and to show unanimity then close their eyes again.\n\n
+        A similar process occurs for other roles with nightly actions. In the case of the seer, the game master
+        may indicate the target\'s innocence or guilt by using gestures such as nodding or head shaking.\n\n
+        Night may be accompanied by players tapping gently to mask sounds made by gesturing.</string>
+    <string name="mafia_rules_4_head">Day</string>
+    <string name="mafia_rules_4_body">The game master instructs players to open their eyes and announces
+        who "died" the previous night. Discussion ensues among the living players. At any point,
+        a player may accuse someone of being a mafia member and prompt others to vote to eliminate them.
+        If over half of the players do so, the accused person is eliminated and night begins. Otherwise,
+        the phase continues until an elimination occurs.\n\n
+        According to some rules, the role of dead players are revealed; according to others, it is not.
+        In both cases, dead players are not permitted to attempt to influence the remainder of the game.\n\n
+        Because players have more freedom to deliberate, days tend to be longer than nights.</string>
+    <string name="mafia_rules_5_head">End of the round</string>
+    <string name="mafia_rules_5_body">Every round ends when one of the fractions is eliminated.</string>
     <string name="mafia_game_size">How many players including Game Master are gonna play?\n (7 \- 17)</string>
     <string name="mafia_players">Players amount</string>
     <string name="toast_incorrect_players_amount">The given players amount is incorrect</string>
@@ -137,4 +161,6 @@
     <string name="yes">Yes</string>
     <string name="no">No</string>
     <string name="time_per_player">Minutes per player</string>
+    <string name="mafia_new">New Game</string>
+    <string name="mafia_resume">Resume Game</string>
 </resources>
