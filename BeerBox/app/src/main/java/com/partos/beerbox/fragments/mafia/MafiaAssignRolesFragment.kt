@@ -106,9 +106,18 @@ class MafiaAssignRolesFragment : Fragment() {
     }
 
     private fun initFragment() {
+        clearPlayersList()
         attachViews()
         assignRoles()
         initListeners()
+    }
+
+    private fun clearPlayersList() {
+        val db = DataBaseHelper(rootView.context)
+        val players = db.getPlayersList()
+        for (player in players){
+            db.deletePlayer(player.id)
+        }
     }
 
     private fun assignRoles() {
@@ -198,10 +207,7 @@ class MafiaAssignRolesFragment : Fragment() {
         }
         enterPanelButton.setOnClickListener {
             addPlayersToDB()
-            val fragment = MafiaGameFragment.newInstance(
-                size as Int,
-                isStatic as Boolean
-            )
+            val fragment = MafiaGameFragment.newInstance()
             fragmentManager
                 ?.beginTransaction()
                 ?.setCustomAnimations(
@@ -216,7 +222,9 @@ class MafiaAssignRolesFragment : Fragment() {
     private fun addPlayersToDB() {
         val db = DataBaseHelper(rootView.context)
         for (i in 0 until rolesAssignedList.size) {
-            db.addPlayer(rolesAssignedList[i], namesAssignedList[i], 1)
+            if(rolesAssignedList[i] != rootView.context.getString(R.string.mafia_role_game_master)) {
+                db.addPlayer(rolesAssignedList[i], namesAssignedList[i], 1)
+            }
         }
     }
 

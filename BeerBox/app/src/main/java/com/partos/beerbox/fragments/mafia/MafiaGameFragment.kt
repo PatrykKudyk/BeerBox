@@ -14,7 +14,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.partos.beerbox.R
 import com.partos.beerbox.models.Player
-import com.partos.beerbox.recycler.*
+import com.partos.beerbox.recycler.DayPanelRecyclerViewAdapter
+import com.partos.beerbox.recycler.MarginItemDecoration
+import com.partos.beerbox.recycler.NightPanelActionsRecyclerViewAdapter
+import com.partos.beerbox.recycler.NightPanelRolesRecyclerViewAdapter
 import com.partos.flashback.db.DataBaseHelper
 
 // TODO: Rename parameter arguments, choose names that match
@@ -87,14 +90,9 @@ class MafiaGameFragment : Fragment() {
 
     companion object {
         @JvmStatic
-        fun newInstance(
-            size: Int,
-            isStatic: Boolean
-        ) =
+        fun newInstance() =
             MafiaGameFragment().apply {
                 arguments = Bundle().apply {
-                    putInt(ARG_PARAM1, size)
-                    putBoolean(ARG_PARAM2, isStatic)
                 }
             }
     }

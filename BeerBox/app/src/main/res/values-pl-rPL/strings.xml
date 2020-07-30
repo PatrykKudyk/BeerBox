@@ -143,5 +143,6 @@
     <string name="yes">Tak</string>
     <string name="no">Nie</string>
     <string name="time_per_player">Minuty na gracza</string>
-
+    <string name="mafia_new">Nowa Gra</string>
+    <string name="mafia_resume">Wznów Grę</string>
 </resources>
