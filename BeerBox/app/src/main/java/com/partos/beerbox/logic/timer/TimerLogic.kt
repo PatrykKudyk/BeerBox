@@ -20,7 +20,7 @@ class TimerLogic(val rootView: View, val time: Int, val isAdding: Boolean) {
     private var time1 = 0
     private var time2 = 0
     private var timeFormatter = TimeFormatter()
-    private var hasStarted = false
+    private var adding = false
     private lateinit var soundPool: SoundPool
     private var soundEnd = 2
 
@@ -33,25 +33,41 @@ class TimerLogic(val rootView: View, val time: Int, val isAdding: Boolean) {
 
     private fun attachListeners() {
         image1.setOnClickListener {
-            if (turn == 2) {
-                image1.setImageDrawable(rootView.context.getDrawable(R.drawable.ic_pause))
-                image2.setImageDrawable(rootView.context.getDrawable(R.drawable.ic_play))
-                turn = 1
-            } else if (turn == -1) {
-                image1.setImageDrawable(rootView.context.getDrawable(R.drawable.ic_pause))
-                turn = 1
-                mainLoop()
+            if (!isEnd()) {
+                if (turn == 1) {
+                    image2.setImageDrawable(rootView.context.getDrawable(R.drawable.ic_pause))
+                    image1.setImageDrawable(rootView.context.getDrawable(R.drawable.ic_play))
+                    turn = 2
+                    if (isAdding) {
+                        if (adding) {
+                            time1 += 1500
+                            adding = false
+                        }
+                    }
+                } else if (turn == -1) {
+                    image1.setImageDrawable(rootView.context.getDrawable(R.drawable.ic_pause))
+                    turn = 1
+                    mainLoop()
+                }
             }
         }
         image2.setOnClickListener {
-            if (turn == 1) {
-                image2.setImageDrawable(rootView.context.getDrawable(R.drawable.ic_pause))
-                image1.setImageDrawable(rootView.context.getDrawable(R.drawable.ic_play))
-                turn = 2
-            } else if (turn == -1) {
-                image2.setImageDrawable(rootView.context.getDrawable(R.drawable.ic_pause))
-                turn = 2
-                mainLoop()
+            if (!isEnd()) {
+                if (turn == 2) {
+                    image1.setImageDrawable(rootView.context.getDrawable(R.drawable.ic_pause))
+                    image2.setImageDrawable(rootView.context.getDrawable(R.drawable.ic_play))
+                    turn = 1
+                    if (isAdding) {
+                        if (adding) {
+                            time2 += 1500
+                            adding = false
+                        }
+                    }
+                } else if (turn == -1) {
+                    image2.setImageDrawable(rootView.context.getDrawable(R.drawable.ic_pause))
+                    turn = 2
+                    mainLoop()
+                }
             }
         }
     }
@@ -65,22 +81,14 @@ class TimerLogic(val rootView: View, val time: Int, val isAdding: Boolean) {
                 override fun run() {
                     if (turn == 1) {
                         time1 -= 50
-                        if (time1 < 10000) {
-                            timer1.text = timeFormatter.formatShortTime(time1)
-                        } else {
-                            timer1.text = timeFormatter.formatNormalTime(time1 / 1000)
-                        }
                     } else {
                         time2 -= 50
-                        if (time2 < 10000) {
-                            timer2.text = timeFormatter.formatShortTime(time2)
-                        } else {
-                            timer2.text = timeFormatter.formatNormalTime(time2 / 1000)
-                        }
                     }
+                    showTime()
                     if (!isEnd()) {
                         threadHandler.postDelayed(this, 50)
                     } else {
+                        soundPool.play(soundEnd, 1F, 1F, 0, 0, 1F)
                         looperThread.looper.quitSafely()
                     }
                 }
@@ -89,9 +97,23 @@ class TimerLogic(val rootView: View, val time: Int, val isAdding: Boolean) {
 
     }
 
+    private fun showTime() {
+        if (time1 < 10000) {
+            timer1.text = timeFormatter.formatShortTime(time1)
+            adding = true
+        } else {
+            timer1.text = timeFormatter.formatNormalTime(time1 / 1000)
+        }
+        if (time2 < 10000) {
+            timer2.text = timeFormatter.formatShortTime(time2)
+            adding = true
+        } else {
+            timer2.text = timeFormatter.formatNormalTime(time2 / 1000)
+        }
+    }
+
     private fun isEnd(): Boolean {
         if (time1 == 0 || time2 == 0) {
-            soundPool.play(soundEnd, 1F, 1F, 0, 0, 1F)
             return true
         }
         return false
@@ -115,12 +137,10 @@ class TimerLogic(val rootView: View, val time: Int, val isAdding: Boolean) {
             3 -> {
                 timer1.text = timeFormatter.formatNormalTime(180)
                 timer2.text = timeFormatter.formatNormalTime(180)
-//                time1 = 180000
-//                time2 = 180000
-                time1 = 30000
-                time2 = 30000
-
-
+                time1 = 180000
+                time2 = 180000
+//                time1 = 15000
+//                time2 = 15000
             }
             5 -> {
                 timer1.text = timeFormatter.formatNormalTime(300)
