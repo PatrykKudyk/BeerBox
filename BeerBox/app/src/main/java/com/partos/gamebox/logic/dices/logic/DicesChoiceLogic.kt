@@ -1,11 +1,11 @@
-package com.partos.gamebox.logic.dices
+package com.partos.gamebox.logic.dices.logic
 
 import android.view.View
-import androidx.fragment.app.FragmentManager
+import com.partos.gamebox.logic.dices.listeners.DicesChoiceListeners
 
 class DicesChoiceLogic () {
 
-    fun initFragment(rootView: View, fragmentManager: FragmentManager) {
-
+    fun initFragment(rootView: View) {
+        DicesChoiceListeners().initListeners(rootView)
     }
 }
