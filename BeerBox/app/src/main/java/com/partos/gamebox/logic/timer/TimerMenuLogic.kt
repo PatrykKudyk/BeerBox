@@ -32,7 +32,6 @@ class TimerMenuLogic (val rootView: View, val fragmentManager: FragmentManager) 
 
     private fun makeAnimations() {
         val animLeft = AnimationUtils.loadAnimation(rootView.context, R.anim.enter_left_to_right)
-        val animRight = AnimationUtils.loadAnimation(rootView.context, R.anim.enter_right_to_left)
 
         Handler().postDelayed({
             playButton.visibility = View.VISIBLE

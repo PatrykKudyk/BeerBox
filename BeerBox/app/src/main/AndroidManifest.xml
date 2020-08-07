@@ -10,28 +10,29 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:windowSoftInputMode="stateVisible|adjustResize">
+        <activity android:name=".activities.DicesActivity"></activity>
         <activity
-            android:name="com.partos.gamebox.activities.TimerActivity"
+            android:name=".activities.TimerActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.partos.gamebox.activities.CauldronActivity"
+            android:name=".activities.CauldronActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.partos.gamebox.activities.MafiaActivity"
+            android:name=".activities.MafiaActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.partos.gamebox.activities.BeerPongActivity"
+            android:name=".activities.BeerPongActivity"
             android:configChanges="orientation"
             android:screenOrientation="landscape" />
         <activity
-            android:name="com.partos.gamebox.activities.BottlesGameActivity"
+            android:name=".activities.BottlesGameActivity"
             android:configChanges="orientation"
             android:screenOrientation="landscape" />
         <activity
-            android:name="com.partos.gamebox.activities.MainActivity"
+            android:name=".activities.MainActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait">
             <intent-filter>

@@ -13,6 +13,7 @@ import com.partos.gamebox.R
 import com.partos.gamebox.fragments.beerpong.BeerPongMenuFragment
 import com.partos.gamebox.fragments.bottlesgame.BottlesGameMenuFragment
 import com.partos.gamebox.fragments.cauldron.CauldronMenuFragment
+import com.partos.gamebox.fragments.dices.DicesChoiceFragment
 import com.partos.gamebox.fragments.mafia.MafiaMenuFragment
 import com.partos.gamebox.fragments.timer.TimerMenuFragment
 import kotlinx.android.synthetic.main.row_main_menu.view.*
@@ -25,7 +26,7 @@ class MainMenuRecyclerViewAdapter() : RecyclerView.Adapter<MainMenuViewHolder>()
     }
 
     override fun getItemCount(): Int {
-        return 5
+        return 6
     }
 
     override fun onBindViewHolder(holder: MainMenuViewHolder, position: Int) {
@@ -60,10 +61,17 @@ class MainMenuRecyclerViewAdapter() : RecyclerView.Adapter<MainMenuViewHolder>()
             }
             4 -> {
                 setColor(4, holder)
-                animLeft(holder)
+                animRight(holder)
                 image.setImageResource(R.drawable.timer)
                 text.setText(R.string.chess_timer)
             }
+            5 -> {
+                setColor(5, holder)
+                animLeft(holder)
+                image.setImageResource(R.drawable.dice_4)
+                text.setText(R.string.dices_simulator)
+            }
+
         }
 
         cardView.setOnClickListener {
@@ -83,6 +91,9 @@ class MainMenuRecyclerViewAdapter() : RecyclerView.Adapter<MainMenuViewHolder>()
                 }
                 4 -> {
                     fragment = TimerMenuFragment.newInstance()
+                }
+                5 -> {
+                    fragment = DicesChoiceFragment.newInstance()
                 }
             }
             val manager = (holder.itemView.context as MainActivity).supportFragmentManager
@@ -168,6 +179,20 @@ class MainMenuRecyclerViewAdapter() : RecyclerView.Adapter<MainMenuViewHolder>()
                     ContextCompat.getColor(
                         holder.view.context,
                         R.color.colorBlueDark
+                    )
+                )
+            }
+            5 -> {
+                cardView.setCardBackgroundColor(
+                    ContextCompat.getColor(
+                        holder.view.context,
+                        R.color.colorOrangeLight
+                    )
+                )
+                cardView.setStrokeColor(
+                    ContextCompat.getColor(
+                        holder.view.context,
+                        R.color.colorOrangeDark
                     )
                 )
             }
