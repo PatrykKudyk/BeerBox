@@ -1,4 +1,4 @@
-package com.partos.beerbox.pager
+package com.partos.gamebox.pager
 
 
 import android.content.Context
@@ -13,11 +13,10 @@ import androidx.cardview.widget.CardView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.viewpager.widget.PagerAdapter
-import com.partos.beerbox.MyApp
-import com.partos.beerbox.R
-import com.partos.beerbox.models.Match
-import com.partos.beerbox.models.Points
-import kotlinx.android.synthetic.main.pager_cell_bottles_game_championship.view.*
+import com.partos.gamebox.MyApp
+import com.partos.gamebox.R
+import com.partos.gamebox.models.Match
+import com.partos.gamebox.models.Points
 import kotlinx.android.synthetic.main.pager_cell_bottles_game_group.view.*
 import kotlin.random.Random
 

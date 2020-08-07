@@ -1,19 +1,13 @@
-package com.partos.beerbox.recycler
+package com.partos.gamebox.recycler
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
-import com.partos.beerbox.MyApp
-import com.partos.beerbox.R
-import com.partos.beerbox.activities.BeerPongActivity
-import com.partos.beerbox.activities.MainActivity
-import com.partos.beerbox.models.Team
+import com.partos.gamebox.R
+import com.partos.gamebox.models.Team
 import com.partos.flashback.db.DataBaseHelper
-import kotlinx.android.synthetic.main.fragment_beer_pong_teams.*
-import kotlinx.android.synthetic.main.fragment_beer_pong_teams.view.*
 import kotlinx.android.synthetic.main.row_team.view.*
 
 class BeerPongTeamsRecyclerViewAdapter(var teamList: ArrayList<Team>) :

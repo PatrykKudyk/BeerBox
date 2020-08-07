@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.partos.beerbox">
+    package="com.partos.gamebox">
 
     <application
         android:allowBackup="true"
@@ -11,27 +11,27 @@
         android:theme="@style/AppTheme"
         android:windowSoftInputMode="stateVisible|adjustResize">
         <activity
-            android:name=".activities.TimerActivity"
+            android:name="com.partos.gamebox.activities.TimerActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.CauldronActivity"
+            android:name="com.partos.gamebox.activities.CauldronActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.MafiaActivity"
+            android:name="com.partos.gamebox.activities.MafiaActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.BeerPongActivity"
+            android:name="com.partos.gamebox.activities.BeerPongActivity"
             android:configChanges="orientation"
             android:screenOrientation="landscape" />
         <activity
-            android:name=".activities.BottlesGameActivity"
+            android:name="com.partos.gamebox.activities.BottlesGameActivity"
             android:configChanges="orientation"
             android:screenOrientation="landscape" />
         <activity
-            android:name=".activities.MainActivity"
+            android:name="com.partos.gamebox.activities.MainActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait">
             <intent-filter>

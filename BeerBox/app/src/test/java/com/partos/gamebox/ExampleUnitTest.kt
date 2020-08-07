@@ -1,4 +1,4 @@
-package com.partos.beerbox
+package com.partos.gamebox
 
 import org.junit.Test
 

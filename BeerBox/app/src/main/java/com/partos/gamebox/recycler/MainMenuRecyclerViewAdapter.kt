@@ -1,4 +1,4 @@
-package com.partos.beerbox.recycler
+package com.partos.gamebox.recycler
 
 import android.os.Handler
 import android.view.LayoutInflater
@@ -8,13 +8,13 @@ import android.view.animation.AnimationUtils
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
-import com.partos.beerbox.activities.MainActivity
-import com.partos.beerbox.R
-import com.partos.beerbox.fragments.beerpong.BeerPongMenuFragment
-import com.partos.beerbox.fragments.bottlesgame.BottlesGameMenuFragment
-import com.partos.beerbox.fragments.cauldron.CauldronMenuFragment
-import com.partos.beerbox.fragments.mafia.MafiaMenuFragment
-import com.partos.beerbox.fragments.timer.TimerMenuFragment
+import com.partos.gamebox.activities.MainActivity
+import com.partos.gamebox.R
+import com.partos.gamebox.fragments.beerpong.BeerPongMenuFragment
+import com.partos.gamebox.fragments.bottlesgame.BottlesGameMenuFragment
+import com.partos.gamebox.fragments.cauldron.CauldronMenuFragment
+import com.partos.gamebox.fragments.mafia.MafiaMenuFragment
+import com.partos.gamebox.fragments.timer.TimerMenuFragment
 import kotlinx.android.synthetic.main.row_main_menu.view.*
 
 class MainMenuRecyclerViewAdapter() : RecyclerView.Adapter<MainMenuViewHolder>() {

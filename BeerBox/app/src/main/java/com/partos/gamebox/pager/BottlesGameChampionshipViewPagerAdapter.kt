@@ -1,4 +1,4 @@
-package com.partos.beerbox.pager
+package com.partos.gamebox.pager
 
 
 import android.content.Context
@@ -12,12 +12,12 @@ import androidx.cardview.widget.CardView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.viewpager.widget.PagerAdapter
-import com.partos.beerbox.MyApp
-import com.partos.beerbox.R
-import kotlinx.android.synthetic.main.pager_cell_beer_pong_championship.view.*
+import com.partos.gamebox.MyApp
+import com.partos.gamebox.R
+import kotlinx.android.synthetic.main.pager_cell_bottles_game_championship.view.*
 import kotlin.random.Random
 
-class   BeerPongChampionshipViewPagerAdapter : PagerAdapter {
+class BottlesGameChampionshipViewPagerAdapter : PagerAdapter {
 
     var context: Context
     var teams = ArrayList<String>()
@@ -102,7 +102,7 @@ class   BeerPongChampionshipViewPagerAdapter : PagerAdapter {
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
         inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         var view: View =
-            inflater.inflate(R.layout.pager_cell_beer_pong_championship, container, false)
+            inflater.inflate(R.layout.pager_cell_bottles_game_championship, container, false)
 
         MyApp.endMatch = false
         MyApp.matchEnded = true
@@ -111,10 +111,10 @@ class   BeerPongChampionshipViewPagerAdapter : PagerAdapter {
 
         rootView = view
         if (position == 1) {
-            view.pager_cell_beer_pong_ladder_constraint.visibility = View.VISIBLE
+            view.pager_cell_bottles_game_ladder_constraint.visibility = View.VISIBLE
             handleLadder()
         } else if (position == 0) {
-            view.pager_cell_beer_pong_match_constraint.visibility = View.VISIBLE
+            view.pager_cell_bottles_game_match_constraint.visibility = View.VISIBLE
             handleMatch()
         }
 
@@ -141,62 +141,62 @@ class   BeerPongChampionshipViewPagerAdapter : PagerAdapter {
 
     private fun attachViews() {
 
-        constraint2 = rootView.findViewById(R.id.beer_pong_championship_2)
-        constraint4 = rootView.findViewById(R.id.beer_pong_championship_4)
-        constraint8 = rootView.findViewById(R.id.beer_pong_championship_8)
+        constraint2 = rootView.findViewById(R.id.bottles_game_championship_2)
+        constraint4 = rootView.findViewById(R.id.bottles_game_championship_4)
+        constraint8 = rootView.findViewById(R.id.bottles_game_championship_8)
 
-        card21 = rootView.findViewById(R.id.beer_pong_championship_2_1_card)
-        card22 = rootView.findViewById(R.id.beer_pong_championship_2_2_card)
-        card2win = rootView.findViewById(R.id.beer_pong_championship_2_win_card)
-        text21 = rootView.findViewById(R.id.beer_pong_championship_2_1_text)
-        text22 = rootView.findViewById(R.id.beer_pong_championship_2_2_text)
-        text2win = rootView.findViewById(R.id.beer_pong_championship_2_win_text)
+        card21 = rootView.findViewById(R.id.bottles_game_championship_2_1_card)
+        card22 = rootView.findViewById(R.id.bottles_game_championship_2_2_card)
+        card2win = rootView.findViewById(R.id.bottles_game_championship_2_win_card)
+        text21 = rootView.findViewById(R.id.bottles_game_championship_2_1_text)
+        text22 = rootView.findViewById(R.id.bottles_game_championship_2_2_text)
+        text2win = rootView.findViewById(R.id.bottles_game_championship_2_win_text)
 
-        card411 = rootView.findViewById(R.id.beer_pong_championship_4_1_1_card)
-        card412 = rootView.findViewById(R.id.beer_pong_championship_4_1_2_card)
-        card413 = rootView.findViewById(R.id.beer_pong_championship_4_1_3_card)
-        card414 = rootView.findViewById(R.id.beer_pong_championship_4_1_4_card)
-        card421 = rootView.findViewById(R.id.beer_pong_championship_4_2_1_card)
-        card422 = rootView.findViewById(R.id.beer_pong_championship_4_2_2_card)
-        card4win = rootView.findViewById(R.id.beer_pong_championship_4_win_card)
-        text411 = rootView.findViewById(R.id.beer_pong_championship_4_1_1_text)
-        text412 = rootView.findViewById(R.id.beer_pong_championship_4_1_2_text)
-        text413 = rootView.findViewById(R.id.beer_pong_championship_4_1_3_text)
-        text414 = rootView.findViewById(R.id.beer_pong_championship_4_1_4_text)
-        text421 = rootView.findViewById(R.id.beer_pong_championship_4_2_1_text)
-        text422 = rootView.findViewById(R.id.beer_pong_championship_4_2_2_text)
-        text4win = rootView.findViewById(R.id.beer_pong_championship_4_win_text)
+        card411 = rootView.findViewById(R.id.bottles_game_championship_4_1_1_card)
+        card412 = rootView.findViewById(R.id.bottles_game_championship_4_1_2_card)
+        card413 = rootView.findViewById(R.id.bottles_game_championship_4_1_3_card)
+        card414 = rootView.findViewById(R.id.bottles_game_championship_4_1_4_card)
+        card421 = rootView.findViewById(R.id.bottles_game_championship_4_2_1_card)
+        card422 = rootView.findViewById(R.id.bottles_game_championship_4_2_2_card)
+        card4win = rootView.findViewById(R.id.bottles_game_championship_4_win_card)
+        text411 = rootView.findViewById(R.id.bottles_game_championship_4_1_1_text)
+        text412 = rootView.findViewById(R.id.bottles_game_championship_4_1_2_text)
+        text413 = rootView.findViewById(R.id.bottles_game_championship_4_1_3_text)
+        text414 = rootView.findViewById(R.id.bottles_game_championship_4_1_4_text)
+        text421 = rootView.findViewById(R.id.bottles_game_championship_4_2_1_text)
+        text422 = rootView.findViewById(R.id.bottles_game_championship_4_2_2_text)
+        text4win = rootView.findViewById(R.id.bottles_game_championship_4_win_text)
 
-        card811 = rootView.findViewById(R.id.beer_pong_championship_8_1_1_card)
-        card812 = rootView.findViewById(R.id.beer_pong_championship_8_1_2_card)
-        card813 = rootView.findViewById(R.id.beer_pong_championship_8_1_3_card)
-        card814 = rootView.findViewById(R.id.beer_pong_championship_8_1_4_card)
-        card815 = rootView.findViewById(R.id.beer_pong_championship_8_1_5_card)
-        card816 = rootView.findViewById(R.id.beer_pong_championship_8_1_6_card)
-        card817 = rootView.findViewById(R.id.beer_pong_championship_8_1_7_card)
-        card818 = rootView.findViewById(R.id.beer_pong_championship_8_1_8_card)
-        card821 = rootView.findViewById(R.id.beer_pong_championship_8_2_1_card)
-        card822 = rootView.findViewById(R.id.beer_pong_championship_8_2_2_card)
-        card823 = rootView.findViewById(R.id.beer_pong_championship_8_2_3_card)
-        card824 = rootView.findViewById(R.id.beer_pong_championship_8_2_4_card)
-        card831 = rootView.findViewById(R.id.beer_pong_championship_8_3_1_card)
-        card832 = rootView.findViewById(R.id.beer_pong_championship_8_3_2_card)
-        card8win = rootView.findViewById(R.id.beer_pong_championship_8_win_card)
-        text811 = rootView.findViewById(R.id.beer_pong_championship_8_1_1_text)
-        text812 = rootView.findViewById(R.id.beer_pong_championship_8_1_2_text)
-        text813 = rootView.findViewById(R.id.beer_pong_championship_8_1_3_text)
-        text814 = rootView.findViewById(R.id.beer_pong_championship_8_1_4_text)
-        text815 = rootView.findViewById(R.id.beer_pong_championship_8_1_5_text)
-        text816 = rootView.findViewById(R.id.beer_pong_championship_8_1_6_text)
-        text817 = rootView.findViewById(R.id.beer_pong_championship_8_1_7_text)
-        text818 = rootView.findViewById(R.id.beer_pong_championship_8_1_8_text)
-        text821 = rootView.findViewById(R.id.beer_pong_championship_8_2_1_text)
-        text822 = rootView.findViewById(R.id.beer_pong_championship_8_2_2_text)
-        text823 = rootView.findViewById(R.id.beer_pong_championship_8_2_3_text)
-        text824 = rootView.findViewById(R.id.beer_pong_championship_8_2_4_text)
-        text831 = rootView.findViewById(R.id.beer_pong_championship_8_3_1_text)
-        text832 = rootView.findViewById(R.id.beer_pong_championship_8_3_2_text)
-        text8win = rootView.findViewById(R.id.beer_pong_championship_8_win_text)
+        card811 = rootView.findViewById(R.id.bottles_game_championship_8_1_1_card)
+        card812 = rootView.findViewById(R.id.bottles_game_championship_8_1_2_card)
+        card813 = rootView.findViewById(R.id.bottles_game_championship_8_1_3_card)
+        card814 = rootView.findViewById(R.id.bottles_game_championship_8_1_4_card)
+        card815 = rootView.findViewById(R.id.bottles_game_championship_8_1_5_card)
+        card816 = rootView.findViewById(R.id.bottles_game_championship_8_1_6_card)
+        card817 = rootView.findViewById(R.id.bottles_game_championship_8_1_7_card)
+        card818 = rootView.findViewById(R.id.bottles_game_championship_8_1_8_card)
+        card821 = rootView.findViewById(R.id.bottles_game_championship_8_2_1_card)
+        card822 = rootView.findViewById(R.id.bottles_game_championship_8_2_2_card)
+        card823 = rootView.findViewById(R.id.bottles_game_championship_8_2_3_card)
+        card824 = rootView.findViewById(R.id.bottles_game_championship_8_2_4_card)
+        card831 = rootView.findViewById(R.id.bottles_game_championship_8_3_1_card)
+        card832 = rootView.findViewById(R.id.bottles_game_championship_8_3_2_card)
+        card8win = rootView.findViewById(R.id.bottles_game_championship_8_win_card)
+        text811 = rootView.findViewById(R.id.bottles_game_championship_8_1_1_text)
+        text812 = rootView.findViewById(R.id.bottles_game_championship_8_1_2_text)
+        text813 = rootView.findViewById(R.id.bottles_game_championship_8_1_3_text)
+        text814 = rootView.findViewById(R.id.bottles_game_championship_8_1_4_text)
+        text815 = rootView.findViewById(R.id.bottles_game_championship_8_1_5_text)
+        text816 = rootView.findViewById(R.id.bottles_game_championship_8_1_6_text)
+        text817 = rootView.findViewById(R.id.bottles_game_championship_8_1_7_text)
+        text818 = rootView.findViewById(R.id.bottles_game_championship_8_1_8_text)
+        text821 = rootView.findViewById(R.id.bottles_game_championship_8_2_1_text)
+        text822 = rootView.findViewById(R.id.bottles_game_championship_8_2_2_text)
+        text823 = rootView.findViewById(R.id.bottles_game_championship_8_2_3_text)
+        text824 = rootView.findViewById(R.id.bottles_game_championship_8_2_4_text)
+        text831 = rootView.findViewById(R.id.bottles_game_championship_8_3_1_text)
+        text832 = rootView.findViewById(R.id.bottles_game_championship_8_3_2_text)
+        text8win = rootView.findViewById(R.id.bottles_game_championship_8_win_text)
     }
 
     private fun handleGame2() {
@@ -205,19 +205,19 @@ class   BeerPongChampionshipViewPagerAdapter : PagerAdapter {
             card21.setCardBackgroundColor(
                 ContextCompat.getColor(
                     rootView.context,
-                    R.color.colorRedLight
+                    R.color.colorGreenLight
                 )
             )
             card22.setCardBackgroundColor(
                 ContextCompat.getColor(
                     rootView.context,
-                    R.color.colorRedLightLight
+                    R.color.colorGreenLightLight
                 )
             )
             card2win.setCardBackgroundColor(
                 ContextCompat.getColor(
                     rootView.context,
-                    R.color.colorRedLight
+                    R.color.colorGreenLight
                 )
             )
             text2win.setText(text21.text.toString())
@@ -229,19 +229,19 @@ class   BeerPongChampionshipViewPagerAdapter : PagerAdapter {
             card22.setCardBackgroundColor(
                 ContextCompat.getColor(
                     rootView.context,
-                    R.color.colorRedLight
+                    R.color.colorGreenLight
                 )
             )
             card21.setCardBackgroundColor(
                 ContextCompat.getColor(
                     rootView.context,
-                    R.color.colorRedLightLight
+                    R.color.colorGreenLightLight
                 )
             )
             card2win.setCardBackgroundColor(
                 ContextCompat.getColor(
                     rootView.context,
-                    R.color.colorRedLight
+                    R.color.colorGreenLight
                 )
             )
             text2win.setText(text22.text.toString())
@@ -321,13 +321,13 @@ class   BeerPongChampionshipViewPagerAdapter : PagerAdapter {
                 card411.setCardBackgroundColor(
                     ContextCompat.getColor(
                         rootView.context,
-                        R.color.colorRedLight
+                        R.color.colorGreenLight
                     )
                 )
                 card412.setCardBackgroundColor(
                     ContextCompat.getColor(
                         rootView.context,
-                        R.color.colorRedLightLight
+                        R.color.colorGreenLightLight
                     )
                 )
                 card421.isClickable = true
@@ -336,7 +336,7 @@ class   BeerPongChampionshipViewPagerAdapter : PagerAdapter {
                     handleGame42Listeners()
                 }
                 if (card4win.isClickable && card421.cardBackgroundColor == rootView.context.getColorStateList(
-                        R.color.colorRedLight
+                        R.color.colorGreenLight
                     )
                 ) {
                     text4win.setText(text411.text.toString())
@@ -350,13 +350,13 @@ class   BeerPongChampionshipViewPagerAdapter : PagerAdapter {
                 card412.setCardBackgroundColor(
                     ContextCompat.getColor(
                         rootView.context,
-                        R.color.colorRedLight
+                        R.color.colorGreenLight
                     )
                 )
                 card411.setCardBackgroundColor(
                     ContextCompat.getColor(
                         rootView.context,
-                        R.color.colorRedLightLight
+                        R.color.colorGreenLightLight
                     )
                 )
                 card421.isClickable = true
@@ -365,7 +365,7 @@ class   BeerPongChampionshipViewPagerAdapter : PagerAdapter {
                     handleGame42Listeners()
                 }
                 if (card4win.isClickable && card421.cardBackgroundColor == rootView.context.getColorStateList(
-                        R.color.colorRedLight
+                        R.color.colorGreenLight
                     )
                 ) {
                     text4win.setText(text412.text.toString())
@@ -380,13 +380,13 @@ class   BeerPongChampionshipViewPagerAdapter : PagerAdapter {
                 card413.setCardBackgroundColor(
                     ContextCompat.getColor(
                         rootView.context,
-                        R.color.colorRedLight
+                        R.color.colorGreenLight
                     )
                 )
                 card414.setCardBackgroundColor(
                     ContextCompat.getColor(
                         rootView.context,
-                        R.color.colorRedLightLight
+                        R.color.colorGreenLightLight
                     )
                 )
                 card422.isClickable = true
@@ -395,7 +395,7 @@ class   BeerPongChampionshipViewPagerAdapter : PagerAdapter {
                     handleGame42Listeners()
                 }
                 if (card4win.isClickable && card422.cardBackgroundColor == rootView.context.getColorStateList(
-                        R.color.colorRedLight
+                        R.color.colorGreenLight
                     )
                 ) {
                     text4win.setText(text413.text.toString())
@@ -411,13 +411,13 @@ class   BeerPongChampionshipViewPagerAdapter : PagerAdapter {
                 card414.setCardBackgroundColor(
                     ContextCompat.getColor(
                         rootView.context,
-                        R.color.colorRedLight
+                        R.color.colorGreenLight
                     )
                 )
                 card413.setCardBackgroundColor(
                     ContextCompat.getColor(
                         rootView.context,
-                        R.color.colorRedLightLight
+                        R.color.colorGreenLightLight
                     )
                 )
                 card422.isClickable = true
@@ -426,7 +426,7 @@ class   BeerPongChampionshipViewPagerAdapter : PagerAdapter {
                     handleGame42Listeners()
                 }
                 if (card4win.isClickable && card422.cardBackgroundColor == context.getColorStateList(
-                        R.color.colorRedLight
+                        R.color.colorGreenLight
                     )
                 ) {
                     text4win.setText(text414.text.toString())
@@ -443,20 +443,20 @@ class   BeerPongChampionshipViewPagerAdapter : PagerAdapter {
             card421.setCardBackgroundColor(
                 ContextCompat.getColor(
                     rootView.context,
-                    R.color.colorRedLight
+                    R.color.colorGreenLight
                 )
             )
             card422.setCardBackgroundColor(
                 ContextCompat.getColor(
                     rootView.context,
-                    R.color.colorRedLightLight
+                    R.color.colorGreenLightLight
                 )
             )
             card4win.isClickable = true
             card4win.setCardBackgroundColor(
                 ContextCompat.getColor(
                     rootView.context,
-                    R.color.colorRedLight
+                    R.color.colorGreenLight
                 )
             )
             text4win.setText(text421.text.toString())
@@ -467,20 +467,20 @@ class   BeerPongChampionshipViewPagerAdapter : PagerAdapter {
             card422.setCardBackgroundColor(
                 ContextCompat.getColor(
                     rootView.context,
-                    R.color.colorRedLight
+                    R.color.colorGreenLight
                 )
             )
             card421.setCardBackgroundColor(
                 ContextCompat.getColor(
                     rootView.context,
-                    R.color.colorRedLightLight
+                    R.color.colorGreenLightLight
                 )
             )
             card4win.isClickable = true
             card4win.setCardBackgroundColor(
                 ContextCompat.getColor(
                     rootView.context,
-                    R.color.colorRedLight
+                    R.color.colorGreenLight
                 )
             )
             text4win.setText(text422.text.toString())
@@ -489,22 +489,22 @@ class   BeerPongChampionshipViewPagerAdapter : PagerAdapter {
     }
 
     private fun handleGame4NextMatch() {
-        if (card411.cardBackgroundColor == context.getColorStateList(R.color.colorRedLightLight) &&
-            card412.cardBackgroundColor == context.getColorStateList(R.color.colorRedLightLight)
+        if (card411.cardBackgroundColor == context.getColorStateList(R.color.colorGreenLightLight) &&
+            card412.cardBackgroundColor == context.getColorStateList(R.color.colorGreenLightLight)
         ) {
             MyApp.nextTeam1 = text411.text.toString()
             MyApp.nextTeam2 = text412.text.toString()
-        } else if (card413.cardBackgroundColor == context.getColorStateList(R.color.colorRedLightLight) &&
-            card414.cardBackgroundColor == context.getColorStateList(R.color.colorRedLightLight)
+        } else if (card413.cardBackgroundColor == context.getColorStateList(R.color.colorGreenLightLight) &&
+            card414.cardBackgroundColor == context.getColorStateList(R.color.colorGreenLightLight)
         ) {
             MyApp.nextTeam1 = text413.text.toString()
             MyApp.nextTeam2 = text414.text.toString()
-        } else if (card421.cardBackgroundColor == context.getColorStateList(R.color.colorRedLightLight) &&
-            card422.cardBackgroundColor == context.getColorStateList(R.color.colorRedLightLight)
+        } else if (card421.cardBackgroundColor == context.getColorStateList(R.color.colorGreenLightLight) &&
+            card422.cardBackgroundColor == context.getColorStateList(R.color.colorGreenLightLight)
         ) {
             MyApp.nextTeam1 = text421.text.toString()
             MyApp.nextTeam2 = text422.text.toString()
-        } else if (card4win.cardBackgroundColor == context.getColorStateList(R.color.colorRedLight)) {
+        } else if (card4win.cardBackgroundColor == context.getColorStateList(R.color.colorGreenLight)) {
             MyApp.nextTeam1 = ""
             MyApp.nextTeam2 = ""
             MyApp.endMatch = true
@@ -598,13 +598,13 @@ class   BeerPongChampionshipViewPagerAdapter : PagerAdapter {
                 card811.setCardBackgroundColor(
                     ContextCompat.getColor(
                         rootView.context,
-                        R.color.colorRedLight
+                        R.color.colorGreenLight
                     )
                 )
                 card812.setCardBackgroundColor(
                     ContextCompat.getColor(
                         rootView.context,
-                        R.color.colorRedLightLight
+                        R.color.colorGreenLightLight
                     )
                 )
                 card821.isClickable = true
@@ -613,7 +613,7 @@ class   BeerPongChampionshipViewPagerAdapter : PagerAdapter {
                     handleGame82Listeners()
                 }
                 if (card831.isClickable && card821.cardBackgroundColor == rootView.context.getColorStateList(
-                        R.color.colorRedLight
+                        R.color.colorGreenLight
                     )
                 ) {
                     text831.setText(text811.text.toString())
@@ -627,13 +627,13 @@ class   BeerPongChampionshipViewPagerAdapter : PagerAdapter {
                 card812.setCardBackgroundColor(
                     ContextCompat.getColor(
                         rootView.context,
-                        R.color.colorRedLight
+                        R.color.colorGreenLight
                     )
                 )
                 card811.setCardBackgroundColor(
                     ContextCompat.getColor(
                         rootView.context,
-                        R.color.colorRedLightLight
+                        R.color.colorGreenLightLight
                     )
                 )
                 card821.isClickable = true
@@ -642,7 +642,7 @@ class   BeerPongChampionshipViewPagerAdapter : PagerAdapter {
                     handleGame82Listeners()
                 }
                 if (card831.isClickable && card821.cardBackgroundColor == rootView.context.getColorStateList(
-                        R.color.colorRedLight
+                        R.color.colorGreenLight
                     )
                 ) {
                     text831.setText(text812.text.toString())
@@ -656,13 +656,13 @@ class   BeerPongChampionshipViewPagerAdapter : PagerAdapter {
                 card813.setCardBackgroundColor(
                     ContextCompat.getColor(
                         rootView.context,
-                        R.color.colorRedLight
+                        R.color.colorGreenLight
                     )
                 )
                 card814.setCardBackgroundColor(
                     ContextCompat.getColor(
                         rootView.context,
-                        R.color.colorRedLightLight
+                        R.color.colorGreenLightLight
                     )
                 )
                 card822.isClickable = true
@@ -671,7 +671,7 @@ class   BeerPongChampionshipViewPagerAdapter : PagerAdapter {
                     handleGame82Listeners()
                 }
                 if (card831.isClickable && card822.cardBackgroundColor == rootView.context.getColorStateList(
-                        R.color.colorRedLight
+                        R.color.colorGreenLight
                     )
                 ) {
                     text831.setText(text813.text.toString())
@@ -685,13 +685,13 @@ class   BeerPongChampionshipViewPagerAdapter : PagerAdapter {
                 card814.setCardBackgroundColor(
                     ContextCompat.getColor(
                         rootView.context,
-                        R.color.colorRedLight
+                        R.color.colorGreenLight
                     )
                 )
                 card813.setCardBackgroundColor(
                     ContextCompat.getColor(
                         rootView.context,
-                        R.color.colorRedLightLight
+                        R.color.colorGreenLightLight
                     )
                 )
                 card822.isClickable = true
@@ -700,7 +700,7 @@ class   BeerPongChampionshipViewPagerAdapter : PagerAdapter {
                     handleGame82Listeners()
                 }
                 if (card831.isClickable && card822.cardBackgroundColor == rootView.context.getColorStateList(
-                        R.color.colorRedLight
+                        R.color.colorGreenLight
                     )
                 ) {
                     text831.setText(text814.text.toString())
@@ -714,13 +714,13 @@ class   BeerPongChampionshipViewPagerAdapter : PagerAdapter {
                 card815.setCardBackgroundColor(
                     ContextCompat.getColor(
                         rootView.context,
-                        R.color.colorRedLight
+                        R.color.colorGreenLight
                     )
                 )
                 card816.setCardBackgroundColor(
                     ContextCompat.getColor(
                         rootView.context,
-                        R.color.colorRedLightLight
+                        R.color.colorGreenLightLight
                     )
                 )
                 card823.isClickable = true
@@ -729,7 +729,7 @@ class   BeerPongChampionshipViewPagerAdapter : PagerAdapter {
                     handleGame82Listeners()
                 }
                 if (card832.isClickable && card823.cardBackgroundColor == rootView.context.getColorStateList(
-                        R.color.colorRedLight
+                        R.color.colorGreenLight
                     )
                 ) {
                     text832.setText(text815.text.toString())
@@ -743,13 +743,13 @@ class   BeerPongChampionshipViewPagerAdapter : PagerAdapter {
                 card816.setCardBackgroundColor(
                     ContextCompat.getColor(
                         rootView.context,
-                        R.color.colorRedLight
+                        R.color.colorGreenLight
                     )
                 )
                 card815.setCardBackgroundColor(
                     ContextCompat.getColor(
                         rootView.context,
-                        R.color.colorRedLightLight
+                        R.color.colorGreenLightLight
                     )
                 )
                 card823.isClickable = true
@@ -758,7 +758,7 @@ class   BeerPongChampionshipViewPagerAdapter : PagerAdapter {
                     handleGame82Listeners()
                 }
                 if (card832.isClickable && card823.cardBackgroundColor == rootView.context.getColorStateList(
-                        R.color.colorRedLight
+                        R.color.colorGreenLight
                     )
                 ) {
                     text832.setText(text816.text.toString())
@@ -772,13 +772,13 @@ class   BeerPongChampionshipViewPagerAdapter : PagerAdapter {
                 card817.setCardBackgroundColor(
                     ContextCompat.getColor(
                         rootView.context,
-                        R.color.colorRedLight
+                        R.color.colorGreenLight
                     )
                 )
                 card818.setCardBackgroundColor(
                     ContextCompat.getColor(
                         rootView.context,
-                        R.color.colorRedLightLight
+                        R.color.colorGreenLightLight
                     )
                 )
                 card824.isClickable = true
@@ -787,7 +787,7 @@ class   BeerPongChampionshipViewPagerAdapter : PagerAdapter {
                     handleGame82Listeners()
                 }
                 if (card832.isClickable && card824.cardBackgroundColor == rootView.context.getColorStateList(
-                        R.color.colorRedLight
+                        R.color.colorGreenLight
                     )
                 ) {
                     text832.setText(text817.text.toString())
@@ -801,13 +801,13 @@ class   BeerPongChampionshipViewPagerAdapter : PagerAdapter {
                 card818.setCardBackgroundColor(
                     ContextCompat.getColor(
                         rootView.context,
-                        R.color.colorRedLight
+                        R.color.colorGreenLight
                     )
                 )
                 card817.setCardBackgroundColor(
                     ContextCompat.getColor(
                         rootView.context,
-                        R.color.colorRedLightLight
+                        R.color.colorGreenLightLight
                     )
                 )
                 card824.isClickable = true
@@ -816,7 +816,7 @@ class   BeerPongChampionshipViewPagerAdapter : PagerAdapter {
                     handleGame82Listeners()
                 }
                 if (card832.isClickable && card824.cardBackgroundColor == rootView.context.getColorStateList(
-                        R.color.colorRedLight
+                        R.color.colorGreenLight
                     )
                 ) {
                     text832.setText(text818.text.toString())
@@ -844,13 +844,13 @@ class   BeerPongChampionshipViewPagerAdapter : PagerAdapter {
                 card821.setCardBackgroundColor(
                     ContextCompat.getColor(
                         rootView.context,
-                        R.color.colorRedLight
+                        R.color.colorGreenLight
                     )
                 )
                 card822.setCardBackgroundColor(
                     ContextCompat.getColor(
                         rootView.context,
-                        R.color.colorRedLightLight
+                        R.color.colorGreenLightLight
                     )
                 )
                 card831.isClickable = true
@@ -859,7 +859,7 @@ class   BeerPongChampionshipViewPagerAdapter : PagerAdapter {
                     handleGame83Listeners()
                 }
                 if (card8win.isClickable && card831.cardBackgroundColor == rootView.context.getColorStateList(
-                        R.color.colorRedLight
+                        R.color.colorGreenLight
                     )
                 ) {
                     text8win.setText(text821.text.toString())
@@ -873,13 +873,13 @@ class   BeerPongChampionshipViewPagerAdapter : PagerAdapter {
                 card822.setCardBackgroundColor(
                     ContextCompat.getColor(
                         rootView.context,
-                        R.color.colorRedLight
+                        R.color.colorGreenLight
                     )
                 )
                 card821.setCardBackgroundColor(
                     ContextCompat.getColor(
                         rootView.context,
-                        R.color.colorRedLightLight
+                        R.color.colorGreenLightLight
                     )
                 )
                 card831.isClickable = true
@@ -888,7 +888,7 @@ class   BeerPongChampionshipViewPagerAdapter : PagerAdapter {
                     handleGame83Listeners()
                 }
                 if (card8win.isClickable && card831.cardBackgroundColor == rootView.context.getColorStateList(
-                        R.color.colorRedLight
+                        R.color.colorGreenLight
                     )
                 ) {
                     text8win.setText(text822.text.toString())
@@ -902,13 +902,13 @@ class   BeerPongChampionshipViewPagerAdapter : PagerAdapter {
                 card823.setCardBackgroundColor(
                     ContextCompat.getColor(
                         rootView.context,
-                        R.color.colorRedLight
+                        R.color.colorGreenLight
                     )
                 )
                 card824.setCardBackgroundColor(
                     ContextCompat.getColor(
                         rootView.context,
-                        R.color.colorRedLightLight
+                        R.color.colorGreenLightLight
                     )
                 )
                 card832.isClickable = true
@@ -917,7 +917,7 @@ class   BeerPongChampionshipViewPagerAdapter : PagerAdapter {
                     handleGame83Listeners()
                 }
                 if (card8win.isClickable && card832.cardBackgroundColor == rootView.context.getColorStateList(
-                        R.color.colorRedLight
+                        R.color.colorGreenLight
                     )
                 ) {
                     text8win.setText(text823.text.toString())
@@ -931,13 +931,13 @@ class   BeerPongChampionshipViewPagerAdapter : PagerAdapter {
                 card824.setCardBackgroundColor(
                     ContextCompat.getColor(
                         rootView.context,
-                        R.color.colorRedLight
+                        R.color.colorGreenLight
                     )
                 )
                 card823.setCardBackgroundColor(
                     ContextCompat.getColor(
                         rootView.context,
-                        R.color.colorRedLightLight
+                        R.color.colorGreenLightLight
                     )
                 )
                 card832.isClickable = true
@@ -946,7 +946,7 @@ class   BeerPongChampionshipViewPagerAdapter : PagerAdapter {
                     handleGame83Listeners()
                 }
                 if (card8win.isClickable && card832.cardBackgroundColor == rootView.context.getColorStateList(
-                        R.color.colorRedLight
+                        R.color.colorGreenLight
                     )
                 ) {
                     text8win.setText(text824.text.toString())
@@ -962,19 +962,19 @@ class   BeerPongChampionshipViewPagerAdapter : PagerAdapter {
                 card831.setCardBackgroundColor(
                     ContextCompat.getColor(
                         rootView.context,
-                        R.color.colorRedLight
+                        R.color.colorGreenLight
                     )
                 )
                 card832.setCardBackgroundColor(
                     ContextCompat.getColor(
                         rootView.context,
-                        R.color.colorRedLightLight
+                        R.color.colorGreenLightLight
                     )
                 )
                 card8win.setCardBackgroundColor(
                     ContextCompat.getColor(
                         rootView.context,
-                        R.color.colorRedLight
+                        R.color.colorGreenLight
                     )
                 )
                 text8win.setText(text831.text.toString())
@@ -987,19 +987,19 @@ class   BeerPongChampionshipViewPagerAdapter : PagerAdapter {
                 card832.setCardBackgroundColor(
                     ContextCompat.getColor(
                         rootView.context,
-                        R.color.colorRedLight
+                        R.color.colorGreenLight
                     )
                 )
                 card831.setCardBackgroundColor(
                     ContextCompat.getColor(
                         rootView.context,
-                        R.color.colorRedLightLight
+                        R.color.colorGreenLightLight
                     )
                 )
                 card8win.setCardBackgroundColor(
                     ContextCompat.getColor(
                         rootView.context,
-                        R.color.colorRedLight
+                        R.color.colorGreenLight
                     )
                 )
                 text8win.setText(text832.text.toString())
@@ -1009,46 +1009,46 @@ class   BeerPongChampionshipViewPagerAdapter : PagerAdapter {
     }
 
     private fun handleGame8NextMatch() {
-        if ((card811.cardBackgroundColor == context.getColorStateList(R.color.colorRedLightLight) &&
-                    card812.cardBackgroundColor == context.getColorStateList(R.color.colorRedLightLight) &&
+        if ((card811.cardBackgroundColor == context.getColorStateList(R.color.colorGreenLightLight) &&
+                    card812.cardBackgroundColor == context.getColorStateList(R.color.colorGreenLightLight) &&
                     (text811.text.toString() != "" || text812.text.toString() != ""))
         ) {
             MyApp.nextTeam1 = text811.text.toString()
             MyApp.nextTeam2 = text812.text.toString()
-        } else if ((card813.cardBackgroundColor == context.getColorStateList(R.color.colorRedLightLight) &&
-                    card814.cardBackgroundColor == context.getColorStateList(R.color.colorRedLightLight) &&
+        } else if ((card813.cardBackgroundColor == context.getColorStateList(R.color.colorGreenLightLight) &&
+                    card814.cardBackgroundColor == context.getColorStateList(R.color.colorGreenLightLight) &&
                     (text813.text.toString() != "" || text814.text.toString() != ""))
         ) {
             MyApp.nextTeam1 = text813.text.toString()
             MyApp.nextTeam2 = text814.text.toString()
-        } else if ((card815.cardBackgroundColor == context.getColorStateList(R.color.colorRedLightLight) &&
-                    card816.cardBackgroundColor == context.getColorStateList(R.color.colorRedLightLight)) &&
+        } else if ((card815.cardBackgroundColor == context.getColorStateList(R.color.colorGreenLightLight) &&
+                    card816.cardBackgroundColor == context.getColorStateList(R.color.colorGreenLightLight)) &&
                     (text815.text.toString() != "" || text816.text.toString() != "")
         ) {
             MyApp.nextTeam1 = text815.text.toString()
             MyApp.nextTeam2 = text816.text.toString()
-        } else if ((card817.cardBackgroundColor == context.getColorStateList(R.color.colorRedLightLight) &&
-            card818.cardBackgroundColor == context.getColorStateList(R.color.colorRedLightLight) &&
+        } else if ((card817.cardBackgroundColor == context.getColorStateList(R.color.colorGreenLightLight) &&
+            card818.cardBackgroundColor == context.getColorStateList(R.color.colorGreenLightLight) &&
                     (text817.text.toString() != "" || text818.text.toString() != ""))
         ) {
             MyApp.nextTeam1 = text817.text.toString()
             MyApp.nextTeam2 = text818.text.toString()
-        } else if (card821.cardBackgroundColor == context.getColorStateList(R.color.colorRedLightLight) &&
-            card822.cardBackgroundColor == context.getColorStateList(R.color.colorRedLightLight)
+        } else if (card821.cardBackgroundColor == context.getColorStateList(R.color.colorGreenLightLight) &&
+            card822.cardBackgroundColor == context.getColorStateList(R.color.colorGreenLightLight)
         ) {
             MyApp.nextTeam1 = text821.text.toString()
             MyApp.nextTeam2 = text822.text.toString()
-        } else if (card823.cardBackgroundColor == context.getColorStateList(R.color.colorRedLightLight) &&
-            card824.cardBackgroundColor == context.getColorStateList(R.color.colorRedLightLight)
+        } else if (card823.cardBackgroundColor == context.getColorStateList(R.color.colorGreenLightLight) &&
+            card824.cardBackgroundColor == context.getColorStateList(R.color.colorGreenLightLight)
         ) {
             MyApp.nextTeam1 = text823.text.toString()
             MyApp.nextTeam2 = text824.text.toString()
-        } else if (card831.cardBackgroundColor == context.getColorStateList(R.color.colorRedLightLight) &&
-            card832.cardBackgroundColor == context.getColorStateList(R.color.colorRedLightLight)
+        } else if (card831.cardBackgroundColor == context.getColorStateList(R.color.colorGreenLightLight) &&
+            card832.cardBackgroundColor == context.getColorStateList(R.color.colorGreenLightLight)
         ) {
             MyApp.nextTeam1 = text831.text.toString()
             MyApp.nextTeam2 = text832.text.toString()
-        } else if (card8win.cardBackgroundColor == context.getColorStateList(R.color.colorRedLight)) {
+        } else if (card8win.cardBackgroundColor == context.getColorStateList(R.color.colorGreenLight)) {
             MyApp.nextTeam1 = ""
             MyApp.nextTeam2 = ""
             MyApp.endMatch = true
@@ -1057,8 +1057,8 @@ class   BeerPongChampionshipViewPagerAdapter : PagerAdapter {
     }
 
     private fun handleMatch() {
-        nextTeam1 = rootView.findViewById(R.id.beer_pong_championship_match_text_1)
-        nextTeam2 = rootView.findViewById(R.id.beer_pong_championship_match_text_2)
+        nextTeam1 = rootView.findViewById(R.id.bottles_game_championship_match_text_1)
+        nextTeam2 = rootView.findViewById(R.id.bottles_game_championship_match_text_2)
 
         val mainHandler = Handler(Looper.getMainLooper())
         mainHandler.post(object : Runnable {

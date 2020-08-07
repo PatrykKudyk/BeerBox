@@ -1,12 +1,12 @@
-package com.partos.beerbox.recycler
+package com.partos.gamebox.recycler
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
-import com.partos.beerbox.R
-import com.partos.beerbox.models.Team
+import com.partos.gamebox.R
+import com.partos.gamebox.models.Team
 import com.partos.flashback.db.DataBaseHelper
 import kotlinx.android.synthetic.main.row_team.view.*
 

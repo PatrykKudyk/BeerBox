@@ -1,4 +1,4 @@
-package com.partos.beerbox.recycler
+package com.partos.gamebox.recycler
 
 import android.graphics.Rect
 import android.view.View
