@@ -170,4 +170,5 @@
     <string name="toast_too_much_dices">Too much dices</string>
     <string name="toast_no_dices">You have to enter a number of dices</string>
     <string name="roll">Roll</string>
+    <string name="round">Round</string>
 </resources>

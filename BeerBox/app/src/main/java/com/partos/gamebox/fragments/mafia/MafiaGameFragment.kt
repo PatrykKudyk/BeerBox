@@ -3,22 +3,22 @@ package com.partos.gamebox.fragments.mafia
 import android.content.Context
 import android.net.Uri
 import android.os.Bundle
+import android.text.Layout
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
+import android.widget.LinearLayout
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.partos.gamebox.R
 import com.partos.gamebox.models.Player
-import com.partos.gamebox.recycler.DayPanelRecyclerViewAdapter
-import com.partos.gamebox.recycler.MarginItemDecoration
-import com.partos.gamebox.recycler.NightPanelActionsRecyclerViewAdapter
-import com.partos.gamebox.recycler.NightPanelRolesRecyclerViewAdapter
 import com.partos.flashback.db.DataBaseHelper
+import com.partos.gamebox.models.Action
+import com.partos.gamebox.recycler.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -43,6 +43,7 @@ class MafiaGameFragment : Fragment() {
     private lateinit var changePanelButton2: Button
     private lateinit var nightPanelRoles: RecyclerView
     private lateinit var nightPanelActions: RecyclerView
+    private lateinit var actionsPanel: RecyclerView
 
     private lateinit var playersList: ArrayList<Player>
     private lateinit var nightRoles: ArrayList<String>
@@ -107,6 +108,7 @@ class MafiaGameFragment : Fragment() {
         val dayLayoutManager = LinearLayoutManager(this.context)
         val nPActionLayoutManager = LinearLayoutManager(this.context)
         val nPRolesLayoutManager = LinearLayoutManager(this.context)
+        val actionsLayoutManager = LinearLayoutManager(this.context, LinearLayoutManager.HORIZONTAL, false)
 
         dayPanel.layoutManager = dayLayoutManager
         dayPanel.addItemDecoration(MarginItemDecoration(12))
@@ -116,6 +118,14 @@ class MafiaGameFragment : Fragment() {
         nightPanelActions.addItemDecoration(MarginItemDecoration(12))
         nightPanelRoles.layoutManager = nPRolesLayoutManager
         nightPanelRoles.addItemDecoration(MarginItemDecoration(12))
+
+        actionsPanel.layoutManager = actionsLayoutManager
+        actionsPanel.addItemDecoration(MarginItemDecorationHorizontal(12))
+        val actionList = ArrayList<Action>()
+        actionList.add(Action(0,1,"Maciej","Przeleciany"))
+        actionList.add(Action(0,1,"Darek","Zabity"))
+        actionList.add(Action(0,2,"Przemek","Zabity"))
+        actionsPanel.adapter = ActionsPanelRecyclerViewAdapter(actionList)
 
         changePanelButton.setOnClickListener {
             changePanelButton.visibility = View.GONE
@@ -159,6 +169,7 @@ class MafiaGameFragment : Fragment() {
         changePanelButton2 = rootView.findViewById(R.id.mafia_game_button_change_panel2)
         nightPanelActions = rootView.findViewById(R.id.mafia_game_night_panel_actions)
         nightPanelRoles = rootView.findViewById(R.id.mafia_game_night_panel_roles)
+        actionsPanel = rootView.findViewById(R.id.actions_recycler_view)
     }
 
     private fun hideKeyboard() {

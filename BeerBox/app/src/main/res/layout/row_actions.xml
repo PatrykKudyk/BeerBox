@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/row_actions_card"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:theme="@style/Theme.MaterialComponents.Light"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:cardBackgroundColor="@color/colorYellowLightLight"
+        app:cardCornerRadius="6dp"
+        app:strokeColor="@color/colorYellowDark"
+        app:strokeWidth="2dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/row_actions_round"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:textSize="17dip"
+                tools:text="Round 3"
+                android:gravity="center"
+                android:fontFamily="@font/dustismo_bold" />
+
+            <View
+                android:layout_gravity="center"
+                android:layout_width="20dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
+                android:layout_height="1dp"
+                android:background="@color/colorYellowDark" />
+
+            <TextView
+                android:id="@+id/row_actions_name"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                tools:text="Maciek"
+                android:fontFamily="@font/dustismo_bold"
+                android:gravity="center" />
+
+            <TextView
+                android:id="@+id/row_actions_action"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:textSize="12dip"
+                tools:text="Przeleciany"
+                android:fontFamily="@font/dustismo_bold"
+                android:gravity="center" />
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

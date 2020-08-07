@@ -186,5 +186,6 @@
     <string name="toast_too_much_dices">Za dużo kostek</string>
     <string name="toast_no_dices">Musisz podać ilość kostek</string>
     <string name="roll">Rzuć</string>
+    <string name="round">Runda</string>
 
 </resources>

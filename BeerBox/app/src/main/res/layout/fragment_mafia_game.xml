@@ -13,6 +13,7 @@
         android:layout_height="match_parent"
         android:background="@color/colorYellowBackground">
 
+
         <ImageView
             android:id="@+id/imageView2"
             android:layout_width="100dp"
@@ -44,7 +45,7 @@
             android:layout_marginStart="12dp"
             android:layout_marginEnd="12dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHeight_percent="0.69"
+            app:layout_constraintHeight_percent="0.54"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/textView"
             tools:visibility="gone">
@@ -60,7 +61,7 @@
             android:layout_marginEnd="12dp"
             android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHeight_percent="0.69"
+            app:layout_constraintHeight_percent="0.54"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/textView"
             tools:visibility="visible">
@@ -85,6 +86,24 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.75"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/actions_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            app:layout_constraintHeight_percent="0.12"
+            app:layout_constraintTop_toBottomOf="@id/view" />
+
         <Button
             android:id="@+id/mafia_game_button_change_panel"
             android:layout_width="match_parent"
@@ -98,10 +117,10 @@
             android:textAllCaps="false"
             android:textColor="@color/colorYellowBackground"
             android:textSize="25dip"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHeight_percent="0.1"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/mafia_game_day_panel"
             tools:visibility="gone" />
 
         <Button
@@ -118,10 +137,10 @@
             android:textColor="@color/colorYellowBackground"
             android:textSize="25dip"
             android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHeight_percent="0.1"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/mafia_game_night_panel"
             tools:visibility="visible" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
