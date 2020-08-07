@@ -187,5 +187,6 @@
     <string name="toast_no_dices">Musisz podać ilość kostek</string>
     <string name="roll">Rzuć</string>
     <string name="round">Runda</string>
+    <string name="state_change">Jesteś pewien?</string>
 
 </resources>

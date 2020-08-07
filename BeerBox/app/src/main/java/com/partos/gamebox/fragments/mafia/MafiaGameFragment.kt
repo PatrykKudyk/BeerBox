@@ -3,7 +3,6 @@ package com.partos.gamebox.fragments.mafia
 import android.content.Context
 import android.net.Uri
 import android.os.Bundle
-import android.text.Layout
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -45,6 +44,9 @@ class MafiaGameFragment : Fragment() {
     private lateinit var nightPanelRoles: RecyclerView
     private lateinit var nightPanelActions: RecyclerView
     private lateinit var actionsPanel: RecyclerView
+    private lateinit var changeLayout: LinearLayout
+    private lateinit var changeYes: Button
+    private lateinit var changeNo: Button
 
     private lateinit var playersList: ArrayList<Player>
     private lateinit var nightRoles: ArrayList<String>
@@ -131,24 +133,44 @@ class MafiaGameFragment : Fragment() {
         actionsPanel.adapter = ActionsPanelRecyclerViewAdapter(actionList)
 
         changePanelButton.setOnClickListener {
-            changePanelButton.visibility = View.GONE
-            changePanelButton2.visibility = View.VISIBLE
-            dayPanel.visibility = View.GONE
-            nightPanel.visibility = View.VISIBLE
-            playersList = db.getPlayersList()
-            nightPanelRoles.adapter = NightPanelRolesRecyclerViewAdapter(playersList)
-            nightPanelActions.adapter = NightPanelActionsRecyclerViewAdapter(nightRoles)
+            actionsPanel.visibility = View.GONE
+            changeLayout.visibility = View.VISIBLE
+            changeYes.setOnClickListener {
+                changePanelButton.visibility = View.GONE
+                changePanelButton2.visibility = View.VISIBLE
+                dayPanel.visibility = View.GONE
+                nightPanel.visibility = View.VISIBLE
+                playersList = db.getPlayersList()
+                nightPanelRoles.adapter = NightPanelRolesRecyclerViewAdapter(playersList)
+                nightPanelActions.adapter = NightPanelActionsRecyclerViewAdapter(nightRoles)
+                actionsPanel.visibility = View.VISIBLE
+                changeLayout.visibility = View.GONE
+            }
+            changeNo.setOnClickListener {
+                actionsPanel.visibility = View.VISIBLE
+                changeLayout.visibility = View.GONE
+            }
         }
         changePanelButton2.setOnClickListener {
-            changePanelButton.visibility = View.VISIBLE
-            changePanelButton2.visibility = View.GONE
-            dayPanel.visibility = View.VISIBLE
-            nightPanel.visibility = View.GONE
-            playersList = db.getPlayersList()
-            dayPanel.adapter = DayPanelRecyclerViewAdapter(playersList)
-            round.number++
-            db.updateMafiaRound(round)
-            hideKeyboard()
+            actionsPanel.visibility = View.GONE
+            changeLayout.visibility = View.VISIBLE
+            changeYes.setOnClickListener {
+                changePanelButton.visibility = View.VISIBLE
+                changePanelButton2.visibility = View.GONE
+                dayPanel.visibility = View.VISIBLE
+                nightPanel.visibility = View.GONE
+                playersList = db.getPlayersList()
+                dayPanel.adapter = DayPanelRecyclerViewAdapter(playersList)
+                round.number++
+                db.updateMafiaRound(round)
+                hideKeyboard()
+                actionsPanel.visibility = View.VISIBLE
+                changeLayout.visibility = View.GONE
+            }
+            changeNo.setOnClickListener {
+                actionsPanel.visibility = View.VISIBLE
+                changeLayout.visibility = View.GONE
+            }
         }
 
     }
@@ -174,7 +196,10 @@ class MafiaGameFragment : Fragment() {
         changePanelButton2 = rootView.findViewById(R.id.mafia_game_button_change_panel2)
         nightPanelActions = rootView.findViewById(R.id.mafia_game_night_panel_actions)
         nightPanelRoles = rootView.findViewById(R.id.mafia_game_night_panel_roles)
-        actionsPanel = rootView.findViewById(R.id.actions_recycler_view)
+        actionsPanel = rootView.findViewById(R.id.mafia_game_actions_recycler_view)
+        changeLayout = rootView.findViewById(R.id.mafia_game_change_layout)
+        changeYes = rootView.findViewById(R.id.mafia_game_change_button_yes)
+        changeNo = rootView.findViewById(R.id.mafia_game_change_button_no)
     }
 
     private fun hideKeyboard() {

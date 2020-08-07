@@ -13,7 +13,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:cardBackgroundColor="@color/colorYellowLightLight"
+        app:cardBackgroundColor="@color/colorYellowLight"
         app:cardCornerRadius="6dp"
         app:strokeColor="@color/colorYellowDark"
         app:strokeWidth="2dp">
