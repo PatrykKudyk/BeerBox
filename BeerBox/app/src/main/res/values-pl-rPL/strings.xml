@@ -182,5 +182,9 @@
     <string name="dices_question">Ilu kostech chcesz użyć?</string>
     <string name="lets_roll">Rzucamy</string>
     <string name="dices_simulator">Symulator kości</string>
+    <string name="toast_too_few_dices">Za mało kostek</string>
+    <string name="toast_too_much_dices">Za dużo kostek</string>
+    <string name="toast_no_dices">Musisz podać ilość kostek</string>
+    <string name="roll">Rzuć</string>
 
 </resources>
