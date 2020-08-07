@@ -163,4 +163,7 @@
     <string name="time_per_player">Minutes per player</string>
     <string name="mafia_new">New Game</string>
     <string name="mafia_resume">Resume Game</string>
+    <string name="dices_question">How many dices do u want to use?</string>
+    <string name="lets_roll">Let\'s roll</string>
+    <string name="dices_simulator">Dices simulator</string>
 </resources>

@@ -179,4 +179,8 @@
     <string name="time_per_player">Minuty na gracza</string>
     <string name="mafia_new">Nowa Gra</string>
     <string name="mafia_resume">Wznów Grę</string>
+    <string name="dices_question">Ilu kostech chcesz użyć?</string>
+    <string name="lets_roll">Rzucamy</string>
+    <string name="dices_simulator">Symulator kości</string>
+
 </resources>
