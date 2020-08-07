@@ -1,4 +1,4 @@
-package com.partos.beerbox.fragments.mafia
+package com.partos.gamebox.fragments.mafia
 
 import android.content.Context
 import android.net.Uri
@@ -12,12 +12,12 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.partos.beerbox.R
-import com.partos.beerbox.models.Player
-import com.partos.beerbox.recycler.DayPanelRecyclerViewAdapter
-import com.partos.beerbox.recycler.MarginItemDecoration
-import com.partos.beerbox.recycler.NightPanelActionsRecyclerViewAdapter
-import com.partos.beerbox.recycler.NightPanelRolesRecyclerViewAdapter
+import com.partos.gamebox.R
+import com.partos.gamebox.models.Player
+import com.partos.gamebox.recycler.DayPanelRecyclerViewAdapter
+import com.partos.gamebox.recycler.MarginItemDecoration
+import com.partos.gamebox.recycler.NightPanelActionsRecyclerViewAdapter
+import com.partos.gamebox.recycler.NightPanelRolesRecyclerViewAdapter
 import com.partos.flashback.db.DataBaseHelper
 
 // TODO: Rename parameter arguments, choose names that match

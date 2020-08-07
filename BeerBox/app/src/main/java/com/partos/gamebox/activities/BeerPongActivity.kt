@@ -1,17 +1,14 @@
-package com.partos.beerbox.activities
+package com.partos.gamebox.activities
 
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.inputmethod.EditorInfo
-import android.view.inputmethod.InputConnection
-import com.partos.beerbox.MyApp
-import com.partos.beerbox.R
-import com.partos.beerbox.fragments.MainMenuFragment
-import com.partos.beerbox.fragments.beerpong.BeerPongChampionshipFragment
-import com.partos.beerbox.fragments.beerpong.BeerPongGroupFragment
-import com.partos.beerbox.fragments.beerpong.BeerPongLadderChoiceFragment
-import com.partos.beerbox.fragments.beerpong.BeerPongTeamsFragment
+import com.partos.gamebox.MyApp
+import com.partos.gamebox.R
+import com.partos.gamebox.fragments.beerpong.BeerPongChampionshipFragment
+import com.partos.gamebox.fragments.beerpong.BeerPongGroupFragment
+import com.partos.gamebox.fragments.beerpong.BeerPongLadderChoiceFragment
+import com.partos.gamebox.fragments.beerpong.BeerPongTeamsFragment
 
 class BeerPongActivity : AppCompatActivity(),
     BeerPongTeamsFragment.OnFragmentInteractionListener,

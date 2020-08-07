@@ -1,10 +1,10 @@
-package com.partos.beerbox.activities
+package com.partos.gamebox.activities
 
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.partos.beerbox.R
-import com.partos.beerbox.fragments.mafia.*
+import com.partos.gamebox.R
+import com.partos.gamebox.fragments.mafia.*
 import com.partos.flashback.db.DataBaseHelper
 
 class MafiaActivity : AppCompatActivity(),

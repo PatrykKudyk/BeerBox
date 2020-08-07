@@ -1,4 +1,4 @@
-package com.partos.beerbox.logic
+package com.partos.gamebox.logic
 
 import android.os.Handler
 import android.os.Looper

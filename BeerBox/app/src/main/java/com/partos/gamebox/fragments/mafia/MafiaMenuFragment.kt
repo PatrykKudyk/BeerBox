@@ -1,4 +1,4 @@
-package com.partos.beerbox.fragments.mafia
+package com.partos.gamebox.fragments.mafia
 
 import android.content.Context
 import android.content.Intent
@@ -12,11 +12,9 @@ import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.ImageView
-import com.partos.beerbox.R
-import com.partos.beerbox.activities.BottlesGameActivity
-import com.partos.beerbox.activities.MafiaActivity
-import com.partos.beerbox.fragments.bottlesgame.BottlesGameRulesFragment
-import com.partos.flashback.db.DataBaseHelper
+import com.partos.gamebox.R
+import com.partos.gamebox.activities.MafiaActivity
+import com.partos.gamebox.fragments.bottlesgame.BottlesGameRulesFragment
 
 
 // TODO: Rename parameter arguments, choose names that match

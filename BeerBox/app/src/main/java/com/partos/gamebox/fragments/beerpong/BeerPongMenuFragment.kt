@@ -1,4 +1,4 @@
-package com.partos.beerbox.fragments.beerpong
+package com.partos.gamebox.fragments.beerpong
 
 import android.content.Context
 import android.content.Intent
@@ -12,9 +12,8 @@ import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.ImageView
-import com.partos.beerbox.MyApp
-import com.partos.beerbox.R
-import com.partos.beerbox.activities.BeerPongActivity
+import com.partos.gamebox.R
+import com.partos.gamebox.activities.BeerPongActivity
 import com.partos.flashback.db.DataBaseHelper
 
 

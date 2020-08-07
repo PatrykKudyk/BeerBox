@@ -1,4 +1,4 @@
-package com.partos.beerbox.fragments.beerpong
+package com.partos.gamebox.fragments.beerpong
 
 import android.content.Context
 import android.net.Uri
@@ -9,7 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.Toast
-import com.partos.beerbox.R
+import com.partos.gamebox.R
 
 
 // TODO: Rename parameter arguments, choose names that match

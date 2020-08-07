@@ -1,4 +1,4 @@
-package com.partos.beerbox.fragments.mafia
+package com.partos.gamebox.fragments.mafia
 
 import android.content.Context
 import android.net.Uri
@@ -8,7 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
-import com.partos.beerbox.R
+import com.partos.gamebox.R
 
 
 // TODO: Rename parameter arguments, choose names that match

@@ -1,14 +1,14 @@
-package com.partos.beerbox.activities
+package com.partos.gamebox.activities
 
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.partos.beerbox.MyApp
-import com.partos.beerbox.R
-import com.partos.beerbox.fragments.bottlesgame.BottlesGameChampionshipFragment
-import com.partos.beerbox.fragments.bottlesgame.BottlesGameGroupFragment
-import com.partos.beerbox.fragments.bottlesgame.BottlesGameLadderChoiceFragment
-import com.partos.beerbox.fragments.bottlesgame.BottlesGameTeamsFragment
+import com.partos.gamebox.MyApp
+import com.partos.gamebox.R
+import com.partos.gamebox.fragments.bottlesgame.BottlesGameChampionshipFragment
+import com.partos.gamebox.fragments.bottlesgame.BottlesGameGroupFragment
+import com.partos.gamebox.fragments.bottlesgame.BottlesGameLadderChoiceFragment
+import com.partos.gamebox.fragments.bottlesgame.BottlesGameTeamsFragment
 
 class BottlesGameActivity : AppCompatActivity(),
     BottlesGameTeamsFragment.OnFragmentInteractionListener,

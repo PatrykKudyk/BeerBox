@@ -1,4 +1,4 @@
-package com.partos.beerbox.fragments.beerpong
+package com.partos.gamebox.fragments.beerpong
 
 import android.content.Context
 import android.net.Uri
@@ -8,8 +8,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.viewpager.widget.ViewPager
-import com.partos.beerbox.R
-import com.partos.beerbox.pager.BeerPongChampionshipViewPagerAdapter
+import com.partos.gamebox.R
+import com.partos.gamebox.pager.BeerPongChampionshipViewPagerAdapter
 
 
 // TODO: Rename parameter arguments, choose names that match

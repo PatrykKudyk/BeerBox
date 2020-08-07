@@ -5,8 +5,8 @@ import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.provider.BaseColumns
-import com.partos.beerbox.models.Player
-import com.partos.beerbox.models.Team
+import com.partos.gamebox.models.Player
+import com.partos.gamebox.models.Team
 
 object TableInfo : BaseColumns {
     const val DATABASE_NAME = "BeerBox"

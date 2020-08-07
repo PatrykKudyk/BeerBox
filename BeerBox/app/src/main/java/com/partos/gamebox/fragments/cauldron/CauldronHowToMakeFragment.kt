@@ -1,4 +1,4 @@
-package com.partos.beerbox.fragments.cauldron
+package com.partos.gamebox.fragments.cauldron
 
 import android.content.Context
 import android.net.Uri
@@ -7,7 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.partos.beerbox.R
+import com.partos.gamebox.R
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER

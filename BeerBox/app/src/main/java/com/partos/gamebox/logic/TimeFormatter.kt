@@ -1,4 +1,4 @@
-package com.partos.beerbox.logic
+package com.partos.gamebox.logic
 
 class TimeFormatter() {
 

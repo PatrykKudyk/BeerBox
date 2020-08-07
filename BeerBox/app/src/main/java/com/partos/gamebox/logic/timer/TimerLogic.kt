@@ -1,4 +1,4 @@
-package com.partos.beerbox.logic.timer
+package com.partos.gamebox.logic.timer
 
 import android.media.AudioAttributes
 import android.media.SoundPool
@@ -6,9 +6,9 @@ import android.os.Handler
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
-import com.partos.beerbox.R
-import com.partos.beerbox.logic.TimeFormatter
-import com.partos.beerbox.logic.TimerThread
+import com.partos.gamebox.R
+import com.partos.gamebox.logic.TimeFormatter
+import com.partos.gamebox.logic.TimerThread
 
 class TimerLogic(val rootView: View, val time: Int, val isAdding: Boolean) {
 

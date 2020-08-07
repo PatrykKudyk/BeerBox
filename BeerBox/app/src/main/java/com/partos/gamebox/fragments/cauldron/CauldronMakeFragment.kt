@@ -1,4 +1,4 @@
-package com.partos.beerbox.fragments.cauldron
+package com.partos.gamebox.fragments.cauldron
 
 import android.content.Context
 import android.net.Uri
@@ -9,10 +9,10 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.partos.beerbox.R
-import com.partos.beerbox.models.Alcohol
-import com.partos.beerbox.recycler.CauldronRecyclerViewAdapter
-import com.partos.beerbox.recycler.MarginItemDecoration
+import com.partos.gamebox.R
+import com.partos.gamebox.models.Alcohol
+import com.partos.gamebox.recycler.CauldronRecyclerViewAdapter
+import com.partos.gamebox.recycler.MarginItemDecoration
 import kotlin.random.Random
 
 // TODO: Rename parameter arguments, choose names that match

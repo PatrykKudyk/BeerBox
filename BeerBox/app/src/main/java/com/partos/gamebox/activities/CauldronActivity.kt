@@ -1,11 +1,11 @@
-package com.partos.beerbox.activities
+package com.partos.gamebox.activities
 
 import android.net.Uri
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.partos.beerbox.R
-import com.partos.beerbox.fragments.cauldron.CauldronChoicesFragment
-import com.partos.beerbox.fragments.cauldron.CauldronMakeFragment
+import com.partos.gamebox.R
+import com.partos.gamebox.fragments.cauldron.CauldronChoicesFragment
+import com.partos.gamebox.fragments.cauldron.CauldronMakeFragment
 
 class CauldronActivity : AppCompatActivity(),
     CauldronChoicesFragment.OnFragmentInteractionListener,

@@ -1,4 +1,4 @@
-package com.partos.beerbox.fragments.bottlesgame
+package com.partos.gamebox.fragments.bottlesgame
 
 import android.content.Context
 import android.content.Intent
@@ -12,8 +12,8 @@ import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.ImageView
-import com.partos.beerbox.R
-import com.partos.beerbox.activities.BottlesGameActivity
+import com.partos.gamebox.R
+import com.partos.gamebox.activities.BottlesGameActivity
 import com.partos.flashback.db.DataBaseHelper
 
 

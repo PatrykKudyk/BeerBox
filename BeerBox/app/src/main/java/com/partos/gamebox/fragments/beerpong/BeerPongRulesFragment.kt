@@ -1,23 +1,15 @@
-package com.partos.beerbox.fragments.beerpong
+package com.partos.gamebox.fragments.beerpong
 
 import android.content.Context
 import android.net.Uri
 import android.os.Bundle
-import android.os.Handler
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.ImageView
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.partos.beerbox.R
-import com.partos.beerbox.recycler.MainMenuRecyclerViewAdapter
-import com.partos.beerbox.recycler.MarginItemDecoration
-import kotlinx.android.synthetic.main.fragment_main_menu.*
-import kotlinx.android.synthetic.main.fragment_main_menu.view.*
+import com.partos.gamebox.R
 
 
 // TODO: Rename parameter arguments, choose names that match

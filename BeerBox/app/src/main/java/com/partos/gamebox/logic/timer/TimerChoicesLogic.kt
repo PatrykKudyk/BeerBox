@@ -1,12 +1,12 @@
-package com.partos.beerbox.logic.timer
+package com.partos.gamebox.logic.timer
 
 import android.view.View
 import android.widget.Button
 import androidx.cardview.widget.CardView
 import androidx.fragment.app.FragmentManager
-import com.partos.beerbox.R
-import com.partos.beerbox.fragments.cauldron.CauldronMakeFragment
-import com.partos.beerbox.fragments.timer.TimerFragment
+import com.partos.gamebox.R
+import com.partos.gamebox.fragments.cauldron.CauldronMakeFragment
+import com.partos.gamebox.fragments.timer.TimerFragment
 
 class TimerChoicesLogic(val rootView: View, val fragmentManager: FragmentManager) {
 

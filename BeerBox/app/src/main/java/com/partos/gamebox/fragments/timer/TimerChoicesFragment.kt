@@ -1,4 +1,4 @@
-package com.partos.beerbox.fragments.timer
+package com.partos.gamebox.fragments.timer
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,9 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.FragmentManager
-import com.partos.beerbox.R
-import com.partos.beerbox.logic.timer.TimerChoicesLogic
-import com.partos.beerbox.logic.timer.TimerLogic
+import com.partos.gamebox.R
+import com.partos.gamebox.logic.timer.TimerChoicesLogic
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER

@@ -1,4 +1,4 @@
-package com.partos.beerbox.logic.timer
+package com.partos.gamebox.logic.timer
 
 import android.content.Intent
 import android.os.Handler
@@ -6,8 +6,8 @@ import android.view.View
 import android.view.animation.AnimationUtils
 import android.widget.Button
 import androidx.fragment.app.FragmentManager
-import com.partos.beerbox.R
-import com.partos.beerbox.activities.TimerActivity
+import com.partos.gamebox.R
+import com.partos.gamebox.activities.TimerActivity
 
 class TimerMenuLogic (val rootView: View, val fragmentManager: FragmentManager) {
 

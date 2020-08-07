@@ -1,4 +1,4 @@
-package com.partos.beerbox.models
+package com.partos.gamebox.models
 
 class Points (
     var points: Int,

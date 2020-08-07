@@ -1,4 +1,4 @@
-package com.partos.beerbox.models
+package com.partos.gamebox.models
 
 data class Alcohol (
     val name: String,

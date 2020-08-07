@@ -1,4 +1,4 @@
-package com.partos.beerbox.fragments.mafia
+package com.partos.gamebox.fragments.mafia
 
 import android.content.Context
 import android.net.Uri
@@ -13,7 +13,7 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.cardview.widget.CardView
-import com.partos.beerbox.R
+import com.partos.gamebox.R
 import com.partos.flashback.db.DataBaseHelper
 
 

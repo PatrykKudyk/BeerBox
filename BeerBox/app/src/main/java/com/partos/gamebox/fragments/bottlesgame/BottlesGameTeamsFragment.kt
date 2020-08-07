@@ -1,4 +1,4 @@
-package com.partos.beerbox.fragments.bottlesgame
+package com.partos.gamebox.fragments.bottlesgame
 
 import android.content.Context
 import android.net.Uri
@@ -16,11 +16,11 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.partos.beerbox.MyApp
-import com.partos.beerbox.R
-import com.partos.beerbox.models.Team
-import com.partos.beerbox.recycler.BottlesGameTeamsRecyclerViewAdapter
-import com.partos.beerbox.recycler.MarginItemDecoration
+import com.partos.gamebox.MyApp
+import com.partos.gamebox.R
+import com.partos.gamebox.models.Team
+import com.partos.gamebox.recycler.BottlesGameTeamsRecyclerViewAdapter
+import com.partos.gamebox.recycler.MarginItemDecoration
 import com.partos.flashback.db.DataBaseHelper
 
 

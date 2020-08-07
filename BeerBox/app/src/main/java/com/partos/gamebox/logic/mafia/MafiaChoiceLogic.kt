@@ -1,12 +1,11 @@
-package com.partos.beerbox.logic.mafia
+package com.partos.gamebox.logic.mafia
 
 import android.view.View
 import android.widget.Button
 import androidx.fragment.app.FragmentManager
-import com.partos.beerbox.R
-import com.partos.beerbox.fragments.mafia.MafiaGameFragment
-import com.partos.beerbox.fragments.mafia.MafiaGameSizeFragment
-import com.partos.flashback.db.DataBaseHelper
+import com.partos.gamebox.R
+import com.partos.gamebox.fragments.mafia.MafiaGameFragment
+import com.partos.gamebox.fragments.mafia.MafiaGameSizeFragment
 
 class MafiaChoiceLogic(val rootView: View, val fragmentManager: FragmentManager) {
 
