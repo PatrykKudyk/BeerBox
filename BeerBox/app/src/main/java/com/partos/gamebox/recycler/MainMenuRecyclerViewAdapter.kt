@@ -133,13 +133,13 @@ class MainMenuRecyclerViewAdapter() : RecyclerView.Adapter<MainMenuViewHolder>()
                 cardView.setCardBackgroundColor(
                     ContextCompat.getColor(
                         holder.view.context,
-                        R.color.colorOrangeLight
+                        R.color.colorYellowLight
                     )
                 )
                 cardView.setStrokeColor(
                     ContextCompat.getColor(
                         holder.view.context,
-                        R.color.colorOrangeDark
+                        R.color.colorYellowDark
                     )
                 )
             }

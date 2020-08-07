@@ -13,9 +13,9 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:cardBackgroundColor="@color/colorOrangeLightLight"
+        app:cardBackgroundColor="@color/colorYellowLightLight"
         app:cardCornerRadius="6dp"
-        app:strokeColor="@color/colorOrangeDark"
+        app:strokeColor="@color/colorYellowDark"
         app:strokeWidth="2dp">
 
         <LinearLayout
@@ -36,7 +36,7 @@
                 android:layout_gravity="center"
                 android:layout_width="60dp"
                 android:layout_height="3dp"
-                android:background="@color/colorOrangeDark"/>
+                android:background="@color/colorYellowDark"/>
 
             <TextView
                 android:id="@+id/row_mafia_name_text"

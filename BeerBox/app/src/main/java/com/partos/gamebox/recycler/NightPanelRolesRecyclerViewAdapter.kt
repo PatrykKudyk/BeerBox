@@ -28,40 +28,40 @@ class NightPanelRolesRecyclerViewAdapter(val playersList: ArrayList<Player>) :
         if (playersList[position].isAlive == 0) {
             holder.view.row_mafia_role_card.setCardBackgroundColor(
                 holder.view.context.getColor(
-                    R.color.colorOrangeDark
+                    R.color.colorYellowDark
                 )
             )
-            holder.view.row_mafia_name_text.setBackgroundColor(holder.view.context.getColor(R.color.colorOrangeDark))
-            holder.view.row_mafia_role_text.setBackgroundColor(holder.view.context.getColor(R.color.colorOrangeDark))
+            holder.view.row_mafia_name_text.setBackgroundColor(holder.view.context.getColor(R.color.colorYellowDark))
+            holder.view.row_mafia_role_text.setBackgroundColor(holder.view.context.getColor(R.color.colorYellowDark))
         } else {
             holder.view.row_mafia_role_card.setCardBackgroundColor(
                 holder.view.context.getColor(
-                    R.color.colorOrangeLightLight
+                    R.color.colorYellowLightLight
                 )
             )
-            holder.view.row_mafia_name_text.setBackgroundColor(holder.view.context.getColor(R.color.colorOrangeLightLight))
-            holder.view.row_mafia_role_text.setBackgroundColor(holder.view.context.getColor(R.color.colorOrangeLightLight))
+            holder.view.row_mafia_name_text.setBackgroundColor(holder.view.context.getColor(R.color.colorYellowLightLight))
+            holder.view.row_mafia_role_text.setBackgroundColor(holder.view.context.getColor(R.color.colorYellowLightLight))
         }
 
         holder.view.row_mafia_role_card.setOnClickListener {
             if (playersList[position].isAlive == 1) {
                 holder.view.row_mafia_role_card.setCardBackgroundColor(
                     holder.view.context.getColor(
-                        R.color.colorOrangeDark
+                        R.color.colorYellowDark
                     )
                 )
-                holder.view.row_mafia_name_text.setBackgroundColor(holder.view.context.getColor(R.color.colorOrangeDark))
-                holder.view.row_mafia_role_text.setBackgroundColor(holder.view.context.getColor(R.color.colorOrangeDark))
+                holder.view.row_mafia_name_text.setBackgroundColor(holder.view.context.getColor(R.color.colorYellowDark))
+                holder.view.row_mafia_role_text.setBackgroundColor(holder.view.context.getColor(R.color.colorYellowDark))
                 playersList[position].isAlive = 0
                 db.updatePLayer(playersList[position])
             } else {
                 holder.view.row_mafia_role_card.setCardBackgroundColor(
                     holder.view.context.getColor(
-                        R.color.colorOrangeLightLight
+                        R.color.colorYellowLightLight
                     )
                 )
-                holder.view.row_mafia_name_text.setBackgroundColor(holder.view.context.getColor(R.color.colorOrangeLightLight))
-                holder.view.row_mafia_role_text.setBackgroundColor(holder.view.context.getColor(R.color.colorOrangeLightLight))
+                holder.view.row_mafia_name_text.setBackgroundColor(holder.view.context.getColor(R.color.colorYellowLightLight))
+                holder.view.row_mafia_role_text.setBackgroundColor(holder.view.context.getColor(R.color.colorYellowLightLight))
                 playersList[position].isAlive = 1
                 db.updatePLayer(playersList[position])
             }
