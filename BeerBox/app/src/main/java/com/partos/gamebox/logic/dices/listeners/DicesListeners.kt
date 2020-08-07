@@ -1,11 +1,13 @@
 package com.partos.gamebox.logic.dices.listeners
 
 import android.content.Context
+import android.os.Handler
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.partos.gamebox.R
+import com.partos.gamebox.logic.AnimationHelper
 import kotlin.random.Random
 
 class DicesListeners() {
@@ -65,41 +67,86 @@ class DicesListeners() {
 
     private fun attachListener5(rootView: View) {
         rollButton.setOnClickListener {
-            attachImage(dice51, Random.nextInt(1, 7), rootView.context)
-            attachImage(dice52, Random.nextInt(1, 7), rootView.context)
-            attachImage(dice53, Random.nextInt(1, 7), rootView.context)
-            attachImage(dice54, Random.nextInt(1, 7), rootView.context)
-            attachImage(dice55, Random.nextInt(1, 7), rootView.context)
+            Handler().postDelayed({
+                attachImage(dice51, Random.nextInt(1, 7), rootView.context)
+            },300)
+            AnimationHelper().animateDice(dice51, rootView.context)
+            Handler().postDelayed({
+                attachImage(dice52, Random.nextInt(1, 7), rootView.context)
+            },300)
+            AnimationHelper().animateDice(dice52, rootView.context)
+            Handler().postDelayed({
+                attachImage(dice53, Random.nextInt(1, 7), rootView.context)
+            },300)
+            AnimationHelper().animateDice(dice53, rootView.context)
+            Handler().postDelayed({
+                attachImage(dice54, Random.nextInt(1, 7), rootView.context)
+            },300)
+            AnimationHelper().animateDice(dice54, rootView.context)
+            Handler().postDelayed({
+                attachImage(dice55, Random.nextInt(1, 7), rootView.context)
+            },300)
+            AnimationHelper().animateDice(dice55, rootView.context)
         }
     }
 
     private fun attachListener4(rootView: View) {
         rollButton.setOnClickListener {
-            attachImage(dice41, Random.nextInt(1, 7), rootView.context)
-            attachImage(dice42, Random.nextInt(1, 7), rootView.context)
-            attachImage(dice43, Random.nextInt(1, 7), rootView.context)
-            attachImage(dice44, Random.nextInt(1, 7), rootView.context)
+            Handler().postDelayed({
+                attachImage(dice41, Random.nextInt(1, 7), rootView.context)
+            },300)
+            AnimationHelper().animateDice(dice41, rootView.context)
+            Handler().postDelayed({
+                attachImage(dice42, Random.nextInt(1, 7), rootView.context)
+            },300)
+            AnimationHelper().animateDice(dice42, rootView.context)
+            Handler().postDelayed({
+                attachImage(dice43, Random.nextInt(1, 7), rootView.context)
+            },300)
+            AnimationHelper().animateDice(dice43, rootView.context)
+            Handler().postDelayed({
+                attachImage(dice44, Random.nextInt(1, 7), rootView.context)
+            },300)
+            AnimationHelper().animateDice(dice44, rootView.context)
         }
     }
 
     private fun attachListener3(rootView: View) {
         rollButton.setOnClickListener {
-            attachImage(dice31, Random.nextInt(1, 7), rootView.context)
-            attachImage(dice32, Random.nextInt(1, 7), rootView.context)
-            attachImage(dice33, Random.nextInt(1, 7), rootView.context)
+            Handler().postDelayed({
+                attachImage(dice31, Random.nextInt(1, 7), rootView.context)
+            },300)
+            AnimationHelper().animateDice(dice31, rootView.context)
+            Handler().postDelayed({
+                attachImage(dice32, Random.nextInt(1, 7), rootView.context)
+            },300)
+            AnimationHelper().animateDice(dice32, rootView.context)
+            Handler().postDelayed({
+                attachImage(dice33, Random.nextInt(1, 7), rootView.context)
+            },300)
+            AnimationHelper().animateDice(dice33, rootView.context)
         }
     }
 
     private fun attachListener2(rootView: View) {
         rollButton.setOnClickListener {
-            attachImage(dice21, Random.nextInt(1, 7), rootView.context)
-            attachImage(dice22, Random.nextInt(1, 7), rootView.context)
+            Handler().postDelayed({
+                attachImage(dice21, Random.nextInt(1, 7), rootView.context)
+            },300)
+            AnimationHelper().animateDice(dice21, rootView.context)
+            Handler().postDelayed({
+                attachImage(dice22, Random.nextInt(1, 7), rootView.context)
+            },300)
+            AnimationHelper().animateDice(dice22, rootView.context)
         }
     }
 
     private fun attachListener1(rootView: View) {
         rollButton.setOnClickListener {
-            attachImage(dice1, Random.nextInt(1, 7), rootView.context)
+            Handler().postDelayed({
+                attachImage(dice1, Random.nextInt(1, 7), rootView.context)
+            },300)
+            AnimationHelper().animateDice(dice1, rootView.context)
         }
     }
 
