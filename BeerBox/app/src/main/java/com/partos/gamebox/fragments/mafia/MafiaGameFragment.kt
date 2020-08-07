@@ -18,6 +18,7 @@ import com.partos.gamebox.R
 import com.partos.gamebox.models.Player
 import com.partos.flashback.db.DataBaseHelper
 import com.partos.gamebox.models.Action
+import com.partos.gamebox.models.Round
 import com.partos.gamebox.recycler.*
 
 // TODO: Rename parameter arguments, choose names that match
@@ -47,6 +48,7 @@ class MafiaGameFragment : Fragment() {
 
     private lateinit var playersList: ArrayList<Player>
     private lateinit var nightRoles: ArrayList<String>
+    private lateinit var round: Round
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -101,6 +103,7 @@ class MafiaGameFragment : Fragment() {
     private fun initFragment() {
         val db = DataBaseHelper(rootView.context)
         playersList = db.getPlayersList()
+        round = db.getMafiaRound()[0]
 
         attachViews()
         assignNightRoles()
@@ -143,6 +146,8 @@ class MafiaGameFragment : Fragment() {
             nightPanel.visibility = View.GONE
             playersList = db.getPlayersList()
             dayPanel.adapter = DayPanelRecyclerViewAdapter(playersList)
+            round.number++
+            db.updateMafiaRound(round)
             hideKeyboard()
         }
 

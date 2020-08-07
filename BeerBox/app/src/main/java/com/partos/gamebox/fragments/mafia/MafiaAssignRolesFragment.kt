@@ -118,6 +118,8 @@ class MafiaAssignRolesFragment : Fragment() {
         for (player in players){
             db.deletePlayer(player.id)
         }
+        val round = db.getMafiaRound()
+        db.deleteMafiaRound(round[0])
     }
 
     private fun assignRoles() {
@@ -226,6 +228,7 @@ class MafiaAssignRolesFragment : Fragment() {
                 db.addPlayer(rolesAssignedList[i], namesAssignedList[i], 1)
             }
         }
+        db.addMafiaRound(1)
     }
 
     private fun attachViews() {
