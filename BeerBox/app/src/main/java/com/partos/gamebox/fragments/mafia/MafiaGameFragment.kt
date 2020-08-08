@@ -3,22 +3,23 @@ package com.partos.gamebox.fragments.mafia
 import android.content.Context
 import android.net.Uri
 import android.os.Bundle
+import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
+import android.widget.LinearLayout
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.partos.gamebox.R
-import com.partos.gamebox.models.Player
-import com.partos.gamebox.recycler.DayPanelRecyclerViewAdapter
-import com.partos.gamebox.recycler.MarginItemDecoration
-import com.partos.gamebox.recycler.NightPanelActionsRecyclerViewAdapter
-import com.partos.gamebox.recycler.NightPanelRolesRecyclerViewAdapter
 import com.partos.flashback.db.DataBaseHelper
+import com.partos.gamebox.MyApp
+import com.partos.gamebox.R
+import com.partos.gamebox.models.Action
+import com.partos.gamebox.models.Player
+import com.partos.gamebox.recycler.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -43,6 +44,10 @@ class MafiaGameFragment : Fragment() {
     private lateinit var changePanelButton2: Button
     private lateinit var nightPanelRoles: RecyclerView
     private lateinit var nightPanelActions: RecyclerView
+    private lateinit var actionsPanel: RecyclerView
+    private lateinit var changeLayout: LinearLayout
+    private lateinit var changeYes: Button
+    private lateinit var changeNo: Button
 
     private lateinit var playersList: ArrayList<Player>
     private lateinit var nightRoles: ArrayList<String>
@@ -100,6 +105,7 @@ class MafiaGameFragment : Fragment() {
     private fun initFragment() {
         val db = DataBaseHelper(rootView.context)
         playersList = db.getPlayersList()
+        MyApp.round = db.getMafiaRound()[0]
 
         attachViews()
         assignNightRoles()
@@ -107,6 +113,8 @@ class MafiaGameFragment : Fragment() {
         val dayLayoutManager = LinearLayoutManager(this.context)
         val nPActionLayoutManager = LinearLayoutManager(this.context)
         val nPRolesLayoutManager = LinearLayoutManager(this.context)
+        val actionsLayoutManager =
+            LinearLayoutManager(this.context, LinearLayoutManager.HORIZONTAL, false)
 
         dayPanel.layoutManager = dayLayoutManager
         dayPanel.addItemDecoration(MarginItemDecoration(12))
@@ -117,25 +125,74 @@ class MafiaGameFragment : Fragment() {
         nightPanelRoles.layoutManager = nPRolesLayoutManager
         nightPanelRoles.addItemDecoration(MarginItemDecoration(12))
 
+        actionsPanel.layoutManager = actionsLayoutManager
+        actionsPanel.addItemDecoration(MarginItemDecorationHorizontal(12))
+        actionsPanel.adapter = ActionsPanelRecyclerViewAdapter(getReversedActionList())
+
         changePanelButton.setOnClickListener {
-            changePanelButton.visibility = View.GONE
-            changePanelButton2.visibility = View.VISIBLE
-            dayPanel.visibility = View.GONE
-            nightPanel.visibility = View.VISIBLE
-            playersList = db.getPlayersList()
-            nightPanelRoles.adapter = NightPanelRolesRecyclerViewAdapter(playersList)
-            nightPanelActions.adapter = NightPanelActionsRecyclerViewAdapter(nightRoles)
+            actionsPanel.visibility = View.GONE
+            changeLayout.visibility = View.VISIBLE
+            changeYes.setOnClickListener {
+                changePanelButton.visibility = View.GONE
+                changePanelButton2.visibility = View.VISIBLE
+                dayPanel.visibility = View.GONE
+                nightPanel.visibility = View.VISIBLE
+                playersList = db.getPlayersList()
+                nightPanelRoles.adapter = NightPanelRolesRecyclerViewAdapter(playersList)
+                nightPanelActions.adapter = NightPanelActionsRecyclerViewAdapter(nightRoles)
+                actionsPanel.visibility = View.VISIBLE
+                changeLayout.visibility = View.GONE
+                updateActions()
+                actionsPanel.adapter = ActionsPanelRecyclerViewAdapter(getReversedActionList())
+                MyApp.currentActionList.clear()
+            }
+            changeNo.setOnClickListener {
+                actionsPanel.visibility = View.VISIBLE
+                changeLayout.visibility = View.GONE
+            }
         }
         changePanelButton2.setOnClickListener {
-            changePanelButton.visibility = View.VISIBLE
-            changePanelButton2.visibility = View.GONE
-            dayPanel.visibility = View.VISIBLE
-            nightPanel.visibility = View.GONE
-            playersList = db.getPlayersList()
-            dayPanel.adapter = DayPanelRecyclerViewAdapter(playersList)
-            hideKeyboard()
+            actionsPanel.visibility = View.GONE
+            changeLayout.visibility = View.VISIBLE
+            changeYes.setOnClickListener {
+                MyApp.nightEnd = true
+                changePanelButton.visibility = View.VISIBLE
+                changePanelButton2.visibility = View.GONE
+                dayPanel.visibility = View.VISIBLE
+                nightPanel.visibility = View.GONE
+                playersList = db.getPlayersList()
+                dayPanel.adapter = DayPanelRecyclerViewAdapter(playersList)
+                hideKeyboard()
+                actionsPanel.visibility = View.VISIBLE
+                changeLayout.visibility = View.GONE
+                Handler().postDelayed({
+                    MyApp.round.number++
+                    db.updateMafiaRound(MyApp.round)
+                    updateActions()
+                    actionsPanel.adapter = ActionsPanelRecyclerViewAdapter(getReversedActionList())
+                    MyApp.currentActionList.clear()
+                },200)
+            }
+            changeNo.setOnClickListener {
+                actionsPanel.visibility = View.VISIBLE
+                changeLayout.visibility = View.GONE
+            }
         }
 
+    }
+
+    private fun getReversedActionList(): ArrayList<Action> {
+        val db = DataBaseHelper(rootView.context)
+        val actions = db.getActionList()
+        val reversedActions = actions.reversed()
+        return reversedActions as ArrayList<Action>
+    }
+
+    private fun updateActions() {
+        val db = DataBaseHelper(rootView.context)
+        for (action in MyApp.currentActionList) {
+            db.addAction(action)
+        }
     }
 
     private fun assignNightRoles() {
@@ -159,6 +216,10 @@ class MafiaGameFragment : Fragment() {
         changePanelButton2 = rootView.findViewById(R.id.mafia_game_button_change_panel2)
         nightPanelActions = rootView.findViewById(R.id.mafia_game_night_panel_actions)
         nightPanelRoles = rootView.findViewById(R.id.mafia_game_night_panel_roles)
+        actionsPanel = rootView.findViewById(R.id.mafia_game_actions_recycler_view)
+        changeLayout = rootView.findViewById(R.id.mafia_game_change_layout)
+        changeYes = rootView.findViewById(R.id.mafia_game_change_button_yes)
+        changeNo = rootView.findViewById(R.id.mafia_game_change_button_no)
     }
 
     private fun hideKeyboard() {
