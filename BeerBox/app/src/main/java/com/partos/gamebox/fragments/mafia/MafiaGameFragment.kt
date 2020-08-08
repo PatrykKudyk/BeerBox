@@ -9,7 +9,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -17,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.partos.flashback.db.DataBaseHelper
 import com.partos.gamebox.MyApp
 import com.partos.gamebox.R
+import com.partos.gamebox.activities.MafiaActivity
 import com.partos.gamebox.models.Action
 import com.partos.gamebox.models.Player
 import com.partos.gamebox.recycler.*
@@ -48,6 +51,8 @@ class MafiaGameFragment : Fragment() {
     private lateinit var changeLayout: LinearLayout
     private lateinit var changeYes: Button
     private lateinit var changeNo: Button
+    private lateinit var endButton: ImageView
+    private lateinit var questionText: TextView
 
     private lateinit var playersList: ArrayList<Player>
     private lateinit var nightRoles: ArrayList<String>
@@ -127,11 +132,14 @@ class MafiaGameFragment : Fragment() {
 
         actionsPanel.layoutManager = actionsLayoutManager
         actionsPanel.addItemDecoration(MarginItemDecorationHorizontal(12))
-        actionsPanel.adapter = ActionsPanelRecyclerViewAdapter(getReversedActionList())
+        if (db.getActionList().size != 0) {
+            actionsPanel.adapter = ActionsPanelRecyclerViewAdapter(getReversedActionList())
+        }
 
         changePanelButton.setOnClickListener {
             actionsPanel.visibility = View.GONE
             changeLayout.visibility = View.VISIBLE
+            questionText.setText(rootView.context.getText(R.string.daytime_change))
             changeYes.setOnClickListener {
                 changePanelButton.visibility = View.GONE
                 changePanelButton2.visibility = View.VISIBLE
@@ -143,7 +151,9 @@ class MafiaGameFragment : Fragment() {
                 actionsPanel.visibility = View.VISIBLE
                 changeLayout.visibility = View.GONE
                 updateActions()
-                actionsPanel.adapter = ActionsPanelRecyclerViewAdapter(getReversedActionList())
+                if (db.getActionList().size != 0) {
+                    actionsPanel.adapter = ActionsPanelRecyclerViewAdapter(getReversedActionList())
+                }
                 MyApp.currentActionList.clear()
             }
             changeNo.setOnClickListener {
@@ -154,6 +164,8 @@ class MafiaGameFragment : Fragment() {
         changePanelButton2.setOnClickListener {
             actionsPanel.visibility = View.GONE
             changeLayout.visibility = View.VISIBLE
+            questionText.setText(rootView.context.getText(R.string.daytime_change))
+
             changeYes.setOnClickListener {
                 MyApp.nightEnd = true
                 changePanelButton.visibility = View.VISIBLE
@@ -169,9 +181,26 @@ class MafiaGameFragment : Fragment() {
                     MyApp.round.number++
                     db.updateMafiaRound(MyApp.round)
                     updateActions()
-                    actionsPanel.adapter = ActionsPanelRecyclerViewAdapter(getReversedActionList())
+                    if (db.getActionList().size != 0) {
+                        actionsPanel.adapter =
+                            ActionsPanelRecyclerViewAdapter(getReversedActionList())
+                    }
                     MyApp.currentActionList.clear()
-                },200)
+                }, 200)
+            }
+            changeNo.setOnClickListener {
+                actionsPanel.visibility = View.VISIBLE
+                changeLayout.visibility = View.GONE
+            }
+        }
+
+        endButton.setOnClickListener {
+            actionsPanel.visibility = View.GONE
+            changeLayout.visibility = View.VISIBLE
+            questionText.setText(rootView.context.getText(R.string.mafia_end))
+            changeYes.setOnClickListener {
+                endGame()
+                (rootView.context as MafiaActivity).finish()
             }
             changeNo.setOnClickListener {
                 actionsPanel.visibility = View.VISIBLE
@@ -181,11 +210,29 @@ class MafiaGameFragment : Fragment() {
 
     }
 
+    private fun endGame() {
+        val db = DataBaseHelper(rootView.context)
+        val players = db.getPlayersList()
+        for (player in players) {
+            db.deletePlayer(player.id)
+        }
+        val actions = db.getActionList()
+        for (action in actions) {
+            db.deleteAction(action)
+        }
+        val round = db.getMafiaRound()[0]
+        db.deleteMafiaRound(round)
+    }
+
     private fun getReversedActionList(): ArrayList<Action> {
         val db = DataBaseHelper(rootView.context)
-        val actions = db.getActionList()
-        val reversedActions = actions.reversed()
-        return reversedActions as ArrayList<Action>
+        if (db.getActionList().size == 1) {
+            return db.getActionList()
+        } else {
+            val actions = db.getActionList()
+            val reversedActions = actions.reversed()
+            return reversedActions as ArrayList<Action>
+        }
     }
 
     private fun updateActions() {
@@ -220,6 +267,8 @@ class MafiaGameFragment : Fragment() {
         changeLayout = rootView.findViewById(R.id.mafia_game_change_layout)
         changeYes = rootView.findViewById(R.id.mafia_game_change_button_yes)
         changeNo = rootView.findViewById(R.id.mafia_game_change_button_no)
+        endButton = rootView.findViewById(R.id.mafia_game_end_image)
+        questionText = rootView.findViewById(R.id.mafia_game_question_text)
     }
 
     private fun hideKeyboard() {

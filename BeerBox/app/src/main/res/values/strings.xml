@@ -171,5 +171,7 @@
     <string name="toast_no_dices">You have to enter a number of dices</string>
     <string name="roll">Roll</string>
     <string name="round">Round</string>
-    <string name="state_change">Are you sure?</string>
+    <string name="daytime_change">Are you sure to change daytime?</string>
+    <string name="mafia_end">Are you sure to end mafia game?</string>
+
 </resources>
