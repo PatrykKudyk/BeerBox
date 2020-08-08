@@ -9,7 +9,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorOrangeBackground">
+        android:background="@color/colorYellowBackground">
 
         <View
             android:id="@+id/view5"

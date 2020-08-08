@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Beer Box</string>
-    <string name="app_title">Beer Box</string>
+    <string name="app_name">Game Box</string>
+    <string name="app_title">Game Box</string>
     <string name="bottles">Flanki</string>
     <string name="beer_pong">Beer Pong</string>
     <string name="mafia">Mafia</string>
@@ -179,4 +179,14 @@
     <string name="time_per_player">Minuty na gracza</string>
     <string name="mafia_new">Nowa Gra</string>
     <string name="mafia_resume">Wznów Grę</string>
+    <string name="dices_question">Ilu kostech chcesz użyć?</string>
+    <string name="lets_roll">Rzucamy</string>
+    <string name="dices_simulator">Symulator kości</string>
+    <string name="toast_too_few_dices">Za mało kostek</string>
+    <string name="toast_too_much_dices">Za dużo kostek</string>
+    <string name="toast_no_dices">Musisz podać ilość kostek</string>
+    <string name="roll">Rzuć</string>
+    <string name="round">Runda</string>
+    <string name="state_change">Jesteś pewien?</string>
+
 </resources>

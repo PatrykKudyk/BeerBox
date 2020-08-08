@@ -11,7 +11,8 @@
         android:id="@+id/mafia_game_constraint_game_master"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorOrangeBackground">
+        android:background="@color/colorYellowBackground">
+
 
         <ImageView
             android:id="@+id/imageView2"
@@ -44,7 +45,7 @@
             android:layout_marginStart="12dp"
             android:layout_marginEnd="12dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHeight_percent="0.69"
+            app:layout_constraintHeight_percent="0.54"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/textView"
             tools:visibility="gone">
@@ -60,7 +61,7 @@
             android:layout_marginEnd="12dp"
             android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHeight_percent="0.69"
+            app:layout_constraintHeight_percent="0.54"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/textView"
             tools:visibility="visible">
@@ -85,6 +86,97 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.75"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/mafia_game_actions_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            app:layout_constraintHeight_percent="0.12"
+            app:layout_constraintTop_toBottomOf="@id/view"
+            tools:visibility="gone" />
+
+        <LinearLayout
+            android:id="@+id/mafia_game_change_layout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:weightSum="100"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.12"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/view"
+            tools:visibility="visible">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="40"
+                android:fontFamily="@font/dustismo_bold"
+                android:gravity="center"
+                android:text="@string/state_change"
+                android:textSize="24dip" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="10" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="50"
+                android:orientation="horizontal"
+                android:weightSum="100">
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="20" />
+
+                <Button
+                    android:id="@+id/mafia_game_change_button_yes"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="25"
+                    android:background="@drawable/button_background_yellow_dark"
+                    android:text="@string/yes"
+                    android:textAllCaps="false"
+                    android:textColor="@color/colorYellowBackground"
+                    android:textSize="25dip" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="5" />
+
+                <Button
+                    android:id="@+id/mafia_game_change_button_no"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="25"
+                    android:background="@drawable/button_background_yellow_dark"
+                    android:text="@string/no"
+                    android:textAllCaps="false"
+                    android:textColor="@color/colorYellowBackground"
+                    android:textSize="25dip" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
         <Button
             android:id="@+id/mafia_game_button_change_panel"
             android:layout_width="match_parent"
@@ -93,15 +185,15 @@
             android:layout_marginTop="4dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
-            android:background="@drawable/button_background_orange_medium"
+            android:background="@drawable/button_background_yellow_medium"
             android:text="@string/make_night"
             android:textAllCaps="false"
-            android:textColor="@color/colorOrangeBackground"
+            android:textColor="@color/colorYellowBackground"
             android:textSize="25dip"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHeight_percent="0.1"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/mafia_game_day_panel"
             tools:visibility="gone" />
 
         <Button
@@ -112,16 +204,16 @@
             android:layout_marginTop="4dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
-            android:background="@drawable/button_background_orange_medium"
+            android:background="@drawable/button_background_yellow_medium"
             android:text="@string/make_day"
             android:textAllCaps="false"
-            android:textColor="@color/colorOrangeBackground"
+            android:textColor="@color/colorYellowBackground"
             android:textSize="25dip"
             android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHeight_percent="0.1"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/mafia_game_night_panel"
             tools:visibility="visible" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

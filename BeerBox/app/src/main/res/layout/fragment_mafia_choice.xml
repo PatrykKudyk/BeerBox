@@ -9,7 +9,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorOrangeBackground">
+        android:background="@color/colorYellowBackground">
 
         <View
             android:id="@+id/view2"
@@ -51,10 +51,10 @@
             app:layout_constraintWidth_percent="0.7"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:background="@drawable/button_background_orange_light"
+            android:background="@drawable/button_background_yellow_light"
             android:fontFamily="@font/dustismo_bold"
             android:text="@string/mafia_new"
-            android:textColor="@color/colorOrangeBackground"
+            android:textColor="@color/colorYellowBackground"
             android:textSize="30dip"
             tools:visibility="visible" />
 
@@ -76,10 +76,10 @@
             app:layout_constraintWidth_percent="0.7"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:background="@drawable/button_background_orange_medium"
+            android:background="@drawable/button_background_yellow_medium"
             android:fontFamily="@font/dustismo_bold"
             android:text="@string/mafia_resume"
-            android:textColor="@color/colorOrangeBackground"
+            android:textColor="@color/colorYellowBackground"
             android:textSize="30dip"
             tools:visibility="visible" />
 
