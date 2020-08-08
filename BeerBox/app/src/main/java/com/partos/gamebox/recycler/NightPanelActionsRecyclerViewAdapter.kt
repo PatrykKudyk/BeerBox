@@ -36,18 +36,20 @@ class NightPanelActionsRecyclerViewAdapter(val actionsList: ArrayList<String>) :
             threadHandler.post(object : Runnable {
                 override fun run() {
                     if (MyApp.nightEnd) {
-                        MyApp.currentActionList.add(
-                            Action(
-                                0,
-                                MyApp.round.number,
-                                holder.view.row_mafia_action_edit.text.toString(),
-                                actionsList[position]
+                        if (holder.view.row_mafia_action_edit.text.toString() != ""){
+                            MyApp.currentActionList.add(
+                                Action(
+                                    0,
+                                    MyApp.round.number,
+                                    holder.view.row_mafia_action_edit.text.toString(),
+                                    actionsList[position]
+                                )
                             )
-                        )
+                        }
                         Handler().postDelayed({
                             MyApp.nightEnd = false
                         }, 110)
-                        looperThread.looper.quitSafely()
+//                        looperThread.looper.quitSafely()
                     } else {
                         threadHandler.postDelayed(this, 50)
                     }
