@@ -122,6 +122,10 @@ class MafiaAssignRolesFragment : Fragment() {
         if (round.size != 0) {
             db.deleteMafiaRound(round[0])
         }
+        val actions = db.getActionList()
+        for (action in actions) {
+            db.deleteAction(action)
+        }
     }
 
     private fun assignRoles() {

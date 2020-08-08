@@ -3,6 +3,7 @@ package com.partos.gamebox.fragments.mafia
 import android.content.Context
 import android.net.Uri
 import android.os.Bundle
+import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,11 +14,11 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.partos.gamebox.R
-import com.partos.gamebox.models.Player
 import com.partos.flashback.db.DataBaseHelper
+import com.partos.gamebox.MyApp
+import com.partos.gamebox.R
 import com.partos.gamebox.models.Action
-import com.partos.gamebox.models.Round
+import com.partos.gamebox.models.Player
 import com.partos.gamebox.recycler.*
 
 // TODO: Rename parameter arguments, choose names that match
@@ -50,7 +51,6 @@ class MafiaGameFragment : Fragment() {
 
     private lateinit var playersList: ArrayList<Player>
     private lateinit var nightRoles: ArrayList<String>
-    private lateinit var round: Round
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -105,7 +105,7 @@ class MafiaGameFragment : Fragment() {
     private fun initFragment() {
         val db = DataBaseHelper(rootView.context)
         playersList = db.getPlayersList()
-        round = db.getMafiaRound()[0]
+        MyApp.round = db.getMafiaRound()[0]
 
         attachViews()
         assignNightRoles()
@@ -113,7 +113,8 @@ class MafiaGameFragment : Fragment() {
         val dayLayoutManager = LinearLayoutManager(this.context)
         val nPActionLayoutManager = LinearLayoutManager(this.context)
         val nPRolesLayoutManager = LinearLayoutManager(this.context)
-        val actionsLayoutManager = LinearLayoutManager(this.context, LinearLayoutManager.HORIZONTAL, false)
+        val actionsLayoutManager =
+            LinearLayoutManager(this.context, LinearLayoutManager.HORIZONTAL, false)
 
         dayPanel.layoutManager = dayLayoutManager
         dayPanel.addItemDecoration(MarginItemDecoration(12))
@@ -126,11 +127,7 @@ class MafiaGameFragment : Fragment() {
 
         actionsPanel.layoutManager = actionsLayoutManager
         actionsPanel.addItemDecoration(MarginItemDecorationHorizontal(12))
-        val actionList = ArrayList<Action>()
-        actionList.add(Action(0,1,"Maciej","Przeleciany"))
-        actionList.add(Action(0,1,"Darek","Zabity"))
-        actionList.add(Action(0,2,"Przemek","Zabity"))
-        actionsPanel.adapter = ActionsPanelRecyclerViewAdapter(actionList)
+        actionsPanel.adapter = ActionsPanelRecyclerViewAdapter(getReversedActionList())
 
         changePanelButton.setOnClickListener {
             actionsPanel.visibility = View.GONE
@@ -145,6 +142,9 @@ class MafiaGameFragment : Fragment() {
                 nightPanelActions.adapter = NightPanelActionsRecyclerViewAdapter(nightRoles)
                 actionsPanel.visibility = View.VISIBLE
                 changeLayout.visibility = View.GONE
+                updateActions()
+                actionsPanel.adapter = ActionsPanelRecyclerViewAdapter(getReversedActionList())
+                MyApp.currentActionList.clear()
             }
             changeNo.setOnClickListener {
                 actionsPanel.visibility = View.VISIBLE
@@ -155,17 +155,23 @@ class MafiaGameFragment : Fragment() {
             actionsPanel.visibility = View.GONE
             changeLayout.visibility = View.VISIBLE
             changeYes.setOnClickListener {
+                MyApp.nightEnd = true
                 changePanelButton.visibility = View.VISIBLE
                 changePanelButton2.visibility = View.GONE
                 dayPanel.visibility = View.VISIBLE
                 nightPanel.visibility = View.GONE
                 playersList = db.getPlayersList()
                 dayPanel.adapter = DayPanelRecyclerViewAdapter(playersList)
-                round.number++
-                db.updateMafiaRound(round)
                 hideKeyboard()
                 actionsPanel.visibility = View.VISIBLE
                 changeLayout.visibility = View.GONE
+                Handler().postDelayed({
+                    MyApp.round.number++
+                    db.updateMafiaRound(MyApp.round)
+                    updateActions()
+                    actionsPanel.adapter = ActionsPanelRecyclerViewAdapter(getReversedActionList())
+                    MyApp.currentActionList.clear()
+                },200)
             }
             changeNo.setOnClickListener {
                 actionsPanel.visibility = View.VISIBLE
@@ -173,6 +179,20 @@ class MafiaGameFragment : Fragment() {
             }
         }
 
+    }
+
+    private fun getReversedActionList(): ArrayList<Action> {
+        val db = DataBaseHelper(rootView.context)
+        val actions = db.getActionList()
+        val reversedActions = actions.reversed()
+        return reversedActions as ArrayList<Action>
+    }
+
+    private fun updateActions() {
+        val db = DataBaseHelper(rootView.context)
+        for (action in MyApp.currentActionList) {
+            db.addAction(action)
+        }
     }
 
     private fun assignNightRoles() {

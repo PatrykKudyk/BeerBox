@@ -1,6 +1,8 @@
 package com.partos.gamebox
 
 import android.app.Application
+import com.partos.gamebox.models.Action
+import com.partos.gamebox.models.Round
 
 class MyApp: Application() {
     companion object {
@@ -11,5 +13,8 @@ class MyApp: Application() {
         var tourEnd = false
         var ladderStart = false
         var areTeamsOpened = false
+        var currentActionList = ArrayList<Action>()
+        var round = Round(0,0)
+        var nightEnd = false
     }
 }

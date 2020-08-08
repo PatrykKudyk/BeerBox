@@ -1,12 +1,15 @@
 package com.partos.gamebox.recycler
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.partos.gamebox.R
-import com.partos.gamebox.models.Player
 import com.partos.flashback.db.DataBaseHelper
+import com.partos.gamebox.MyApp
+import com.partos.gamebox.R
+import com.partos.gamebox.models.Action
+import com.partos.gamebox.models.Player
 import kotlinx.android.synthetic.main.row_mafia_role.view.*
 
 class DayPanelRecyclerViewAdapter(val playersList: ArrayList<Player>) :
@@ -54,6 +57,14 @@ class DayPanelRecyclerViewAdapter(val playersList: ArrayList<Player>) :
                 holder.view.row_mafia_role_text.setBackgroundColor(holder.view.context.getColor(R.color.colorYellowDark))
                 playersList[position].isAlive = 0
                 db.updatePLayer(playersList[position])
+                MyApp.currentActionList.add(
+                    Action(
+                        0,
+                        MyApp.round.number,
+                        playersList[position].name,
+                        holder.view.context.getString(R.string.killed)
+                    )
+                )
             } else {
                 holder.view.row_mafia_role_card.setCardBackgroundColor(
                     holder.view.context.getColor(
@@ -64,6 +75,15 @@ class DayPanelRecyclerViewAdapter(val playersList: ArrayList<Player>) :
                 holder.view.row_mafia_role_text.setBackgroundColor(holder.view.context.getColor(R.color.colorYellowLightLight))
                 playersList[position].isAlive = 1
                 db.updatePLayer(playersList[position])
+                deleteAction(playersList[position].name, holder.view.context)
+            }
+        }
+    }
+
+    private fun deleteAction(name: String, context: Context) {
+        for (action in MyApp.currentActionList) {
+            if (action.name == name && action.action == context.getString(R.string.killed)) {
+                MyApp.currentActionList.remove(action)
             }
         }
     }
