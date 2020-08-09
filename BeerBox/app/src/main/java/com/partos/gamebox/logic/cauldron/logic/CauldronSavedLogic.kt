@@ -31,7 +31,7 @@ class CauldronSavedLogic {
             alcohols.add(
                 Alcohol(
                     alcohol.name,
-                    (alcohol.amount / 1000).toDouble(),
+                    (alcohol.amount.toDouble() / 1000.0),
                     alcohol.type
                 )
             )
