@@ -19,4 +19,12 @@ class ToastHelper() {
         Toast.makeText(context, context.getText(R.string.toast_too_much_dices), Toast.LENGTH_SHORT)
             .show()
     }
+
+    fun toastSuccessfullySaved(context: Context) {
+        Toast.makeText(
+            context,
+            context.getText(R.string.toast_successfully_saved),
+            Toast.LENGTH_SHORT
+        ).show()
+    }
 }

@@ -191,5 +191,6 @@
     <string name="mafia_end">Jesteś pewien, że chcesz zakończyć grę?</string>
     <string name="save_cauldron">Zapisz na później</string>
     <string name="saved_cauldrons">Zapisane kociołki</string>
+    <string name="toast_successfully_saved">Pomyślnie zapisano</string>
 
 </resources>

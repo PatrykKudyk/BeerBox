@@ -338,6 +338,27 @@ class DataBaseHelper(context: Context) :
         return cauldronList
     }
 
+    fun getCauldron(name: String): Cauldron {
+        var cauldronList = ArrayList<Cauldron>()
+        val db = readableDatabase
+        val selectQuery = "Select * from " + TableInfo.TABLE_NAME_CAULDRON + " where " +
+        TableInfo.TABLE_COLUMN_CAULDRON_NAME + " = \"" + name + "\""
+        val result = db.rawQuery(selectQuery, null)
+        if (result.moveToFirst()) {
+            do {
+                var cauldron =
+                    Cauldron(
+                        result.getInt(result.getColumnIndex(BaseColumns._ID)).toLong(),
+                        result.getString(result.getColumnIndex(TableInfo.TABLE_COLUMN_CAULDRON_NAME))
+                    )
+                cauldronList.add(cauldron)
+            } while (result.moveToNext())
+        }
+        result.close()
+        db.close()
+        return cauldronList[0]
+    }
+
     fun addCauldron(cauldron: Cauldron) {
         val db = this.writableDatabase
         val values = ContentValues()

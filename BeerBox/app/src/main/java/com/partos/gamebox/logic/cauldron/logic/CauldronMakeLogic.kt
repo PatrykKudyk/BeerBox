@@ -29,7 +29,7 @@ class CauldronMakeLogic {
         recyclerView.addItemDecoration(MarginItemDecoration(12))
         recyclerView.adapter =
             CauldronRecyclerViewAdapter(generateFinalAlcoholList(amountsList, rootView))
-        CauldronMakeListeners().initListeners(rootView)
+        CauldronMakeListeners().initListeners(rootView, generateFinalAlcoholList(amountsList, rootView))
     }
 
     private fun generateFinalAlcoholList(
