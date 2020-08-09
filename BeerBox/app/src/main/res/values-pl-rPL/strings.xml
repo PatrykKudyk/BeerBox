@@ -189,5 +189,6 @@
     <string name="round">Runda</string>
     <string name="daytime_change">Jesteś pewien, że chcesz zmienić porę dnia?</string>
     <string name="mafia_end">Jesteś pewien, że chcesz zakończyć grę?</string>
+    <string name="save_cauldron">Zapisz na później</string>
 
 </resources>
