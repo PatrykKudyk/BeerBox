@@ -23,6 +23,12 @@ object TableInfo : BaseColumns {
     const val TABLE_COLUMN_ACTION_ACTION = "action"
     const val TABLE_NAME_CAULDRON = "cauldron"
     const val TABLE_COLUMN_CAULDRON_NAME = "name"
+    const val TABLE_NAME_ALCOHOL = "alcohol"
+    const val TABLE_COLUMN_ALCOHOL_CAULDRON_ID = "cauldronId"
+    const val TABLE_COLUMN_ALCOHOL_NAME = "name"
+    const val TABLE_COLUMN_ALCOHOL_AMOUNT = "amount"
+    const val TABLE_COLUMN_ALCOHOL_TYPE = "type"
+
 }
 
 object BasicCommand {
@@ -55,12 +61,21 @@ object BasicCommand {
                 "${BaseColumns._ID} INTEGER PRIMARY KEY," +
                 "${TableInfo.TABLE_COLUMN_CAULDRON_NAME} TEXT NOT NULL)"
 
+    const val SQL_CREATE_TABLE_ALCOHOL =
+        "CREATE TABLE ${TableInfo.TABLE_NAME_ALCOHOL} (" +
+                "${BaseColumns._ID} INTEGER PRIMARY KEY," +
+                "${TableInfo.TABLE_COLUMN_ALCOHOL_CAULDRON_ID} INTEGER NOT NULL," +
+                "${TableInfo.TABLE_COLUMN_ALCOHOL_NAME} TEXT NOT NULL," +
+                "${TableInfo.TABLE_COLUMN_ALCOHOL_AMOUNT} INTEGER NOT NULL," +
+                "${TableInfo.TABLE_COLUMN_ALCOHOL_TYPE} TEXT NOT NULL)"
+
 
     const val SQL_DELETE_TABLE_PACKAGES = "DROP TABLE IF EXISTS ${TableInfo.TABLE_NAME_TEAMS}"
     const val SQL_DELETE_TABLE_PLAYERS = "DROP TABLE IF EXISTS ${TableInfo.TABLE_NAME_PLAYERS}"
     const val SQL_DELETE_TABLE_MAFIA = "DROP TABLE IF EXISTS ${TableInfo.TABLE_NAME_MAFIA}"
     const val SQL_DELETE_TABLE_ACTION = "DROP TABLE IF EXISTS ${TableInfo.TABLE_NAME_ACTION}"
     const val SQL_DELETE_TABLE_CAULDRON_NAME = "DROP TABLE IF EXISTS ${TableInfo.TABLE_NAME_CAULDRON}"
+    const val SQL_DELETE_TABLE_CAULDRON_ALCOHOL = "DROP TABLE IF EXISTS ${TableInfo.TABLE_NAME_ALCOHOL}"
 }
 
 class DataBaseHelper(context: Context) :
@@ -71,6 +86,7 @@ class DataBaseHelper(context: Context) :
         db?.execSQL(BasicCommand.SQL_CREATE_TABLE_MAFIA)
         db?.execSQL(BasicCommand.SQL_CREATE_TABLE_ACTION)
         db?.execSQL(BasicCommand.SQL_CREATE_TABLE_CAULDRON_NAME)
+        db?.execSQL(BasicCommand.SQL_CREATE_TABLE_ALCOHOL)
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, p1: Int, p2: Int) {
@@ -79,6 +95,7 @@ class DataBaseHelper(context: Context) :
         db?.execSQL(BasicCommand.SQL_DELETE_TABLE_MAFIA)
         db?.execSQL(BasicCommand.SQL_DELETE_TABLE_ACTION)
         db?.execSQL(BasicCommand.SQL_DELETE_TABLE_CAULDRON_NAME)
+        db?.execSQL(BasicCommand.SQL_DELETE_TABLE_CAULDRON_ALCOHOL)
         onCreate(db)
     }
 
@@ -347,6 +364,68 @@ class DataBaseHelper(context: Context) :
                 TableInfo.TABLE_NAME_CAULDRON,
                 BaseColumns._ID + "=?",
                 arrayOf(cauldron.id.toString())
+            )
+                .toLong()
+        db.close()
+        return Integer.parseInt("$success") != -1
+    }
+
+    fun getAlcoholList(cauldronId: Long): ArrayList<AlcoholDb> {
+        var alcoholList = ArrayList<AlcoholDb>()
+        val db = readableDatabase
+        val selectQuery = "Select * from " + TableInfo.TABLE_NAME_ALCOHOL + " where " +
+                TableInfo.TABLE_COLUMN_ALCOHOL_CAULDRON_ID + " = " + cauldronId.toString()
+        val result = db.rawQuery(selectQuery, null)
+        if (result.moveToFirst()) {
+            do {
+                var alcohol =
+                    AlcoholDb(
+                        result.getLong(result.getColumnIndex(BaseColumns._ID)),
+                        result.getLong(result.getColumnIndex(TableInfo.TABLE_COLUMN_ALCOHOL_CAULDRON_ID)),
+                        result.getString(result.getColumnIndex(TableInfo.TABLE_COLUMN_ALCOHOL_NAME)),
+                        result.getInt(result.getColumnIndex(TableInfo.TABLE_COLUMN_ALCOHOL_AMOUNT)),
+                        result.getString(result.getColumnIndex(TableInfo.TABLE_COLUMN_ALCOHOL_TYPE))
+                    )
+                alcoholList.add(alcohol)
+            } while (result.moveToNext())
+        }
+        result.close()
+        db.close()
+        return alcoholList
+    }
+
+    fun addAlcohol(alcohol: AlcoholDb) {
+        val db = this.writableDatabase
+        val values = ContentValues()
+        values.put(TableInfo.TABLE_COLUMN_ALCOHOL_CAULDRON_ID, alcohol.cauldronId)
+        values.put(TableInfo.TABLE_COLUMN_ALCOHOL_NAME, alcohol.name)
+        values.put(TableInfo.TABLE_COLUMN_ALCOHOL_AMOUNT, alcohol.amount)
+        values.put(TableInfo.TABLE_COLUMN_ALCOHOL_TYPE, alcohol.type)
+        db.insert(TableInfo.TABLE_NAME_ALCOHOL, null, values)
+        db.close()
+    }
+
+    fun updateAlcohol(alcohol: AlcoholDb) {
+        val db = this.writableDatabase
+        val values = ContentValues()
+        values.put(TableInfo.TABLE_COLUMN_ALCOHOL_CAULDRON_ID, alcohol.cauldronId)
+        values.put(TableInfo.TABLE_COLUMN_ALCOHOL_NAME, alcohol.name)
+        values.put(TableInfo.TABLE_COLUMN_ALCOHOL_AMOUNT, alcohol.amount)
+        values.put(TableInfo.TABLE_COLUMN_ALCOHOL_TYPE, alcohol.type)
+        db.update(
+            TableInfo.TABLE_NAME_ALCOHOL, values, BaseColumns._ID + "=?",
+            arrayOf(alcohol.id.toString())
+        )
+        db.close()
+    }
+
+    fun deleteAlcohol(alcohol: AlcoholDb): Boolean {
+        val db = this.writableDatabase
+        val success =
+            db.delete(
+                TableInfo.TABLE_NAME_ALCOHOL,
+                BaseColumns._ID + "=?",
+                arrayOf(alcohol.id.toString())
             )
                 .toLong()
         db.close()

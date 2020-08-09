@@ -23,6 +23,6 @@ class CauldronSavedAllLogic {
     }
 
     private fun attachViews(rootView: View) {
-        recyclerView = rootView.findViewById(R.id.cauldron_saved_recycler)
+        recyclerView = rootView.findViewById(R.id.cauldron_saved_all_recycler)
     }
 }
