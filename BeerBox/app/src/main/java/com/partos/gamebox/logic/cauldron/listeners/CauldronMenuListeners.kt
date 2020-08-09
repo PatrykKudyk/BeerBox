@@ -12,6 +12,7 @@ class CauldronMenuListeners {
 
     private lateinit var makeCauldronButton: Button
     private lateinit var howToMakeButton: Button
+    private lateinit var savedButton: Button
 
     fun initListeners(rootView: View, fragmentManager: FragmentManager) {
         attachViews(rootView)
@@ -32,10 +33,14 @@ class CauldronMenuListeners {
                 .addToBackStack(CauldronHowToMakeFragment.toString())
                 .commit()
         }
+        savedButton.setOnClickListener {
+
+        }
     }
 
     private fun attachViews(rootView: View) {
         makeCauldronButton = rootView.findViewById(R.id.cauldron_menu_make)
         howToMakeButton = rootView.findViewById(R.id.cauldron_menu_how_to_make)
+        savedButton = rootView.findViewById(R.id.cauldron_menu_saved)
     }
 }

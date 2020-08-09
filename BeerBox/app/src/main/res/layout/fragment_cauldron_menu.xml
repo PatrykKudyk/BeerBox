@@ -46,7 +46,7 @@
         android:id="@+id/cauldron_menu_make"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@drawable/button_background_purple_medium"
+        android:background="@drawable/button_background_purple_light"
         android:fontFamily="@font/dustismo_bold"
         android:text="@string/make_cauldron"
         android:textColor="@color/colorPurpleBackground"
@@ -69,6 +69,32 @@
         app:layout_constraintTop_toBottomOf="@+id/cauldron_menu_make" />
 
     <Button
+        android:id="@+id/cauldron_menu_saved"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/button_background_purple_medium"
+        android:fontFamily="@font/dustismo_bold"
+        android:text="@string/saved_cauldrons"
+        android:textColor="@color/colorRedBackground"
+        android:textSize="24dip"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.07"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view4"
+        app:layout_constraintWidth_percent="0.7"
+        tools:visibility="visible" />
+
+    <View
+        android:id="@+id/view5"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_percent="0.04"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cauldron_menu_saved" />
+
+    <Button
         android:id="@+id/cauldron_menu_how_to_make"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -81,7 +107,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.07"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view4"
+        app:layout_constraintTop_toBottomOf="@+id/view5"
         app:layout_constraintWidth_percent="0.7"
         tools:visibility="visible" />
 

@@ -15,6 +15,7 @@ import com.partos.gamebox.logic.cauldron.listeners.CauldronMenuListeners
 class CauldronMenuLogic {
     private lateinit var makeCauldronButton: Button
     private lateinit var howToMakeButton: Button
+    private lateinit var savedButton: Button
 
     fun initFragment(rootView: View, fragmentManager: FragmentManager) {
         attachViews(rootView)
@@ -26,12 +27,14 @@ class CauldronMenuLogic {
     private fun attachViews(rootView: View) {
         makeCauldronButton = rootView.findViewById(R.id.cauldron_menu_make)
         howToMakeButton = rootView.findViewById(R.id.cauldron_menu_how_to_make)
+        savedButton = rootView.findViewById(R.id.cauldron_menu_saved)
     }
 
     private fun makeAnimations(rootView: View) {
         Handler().postDelayed({
             AnimationHelper().enterLeft(makeCauldronButton, rootView.context)
             AnimationHelper().enterRight(howToMakeButton, rootView.context)
+            AnimationHelper().enterLeft(savedButton, rootView.context)
         }, 400)
     }
 

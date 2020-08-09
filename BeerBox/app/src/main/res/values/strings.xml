@@ -174,5 +174,8 @@
     <string name="daytime_change">Are you sure to change daytime?</string>
     <string name="mafia_end">Are you sure to end mafia game?</string>
     <string name="save_cauldron">Save for later</string>
+    <string name="saved_cauldrons">Saved Cauldrons</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
