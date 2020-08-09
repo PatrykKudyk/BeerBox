@@ -33,8 +33,8 @@ class CauldronMenuLogic {
     private fun makeAnimations(rootView: View) {
         Handler().postDelayed({
             AnimationHelper().enterLeft(makeCauldronButton, rootView.context)
-            AnimationHelper().enterRight(howToMakeButton, rootView.context)
-            AnimationHelper().enterLeft(savedButton, rootView.context)
+            AnimationHelper().enterRight(savedButton, rootView.context)
+            AnimationHelper().enterLeft(howToMakeButton, rootView.context)
         }, 400)
     }
 

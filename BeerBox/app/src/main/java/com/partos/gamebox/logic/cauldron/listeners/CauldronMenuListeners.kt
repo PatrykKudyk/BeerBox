@@ -7,6 +7,7 @@ import androidx.fragment.app.FragmentManager
 import com.partos.gamebox.R
 import com.partos.gamebox.activities.CauldronActivity
 import com.partos.gamebox.fragments.cauldron.CauldronHowToMakeFragment
+import com.partos.gamebox.fragments.cauldron.CauldronSavedAllFragment
 
 class CauldronMenuListeners {
 
@@ -34,7 +35,16 @@ class CauldronMenuListeners {
                 .commit()
         }
         savedButton.setOnClickListener {
-
+            val savedCauldronFragment = CauldronSavedAllFragment.newInstance()
+            fragmentManager
+                .beginTransaction()
+                .setCustomAnimations(
+                    R.anim.enter_right_to_left, R.anim.exit_left_to_right,
+                    R.anim.enter_left_to_right, R.anim.exit_right_to_left
+                )
+                .replace(R.id.main_frame_layout, savedCauldronFragment)
+                .addToBackStack(CauldronSavedAllFragment.toString())
+                .commit()
         }
     }
 

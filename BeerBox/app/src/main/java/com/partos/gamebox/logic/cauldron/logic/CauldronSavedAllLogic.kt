@@ -19,7 +19,7 @@ class CauldronSavedAllLogic {
         val layoutManager = LinearLayoutManager(rootView.context)
         recyclerView.layoutManager = layoutManager
         recyclerView.addItemDecoration(MarginItemDecoration(12))
-        recyclerView.adapter = CauldronSavedAllRecyclerViewAdapter()
+        recyclerView.adapter = CauldronSavedAllRecyclerViewAdapter(db.getCauldronList())
     }
 
     private fun attachViews(rootView: View) {

@@ -5,10 +5,7 @@ import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.provider.BaseColumns
-import com.partos.gamebox.models.Action
-import com.partos.gamebox.models.Player
-import com.partos.gamebox.models.Round
-import com.partos.gamebox.models.Team
+import com.partos.gamebox.models.*
 
 object TableInfo : BaseColumns {
     const val DATABASE_NAME = "BeerBox"
@@ -24,6 +21,8 @@ object TableInfo : BaseColumns {
     const val TABLE_COLUMN_ACTION_ROUND = "round"
     const val TABLE_COLUMN_ACTION_NAME = "name"
     const val TABLE_COLUMN_ACTION_ACTION = "action"
+    const val TABLE_NAME_CAULDRON = "cauldron"
+    const val TABLE_COLUMN_CAULDRON_NAME = "name"
 }
 
 object BasicCommand {
@@ -51,10 +50,17 @@ object BasicCommand {
                 "${TableInfo.TABLE_COLUMN_ACTION_NAME} TEXT NOT NULL," +
                 "${TableInfo.TABLE_COLUMN_ACTION_ACTION} TEXT NOT NULL)"
 
+    const val SQL_CREATE_TABLE_CAULDRON_NAME =
+        "CREATE TABLE ${TableInfo.TABLE_NAME_CAULDRON} (" +
+                "${BaseColumns._ID} INTEGER PRIMARY KEY," +
+                "${TableInfo.TABLE_COLUMN_CAULDRON_NAME} TEXT NOT NULL)"
+
+
     const val SQL_DELETE_TABLE_PACKAGES = "DROP TABLE IF EXISTS ${TableInfo.TABLE_NAME_TEAMS}"
     const val SQL_DELETE_TABLE_PLAYERS = "DROP TABLE IF EXISTS ${TableInfo.TABLE_NAME_PLAYERS}"
     const val SQL_DELETE_TABLE_MAFIA = "DROP TABLE IF EXISTS ${TableInfo.TABLE_NAME_MAFIA}"
     const val SQL_DELETE_TABLE_ACTION = "DROP TABLE IF EXISTS ${TableInfo.TABLE_NAME_ACTION}"
+    const val SQL_DELETE_TABLE_CAULDRON_NAME = "DROP TABLE IF EXISTS ${TableInfo.TABLE_NAME_CAULDRON}"
 }
 
 class DataBaseHelper(context: Context) :
@@ -64,6 +70,7 @@ class DataBaseHelper(context: Context) :
         db?.execSQL(BasicCommand.SQL_CREATE_TABLE_PLAYERS)
         db?.execSQL(BasicCommand.SQL_CREATE_TABLE_MAFIA)
         db?.execSQL(BasicCommand.SQL_CREATE_TABLE_ACTION)
+        db?.execSQL(BasicCommand.SQL_CREATE_TABLE_CAULDRON_NAME)
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, p1: Int, p2: Int) {
@@ -71,6 +78,7 @@ class DataBaseHelper(context: Context) :
         db?.execSQL(BasicCommand.SQL_DELETE_TABLE_PLAYERS)
         db?.execSQL(BasicCommand.SQL_DELETE_TABLE_MAFIA)
         db?.execSQL(BasicCommand.SQL_DELETE_TABLE_ACTION)
+        db?.execSQL(BasicCommand.SQL_DELETE_TABLE_CAULDRON_NAME)
         onCreate(db)
     }
 
@@ -238,7 +246,7 @@ class DataBaseHelper(context: Context) :
     fun getActionList(): ArrayList<Action> {
         var actionList = ArrayList<Action>()
         val db = readableDatabase
-        val selectQuery = "Select * from ${TableInfo.TABLE_NAME_ACTION}"
+        val selectQuery = "Select * from " + TableInfo.TABLE_NAME_ACTION
         val result = db.rawQuery(selectQuery, null)
         if (result.moveToFirst()) {
             do {
@@ -293,4 +301,55 @@ class DataBaseHelper(context: Context) :
         return Integer.parseInt("$success") != -1
     }
 
+    fun getCauldronList(): ArrayList<Cauldron> {
+        var cauldronList = ArrayList<Cauldron>()
+        val db = readableDatabase
+        val selectQuery = "Select * from " + TableInfo.TABLE_NAME_CAULDRON
+        val result = db.rawQuery(selectQuery, null)
+        if (result.moveToFirst()) {
+            do {
+                var cauldron =
+                    Cauldron(
+                        result.getInt(result.getColumnIndex(BaseColumns._ID)).toLong(),
+                        result.getString(result.getColumnIndex(TableInfo.TABLE_COLUMN_CAULDRON_NAME))
+                    )
+                cauldronList.add(cauldron)
+            } while (result.moveToNext())
+        }
+        result.close()
+        db.close()
+        return cauldronList
+    }
+
+    fun addCauldron(cauldron: Cauldron) {
+        val db = this.writableDatabase
+        val values = ContentValues()
+        values.put(TableInfo.TABLE_COLUMN_CAULDRON_NAME, cauldron.name)
+        db.insert(TableInfo.TABLE_NAME_CAULDRON, null, values)
+        db.close()
+    }
+
+    fun updateCauldron(cauldron: Cauldron) {
+        val db = this.writableDatabase
+        val values = ContentValues()
+        values.put(TableInfo.TABLE_COLUMN_CAULDRON_NAME, cauldron.name)
+        db.update(
+            TableInfo.TABLE_NAME_CAULDRON, values, BaseColumns._ID + "=?",
+            arrayOf(cauldron.id.toString())
+        )
+        db.close()
+    }
+
+    fun deleteCauldron(cauldron: Cauldron): Boolean {
+        val db = this.writableDatabase
+        val success =
+            db.delete(
+                TableInfo.TABLE_NAME_CAULDRON,
+                BaseColumns._ID + "=?",
+                arrayOf(cauldron.id.toString())
+            )
+                .toLong()
+        db.close()
+        return Integer.parseInt("$success") != -1
+    }
 }
