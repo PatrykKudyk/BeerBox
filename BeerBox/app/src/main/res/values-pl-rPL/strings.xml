@@ -189,5 +189,9 @@
     <string name="round">Runda</string>
     <string name="daytime_change">Jesteś pewien, że chcesz zmienić porę dnia?</string>
     <string name="mafia_end">Jesteś pewien, że chcesz zakończyć grę?</string>
+    <string name="save_cauldron">Zapisz na później</string>
+    <string name="saved_cauldrons">Zapisane kociołki</string>
+    <string name="toast_successfully_saved">Pomyślnie zapisano</string>
+    <string name="cauldron_delete_question">Czy na pewno chcesz usunąć kociołek?</string>
 
 </resources>

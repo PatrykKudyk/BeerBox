@@ -5,6 +5,7 @@ import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.partos.gamebox.R
+import com.partos.gamebox.logic.cauldron.listeners.CauldronMakeListeners
 import com.partos.gamebox.models.Alcohol
 import com.partos.gamebox.recycler.CauldronRecyclerViewAdapter
 import com.partos.gamebox.recycler.MarginItemDecoration
@@ -28,6 +29,7 @@ class CauldronMakeLogic {
         recyclerView.addItemDecoration(MarginItemDecoration(12))
         recyclerView.adapter =
             CauldronRecyclerViewAdapter(generateFinalAlcoholList(amountsList, rootView))
+        CauldronMakeListeners().initListeners(rootView, generateFinalAlcoholList(amountsList, rootView))
     }
 
     private fun generateFinalAlcoholList(
