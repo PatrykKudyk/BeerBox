@@ -176,5 +176,5 @@
     <string name="save_cauldron">Save for later</string>
     <string name="saved_cauldrons">Saved Cauldrons</string>
     <string name="toast_successfully_saved">Successfully saved</string>
-
+    <string name="cauldron_delete_question">Are you sure to delete cauldron?</string>
 </resources>

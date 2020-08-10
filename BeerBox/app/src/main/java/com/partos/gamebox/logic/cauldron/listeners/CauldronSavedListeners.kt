@@ -23,6 +23,9 @@ class CauldronSavedListeners {
     private lateinit var deleteCard: CardView
     private lateinit var db: DataBaseHelper
     private lateinit var cauldron: Cauldron
+    private lateinit var deleteLayout: LinearLayout
+    private lateinit var deleteYes: CardView
+    private lateinit var deleteNo: CardView
 
     fun initListeners(rootView: View, cauldronId: Long) {
         db = DataBaseHelper(rootView.context)
@@ -50,6 +53,11 @@ class CauldronSavedListeners {
             hideKeyboard(rootView)
         }
         deleteCard.setOnClickListener {
+            normalLayout.visibility = View.GONE
+            nameText.visibility = View.GONE
+            deleteLayout.visibility = View.VISIBLE
+        }
+        deleteYes.setOnClickListener {
             val alcohols = db.getAlcoholList(cauldron.id)
             for (alcohol in alcohols) {
                 db.deleteAlcohol(alcohol)
@@ -57,6 +65,11 @@ class CauldronSavedListeners {
             db.deleteCauldron(cauldron)
             (rootView.context as MainActivity).supportFragmentManager
                 .popBackStack()
+        }
+        deleteNo.setOnClickListener {
+            normalLayout.visibility = View.VISIBLE
+            nameText.visibility = View.VISIBLE
+            deleteLayout.visibility = View.GONE
         }
     }
 
@@ -68,6 +81,9 @@ class CauldronSavedListeners {
         editCard = rootView.findViewById(R.id.cauldron_saved_edit_card)
         saveCard = rootView.findViewById(R.id.cauldron_saved_save_card)
         deleteCard = rootView.findViewById(R.id.cauldron_saved_delete_card)
+        deleteLayout = rootView.findViewById(R.id.cauldron_saved_linear_question)
+        deleteYes = rootView.findViewById(R.id.cauldron_saved_question_yes)
+        deleteNo = rootView.findViewById(R.id.cauldron_saved_question_no)
     }
 
     private fun hideKeyboard(rootView: View) {
