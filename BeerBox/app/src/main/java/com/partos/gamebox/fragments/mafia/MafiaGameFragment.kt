@@ -53,6 +53,9 @@ class MafiaGameFragment : Fragment() {
     private lateinit var changeNo: Button
     private lateinit var endButton: ImageView
     private lateinit var questionText: TextView
+    private lateinit var soundsImage: ImageView
+    private lateinit var soundsLayout: ConstraintLayout
+    private lateinit var soundsRecyclerView: RecyclerView
 
     private lateinit var playersList: ArrayList<Player>
     private lateinit var nightRoles: ArrayList<String>
@@ -208,6 +211,18 @@ class MafiaGameFragment : Fragment() {
             }
         }
 
+        soundsImage.setOnClickListener {
+            if (soundsLayout.visibility == View.GONE) {
+                soundsLayout.visibility = View.VISIBLE
+                val soundsLayoutManager = LinearLayoutManager(this.context)
+                soundsRecyclerView.layoutManager = soundsLayoutManager
+                soundsRecyclerView.addItemDecoration(MarginItemDecoration(12))
+//                soundsRecyclerView.adapter =
+
+            } else {
+                soundsLayout.visibility = View.GONE
+            }
+        }
     }
 
     private fun endGame() {
@@ -269,6 +284,9 @@ class MafiaGameFragment : Fragment() {
         changeNo = rootView.findViewById(R.id.mafia_game_change_button_no)
         endButton = rootView.findViewById(R.id.mafia_game_end_image)
         questionText = rootView.findViewById(R.id.mafia_game_question_text)
+        soundsImage = rootView.findViewById(R.id.mafia_game_sounds_image)
+        soundsLayout = rootView.findViewById(R.id.mafia_game_sound_layout)
+        soundsRecyclerView = rootView.findViewById(R.id.mafia_game_sounds_recycler)
     }
 
     private fun hideKeyboard() {
