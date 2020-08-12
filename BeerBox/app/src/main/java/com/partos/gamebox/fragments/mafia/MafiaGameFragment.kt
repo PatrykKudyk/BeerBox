@@ -2,6 +2,7 @@ package com.partos.gamebox.fragments.mafia
 
 import android.content.Context
 import android.media.AudioAttributes
+import android.media.MediaPlayer
 import android.media.SoundPool
 import android.net.Uri
 import android.os.Bundle
@@ -60,6 +61,7 @@ class MafiaGameFragment : Fragment() {
     private lateinit var soundsRecyclerView: RecyclerView
     private lateinit var soundPool: SoundPool
     private lateinit var soundArray: ArrayList<Int>
+    private lateinit var mediaPlayerArray: ArrayList<MediaPlayer>
 
     private lateinit var playersList: ArrayList<Player>
     private lateinit var nightRoles: ArrayList<String>
@@ -121,7 +123,7 @@ class MafiaGameFragment : Fragment() {
 
         attachViews()
         assignNightRoles()
-        initSoundPool()
+        initSounds()
 
         val dayLayoutManager = LinearLayoutManager(this.context)
         val nPActionLayoutManager = LinearLayoutManager(this.context)
@@ -230,7 +232,7 @@ class MafiaGameFragment : Fragment() {
         }
     }
 
-    private fun initSoundPool() {
+    private fun initSounds() {
         val audioAttributes = AudioAttributes.Builder()
             .setUsage(AudioAttributes.USAGE_ASSISTANCE_SONIFICATION)
             .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
@@ -244,9 +246,10 @@ class MafiaGameFragment : Fragment() {
         soundArray.add(soundPool.load(context, R.raw.end_of_game_city, 1))
         soundArray.add(soundPool.load(context, R.raw.end_of_game_mafia, 1))
         soundArray.add(soundPool.load(context, R.raw.miasto_budzi_sie, 1))
-        soundArray.add(soundPool.load(context, R.raw.orchestra_epic, 1))
-        soundArray.add(soundPool.load(context, R.raw.orchestra_normal, 1))
-        soundArray.add(soundPool.load(context, R.raw.orchestra_sad, 1))
+//        soundArray.add(soundPool.load(context, R.raw.orchestra_epic, 1))
+//        soundArray.add(soundPool.load(context, R.raw.orchestra_normal, 1))
+//        soundArray.add(soundPool.load(context, R.raw.orchestra_sad, 1))
+
     }
 
     private fun endGame() {
