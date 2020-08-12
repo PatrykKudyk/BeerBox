@@ -177,4 +177,16 @@
     <string name="saved_cauldrons">Saved Cauldrons</string>
     <string name="toast_successfully_saved">Successfully saved</string>
     <string name="cauldron_delete_question">Are you sure to delete cauldron?</string>
+    <string name="announcement">Announcement</string>
+    <string name="city_wins">City Wins</string>
+    <string name="mafia_wins">Mafia Wins</string>
+    <string name="miasto_budzi">Miasto budzi się</string>
+    <string name="orchestra_power">Orchestra Power</string>
+    <string name="orchestra_normal">Orchestra Normal</string>
+    <string name="orchestra_sad">Orchestra Sad</string>
+    <string name="death">Death</string>
+    <string name="death2">Death 2</string>
+    <string name="gong">Gong</string>
+    <string name="scream_woman">Woman Scream</string>
+
 </resources>

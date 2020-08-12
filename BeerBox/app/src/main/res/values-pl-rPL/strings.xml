@@ -193,5 +193,15 @@
     <string name="saved_cauldrons">Zapisane kociołki</string>
     <string name="toast_successfully_saved">Pomyślnie zapisano</string>
     <string name="cauldron_delete_question">Czy na pewno chcesz usunąć kociołek?</string>
-
+    <string name="announcement">Ogłoszenie</string>
+    <string name="city_wins">Miasto wygrywa</string>
+    <string name="mafia_wins">Mafia wygrywa</string>
+    <string name="miasto_budzi">Miasto budzi się</string>
+    <string name="orchestra_power">Orkiestra mocna</string>
+    <string name="orchestra_normal">Orkiestra normalna</string>
+    <string name="orchestra_sad">Orkiestra smutna</string>
+    <string name="death">Śmierć</string>
+    <string name="death2">Śmierć 2</string>
+    <string name="gong">Gong</string>
+    <string name="scream_woman">Krzyk kobiecy</string>
 </resources>
