@@ -1,6 +1,8 @@
 package com.partos.gamebox.fragments.mafia
 
 import android.content.Context
+import android.media.AudioAttributes
+import android.media.SoundPool
 import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
@@ -56,6 +58,8 @@ class MafiaGameFragment : Fragment() {
     private lateinit var soundsImage: ImageView
     private lateinit var soundsLayout: ConstraintLayout
     private lateinit var soundsRecyclerView: RecyclerView
+    private lateinit var soundPool: SoundPool
+    private lateinit var soundArray: ArrayList<Int>
 
     private lateinit var playersList: ArrayList<Player>
     private lateinit var nightRoles: ArrayList<String>
@@ -117,6 +121,7 @@ class MafiaGameFragment : Fragment() {
 
         attachViews()
         assignNightRoles()
+        initSoundPool()
 
         val dayLayoutManager = LinearLayoutManager(this.context)
         val nPActionLayoutManager = LinearLayoutManager(this.context)
@@ -217,12 +222,31 @@ class MafiaGameFragment : Fragment() {
                 val soundsLayoutManager = LinearLayoutManager(this.context)
                 soundsRecyclerView.layoutManager = soundsLayoutManager
                 soundsRecyclerView.addItemDecoration(MarginItemDecoration(12))
-//                soundsRecyclerView.adapter =
-
+                soundsRecyclerView.adapter = SoundsRecyclerViewAdapter(soundPool, soundArray)
+                soundsLayout.bringToFront()
             } else {
                 soundsLayout.visibility = View.GONE
             }
         }
+    }
+
+    private fun initSoundPool() {
+        val audioAttributes = AudioAttributes.Builder()
+            .setUsage(AudioAttributes.USAGE_ASSISTANCE_SONIFICATION)
+            .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
+            .build()
+        soundPool = SoundPool.Builder()
+            .setMaxStreams(7)
+            .setAudioAttributes(audioAttributes)
+            .build()
+        soundArray = ArrayList()
+        soundArray.add(soundPool.load(context, R.raw.announcment, 1))
+        soundArray.add(soundPool.load(context, R.raw.end_of_game_city, 1))
+        soundArray.add(soundPool.load(context, R.raw.end_of_game_mafia, 1))
+        soundArray.add(soundPool.load(context, R.raw.miasto_budzi_sie, 1))
+        soundArray.add(soundPool.load(context, R.raw.orchestra_epic, 1))
+        soundArray.add(soundPool.load(context, R.raw.orchestra_normal, 1))
+        soundArray.add(soundPool.load(context, R.raw.orchestra_sad, 1))
     }
 
     private fun endGame() {
