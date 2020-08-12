@@ -184,6 +184,9 @@
     <string name="orchestra_power">Orchestra Power</string>
     <string name="orchestra_normal">Orchestra Normal</string>
     <string name="orchestra_sad">Orchestra Sad</string>
-
+    <string name="death">Death</string>
+    <string name="death2">Death 2</string>
+    <string name="gong">Gong</string>
+    <string name="scream_woman">Woman Scream</string>
 
 </resources>

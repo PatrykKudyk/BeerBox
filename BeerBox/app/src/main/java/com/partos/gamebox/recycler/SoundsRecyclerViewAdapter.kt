@@ -1,6 +1,5 @@
 package com.partos.gamebox.recycler
 
-import android.media.MediaPlayer
 import android.media.SoundPool
 import android.os.Handler
 import android.view.LayoutInflater
@@ -22,7 +21,7 @@ class SoundsRecyclerViewAdapter(
     }
 
     override fun getItemCount(): Int {
-        return 4
+        return 8
     }
 
     override fun onBindViewHolder(holder: SoundsViewHolder, position: Int) {
@@ -35,6 +34,10 @@ class SoundsRecyclerViewAdapter(
             1 -> name.text = context.getText(R.string.city_wins)
             2 -> name.text = context.getText(R.string.mafia_wins)
             3 -> name.text = context.getText(R.string.miasto_budzi)
+            4 -> name.text = context.getText(R.string.death)
+            5 -> name.text = context.getText(R.string.death2)
+            6 -> name.text = context.getText(R.string.gong)
+            7 -> name.text = context.getText(R.string.scream_woman)
 //            4 -> name.text = context.getText(R.string.orchestra_power)
 //            5 -> name.text = context.getText(R.string.orchestra_normal)
 //            6 -> name.text = context.getText(R.string.orchestra_sad)
@@ -42,29 +45,29 @@ class SoundsRecyclerViewAdapter(
         var stream = 0
         var isUsed = false
         holder.view.row_sound_card.setOnClickListener {
-            when (position) {
-                in 0..3 -> {
-                    if (!isUsed) {
-                        isUsed = true
-                        image.setImageDrawable(context.getDrawable(R.drawable.ic_pause_yellow))
-                        var delay = 0
-                        when (position) {
-                            0 -> delay = 5200
-                            1 -> delay = 6000
-                            2 -> delay = 5700
-                            3 -> delay = 3300
-                        }
-                        stream = soundPool.play(soundArray[position], 1F, 1F, 0, 0, 1F)
-                        Handler().postDelayed({
-                            image.setImageDrawable(context.getDrawable(R.drawable.ic_play_yellow))
-                            isUsed = false
-                        }, delay.toLong())
-                    } else {
-                        isUsed = false
-                        image.setImageDrawable(context.getDrawable(R.drawable.ic_play_yellow))
-                        soundPool.stop(stream)
-                    }
+            if (!isUsed) {
+                isUsed = true
+                image.setImageDrawable(context.getDrawable(R.drawable.ic_pause_yellow))
+                var delay = 0
+                when (position) {
+                    0 -> delay = 5200
+                    1 -> delay = 6000
+                    2 -> delay = 5700
+                    3 -> delay = 3300
+                    4 -> delay = 1800
+                    5 -> delay = 1200
+                    6 -> delay = 4000
+                    7 -> delay = 2400
                 }
+                stream = soundPool.play(soundArray[position], 1F, 1F, 0, 0, 1F)
+                Handler().postDelayed({
+                    image.setImageDrawable(context.getDrawable(R.drawable.ic_play_yellow))
+                    isUsed = false
+                }, delay.toLong())
+            } else {
+                isUsed = false
+                image.setImageDrawable(context.getDrawable(R.drawable.ic_play_yellow))
+                soundPool.stop(stream)
             }
         }
     }

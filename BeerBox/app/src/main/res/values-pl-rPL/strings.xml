@@ -200,5 +200,8 @@
     <string name="orchestra_power">Orkiestra mocna</string>
     <string name="orchestra_normal">Orkiestra normalna</string>
     <string name="orchestra_sad">Orkiestra smutna</string>
-
+    <string name="death">Śmierć</string>
+    <string name="death2">Śmierć 2</string>
+    <string name="gong">Gong</string>
+    <string name="scream_woman">Krzyk kobiecy</string>
 </resources>
