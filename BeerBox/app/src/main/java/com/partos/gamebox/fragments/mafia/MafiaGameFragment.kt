@@ -61,7 +61,9 @@ class MafiaGameFragment : Fragment() {
     private lateinit var soundsRecyclerView: RecyclerView
     private lateinit var soundPool: SoundPool
     private lateinit var soundArray: ArrayList<Int>
-    private lateinit var mediaPlayerArray: ArrayList<MediaPlayer>
+    private lateinit var timerImage: ImageView
+    private lateinit var timerLayout: ConstraintLayout
+    private lateinit var timerRecyclerView: RecyclerView
 
     private lateinit var playersList: ArrayList<Player>
     private lateinit var nightRoles: ArrayList<String>
@@ -220,6 +222,9 @@ class MafiaGameFragment : Fragment() {
 
         soundsImage.setOnClickListener {
             if (soundsLayout.visibility == View.GONE) {
+                if (timerLayout.visibility == View.VISIBLE) {
+                    timerLayout.visibility = View.GONE
+                }
                 soundsLayout.visibility = View.VISIBLE
                 val soundsLayoutManager = LinearLayoutManager(this.context)
                 soundsRecyclerView.layoutManager = soundsLayoutManager
@@ -228,6 +233,22 @@ class MafiaGameFragment : Fragment() {
                 soundsLayout.bringToFront()
             } else {
                 soundsLayout.visibility = View.GONE
+            }
+        }
+
+        timerImage.setOnClickListener {
+            if (timerLayout.visibility == View.GONE) {
+                if (soundsLayout.visibility == View.VISIBLE) {
+                    soundsLayout.visibility = View.GONE
+                }
+                timerLayout.visibility = View.VISIBLE
+                val timerLayoutManager = LinearLayoutManager(this.context)
+                timerRecyclerView.layoutManager = timerLayoutManager
+                timerRecyclerView.addItemDecoration(MarginItemDecoration(12))
+                timerRecyclerView.adapter = TimersRecyclerViewAdapter()
+                timerLayout.bringToFront()
+            } else {
+                timerLayout.visibility = View.GONE
             }
         }
     }
@@ -318,6 +339,9 @@ class MafiaGameFragment : Fragment() {
         soundsImage = rootView.findViewById(R.id.mafia_game_sounds_image)
         soundsLayout = rootView.findViewById(R.id.mafia_game_sound_layout)
         soundsRecyclerView = rootView.findViewById(R.id.mafia_game_sounds_recycler)
+        timerImage = rootView.findViewById(R.id.mafia_game_timer_image)
+        timerLayout = rootView.findViewById(R.id.mafia_game_timer_layout)
+        timerRecyclerView = rootView.findViewById(R.id.mafia_game_timer_recycler)
     }
 
     private fun hideKeyboard() {
