@@ -245,7 +245,7 @@ class MafiaGameFragment : Fragment() {
                 val timerLayoutManager = LinearLayoutManager(this.context)
                 timerRecyclerView.layoutManager = timerLayoutManager
                 timerRecyclerView.addItemDecoration(MarginItemDecoration(12))
-                timerRecyclerView.adapter =
+                timerRecyclerView.adapter = TimersRecyclerViewAdapter()
                 timerLayout.bringToFront()
             } else {
                 timerLayout.visibility = View.GONE
