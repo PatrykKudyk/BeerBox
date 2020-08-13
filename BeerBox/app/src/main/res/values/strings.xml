@@ -188,5 +188,30 @@
     <string name="death2">Death 2</string>
     <string name="gong">Gong</string>
     <string name="scream_woman">Woman Scream</string>
+    <string name="credits">Credits</string>
+    <string name="credits_authors1">Authors of the app are</string>
+    <string name="credits_authors2">Patryk Kudyk\n
+        and\n
+        Daniel Cyktor
+    </string>
+    <string name="credits_icons1">Icons were made by</string>
+    <string name="credits_icons2">
+        Flat Icons\n
+        Smashicons\n
+        Freepik\n
+        Good Ware
+    </string>
+    <string name="credits_icons3">from flaticon.com</string>
+    <string name="credits_sounds1">Sounds were made by</string>
+    <string name="credits_sounds2">
+        scheffler\n
+        littlerobotsoundfactory\n
+        joshuaempyre\n
+        melack\n
+        sironboy\n
+        nfsmaster821\n
+        thenetherchickens
+    </string>
+    <string name="credits_sounds3">from freesound.org</string>
 
 </resources>
