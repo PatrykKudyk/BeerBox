@@ -23,9 +23,7 @@ class MainActivity : AppCompatActivity(),
     BottlesGameRulesFragment.OnFragmentInteractionListener,
     MafiaMenuFragment.OnFragmentInteractionListener,
     MafiaRulesFragment.OnFragmentInteractionListener,
-    MafiaRolesFragment.OnFragmentInteractionListener,
-    CauldronMenuFragment.OnFragmentInteractionListener,
-    CauldronHowToMakeFragment.OnFragmentInteractionListener {
+    MafiaRolesFragment.OnFragmentInteractionListener {
 
     private lateinit var mainMenuFragment: MainMenuFragment
 

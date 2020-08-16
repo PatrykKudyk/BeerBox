@@ -1,6 +1,9 @@
 package com.partos.gamebox.fragments.mafia
 
 import android.content.Context
+import android.media.AudioAttributes
+import android.media.MediaPlayer
+import android.media.SoundPool
 import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
@@ -53,6 +56,14 @@ class MafiaGameFragment : Fragment() {
     private lateinit var changeNo: Button
     private lateinit var endButton: ImageView
     private lateinit var questionText: TextView
+    private lateinit var soundsImage: ImageView
+    private lateinit var soundsLayout: ConstraintLayout
+    private lateinit var soundsRecyclerView: RecyclerView
+    private lateinit var soundPool: SoundPool
+    private lateinit var soundArray: ArrayList<Int>
+    private lateinit var timerImage: ImageView
+    private lateinit var timerLayout: ConstraintLayout
+    private lateinit var timerRecyclerView: RecyclerView
 
     private lateinit var playersList: ArrayList<Player>
     private lateinit var nightRoles: ArrayList<String>
@@ -114,6 +125,7 @@ class MafiaGameFragment : Fragment() {
 
         attachViews()
         assignNightRoles()
+        initSounds()
 
         val dayLayoutManager = LinearLayoutManager(this.context)
         val nPActionLayoutManager = LinearLayoutManager(this.context)
@@ -208,6 +220,61 @@ class MafiaGameFragment : Fragment() {
             }
         }
 
+        soundsImage.setOnClickListener {
+            if (soundsLayout.visibility == View.GONE) {
+                if (timerLayout.visibility == View.VISIBLE) {
+                    timerLayout.visibility = View.GONE
+                }
+                soundsLayout.visibility = View.VISIBLE
+                val soundsLayoutManager = LinearLayoutManager(this.context)
+                soundsRecyclerView.layoutManager = soundsLayoutManager
+                soundsRecyclerView.addItemDecoration(MarginItemDecoration(12))
+                soundsRecyclerView.adapter = SoundsRecyclerViewAdapter(soundPool, soundArray)
+                soundsLayout.bringToFront()
+            } else {
+                soundsLayout.visibility = View.GONE
+            }
+        }
+
+        timerImage.setOnClickListener {
+            if (timerLayout.visibility == View.GONE) {
+                if (soundsLayout.visibility == View.VISIBLE) {
+                    soundsLayout.visibility = View.GONE
+                }
+                timerLayout.visibility = View.VISIBLE
+                val timerLayoutManager = LinearLayoutManager(this.context)
+                timerRecyclerView.layoutManager = timerLayoutManager
+                timerRecyclerView.addItemDecoration(MarginItemDecoration(12))
+                timerRecyclerView.adapter = TimersRecyclerViewAdapter()
+                timerLayout.bringToFront()
+            } else {
+                timerLayout.visibility = View.GONE
+            }
+        }
+    }
+
+    private fun initSounds() {
+        val audioAttributes = AudioAttributes.Builder()
+            .setUsage(AudioAttributes.USAGE_ASSISTANCE_SONIFICATION)
+            .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
+            .build()
+        soundPool = SoundPool.Builder()
+            .setMaxStreams(4)
+            .setAudioAttributes(audioAttributes)
+            .build()
+        soundArray = ArrayList()
+        soundArray.add(soundPool.load(context, R.raw.announcment, 1))
+        soundArray.add(soundPool.load(context, R.raw.end_of_game_city, 1))
+        soundArray.add(soundPool.load(context, R.raw.end_of_game_mafia, 1))
+        soundArray.add(soundPool.load(context, R.raw.miasto_budzi_sie, 1))
+        soundArray.add(soundPool.load(context, R.raw.death, 1))
+        soundArray.add(soundPool.load(context, R.raw.death2, 1))
+        soundArray.add(soundPool.load(context, R.raw.gong, 1))
+        soundArray.add(soundPool.load(context, R.raw.scream_woman, 1))
+//        soundArray.add(soundPool.load(context, R.raw.orchestra_epic, 1))
+//        soundArray.add(soundPool.load(context, R.raw.orchestra_normal, 1))
+//        soundArray.add(soundPool.load(context, R.raw.orchestra_sad, 1))
+
     }
 
     private fun endGame() {
@@ -269,6 +336,12 @@ class MafiaGameFragment : Fragment() {
         changeNo = rootView.findViewById(R.id.mafia_game_change_button_no)
         endButton = rootView.findViewById(R.id.mafia_game_end_image)
         questionText = rootView.findViewById(R.id.mafia_game_question_text)
+        soundsImage = rootView.findViewById(R.id.mafia_game_sounds_image)
+        soundsLayout = rootView.findViewById(R.id.mafia_game_sound_layout)
+        soundsRecyclerView = rootView.findViewById(R.id.mafia_game_sounds_recycler)
+        timerImage = rootView.findViewById(R.id.mafia_game_timer_image)
+        timerLayout = rootView.findViewById(R.id.mafia_game_timer_layout)
+        timerRecyclerView = rootView.findViewById(R.id.mafia_game_timer_recycler)
     }
 
     private fun hideKeyboard() {

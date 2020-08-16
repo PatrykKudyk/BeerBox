@@ -48,10 +48,20 @@
     <color name="colorOrangeMedium">#BF5711</color>
     <color name="colorOrangeDark">#803A0B</color>
 
-    <color name="c1">#7B6D29</color>
-    <color name="c2">#B9A33E</color>
-    <color name="c3">#F6D952</color>
-    <color name="c4">#F8E37D</color>
-    <color name="c5">#FCF4CE</color>
+
+    <color name="colorYellow2Background">#FFFDF4</color>
+    <color name="colorYellow2LightLight">#FCF4CE</color>
+    <color name="colorYellow2Light">#F8E37D</color>
+    <color name="colorYellow2">#F6D952</color>
+    <color name="colorYellow2Medium">#B9A33E</color>
+    <color name="colorYellow2Dark">#7B6D29</color>
+
+    <color name="colorPinkBackground">#FCF4F4</color>
+    <color name="colorPinkLightLight">#EDC4C4</color>
+    <color name="colorPinkLight">#E4A7A7</color>
+    <color name="colorPink">#DB8989</color>
+    <color name="colorPinkMedium">#A46767</color>
+    <color name="colorPinkDark">#6E4545</color>
+
 
 </resources>

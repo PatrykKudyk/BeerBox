@@ -189,5 +189,45 @@
     <string name="round">Runda</string>
     <string name="daytime_change">Jesteś pewien, że chcesz zmienić porę dnia?</string>
     <string name="mafia_end">Jesteś pewien, że chcesz zakończyć grę?</string>
+    <string name="save_cauldron">Zapisz na później</string>
+    <string name="saved_cauldrons">Zapisane kociołki</string>
+    <string name="toast_successfully_saved">Pomyślnie zapisano</string>
+    <string name="cauldron_delete_question">Czy na pewno chcesz usunąć kociołek?</string>
+    <string name="announcement">Ogłoszenie</string>
+    <string name="city_wins">Miasto wygrywa</string>
+    <string name="mafia_wins">Mafia wygrywa</string>
+    <string name="miasto_budzi">Miasto budzi się</string>
+    <string name="orchestra_power">Orkiestra mocna</string>
+    <string name="orchestra_normal">Orkiestra normalna</string>
+    <string name="orchestra_sad">Orkiestra smutna</string>
+    <string name="death">Śmierć</string>
+    <string name="death2">Śmierć 2</string>
+    <string name="gong">Gong</string>
+    <string name="scream_woman">Krzyk kobiecy</string>
+    <string name="credits">Twórcy</string>
+    <string name="credits_authors1">Autorami aplikacji są</string>
+    <string name="credits_authors2">Patryk Kudyk\n
+        i\n
+        Daniel Cyktor
+    </string>
+    <string name="credits_icons1">Ikony zostały stworzone przez</string>
+    <string name="credits_icons2">
+        Flat Icons\n
+        Smashicons\n
+        Freepik\n
+        Good Ware
+    </string>
+    <string name="credits_icons3">ze strony flaticon.com</string>
+    <string name="credits_sounds1">Dźwięki utworzyli</string>
+    <string name="credits_sounds2">
+        scheffler\n
+        littlerobotsoundfactory\n
+        joshuaempyre\n
+        melack\n
+        sironboy\n
+        nfsmaster821\n
+        thenetherchickens
+    </string>
+    <string name="credits_sounds3">ze strony freesound.org</string>
 
 </resources>

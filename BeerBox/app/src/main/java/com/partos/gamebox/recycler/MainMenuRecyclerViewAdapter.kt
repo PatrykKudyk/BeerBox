@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.partos.gamebox.activities.MainActivity
 import com.partos.gamebox.R
+import com.partos.gamebox.fragments.CreditsFragment
 import com.partos.gamebox.fragments.beerpong.BeerPongMenuFragment
 import com.partos.gamebox.fragments.bottlesgame.BottlesGameMenuFragment
 import com.partos.gamebox.fragments.cauldron.CauldronMenuFragment
@@ -26,7 +27,7 @@ class MainMenuRecyclerViewAdapter() : RecyclerView.Adapter<MainMenuViewHolder>()
     }
 
     override fun getItemCount(): Int {
-        return 6
+        return 7
     }
 
     override fun onBindViewHolder(holder: MainMenuViewHolder, position: Int) {
@@ -37,39 +38,45 @@ class MainMenuRecyclerViewAdapter() : RecyclerView.Adapter<MainMenuViewHolder>()
         when (position) {
             0 -> {
                 setColor(0, holder)
-                animRight(holder)
+//                animRight(holder)
                 image.setImageResource(R.drawable.beer_pong)
                 text.setText(R.string.beer_pong)
             }
             1 -> {
                 setColor(1, holder)
-                animLeft(holder)
+//                animLeft(holder)
                 image.setImageResource(R.drawable.bottles)
                 text.setText(R.string.bottles)
             }
             2 -> {
                 setColor(2, holder)
-                animRight(holder)
+//                animRight(holder)
                 image.setImageResource(R.drawable.hat)
                 text.setText(R.string.mafia)
             }
             3 -> {
                 setColor(3, holder)
-                animLeft(holder)
+//                animLeft(holder)
                 image.setImageResource(R.drawable.cook)
                 text.setText(R.string.cauldron)
             }
             4 -> {
                 setColor(4, holder)
-                animRight(holder)
+//                animRight(holder)
                 image.setImageResource(R.drawable.timer)
                 text.setText(R.string.chess_timer)
             }
             5 -> {
                 setColor(5, holder)
-                animLeft(holder)
+//                animLeft(holder)
                 image.setImageResource(R.drawable.dice_4)
                 text.setText(R.string.dices_simulator)
+            }
+            6 -> {
+                setColor(6, holder)
+//                animRight(holder)
+                image.setImageResource(R.drawable.authors)
+                text.setText(R.string.credits)
             }
 
         }
@@ -94,6 +101,9 @@ class MainMenuRecyclerViewAdapter() : RecyclerView.Adapter<MainMenuViewHolder>()
                 }
                 5 -> {
                     fragment = DicesChoiceFragment.newInstance()
+                }
+                6 -> {
+                    fragment = CreditsFragment.newInstance()
                 }
             }
             val manager = (holder.itemView.context as MainActivity).supportFragmentManager
@@ -193,6 +203,20 @@ class MainMenuRecyclerViewAdapter() : RecyclerView.Adapter<MainMenuViewHolder>()
                     ContextCompat.getColor(
                         holder.view.context,
                         R.color.colorOrangeDark
+                    )
+                )
+            }
+            6 -> {
+                cardView.setCardBackgroundColor(
+                    ContextCompat.getColor(
+                        holder.view.context,
+                        R.color.colorPinkLight
+                    )
+                )
+                cardView.setStrokeColor(
+                    ContextCompat.getColor(
+                        holder.view.context,
+                        R.color.colorPinkDark
                     )
                 )
             }

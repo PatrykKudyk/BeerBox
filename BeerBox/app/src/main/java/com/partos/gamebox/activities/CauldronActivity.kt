@@ -7,9 +7,7 @@ import com.partos.gamebox.R
 import com.partos.gamebox.fragments.cauldron.CauldronChoicesFragment
 import com.partos.gamebox.fragments.cauldron.CauldronMakeFragment
 
-class CauldronActivity : AppCompatActivity(),
-    CauldronChoicesFragment.OnFragmentInteractionListener,
-    CauldronMakeFragment.OnFragmentInteractionListener {
+class CauldronActivity : AppCompatActivity() {
 
     private lateinit var fragment: CauldronChoicesFragment
 
@@ -23,10 +21,6 @@ class CauldronActivity : AppCompatActivity(),
             .beginTransaction()
             .add(R.id.cauldron_frame_layout, fragment)
             .commit()
-    }
-
-    override fun onFragmentInteraction(uri: Uri) {
-
     }
 
     override fun onBackPressed() {
