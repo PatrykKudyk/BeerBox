@@ -214,5 +214,7 @@
     </string>
     <string name="credits_sounds3">from freesound.org</string>
     <string name="add_cauldron">Add new cauldron</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
