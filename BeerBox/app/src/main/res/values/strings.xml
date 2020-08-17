@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name">Beer Box</string>
-    <string name="app_title">Beer Box</string>
+    <string name="app_name">Game Box</string>
+    <string name="app_title">Game Box</string>
     <string name="bottles">Bottles</string>
     <string name="beer_pong">Beer Pong</string>
     <string name="mafia">Mafia</string>
@@ -163,4 +163,62 @@
     <string name="time_per_player">Minutes per player</string>
     <string name="mafia_new">New Game</string>
     <string name="mafia_resume">Resume Game</string>
+    <string name="dices_question">How many dices do u want to use?</string>
+    <string name="lets_roll">Let\'s roll</string>
+    <string name="dices_simulator">Dices simulator</string>
+    <string name="toast_too_few_dices">Too few dices</string>
+    <string name="toast_too_much_dices">Too much dices</string>
+    <string name="toast_no_dices">You have to enter a number of dices</string>
+    <string name="roll">Roll</string>
+    <string name="round">Round</string>
+    <string name="daytime_change">Are you sure to change daytime?</string>
+    <string name="mafia_end">Are you sure to end mafia game?</string>
+    <string name="save_cauldron">Save for later</string>
+    <string name="saved_cauldrons">Saved Cauldrons</string>
+    <string name="toast_successfully_saved">Successfully saved</string>
+    <string name="cauldron_delete_question">Are you sure to delete cauldron?</string>
+    <string name="announcement">Announcement</string>
+    <string name="city_wins">City Wins</string>
+    <string name="mafia_wins">Mafia Wins</string>
+    <string name="miasto_budzi">Miasto budzi się</string>
+    <string name="orchestra_power">Orchestra Power</string>
+    <string name="orchestra_normal">Orchestra Normal</string>
+    <string name="orchestra_sad">Orchestra Sad</string>
+    <string name="death">Death</string>
+    <string name="death2">Death 2</string>
+    <string name="gong">Gong</string>
+    <string name="scream_woman">Woman Scream</string>
+    <string name="credits">Credits</string>
+    <string name="credits_authors1">Authors of the app are</string>
+    <string name="credits_authors2">Patryk Kudyk\n
+        and\n
+        Daniel Cyktor
+    </string>
+    <string name="credits_icons1">Icons were made by</string>
+    <string name="credits_icons2">
+        Flat Icons\n
+        Smashicons\n
+        Freepik\n
+        Good Ware
+    </string>
+    <string name="credits_icons3">from flaticon.com</string>
+    <string name="credits_sounds1">Sounds were made by</string>
+    <string name="credits_sounds2">
+        scheffler\n
+        littlerobotsoundfactory\n
+        joshuaempyre\n
+        melack\n
+        sironboy\n
+        nfsmaster821\n
+        thenetherchickens
+    </string>
+    <string name="credits_sounds3">from freesound.org</string>
+    <string name="add_cauldron">Add new cauldron</string>
+    <string name="add_alcohol">Add new alcohol</string>
+    <string name="save_cauldron_button">Save cauldron</string>
+    <string name="toast_no_alcohols">You need to add at least one alcohol</string>
+    <string name="cauldron_name">Cauldron name</string>
+    <string name="toast_no_cauldron_name_given">Enter the cauldron name first</string>
+    <string name="toast_cauldron_name_exists">Given cauldron name already exists</string>
+    <string name="toast_no_amounts">You have to fill all amount fields</string>
 </resources>

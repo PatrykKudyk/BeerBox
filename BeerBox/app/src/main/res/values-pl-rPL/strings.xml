@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Beer Box</string>
-    <string name="app_title">Beer Box</string>
+    <string name="app_name">Game Box</string>
+    <string name="app_title">Game Box</string>
     <string name="bottles">Flanki</string>
     <string name="beer_pong">Beer Pong</string>
     <string name="mafia">Mafia</string>
@@ -179,4 +179,63 @@
     <string name="time_per_player">Minuty na gracza</string>
     <string name="mafia_new">Nowa Gra</string>
     <string name="mafia_resume">Wznów Grę</string>
+    <string name="dices_question">Ilu kostech chcesz użyć?</string>
+    <string name="lets_roll">Rzucamy</string>
+    <string name="dices_simulator">Symulator kości</string>
+    <string name="toast_too_few_dices">Za mało kostek</string>
+    <string name="toast_too_much_dices">Za dużo kostek</string>
+    <string name="toast_no_dices">Musisz podać ilość kostek</string>
+    <string name="roll">Rzuć</string>
+    <string name="round">Runda</string>
+    <string name="daytime_change">Jesteś pewien, że chcesz zmienić porę dnia?</string>
+    <string name="mafia_end">Jesteś pewien, że chcesz zakończyć grę?</string>
+    <string name="save_cauldron">Zapisz na później</string>
+    <string name="saved_cauldrons">Zapisane kociołki</string>
+    <string name="toast_successfully_saved">Pomyślnie zapisano</string>
+    <string name="cauldron_delete_question">Czy na pewno chcesz usunąć kociołek?</string>
+    <string name="announcement">Ogłoszenie</string>
+    <string name="city_wins">Miasto wygrywa</string>
+    <string name="mafia_wins">Mafia wygrywa</string>
+    <string name="miasto_budzi">Miasto budzi się</string>
+    <string name="orchestra_power">Orkiestra mocna</string>
+    <string name="orchestra_normal">Orkiestra normalna</string>
+    <string name="orchestra_sad">Orkiestra smutna</string>
+    <string name="death">Śmierć</string>
+    <string name="death2">Śmierć 2</string>
+    <string name="gong">Gong</string>
+    <string name="scream_woman">Krzyk kobiecy</string>
+    <string name="credits">Twórcy</string>
+    <string name="credits_authors1">Autorami aplikacji są</string>
+    <string name="credits_authors2">Patryk Kudyk\n
+        i\n
+        Daniel Cyktor
+    </string>
+    <string name="credits_icons1">Ikony zostały stworzone przez</string>
+    <string name="credits_icons2">
+        Flat Icons\n
+        Smashicons\n
+        Freepik\n
+        Good Ware
+    </string>
+    <string name="credits_icons3">ze strony flaticon.com</string>
+    <string name="credits_sounds1">Dźwięki utworzyli</string>
+    <string name="credits_sounds2">
+        scheffler\n
+        littlerobotsoundfactory\n
+        joshuaempyre\n
+        melack\n
+        sironboy\n
+        nfsmaster821\n
+        thenetherchickens
+    </string>
+    <string name="credits_sounds3">ze strony freesound.org</string>
+    <string name="add_cauldron">Dodaj nowy kociołek</string>
+    <string name="add_alcohol">Dodaj alkohol</string>
+    <string name="save_cauldron_button">Zapisz kociołek</string>
+    <string name="toast_no_alcohols">Musisz dodać co najmniej jeden alkohol</string>
+    <string name="cauldron_name">Nazwa kociołka</string>
+    <string name="toast_no_cauldron_name_given">Podaj nazwę kociołka</string>
+    <string name="toast_cauldron_name_exists">Podana nazwa kociołka już istnieje</string>
+    <string name="toast_no_amounts">Musisz wypełnić wszystkie pola z ilościami</string>
+
 </resources>

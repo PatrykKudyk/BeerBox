@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.partos.beerbox">
+    package="com.partos.gamebox">
 
     <application
         android:allowBackup="true"
@@ -10,6 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:windowSoftInputMode="stateVisible|adjustResize">
+        <activity android:name=".activities.AlcoholChoiceActivity"></activity>
+        <activity android:name=".activities.DicesActivity" />
         <activity
             android:name=".activities.TimerActivity"
             android:configChanges="orientation"

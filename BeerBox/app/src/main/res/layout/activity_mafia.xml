@@ -9,13 +9,13 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorOrangeBackground"
+        android:background="@color/colorYellowBackground"
         android:fillViewport="true">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorOrangeBackground"
+            android:background="@color/colorYellowBackground"
             android:gravity="center|top"
             android:orientation="vertical">
 
@@ -23,7 +23,7 @@
                 android:id="@+id/mafia_frame_layout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/colorOrangeBackground"
+                android:background="@color/colorYellowBackground"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

@@ -4,12 +4,6 @@
     <color name="colorPrimaryDark">#9a4e2a</color>
     <color name="colorAccent">#7B6D29</color>
 
-    <color name="colorYellowDark">#7B6D29</color>
-    <color name="colorYellowMedium">#B9A33E</color>
-    <color name="colorYellow">#F6D952</color>
-    <color name="colorYellowLight">#F8E37D</color>
-    <color name="colorYellowLightLight">#FCF4CE</color>
-
     <color name="colorBackground">#FFFDF4</color>
 
     <color name="colorGreenDark">#32550A</color>
@@ -33,12 +27,12 @@
     <color name="colorBlueMedium">#0F4A7F</color>
     <color name="colorBlueDark">#0A3255</color>
 
-    <color name="colorOrangeBackground">#FDF8EF</color>
-    <color name="colorOrangeLightLight">#F7E4BC</color>
-    <color name="colorOrangeLight">#EAB64D</color>
-    <color name="colorOrange">#E39D12</color>
-    <color name="colorOrangeMedium">#AA760E</color>
-    <color name="colorOrangeDark">#714F09</color>
+    <color name="colorYellowBackground">#FDF8EF</color>
+    <color name="colorYellowLightLight">#F7E4BC</color>
+    <color name="colorYellowLight">#EAB64D</color>
+    <color name="colorYellow">#E39D12</color>
+    <color name="colorYellowMedium">#AA760E</color>
+    <color name="colorYellowDark">#714F09</color>
 
     <color name="colorPurpleBackground">#F5ECF9</color>
     <color name="colorPurpleLightLight">#DBC6E6</color>
@@ -46,5 +40,28 @@
     <color name="colorPurple">#A068BC</color>
     <color name="colorPurpleMedium">#724A86</color>
     <color name="colorPurpleDark">#452D51</color>
+
+    <color name="colorOrangeBackground">#FFF2E9</color>
+    <color name="colorOrangeLightLight">#FFBA8B</color>
+    <color name="colorOrangeLight">#FF9751</color>
+    <color name="colorOrange">#FF7417</color>
+    <color name="colorOrangeMedium">#BF5711</color>
+    <color name="colorOrangeDark">#803A0B</color>
+
+
+    <color name="colorYellow2Background">#FFFDF4</color>
+    <color name="colorYellow2LightLight">#FCF4CE</color>
+    <color name="colorYellow2Light">#F8E37D</color>
+    <color name="colorYellow2">#F6D952</color>
+    <color name="colorYellow2Medium">#B9A33E</color>
+    <color name="colorYellow2Dark">#7B6D29</color>
+
+    <color name="colorPinkBackground">#FCF4F4</color>
+    <color name="colorPinkLightLight">#EDC4C4</color>
+    <color name="colorPinkLight">#E4A7A7</color>
+    <color name="colorPink">#DB8989</color>
+    <color name="colorPinkMedium">#A46767</color>
+    <color name="colorPinkDark">#6E4545</color>
+
 
 </resources>

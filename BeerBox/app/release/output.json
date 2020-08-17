@@ -4,7 +4,7 @@
     "type": "APK",
     "kind": "Directory"
   },
-  "applicationId": "com.partos.beerbox",
+  "applicationId": "com.partos.gamebox",
   "variantName": "release",
   "elements": [
     {
