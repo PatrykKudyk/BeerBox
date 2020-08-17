@@ -27,18 +27,25 @@ class CauldronAddListeners {
         saveButton.setOnClickListener {
             if (nameEditText.text.toString() != "") {
                 if (MyApp.alcoholList.size != 0) {
-                    db.addCauldron(Cauldron(0, nameEditText.text.toString()))
-                    val cauldron = db.getCauldron(nameEditText.text.toString())
-                    for (alcohol in MyApp.alcoholList) {
-                        db.addAlcohol(
-                            AlcoholDb(
-                                0,
-                                cauldron.id,
-                                alcohol.name,
-                                (alcohol.amount * 1000).toInt(),
-                                alcohol.type
+                   val cauldron = db.getCauldron(nameEditText.text.toString())
+                    if (cauldron.id == -1L) {
+                        db.addCauldron(Cauldron(0, nameEditText.text.toString()))
+                        val cauldronToAdd = db.getCauldron(nameEditText.text.toString())
+                        for (alcohol in MyApp.alcoholList) {
+                            db.addAlcohol(
+                                AlcoholDb(
+                                    0,
+                                    cauldronToAdd?.id as Long,
+                                    alcohol.name,
+                                    (alcohol.amount * 1000).toInt(),
+                                    alcohol.type
+                                )
                             )
-                        )
+                        }
+                        fragmentManager
+                            .popBackStack()
+                    } else {
+                        ToastHelper().toastCauldronAlreadyExists(rootView.context)
                     }
                 } else {
                     ToastHelper().toastNoAlcohols(rootView.context)

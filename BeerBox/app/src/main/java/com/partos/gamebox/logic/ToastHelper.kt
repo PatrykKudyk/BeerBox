@@ -41,4 +41,13 @@ class ToastHelper() {
         Toast.makeText(context, context.getText(R.string.toast_no_alcohols), Toast.LENGTH_SHORT)
             .show()
     }
+
+    fun toastCauldronAlreadyExists(context: Context) {
+        Toast.makeText(
+            context,
+            context.getText(R.string.toast_cauldron_name_exists),
+            Toast.LENGTH_SHORT
+        )
+            .show()
+    }
 }

@@ -10,6 +10,7 @@ import androidx.cardview.widget.CardView
 import com.partos.flashback.db.DataBaseHelper
 import com.partos.gamebox.R
 import com.partos.gamebox.activities.MainActivity
+import com.partos.gamebox.logic.ToastHelper
 import com.partos.gamebox.models.Cauldron
 
 class CauldronSavedListeners {
@@ -43,14 +44,23 @@ class CauldronSavedListeners {
             editLayout.visibility = View.VISIBLE
         }
         saveCard.setOnClickListener {
-            cauldron.name = nameEdit.text.toString()
-            db.updateCauldron(cauldron)
-            nameText.text = nameEdit.text
-            nameEdit.visibility = View.GONE
-            nameText.visibility = View.VISIBLE
-            normalLayout.visibility = View.VISIBLE
-            editLayout.visibility = View.GONE
-            hideKeyboard(rootView)
+            if (nameEdit.text.toString() != "") {
+                val cauldronCheck = db.getCauldron(nameEdit.text.toString())
+                if (cauldronCheck.id == -1L) {
+                    cauldron.name = nameEdit.text.toString()
+                    db.updateCauldron(cauldron)
+                    nameText.text = nameEdit.text
+                    nameEdit.visibility = View.GONE
+                    nameText.visibility = View.VISIBLE
+                    normalLayout.visibility = View.VISIBLE
+                    editLayout.visibility = View.GONE
+                    hideKeyboard(rootView)
+                } else {
+                    ToastHelper().toastCauldronAlreadyExists(rootView.context)
+                }
+            } else {
+                ToastHelper().toastNoNameGiven(rootView.context)
+            }
         }
         deleteCard.setOnClickListener {
             normalLayout.visibility = View.GONE

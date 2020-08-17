@@ -219,5 +219,6 @@
     <string name="toast_no_alcohols">You need to add at least one alcohol</string>
     <string name="cauldron_name">Cauldron name</string>
     <string name="toast_no_cauldron_name_given">Enter the cauldron name first</string>
+    <string name="toast_cauldron_name_exists">Given cauldron name already exists</string>
 
 </resources>

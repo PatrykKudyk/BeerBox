@@ -235,5 +235,5 @@
     <string name="toast_no_alcohols">Musisz dodać co najmniej jeden alkohol</string>
     <string name="cauldron_name">Nazwa kociołka</string>
     <string name="toast_no_cauldron_name_given">Podaj nazwę kociołka</string>
-
+    <string name="toast_cauldron_name_exists">Podana nazwa kociołka już istnieje</string>
 </resources>
