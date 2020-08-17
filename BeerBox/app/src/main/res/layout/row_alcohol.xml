@@ -6,7 +6,7 @@
     android:layout_height="wrap_content">
 
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/row_cauldron_card"
+        android:id="@+id/row_alcohol_card"
         android:layout_width="match_parent"
         android:layout_height="120dp"
         android:theme="@style/Theme.MaterialComponents.Light"
@@ -29,10 +29,10 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="24"
+                android:padding="3dp"
                 android:theme="@style/Theme.MaterialComponents.Light"
                 app:cardBackgroundColor="@color/colorPurpleLightLight"
                 app:cardCornerRadius="6dp"
-                android:padding="3dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -40,7 +40,7 @@
                 app:strokeWidth="1dp">
 
                 <ImageView
-                    android:id="@+id/row_cauldron_image"
+                    android:id="@+id/row_alcohol_image"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     tools:src="@drawable/beer" />
@@ -53,34 +53,21 @@
                 android:layout_height="match_parent"
                 android:layout_weight="6" />
 
-           <LinearLayout
-               android:layout_width="0dp"
-               android:layout_height="match_parent"
-               android:layout_weight="70"
-               android:weightSum="100"
-               android:orientation="vertical">
-               <TextView
-                   android:id="@+id/row_cauldron_text"
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content"
-                   android:fontFamily="@font/dustismo_bold"
-                   android:gravity="center"
-                   android:textSize="30dip"
-                   tools:text="Lager"/>
 
-               <TextView
-                   android:id="@+id/row_cauldron_amount"
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content"
-                   android:fontFamily="@font/dustismo"
-                   android:gravity="center"
-                   android:textSize="22dip"
-                   tools:text="Lager"/>
-
-           </LinearLayout>
+            <TextView
+                android:id="@+id/row_alcohol_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="70"
+                android:fontFamily="@font/dustismo_bold"
+                android:gravity="center"
+                android:textSize="30dip"
+                tools:text="Lager" />
 
         </LinearLayout>
 
 
     </com.google.android.material.card.MaterialCardView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

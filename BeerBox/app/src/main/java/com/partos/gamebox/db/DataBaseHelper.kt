@@ -356,7 +356,12 @@ class DataBaseHelper(context: Context) :
         }
         result.close()
         db.close()
-        return cauldronList[0]
+        if (cauldronList.size != 0) {
+            return cauldronList[0]
+        } else {
+            cauldronList.add(Cauldron(-1, "test"))
+            return cauldronList[0]
+        }
     }
 
     fun getCauldron(cauldronId: Long): Cauldron {
@@ -377,7 +382,7 @@ class DataBaseHelper(context: Context) :
         }
         result.close()
         db.close()
-        return cauldronList[0]
+       return cauldronList[0]
     }
 
     fun addCauldron(cauldron: Cauldron) {

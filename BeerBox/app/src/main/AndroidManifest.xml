@@ -10,7 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:windowSoftInputMode="stateVisible|adjustResize">
-        <activity android:name=".activities.DicesActivity"></activity>
+        <activity android:name=".activities.AlcoholChoiceActivity"></activity>
+        <activity android:name=".activities.DicesActivity" />
         <activity
             android:name=".activities.TimerActivity"
             android:configChanges="orientation"

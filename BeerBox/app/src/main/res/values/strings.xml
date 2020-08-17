@@ -213,5 +213,12 @@
         thenetherchickens
     </string>
     <string name="credits_sounds3">from freesound.org</string>
-
+    <string name="add_cauldron">Add new cauldron</string>
+    <string name="add_alcohol">Add new alcohol</string>
+    <string name="save_cauldron_button">Save cauldron</string>
+    <string name="toast_no_alcohols">You need to add at least one alcohol</string>
+    <string name="cauldron_name">Cauldron name</string>
+    <string name="toast_no_cauldron_name_given">Enter the cauldron name first</string>
+    <string name="toast_cauldron_name_exists">Given cauldron name already exists</string>
+    <string name="toast_no_amounts">You have to fill all amount fields</string>
 </resources>

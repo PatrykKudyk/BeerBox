@@ -28,7 +28,7 @@ class CauldronSavedLogic {
 
     private fun attachName(cauldronId: Long) {
         val cauldron = db.getCauldron(cauldronId)
-        nameText.text = cauldron.name
+        nameText.text = cauldron!!.name
     }
 
     private fun attachRecycler(rootView: View, cauldronId: Long) {
