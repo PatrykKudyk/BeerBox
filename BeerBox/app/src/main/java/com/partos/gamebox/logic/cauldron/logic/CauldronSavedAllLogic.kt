@@ -5,6 +5,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.partos.flashback.db.DataBaseHelper
+import com.partos.gamebox.MyApp
 import com.partos.gamebox.R
 import com.partos.gamebox.logic.cauldron.listeners.CauldronSavedAllListeners
 import com.partos.gamebox.recycler.CauldronSavedAllRecyclerViewAdapter
@@ -17,6 +18,7 @@ class CauldronSavedAllLogic {
 
     fun initFragment(rootView: View, fragmentManager: FragmentManager) {
         attachViews(rootView)
+        MyApp.alcoholList.clear()
         db = DataBaseHelper(rootView.context)
         val layoutManager = LinearLayoutManager(rootView.context)
         recyclerView.layoutManager = layoutManager

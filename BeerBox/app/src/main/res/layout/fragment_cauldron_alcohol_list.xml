@@ -5,6 +5,16 @@
     android:layout_height="match_parent"
     tools:context=".fragments.cauldron.CauldronAlcoholListFragment">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPurpleBackground">
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/cauldron_alcohol_list_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

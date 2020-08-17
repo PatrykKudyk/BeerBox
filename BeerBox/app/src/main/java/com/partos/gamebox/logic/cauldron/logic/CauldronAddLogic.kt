@@ -16,7 +16,6 @@ class CauldronAddLogic {
     private lateinit var recyclerView: RecyclerView
 
     fun initFragment(rootView: View, fragmentManager: FragmentManager ) {
-        MyApp.alcoholList.clear()
         attachViews(rootView)
         attachRecyclerAdapter(rootView)
         CauldronAddListeners().initListeners(rootView, fragmentManager)

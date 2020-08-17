@@ -233,5 +233,7 @@
     <string name="add_alcohol">Dodaj alkohol</string>
     <string name="save_cauldron_button">Zapisz kociołek</string>
     <string name="toast_no_alcohols">Musisz dodać co najmniej jeden alkohol</string>
+    <string name="cauldron_name">Nazwa kociołka</string>
+    <string name="toast_no_cauldron_name_given">Podaj nazwę kociołka</string>
 
 </resources>

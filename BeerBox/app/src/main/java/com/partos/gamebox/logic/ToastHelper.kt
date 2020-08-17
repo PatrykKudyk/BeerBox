@@ -29,7 +29,11 @@ class ToastHelper() {
     }
 
     fun toastNoNameGiven(context: Context) {
-        Toast.makeText(context, context.getText(R.string.toast_no_name_given), Toast.LENGTH_SHORT)
+        Toast.makeText(
+            context,
+            context.getText(R.string.toast_no_cauldron_name_given),
+            Toast.LENGTH_SHORT
+        )
             .show()
     }
 
