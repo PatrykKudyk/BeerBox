@@ -148,14 +148,14 @@ class CauldronAlcoholListLogic {
         )
         alcohols.add(
             Alcohol(
-                context.getString(R.string.juice_raspberry),
+                context.getString(R.string.juice),
                 0.0,
                 context.getString(R.string.juice_raspberry)
             )
         )
         alcohols.add(
             Alcohol(
-                context.getString(R.string.juice_strawberry),
+                context.getString(R.string.juice),
                 0.0,
                 context.getString(R.string.juice_strawberry)
             )

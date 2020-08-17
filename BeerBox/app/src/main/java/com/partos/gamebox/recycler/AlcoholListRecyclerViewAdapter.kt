@@ -90,7 +90,6 @@ class AlcoholListRecyclerViewAdapter(val alcoholsList: ArrayList<Alcohol>) :
                         context.getText(R.string.juice_raspberry)
                     context.getString(R.string.juice_strawberry) -> text.text =
                         context.getText(R.string.juice_strawberry)
-
                 }
             }
         }

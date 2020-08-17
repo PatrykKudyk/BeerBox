@@ -29,21 +29,25 @@ class CauldronAddListeners {
                 if (MyApp.alcoholList.size != 0) {
                    val cauldron = db.getCauldron(nameEditText.text.toString())
                     if (cauldron.id == -1L) {
-                        db.addCauldron(Cauldron(0, nameEditText.text.toString()))
-                        val cauldronToAdd = db.getCauldron(nameEditText.text.toString())
-                        for (alcohol in MyApp.alcoholList) {
-                            db.addAlcohol(
-                                AlcoholDb(
-                                    0,
-                                    cauldronToAdd?.id as Long,
-                                    alcohol.name,
-                                    (alcohol.amount * 1000).toInt(),
-                                    alcohol.type
+                        if (isCauldronCorrect()) {
+                            db.addCauldron(Cauldron(0, nameEditText.text.toString()))
+                            val cauldronToAdd = db.getCauldron(nameEditText.text.toString())
+                            for (alcohol in MyApp.alcoholList) {
+                                db.addAlcohol(
+                                    AlcoholDb(
+                                        0,
+                                        cauldronToAdd?.id as Long,
+                                        alcohol.name,
+                                        (alcohol.amount * 1000).toInt(),
+                                        alcohol.type
+                                    )
                                 )
-                            )
+                            }
+                            fragmentManager
+                                .popBackStack()
+                        } else {
+                            ToastHelper().toastFillAmountFields(rootView.context)
                         }
-                        fragmentManager
-                            .popBackStack()
                     } else {
                         ToastHelper().toastCauldronAlreadyExists(rootView.context)
                     }
@@ -66,6 +70,15 @@ class CauldronAddListeners {
                 .addToBackStack(CauldronAddFragment.toString())
                 .commit()
         }
+    }
+
+    private fun isCauldronCorrect(): Boolean {
+        for (alcohol in MyApp.alcoholList) {
+            if (alcohol.amount <= 0) {
+                return false
+            }
+        }
+        return true
     }
 
     private fun attachListeners(rootView: View) {

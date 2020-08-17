@@ -236,4 +236,6 @@
     <string name="cauldron_name">Nazwa kociołka</string>
     <string name="toast_no_cauldron_name_given">Podaj nazwę kociołka</string>
     <string name="toast_cauldron_name_exists">Podana nazwa kociołka już istnieje</string>
+    <string name="toast_no_amounts">Musisz wypełnić wszystkie pola z ilościami</string>
+
 </resources>

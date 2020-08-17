@@ -50,4 +50,9 @@ class ToastHelper() {
         )
             .show()
     }
+
+    fun toastFillAmountFields(context: Context) {
+        Toast.makeText(context, context.getText(R.string.toast_no_amounts), Toast.LENGTH_SHORT)
+            .show()
+    }
 }
