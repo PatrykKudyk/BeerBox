@@ -2,6 +2,7 @@ package com.partos.gamebox
 
 import android.app.Application
 import com.partos.gamebox.models.Action
+import com.partos.gamebox.models.Alcohol
 import com.partos.gamebox.models.Round
 
 class MyApp: Application() {
@@ -16,5 +17,6 @@ class MyApp: Application() {
         var currentActionList = ArrayList<Action>()
         var round = Round(0,0)
         var nightEnd = false
+        var alcoholList = ArrayList<Alcohol>()
     }
 }

@@ -230,5 +230,8 @@
     </string>
     <string name="credits_sounds3">ze strony freesound.org</string>
     <string name="add_cauldron">Dodaj nowy kociołek</string>
+    <string name="add_alcohol">Dodaj alkohol</string>
+    <string name="save_cauldron_button">Zapisz kociołek</string>
+    <string name="toast_no_alcohols">Musisz dodać co najmniej jeden alkohol</string>
 
 </resources>
